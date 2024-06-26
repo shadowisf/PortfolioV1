@@ -7,9 +7,11 @@ export default function BotCard() {
   return (
     <Fragment>
       <footer className="bottomcard">
-        <section>
-          <span>
-            <IconLinkedIn />‎ ‎{" "}
+        <section className="socials">
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconLinkedIn />
+            </picture>
             <a
               href="https://www.linkedin.com/in/les-paul-ranalan/"
               target="_blank"
@@ -17,35 +19,22 @@ export default function BotCard() {
               les paul ranalan
             </a>
           </span>
-          <span>
-            <IconEmail />‎ ‎{" "}
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconEmail />
+            </picture>
             <a href="mailto:les.ranalan@gmail.com" target="_blank">
               les.ranalan@gmail.com
             </a>
           </span>
-
-          <span id="FScopyright">
-            <b className="logo">lpr.‎ ‎{""}</b>© 2024
-          </span>
         </section>
 
-        <section>
-          <ul className="bottomcardNavlink">
-            <li>
-              <Link to="/work">work.</Link>
-            </li>
-            <li>
-              <Link to="/contact">contact.</Link>
-            </li>
-            <li>
-              <Link to="/about">about.</Link>
-            </li>
-          </ul>
-
-          <span id="HScopyright">
-            <b className="logo">lpr.‎ ‎{""}</b>© 2024
-          </span>
-        </section>
+        <p>
+          developed and designed by les paul ranalan.
+          <br />
+          <br />
+          <span className="bottomcardLogo">lr.</span> ⓒ 2024.
+        </p>
       </footer>
     </Fragment>
   );

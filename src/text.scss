@@ -1,0 +1,21 @@
+@import "./typed.scss";
+
+.word1 {
+  @include typed(
+    "front-end",
+    "back-end",
+    "full-stack",
+    "uae-based",
+    "tech-lover",
+    null,
+    (
+      caret-width: 2px,
+    )
+  );
+}
+
+.word1::after {
+  z-index: -1;
+}
+
+/* https://github.com/brandonmcconnell/typed.css */

@@ -1,4 +1,7 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment } from "react";
+import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
+import IllustrationVerticalLine from "../assets/IllustrationVerticalLine";
+import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import BotCard from "../components/BotCard";
 
@@ -7,21 +10,46 @@ export default function Index() {
     <Fragment>
       <NavBar />
 
-      <header className="bigHeader">INDEX</header>
+      <header className="container bigHeader">hey, i'm les!</header>
 
-      <section className="container">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum assumenda
-        recusandae porro corporis autem? Explicabo, repudiandae repellat sed
-        quaerat eum soluta est totam nulla optio aperiam laborum voluptatibus
-        eius accusamus vero veniam, nobis eligendi earum esse sint officia qui
-        quasi tempore incidunt! Fuga harum ea alias assumenda libero tenetur.
-        Earum laudantium dolorum neque, veniam autem omnis perspiciatis iusto
-        eveniet velit debitis alias itaque illo incidunt labore nihil corrupti
-        necessitatibus, vitae explicabo eligendi nam eius corporis esse quia
-        sint. Modi dignissimos exercitationem quasi, quia laudantium eos
-        molestias sit veritatis tempore fugiat vitae at itaque unde nostrum
-        alias optio maxime commodi perferendis!
-      </section>
+      <div className="container vhalf">
+        <div id="hs" className="container smallHeader">
+          i'm a <span className="word1"></span> <br /> software engineer.
+        </div>
+
+        <picture className="indexBust">
+          <IllustrationBustNoChat />
+        </picture>
+
+        <picture id="fs">
+          <IllustrationVerticalLine height="100%" strokeDasharray="10" />
+        </picture>
+
+        <aside className="indexText">
+          <p id="fs" className="smallHeader">
+            i'm a <span className="word1"></span> <br />
+            software engineer.
+          </p>
+
+          <p>
+            i strive to embrace minimalism in my design philosophy, focusing on
+            simplicity and prioritizing the creation and implementation of
+            clean, uncluttered interfaces.
+          </p>
+        </aside>
+      </div>
+
+      <div className="container indexNavs">
+        <Link className="button" to="/work">
+          view my projects.
+        </Link>
+        <Link className="button" to="/contact">
+          contact me.
+        </Link>
+        <Link className="button" to="/about">
+          read more about me.
+        </Link>
+      </div>
 
       <BotCard />
     </Fragment>

@@ -67,44 +67,28 @@ const NavBar = () => {
   return (
     <Fragment>
       <nav className="navbar">
-        <label className="logo">
-          <Link to="/">lpr.</Link>
-        </label>
+        <Link className="logo" to="/">
+          <span id="fs">les ranalan.</span>
+          <span id="hs">lr.</span>
+        </Link>
 
-        <button className="colorButton" onClick={generateADACompliantColors}>
-          <IconColor />
-          <span>change theme.</span>
-        </button>
+        <span className="themeButton" onClick={generateADACompliantColors}>
+          <span id="fs">change theme.</span>
+          <span id="hs">
+            <IconColor />
+          </span>
+        </span>
 
-        <ul className="navlink">
-          <li>
-            <Link to="/work">work.</Link>
-          </li>
-          <li>
-            <Link to="/contact">contact.</Link>
-          </li>
-          <li>
-            <Link to="/about">about.</Link>
-          </li>
-        </ul>
-
-        <button className="hamburger" onClick={toggleMenu}>
-          {isOpen ? <IconClose /> : <IconHamburger />}
-        </button>
+        <span className="hamburgerButton" onClick={toggleMenu}>
+          <span id="fs">{isOpen ? "close." : "menu."}</span>
+          <span id="hs">{isOpen ? <IconClose /> : <IconHamburger />}</span>
+        </span>
       </nav>
 
       <div className={`hamburgerMenu ${isOpen ? "open" : ""}`}>
-        <ul className="hamburgerNavlink">
-          <li>
-            <Link to="/work">work.</Link>
-          </li>
-          <li>
-            <Link to="/contact">contact.</Link>
-          </li>
-          <li>
-            <Link to="/about">about.</Link>
-          </li>
-        </ul>
+        <Link to="/work">work.</Link>
+        <Link to="/contact">contact.</Link>
+        <Link to="/about">about.</Link>
       </div>
     </Fragment>
   );

@@ -2,7 +2,7 @@ import { Fragment } from "react/jsx-runtime";
 import NavBar from "../components/NavBar";
 import BotCard from "../components/BotCard";
 import IconQuestioMark from "../assets/IconQuestionMark";
-import IllustrationBust from "../assets/IllustrationBust";
+import IllustrationBust from "../assets/IllustrationBustWithChat";
 import IconArchitecture from "../assets/IconArchitecture";
 import IconCalendar from "../assets/IconCalendar";
 import IconCake from "../assets/IconCake";
@@ -16,15 +16,17 @@ export default function About() {
   return (
     <Fragment>
       <NavBar />
-      <header className=" bigHeader">ABOUT</header>
+      <header className=" bigHeader">HEY, I'M LES!</header>
+
+      <header className="smallHeader">
+        I'M A FULL STACK SOFTWARE ENGINEER
+      </header>
+
+      <p className="container"></p>
 
       <section className="container vhalf">
         <article className="bust">
           <IllustrationBust />
-        </article>
-
-        <article className="verticalLine">
-          <IllustrationVerticalLine height="100%" strokeDasharray="10" />
         </article>
 
         <article className="WAIandDP">
@@ -48,7 +50,7 @@ export default function About() {
             <picture>
               <IconArchitecture />
             </picture>
-            <text>‎design philosophy</text>
+            <text>design philosophy</text>
           </span>
           <p className="removeBottomMargin">
             i strive to embrace minimalism in my design approach, aiming for
@@ -74,7 +76,7 @@ export default function About() {
           <picture>
             <IconCalendar />
           </picture>
-          <text>‎my life as a timeline</text>‎
+          <text>my life as a timeline</text>
           <picture>
             <IconCalendar />
           </picture>
@@ -124,7 +126,6 @@ export default function About() {
             <b>???</b>
           </aside>
         </article>
-
 
         {/*}
         <div className="container main">
