@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./main.css";
-import "./text.scss";
+import "./typed.scss";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Work from "./pages/Project.tsx";
 import Contact from "./pages/Contact.tsx";
+import Project from "./pages/Project.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +20,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/work",
-    element: <Work />,
+    path: "/projects",
+    element: <Project />,
   },
 
   {

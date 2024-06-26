@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import IconLinkedIn from "../assets/IconLinkedIn";
 import IconEmail from "../assets/IconEmail";
 import { Fragment } from "react/jsx-runtime";
+import IconInstagram from "../assets/IconInstagram";
 
 export default function BotCard() {
   return (
@@ -25,6 +25,14 @@ export default function BotCard() {
             </picture>
             <a href="mailto:les.ranalan@gmail.com" target="_blank">
               les.ranalan@gmail.com
+            </a>
+          </span>
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconInstagram />
+            </picture>
+            <a href="https://www.instagram.com/les.rx" target="_blank">
+              @les.rx
             </a>
           </span>
         </section>

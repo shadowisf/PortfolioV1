@@ -40,7 +40,7 @@ export default function Index() {
       </div>
 
       <div className="container indexNavs">
-        <Link className="button" to="/work">
+        <Link className="button" to="/projects">
           view my projects.
         </Link>
         <Link className="button" to="/contact">

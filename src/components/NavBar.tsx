@@ -86,7 +86,7 @@ const NavBar = () => {
       </nav>
 
       <div className={`hamburgerMenu ${isOpen ? "open" : ""}`}>
-        <Link to="/work">work.</Link>
+        <Link to="/projects">projects.</Link>
         <Link to="/contact">contact.</Link>
         <Link to="/about">about.</Link>
       </div>

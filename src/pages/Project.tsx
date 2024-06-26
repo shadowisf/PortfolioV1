@@ -1,9 +1,19 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import BotCard from "../components/BotCard";
 import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
+import mediumZoom from "medium-zoom";
 
 export default function Project() {
+  useEffect(() => {
+    const zoom = mediumZoom("img", { background: "var(--background-color)" });
+    /* https://github.com/francoischalifour/medium-zoom */
+
+    return () => {
+      zoom.detach();
+    };
+  }, []);
+
   return (
     <Fragment>
       <NavBar />
@@ -12,17 +22,19 @@ export default function Project() {
 
       {/* portfolio */}
       <section className="container">
-        <header className="smallHeader">portfolio website.</header>
+        <header className="smallHeader">portfolio.</header>
 
         <div className="flexCenterH">2024.</div>
 
         <ul className="architecture">
           <li>react.</li>
-          <li>html & css.</li>
+          <li>html.</li>
+          <li>css.</li>
           <li>sass.</li>
+          <li>javascript.</li>
         </ul>
 
-        <p>
+        <p className="circuitCentralText textJustify">
           this portfolio website showcases all things me;{" "}
           <u>my projects, research, and life history!</u>. by creating this
           portfolio, i was able to fully learn and understand how html, css, and
@@ -30,7 +42,22 @@ export default function Project() {
           <br />
           <br />
           <b>fun fact:</b> this entire portfolio is made out of vanilla css; no
-          tailwind, no bootstrap, no chakra, just pure vanilla! (with exception to sass.)
+          tailwind, no bootstrap, no foundation, just pure vanilla! (with some
+          exceptions of course).
+          <br />
+          <br />
+          <b>attributions:</b>{" "}
+          <a href="https://github.com/brandonmcconnell" target="_blank">
+            brandon mcconnell
+          </a>
+          ,{" "}
+          <a href="https://github.com/francoischalifour" target="_blank">
+            françois chalifour
+          </a>
+          , and{" "}
+          <a href="https://www.linkedin.com/in/frankmyles/" target="_blank">
+            frank myles.
+          </a>{" "}
         </p>
       </section>
 
@@ -41,24 +68,23 @@ export default function Project() {
       {/* circuitcentral */}
       <section className="container">
         <header className="flexCenterH smallHeader">circuitcentral.</header>
-
         <div className="flexCenterH">2024.</div>
-
         <ul className="architecture">
           <li>c#.</li>
-          <li>sql.</li>
+          <li>microsoft sql server.</li>
           <li>windows forms.</li>
         </ul>
-
-        <p>
-          circuitcentral is an <u>e-commerce management system</u> that features
-          c# as its back-end, sql for database, and winforms for its user
-          interface.
-          <br />
-          <br />
-          circuitcentral includes the basic operations in an e-commerce
-          management system which are CRUD: create, read, update, and delete.
+        <p className="textJustify">
+          circuitcentral is an <u>e-commerce management system</u> that sells
+          electronic products. its system features fundamental crud operations:
+          create, read, update, and delete. additionally, it features error
+          handling of all user events and a login system for two user types.
         </p>
+
+        <br />
+
+        <img className="image" src="src\assets\circuitcentral1.PNG" />
+        <img className="image" src="src\assets\circuitcentral2.PNG" />
       </section>
 
       <line className="container flexCenterH">
@@ -73,9 +99,11 @@ export default function Project() {
 
         <ul className="architecture">
           <li>python.</li>
-          <li>sql.</li>
-          <li>html & css.</li>
+          <li>xampp sql server.</li>
+          <li>html.</li>
+          <li>css.</li>
           <li>bootstrap css.</li>
+          <li>javascript.</li>
         </ul>
 
         <p>
@@ -89,7 +117,7 @@ export default function Project() {
 
       {/* calculator */}
       <section className="container">
-        <div className="flexCenterH smallHeader">calculator application.</div>
+        <div className="flexCenterH smallHeader">calculator.</div>
 
         <header className="flexCenterH">2022.</header>
 

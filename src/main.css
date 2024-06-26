@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&display=swap");
 
 :root {
   --text-color: black;
   --background-color: antiquewhite;
   --primary-font: "Space Mono", monospace;
+  --secondary-font: "BioRhyme", monospace;
 }
 
 /* MOBILE SCREEN */
@@ -25,7 +27,8 @@
     display: block;
   }
 
-  .themeButton #hs, .hamburgerButton #hs {
+  .themeButton #hs,
+  .hamburgerButton #hs {
     display: flex;
   }
 
@@ -60,7 +63,9 @@
     gap: 3rem;
   }
 
-  .themeButton #hs, .hamburgerButton #hs, #hs {
+  .themeButton #hs,
+  .hamburgerButton #hs,
+  #hs {
     display: none;
   }
 
@@ -104,6 +109,11 @@ p {
   margin-bottom: 3rem;
 }
 
+.image {
+  max-width: 100%;
+  z-index: 1;
+}
+
 .flexCenterH {
   display: flex;
   justify-content: center;
@@ -112,6 +122,10 @@ p {
 .flexCenterV {
   display: flex;
   align-items: center;
+}
+
+.textJustify {
+  text-align: justify;
 }
 
 .bigHeader {
@@ -155,7 +169,18 @@ p {
 .architecture li {
   list-style: none;
   padding: 0.5rem 1rem;
-  border: dashed 2px;
+  border: 2px dashed var(--text-color);
+}
+
+.circuitCentralText a {
+  text-decoration: none;
+  color: var(--text-color);
+  border-bottom: dashed;
+}
+
+.circuitCentralText a:hover {
+  font-weight: 900;
+  border-bottom: solid;
 }
 
 .indexText {
@@ -284,6 +309,7 @@ p {
 
 .socials a:hover {
   border-bottom: solid;
+  font-weight: 900;
 }
 
 .timelineCaption {
