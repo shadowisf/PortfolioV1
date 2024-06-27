@@ -6,7 +6,8 @@ import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Contact from "./pages/Contact.tsx";
-import Project from "./pages/Project.tsx";
+import Project from "./components/Project.tsx";
+import Test from "./pages/Test.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+
+  {
+    path: "/test",
+    element: <Test />,
   },
 ]);
 

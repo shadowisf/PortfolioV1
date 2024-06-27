@@ -4,6 +4,7 @@ import IllustrationVerticalLine from "../assets/IllustrationVerticalLine";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import BotCard from "../components/BotCard";
+import Project from "../components/Project";
 
 export default function Index() {
   return (
@@ -13,9 +14,9 @@ export default function Index() {
       <header className="container bigHeader">hey, i'm les!</header>
 
       <div className="container vhalf">
-        <div id="hs" className="container smallHeader">
+        <p id="hs" className="container smallHeader">
           i'm a <span className="word1"></span> <br /> software engineer.
-        </div>
+        </p>
 
         <picture className="indexBust">
           <IllustrationBustNoChat />
@@ -28,29 +29,16 @@ export default function Index() {
         <aside className="indexText">
           <p id="fs" className="smallHeader">
             i'm a <span className="word1"></span> <br />
-            software engineer.
+            software engineer
           </p>
 
-          <p>
+          <p className="textJustify">
             i strive to embrace minimalism in my design philosophy, focusing on
             simplicity and prioritizing the creation and implementation of
             clean, uncluttered interfaces.
           </p>
         </aside>
       </div>
-
-      <div className="container indexNavs">
-        <Link className="button" to="/projects">
-          view my projects.
-        </Link>
-        <Link className="button" to="/contact">
-          contact me.
-        </Link>
-        <Link className="button" to="/about">
-          read more about me.
-        </Link>
-      </div>
-
       <BotCard />
     </Fragment>
   );

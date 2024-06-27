@@ -38,10 +38,10 @@ export default function BotCard() {
         </section>
 
         <p>
-          developed and designed by les paul ranalan.
+          developed & designed by les paul ranalan.
           <br />
           <br />
-          <span className="bottomcardLogo">lr.</span> ⓒ 2024.
+          copyright ⓒ 2024
         </p>
       </footer>
     </Fragment>

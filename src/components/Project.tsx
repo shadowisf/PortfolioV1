@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
-import NavBar from "../components/NavBar";
-import BotCard from "../components/BotCard";
+import NavBar from "./NavBar";
+import BotCard from "./BotCard";
 import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
 import mediumZoom from "medium-zoom";
 
@@ -16,22 +16,19 @@ export default function Project() {
 
   return (
     <Fragment>
-      <NavBar />
-
-      <header className="container bigHeader">projects.</header>
+      <header className="container bigHeader">projects</header>
 
       {/* portfolio */}
       <section className="container">
-        <header className="smallHeader">portfolio.</header>
+        <header className="smallHeader">portfolio</header>
 
-        <div className="flexCenterH">2024.</div>
+        <div className="flexCenterH">2024</div>
 
         <ul className="architecture">
-          <li>react.</li>
-          <li>html.</li>
-          <li>css.</li>
-          <li>sass.</li>
-          <li>javascript.</li>
+          <li>html</li>
+          <li>css</li>
+          <li>sass</li>
+          <li>javascript (react)</li>
         </ul>
 
         <p className="circuitCentralText textJustify">
@@ -67,12 +64,12 @@ export default function Project() {
 
       {/* circuitcentral */}
       <section className="container">
-        <header className="flexCenterH smallHeader">circuitcentral.</header>
-        <div className="flexCenterH">2024.</div>
+        <header className="flexCenterH smallHeader">circuitcentral</header>
+        <div className="flexCenterH">2024</div>
         <ul className="architecture">
-          <li>c#.</li>
-          <li>microsoft sql server.</li>
-          <li>windows forms.</li>
+          <li>c#</li>
+          <li>sql</li>
+          <li>windows forms</li>
         </ul>
         <p className="textJustify">
           circuitcentral is an <u>e-commerce management system</u> that sells
@@ -93,17 +90,16 @@ export default function Project() {
 
       {/* apollo */}
       <section className="container">
-        <div className="flexCenterH smallHeader">apollo hospital.</div>
+        <div className="flexCenterH smallHeader">apollo hospital</div>
 
-        <header className="flexCenterH">2023.</header>
+        <header className="flexCenterH">2023</header>
 
         <ul className="architecture">
-          <li>python.</li>
-          <li>xampp sql server.</li>
-          <li>html.</li>
-          <li>css.</li>
-          <li>bootstrap css.</li>
-          <li>javascript.</li>
+          <li>python</li>
+          <li>sql</li>
+          <li>html</li>
+          <li>css (bootstrap)</li>
+          <li>javascript</li>
         </ul>
 
         <p>
@@ -117,13 +113,13 @@ export default function Project() {
 
       {/* calculator */}
       <section className="container">
-        <div className="flexCenterH smallHeader">calculator.</div>
+        <div className="flexCenterH smallHeader">calculator</div>
 
-        <header className="flexCenterH">2022.</header>
+        <header className="flexCenterH">2022</header>
 
         <ul className="architecture">
-          <li>java.</li>
-          <li>swing.</li>
+          <li>java</li>
+          <li>swing</li>
         </ul>
 
         <p>
@@ -132,8 +128,6 @@ export default function Project() {
           quis, temporibus beatae ea illum amet? Laborum, iste earum.
         </p>
       </section>
-
-      <BotCard />
     </Fragment>
   );
 }

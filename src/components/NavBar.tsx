@@ -1,8 +1,5 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import IconColor from "../assets/IconColor";
-import IconHamburger from "../assets/IconHamburger";
-import IconClose from "../assets/IconClose";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,31 +61,56 @@ const NavBar = () => {
     document.documentElement.style.setProperty("--background-color", bgColor);
   };
 
+  useEffect(() => {
+    const handleKeyPress = (event: { key: string }) => {
+      if (event.key === "e" || event.key === "E") {
+        generateADACompliantColors();
+      }
+    };
+
+    document.addEventListener("keypress", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress);
+    };
+  }, []);
+
+  const cursorStyle = {
+    cursor: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' viewBox='0 -960 960 960' width='40'%3E%3Cpath d='m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' fill='%23var(--text-color)' /%3E%3C/svg%3E"), auto`,
+  };
+
   return (
     <Fragment>
       <nav className="navbar">
-        <Link className="logo" to="/">
-          <span id="fs">les ranalan.</span>
-          <span id="hs">lr.</span>
+        <Link className="logo dotHoverTC" to="/">
+          les ranalan
         </Link>
 
-        <span className="themeButton" onClick={generateADACompliantColors}>
-          <span id="fs">change theme.</span>
-          <span id="hs">
-            <IconColor />
-          </span>
-        </span>
-
-        <span className="hamburgerButton" onClick={toggleMenu}>
-          <span id="fs">{isOpen ? "close." : "menu."}</span>
-          <span id="hs">{isOpen ? <IconClose /> : <IconHamburger />}</span>
+        <span
+          className={`${
+            isOpen
+              ? "hamburgerButtonBC dotHoverBC"
+              : "hamburgerButtonTC dotHoverTC"
+          }`}
+          onClick={toggleMenu}
+        >
+          {isOpen ? "close" : "menu"}
         </span>
       </nav>
 
-      <div className={`hamburgerMenu ${isOpen ? "open" : ""}`}>
-        <Link to="/projects">projects.</Link>
-        <Link to="/contact">contact.</Link>
-        <Link to="/about">about.</Link>
+      <div
+        style={cursorStyle}
+        className={`hamburgerMenu ${isOpen ? "open" : ""}`}
+      >
+        <Link className="dotHoverBC" to="/about">
+          about
+        </Link>
+        <Link className="dotHoverBC" to="/projects">
+          projects
+        </Link>
+        <Link className="dotHoverBC" to="/contact">
+          contact
+        </Link>
       </div>
     </Fragment>
   );

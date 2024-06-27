@@ -723,9 +723,14 @@ $__typed-id: 0;
     "full-stack",
     "uae-based",
     "tech-lover",
+    "creative",
     null,
     (
       caret-width: 2px,
+      styles: (
+        color: var(--background-color),
+        background-color: var(--text-color),
+      ),
     )
   );
 }
