@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./main.css";
 import "./typed.scss";
 import Index from "./pages/Index.tsx";
-import About from "./pages/About.tsx";
+import About from "./components/About.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Contact from "./pages/Contact.tsx";
+import Contact from "./components/Contact.tsx";
 import Project from "./components/Project.tsx";
 import Test from "./pages/Test.tsx";
 

@@ -4,12 +4,15 @@
   --text-color: black;
   --background-color: antiquewhite;
   --primary-font: "Space Mono", monospace;
+  --pc-max-width: 750px;
+  --mobile-max-width: 90%;
 }
 
 /* MOBILE SCREEN */
-@media (min-width: 0.98px) {
-  .container {
-    max-width: 90%;
+@media (min-width: 0.98px) and (max-width: 800.98px) {
+  .container,
+  .collapseContainer {
+    max-width: var(--mobile-max-width);
   }
 
   :root {
@@ -30,15 +33,16 @@
     display: block;
   }
 
-  .indexText:last-child {
+  .aboutText:last-child {
     margin-top: 3rem;
   }
 }
 
 /* PC SCREEN */
 @media (min-width: 800.98px) {
-  .container {
-    max-width: 750px;
+  .container,
+  .collapseContainer {
+    max-width: var(--pc-max-width);
   }
 
   :root {
@@ -61,7 +65,7 @@
     display: block;
   }
 
-  .indexText:last-child {
+  .aboutText:last-child {
     margin-top: 0rem;
   }
 
@@ -86,16 +90,8 @@ p {
   padding: 0;
 }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
 .image {
   max-width: 100%;
-  z-index: 1;
 }
 
 .flexCenterH {
@@ -112,20 +108,46 @@ p {
   text-align: justify;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .bigHeader {
   font-weight: 900;
   text-align: center;
-  background-color: var(--text-color);
-  color: var(--background-color);
   font-size: var(--font-xl);
   font-style: italic;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 10px 10px var(--text-color);
+  border: solid var(--text-color);
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  transition: all 0.3s ease;
+}
+
+.bigHeader.active,
+.bigHeader:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  box-shadow: none;
+  border: solid var(--text-color);
+  cursor: pointer;
 }
 
 .smallHeader {
   font-weight: 900;
   text-align: center;
   font-size: var(--font-l);
-  line-height: 3rem;
+  line-height: 2.5rem;
 }
 
 .architecture {
@@ -149,32 +171,21 @@ p {
   border: 2px dashed var(--text-color);
 }
 
-.circuitCentralText a {
-  text-decoration: none;
-  color: var(--text-color);
-  border-bottom: dashed;
-}
-
-.circuitCentralText a:hover {
-  font-weight: 900;
-  border-bottom: solid;
-}
-
-.indexText {
+.aboutText {
   display: grid;
   place-items: center;
 }
 
 .navbar {
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--background-color);
 }
 
 .logo {
@@ -197,28 +208,6 @@ p {
   font-weight: 900;
 }
 
-/*
-
-.indexButton {
-  border: none;
-  align-items: center;
-  font-family: var(--primary-font);
-  padding: 1rem;
-  text-align: center;
-  color: var(--text-color);
-  background: var(--background-color);
-  border: solid var(--text-color);
-  box-shadow: 5px 5px var(--text-color);
-  transition: all 0.3s ease;
-}
-
-.indexButton:hover {
-  background: var(--text-color);
-  color: var(--background-color);
-  box-shadow: 0px 0px var(--background-color);
-}
-  */
-
 .hamburgerButtonTC {
   border: none;
   background: none;
@@ -229,7 +218,6 @@ p {
   -moz-user-select: none;
   -ms-user-select: none;
   font-weight: 900;
-  z-index: 999;
   color: var(--text-color);
 }
 
@@ -243,8 +231,11 @@ p {
   -moz-user-select: none;
   -ms-user-select: none;
   font-weight: 900;
-  z-index: 999;
   color: var(--background-color);
+}
+
+.z-top {
+  z-index: 999;
 }
 
 .hamburgerMenu {
@@ -258,7 +249,6 @@ p {
   place-content: center;
   gap: 7rem;
   text-align: center;
-
   transition: left 0.3s ease;
 }
 
@@ -270,12 +260,26 @@ p {
   color: var(--background-color);
   text-decoration: none;
   font-size: 7vw;
+  cursor: pointer;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.hamburgerMobileCloseButton {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .bottomcard {
   margin-top: 15rem;
   padding: 5rem;
-  border-top: solid;
   display: grid;
   justify-content: center;
   text-align: center;
@@ -297,14 +301,20 @@ p {
   justify-content: center;
 }
 
-.socials a {
+.hyperLink {
+  text-decoration: none;
+  color: var(--text-color);
+  border-bottom: dashed;
+}
+
+.hyperLink.withPic {
   margin-left: 1rem;
   text-decoration: none;
   color: var(--text-color);
   border-bottom: dashed;
 }
 
-.socials a:hover {
+.hyperLink:hover {
   border-bottom: solid;
   font-weight: 900;
 }
@@ -324,7 +334,7 @@ p {
   justify-content: center;
 }
 
-.indexBust {
+.aboutBust {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -345,6 +355,7 @@ p {
   background-color: var(--background-color);
   border-radius: 50%;
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .dotHoverBC:hover::after {
@@ -366,8 +377,58 @@ p {
   background-color: var(--text-color);
   border-radius: 50%;
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .dotHoverTC:hover::after {
   opacity: 1;
+}
+
+.noMarginBottom {
+  margin-bottom: 0 !important;
+}
+
+.noMarginTop {
+  margin-top: 0 !important;
+}
+
+.topMargin {
+  margin-top: 10rem;
+}
+
+.bottomMargin {
+  margin-bottom: 10rem;
+}
+
+.collapseContainer {
+  margin-top: -3.18rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  max-height: 0;
+  border-bottom: dashed;
+
+  transition: max-height 1s ease, margin-top 1s ease, margin-bottom 1s ease;
+}
+
+.initialDelay {
+  transition-delay: 1.5s;
+}
+
+.collapseContainer.about.expanded {
+  max-height: 1200px;
+  border-bottom: dashed;
+  margin-bottom: 15rem;
+}
+
+.collapseContainer.project.expanded {
+  max-height: 2800px;
+  border-bottom: dashed;
+  margin-bottom: 15rem;
+}
+
+.collapseContainer.contact.expanded {
+  max-height: 600px;
+  border-bottom: dashed;
+  margin-bottom: 15rem;
 }

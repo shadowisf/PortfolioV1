@@ -1,7 +1,12 @@
 import { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ExpandedState } from "./Types";
 
-const NavBar = () => {
+type NavBarProps = {
+  toggleExpand: (key: keyof ExpandedState) => void;
+};
+
+const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -34,7 +39,7 @@ const NavBar = () => {
     foregroundColor: string,
     backgroundColor: string
   ) => {
-    const calculateContrast = (foreground: string, background: string) => {
+    const calculateContrast = (foreground: any, background: any) => {
       const l1 = getLuminance(foreground);
       const l2 = getLuminance(background);
       return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
@@ -61,10 +66,28 @@ const NavBar = () => {
     document.documentElement.style.setProperty("--background-color", bgColor);
   };
 
+  const getCursorSvg = () => {
+    const backgroundColor = getComputedStyle(document.documentElement)
+      .getPropertyValue("--background-color")
+      .trim();
+    const cursorSvg = `
+      <svg xmlns='http://www.w3.org/2000/svg' height='40' viewBox='0 -960 960 960' width='40' fill='${backgroundColor}'>
+        <path d='m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' />
+      </svg>`;
+    return `url("data:image/svg+xml;base64,${btoa(cursorSvg)}"), auto`;
+  };
+
+  const updateCursorStyle = () => {
+    document.body.style.cursor = getCursorSvg();
+  };
+
   useEffect(() => {
     const handleKeyPress = (event: { key: string }) => {
       if (event.key === "e" || event.key === "E") {
         generateADACompliantColors();
+        if (isOpen) {
+          updateCursorStyle();
+        }
       }
     };
 
@@ -73,11 +96,15 @@ const NavBar = () => {
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, []);
+  }, [isOpen]);
 
-  const cursorStyle = {
-    cursor: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' viewBox='0 -960 960 960' width='40'%3E%3Cpath d='m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' fill='%23var(--text-color)' /%3E%3C/svg%3E"), auto`,
-  };
+  useEffect(() => {
+    if (isOpen) {
+      updateCursorStyle();
+    } else {
+      document.body.style.cursor = "auto";
+    }
+  }, [isOpen]);
 
   return (
     <Fragment>
@@ -86,31 +113,49 @@ const NavBar = () => {
           les ranalan
         </Link>
 
-        <span
-          className={`${
-            isOpen
-              ? "hamburgerButtonBC dotHoverBC"
-              : "hamburgerButtonTC dotHoverTC"
-          }`}
-          onClick={toggleMenu}
-        >
-          {isOpen ? "close" : "menu"}
+        <span className="hamburgerButtonTC dotHoverTC" onClick={toggleMenu}>
+          menu
         </span>
       </nav>
 
       <div
-        style={cursorStyle}
         className={`hamburgerMenu ${isOpen ? "open" : ""}`}
+        onClick={toggleMenu}
       >
-        <Link className="dotHoverBC" to="/about">
+        <span
+          id="hs"
+          className="hamburgerButtonBC dotHoverBC hamburgerMobileCloseButton"
+          onClick={toggleMenu}
+        >
+          close
+        </span>
+        <a
+          className="dotHoverBC"
+          onClick={() => {
+            toggleMenu();
+            toggleExpand("about");
+          }}
+        >
           about
-        </Link>
-        <Link className="dotHoverBC" to="/projects">
+        </a>
+        <a
+          className="dotHoverBC"
+          onClick={() => {
+            toggleMenu();
+            toggleExpand("project");
+          }}
+        >
           projects
-        </Link>
-        <Link className="dotHoverBC" to="/contact">
+        </a>
+        <a
+          className="dotHoverBC"
+          onClick={() => {
+            toggleMenu();
+            toggleExpand("contact");
+          }}
+        >
           contact
-        </Link>
+        </a>
       </div>
     </Fragment>
   );

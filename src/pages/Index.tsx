@@ -1,44 +1,81 @@
-import { Fragment } from "react";
-import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
-import IllustrationVerticalLine from "../assets/IllustrationVerticalLine";
-import { Link } from "react-router-dom";
+import { Fragment, useState } from "react";
+import { ExpandedState } from "../components/Types";
 import NavBar from "../components/NavBar";
 import BotCard from "../components/BotCard";
 import Project from "../components/Project";
+import Contact from "../components/Contact";
+import About from "../components/About";
 
 export default function Index() {
+  const [expanded, setExpanded] = useState<ExpandedState>({
+    project: false,
+    contact: false,
+    about: true,
+  });
+
+  const toggle = (key: keyof ExpandedState) => {
+    setExpanded((prevState) =>
+      Object.keys(prevState).reduce(
+        (acc: { [key in keyof ExpandedState]: boolean }, currentKey) => {
+          acc[currentKey as keyof ExpandedState] =
+            currentKey === key ? !prevState[key] : false;
+          return acc;
+        },
+        {} as { [key in keyof ExpandedState]: boolean }
+      )
+    );
+  };
+
   return (
     <Fragment>
-      <NavBar />
+      <NavBar toggleExpand={toggle} />
 
-      <header className="container bigHeader">hey, i'm les!</header>
-
-      <div className="container vhalf">
-        <p id="hs" className="container smallHeader">
-          i'm a <span className="word1"></span> <br /> software engineer.
-        </p>
-
-        <picture className="indexBust">
-          <IllustrationBustNoChat />
-        </picture>
-
-        <picture id="fs">
-          <IllustrationVerticalLine height="100%" strokeDasharray="10" />
-        </picture>
-
-        <aside className="indexText">
-          <p id="fs" className="smallHeader">
-            i'm a <span className="word1"></span> <br />
-            software engineer
-          </p>
-
-          <p className="textJustify">
-            i strive to embrace minimalism in my design philosophy, focusing on
-            simplicity and prioritizing the creation and implementation of
-            clean, uncluttered interfaces.
-          </p>
-        </aside>
+      {/* about */}
+      <header
+        className={`container bigHeader topMargin ${
+          expanded.about ? "active typedCollapsedAbout" : "typedAbout"
+        }`}
+        onClick={() => toggle("about")}
+      ></header>
+      <div
+        className={`collapseContainer ${
+          expanded.about ? "initialDelay about expanded" : ""
+        }`}
+      >
+        <About />
       </div>
+
+      {/* project */}
+      <header
+        className={`container bigHeader ${
+          expanded.project ? "active typedCollapsedProject" : "typedProject"
+        }`}
+        onClick={() => toggle("project")}
+      ></header>
+      <div
+        className={`collapseContainer ${
+          expanded.project ? "initialDelay project expanded" : ""
+        }`}
+      >
+        <Project />
+      </div>
+
+      {/* contact */}
+      <header
+        className={`container bigHeader ${
+          expanded.contact ? "active typedCollapsedContact" : "typedContact"
+        }`}
+        onClick={() => toggle("contact")}
+      ></header>
+      <div
+        id="contact"
+        className={`collapseContainer ${
+          expanded.contact ? "initialDelay contact expanded" : ""
+        }`}
+      >
+        <Contact />
+      </div>
+
       <BotCard />
     </Fragment>
   );

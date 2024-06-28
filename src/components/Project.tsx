@@ -1,6 +1,4 @@
 import { Fragment, useEffect } from "react";
-import NavBar from "./NavBar";
-import BotCard from "./BotCard";
 import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
 import mediumZoom from "medium-zoom";
 
@@ -16,22 +14,20 @@ export default function Project() {
 
   return (
     <Fragment>
-      <header className="container bigHeader">projects</header>
-
       {/* portfolio */}
-      <section className="container">
+      <section className="container bottomMargin">
         <header className="smallHeader">portfolio</header>
 
         <div className="flexCenterH">2024</div>
 
         <ul className="architecture">
+          <li>javascript (react)</li>
           <li>html</li>
           <li>css</li>
           <li>sass</li>
-          <li>javascript (react)</li>
         </ul>
 
-        <p className="circuitCentralText textJustify">
+        <p className="textJustify">
           this portfolio website showcases all things me;{" "}
           <u>my projects, research, and life history!</u>. by creating this
           portfolio, i was able to fully learn and understand how html, css, and
@@ -58,12 +54,8 @@ export default function Project() {
         </p>
       </section>
 
-      <line className="container flexCenterH">
-        <IllustrationHorizontalLine width="100%" strokeDasharray="10" />
-      </line>
-
       {/* circuitcentral */}
-      <section className="container">
+      <section className="container bottomMargin">
         <header className="flexCenterH smallHeader">circuitcentral</header>
         <div className="flexCenterH">2024</div>
         <ul className="architecture">
@@ -80,16 +72,12 @@ export default function Project() {
 
         <br />
 
-        <img className="image" src="src\assets\circuitcentral1.PNG" />
-        <img className="image" src="src\assets\circuitcentral2.PNG" />
+        <img className="image" src="src\assets\ImageCircuitCentral1.PNG" />
+        <img className="image" src="src\assets\ImageCircuitCentral2.PNG" />
       </section>
 
-      <line className="container flexCenterH">
-        <IllustrationHorizontalLine width="100%" strokeDasharray="10" />
-      </line>
-
       {/* apollo */}
-      <section className="container">
+      <section className="container bottomMargin">
         <div className="flexCenterH smallHeader">apollo hospital</div>
 
         <header className="flexCenterH">2023</header>
@@ -106,10 +94,6 @@ export default function Project() {
           apollo hospital is a <u>hospital management system.</u>
         </p>
       </section>
-
-      <line className="container flexCenterH">
-        <IllustrationHorizontalLine width="100%" strokeDasharray="10" />
-      </line>
 
       {/* calculator */}
       <section className="container">

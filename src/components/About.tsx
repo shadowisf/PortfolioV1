@@ -1,9 +1,4 @@
 import { Fragment } from "react/jsx-runtime";
-import NavBar from "../components/NavBar";
-import BotCard from "../components/BotCard";
-import IconQuestioMark from "../assets/IconQuestionMark";
-import IllustrationBust from "../assets/IllustrationBustWithChat";
-import IconArchitecture from "../assets/IconArchitecture";
 import IconCalendar from "../assets/IconCalendar";
 import IconCake from "../assets/IconCake";
 import IllustrationVerticalLine from "../assets/IllustrationVerticalLine";
@@ -11,59 +6,38 @@ import IconLocation from "../assets/IconLocation";
 import IconEyeGlasses from "../assets/IconEyeGlasses";
 import IconGraduateHate from "../assets/IconGraduateHat";
 import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
+import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
 
 export default function About() {
   return (
     <Fragment>
-      <NavBar />
-      <header className=" bigHeader">HEY, I'M LES!</header>
+      <div className="container vhalf">
+        <p id="hs" className="container smallHeader">
+          i'm a <span className="typedSeries"></span> <br /> software engineer.
+        </p>
 
-      <header className="smallHeader">
-        I'M A FULL STACK SOFTWARE ENGINEER
-      </header>
+        <picture className="aboutBust">
+          <IllustrationBustNoChat />
+        </picture>
 
-      <p className="container"></p>
+        <picture id="fs">
+          <IllustrationVerticalLine height="100%" strokeDasharray="10" />
+        </picture>
 
-      <section className="container vhalf">
-        <article className="bust">
-          <IllustrationBust />
-        </article>
-
-        <article className="WAIandDP">
-          <span className="smallHeader">
-            <picture>
-              <IconQuestioMark />
-            </picture>
-            <text>who am i?</text>
-          </span>
-          <p>
-            my name is les, a passionate software engineer with a keen eye for
-            designing captivating frontend experiences. my journey in the world
-            of software development is fueled by a love for crafting seamless
-            and visually appealing user interfaces.
+        <aside className="aboutText">
+          <p id="fs" className="smallHeader">
+            i'm a <span className="typedSeries"></span> <br />
+            software engineer
           </p>
 
-          <br />
-          <br />
-
-          <span className="smallHeader">
-            <picture>
-              <IconArchitecture />
-            </picture>
-            <text>design philosophy</text>
-          </span>
-          <p className="removeBottomMargin">
-            i strive to embrace minimalism in my design approach, aiming for
-            simplicity that centers around creating interfaces that are clean
-            and uncluttered, ensuring ease of use while maintaining a thoughtful
-            and purposeful aesthetic.
-            <br />
-            <br />
-            to put it simply: <u>funcionality over aesthetics</u>.
+          <p className="textJustify">
+            i strive to embrace minimalism in my design philosophy, focusing on
+            simplicity and prioritizing the creation and implementation of
+            clean, uncluttered interfaces.
           </p>
-        </article>
-      </section>
-
+        </aside>
+      </div>
+      {/*}
       <br />
       <br />
       <br />
@@ -127,7 +101,7 @@ export default function About() {
           </aside>
         </article>
 
-        {/*}
+     
         <div className="container main">
           <h1 className="header">
             <IconStar />
@@ -163,10 +137,9 @@ export default function About() {
             by google.
           </p>
         </div>
-        */}
+        
       </section>
-
-      <BotCard />
+      */}
     </Fragment>
   );
 }

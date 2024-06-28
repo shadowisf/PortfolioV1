@@ -131,7 +131,6 @@ $__typed-pauses-chars: (
   $end-styles: (),
   $styles: ()
 ) {
-  /*
   @keyframes #{$animation-name}-final {
     @for $i from 1 through str-length($string) {
       $modifier: 0.001;
@@ -153,8 +152,8 @@ $__typed-pauses-chars: (
       }
     }
   }
-  */
 }
+
 @function __typed-instances-of($data, $search) {
   $instances: 0;
   @if type-of($data) == list or type-of($data) == map {
@@ -716,7 +715,7 @@ $__typed-id: 0;
   }
 }
 
-.word1 {
+.typedSeries {
   @include typed(
     "front-end",
     "back-end",
@@ -727,16 +726,80 @@ $__typed-id: 0;
     null,
     (
       caret-width: 2px,
-      styles: (
-        color: var(--background-color),
-        background-color: var(--text-color),
-      ),
     )
   );
 }
 
-.word1::after {
-  z-index: -1;
+.typedAbout {
+  @include typed(
+    "about",
+    null,
+    (
+      caret: false,
+      iterations: 0,
+      delay: 1,
+    )
+  );
+}
+
+.typedCollapsedAbout {
+  @include typed(
+    "hey, i'm les!",
+    null,
+    (
+      caret: false,
+      iterations: 0,
+      delay: 0,
+    )
+  );
+}
+
+.typedProject {
+  @include typed(
+    "projects",
+    null,
+    (
+      caret: false,
+      iterations: 0,
+      delay: 1,
+    )
+  );
+}
+
+.typedCollapsedProject {
+  @include typed(
+    "total: 4",
+    null,
+    (
+      caret: false,
+      iterations: 0,
+      delay: 0,
+    )
+  );
+}
+
+.typedContact {
+  @include typed(
+    "contact",
+    null,
+    (
+      caret: false,
+      iterations: 0,
+      delay: 1,
+    )
+  );
+}
+
+.typedCollapsedContact {
+  @include typed(
+    "let's chat!",
+    null,
+    (
+      caret: false,
+      iterations: 0,
+      delay: 0,
+    )
+  );
 }
 
 /* https://github.com/brandonmcconnell/typed.css */
