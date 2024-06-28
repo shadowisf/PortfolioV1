@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { ExpandedState } from "../components/Types";
 import NavBar from "../components/NavBar";
-import BotCard from "../components/BotCard";
+import BotCard from "../components/BottomCard";
 import Project from "../components/Project";
 import Contact from "../components/Contact";
 import About from "../components/About";

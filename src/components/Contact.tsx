@@ -16,7 +16,7 @@ export default function Contact() {
         <br />
         <br />
 
-        <header className="smallHeader">
+        <header className="smallHeader flexCenterH">
           leave a message and <br /> i'll get back to you!
         </header>
       </section>
@@ -27,7 +27,7 @@ export default function Contact() {
             <IconLinkedIn />
           </picture>
           <a
-            className="hyperLink withPic"
+            className="hyperLink withIcon"
             href="https://www.linkedin.com/in/les-paul-ranalan/"
             target="_blank"
           >
@@ -39,7 +39,7 @@ export default function Contact() {
             <IconEmail />
           </picture>
           <a
-            className="hyperLink withPic"
+            className="hyperLink withIcon"
             href="mailto:les.ranalan@gmail.com"
             target="_blank"
           >
@@ -51,7 +51,7 @@ export default function Contact() {
             <IconInstagram />
           </picture>
           <a
-            className="hyperLink withPic"
+            className="hyperLink withIcon"
             href="https://www.instagram.com/les.rx"
             target="_blank"
           >

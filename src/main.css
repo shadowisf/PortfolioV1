@@ -21,20 +21,19 @@
     --font-navbar: x-large;
   }
 
-  #fs {
+  #fs,
+  #navFixed {
     display: none;
-  }
-
-  #hs {
-    display: block;
-  }
-
-  .container.vhalf {
-    display: block;
   }
 
   .aboutText:last-child {
     margin-top: 3rem;
+  }
+
+  #navNormal {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -57,12 +56,9 @@
     gap: 3rem;
   }
 
-  #hs {
+  #hs,
+  #navNormal {
     display: none;
-  }
-
-  #fs {
-    display: block;
   }
 
   .aboutText:last-child {
@@ -71,6 +67,18 @@
 
   .bottomcard {
     font-size: var(--font-navbar);
+  }
+}
+
+@media (min-width: 800.98px) and (max-width: 1300.98px) {
+  #navNormal {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  #navFixed {
+    display: none;
   }
 }
 
@@ -145,7 +153,6 @@ p {
 
 .smallHeader {
   font-weight: 900;
-  text-align: center;
   font-size: var(--font-l);
   line-height: 2.5rem;
 }
@@ -153,8 +160,6 @@ p {
 .architecture {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   font-weight: 900;
   gap: 1rem;
   margin-top: 1rem;
@@ -169,6 +174,13 @@ p {
   list-style: none;
   padding: 0.5rem 1rem;
   border: 2px dashed var(--text-color);
+}
+
+.projectLinks {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .aboutText {
@@ -186,19 +198,28 @@ p {
   left: 0;
   right: 0;
   background-color: var(--background-color);
+
+  font-size: var(--font-navbar);
 }
 
 .logo {
-  font-style: italic;
   text-decoration: none;
   color: var(--text-color);
-  font-size: var(--font-navbar);
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 
   font-weight: 900;
+}
+
+.logo.noNav {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  position: fixed !important;
+  left: 0;
+  top: 0;
+  font-size: var(--font-navbar);
 }
 
 .logo:hover,
@@ -212,7 +233,6 @@ p {
   border: none;
   background: none;
   font-family: var(--primary-font);
-  font-size: var(--font-navbar);
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -221,21 +241,25 @@ p {
   color: var(--text-color);
 }
 
+.hamburgerButtonTC.noNav {
+  margin-right: 2rem;
+  margin-top: 1rem;
+  position: fixed !important;
+  right: 0;
+  top: 0;
+  font-size: var(--font-navbar);
+}
+
 .hamburgerButtonBC {
   border: none;
   background: none;
   font-family: var(--primary-font);
-  font-size: var(--font-navbar);
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   font-weight: 900;
   color: var(--background-color);
-}
-
-.z-top {
-  z-index: 999;
 }
 
 .hamburgerMenu {
@@ -250,6 +274,8 @@ p {
   gap: 7rem;
   text-align: center;
   transition: left 0.3s ease;
+
+  z-index: 999;
 }
 
 .hamburgerMenu.open {
@@ -278,17 +304,29 @@ p {
 }
 
 .bottomcard {
-  margin-top: 15rem;
-  padding: 5rem;
-  display: grid;
-  justify-content: center;
   text-align: center;
-  gap: 3rem;
+  padding: 3rem;
+  margin-top: 15rem;
+  background-color: var(--background-color);
 }
 
-.bottomcardLogo {
-  font-weight: 900;
-  font-style: italic;
+.tooltip {
+  display: grid;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-size: small;
 }
 
 .socials {
@@ -307,11 +345,8 @@ p {
   border-bottom: dashed;
 }
 
-.hyperLink.withPic {
-  margin-left: 1rem;
-  text-decoration: none;
-  color: var(--text-color);
-  border-bottom: dashed;
+.withIcon {
+  margin-left: 0.5rem;
 }
 
 .hyperLink:hover {
@@ -320,18 +355,7 @@ p {
 }
 
 .timelineCaption {
-  padding-left: 1rem;
-}
-
-.timelineRow {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-
-.timelineIcon {
-  display: flex;
-  justify-content: center;
+  margin-left: 1rem;
 }
 
 .aboutBust {
@@ -401,7 +425,7 @@ p {
 }
 
 .collapseContainer {
-  margin-top: -3.18rem;
+  margin-top: -3.19rem;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -411,12 +435,12 @@ p {
   transition: max-height 1s ease, margin-top 1s ease, margin-bottom 1s ease;
 }
 
-.initialDelay {
+.collapseContainer.transitionDelay {
   transition-delay: 1.5s;
 }
 
 .collapseContainer.about.expanded {
-  max-height: 1200px;
+  max-height: 1400px;
   border-bottom: dashed;
   margin-bottom: 15rem;
 }

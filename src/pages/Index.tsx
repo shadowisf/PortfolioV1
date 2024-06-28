@@ -1,10 +1,11 @@
 import { Fragment, useState } from "react";
 import { ExpandedState } from "../components/Types";
 import NavBar from "../components/NavBar";
-import BotCard from "../components/BotCard";
 import Project from "../components/Project";
 import Contact from "../components/Contact";
 import About from "../components/About";
+import BottomCard from "../components/BottomCard";
+import ToolTip from "../components/ToolTip";
 
 export default function Index() {
   const [expanded, setExpanded] = useState<ExpandedState>({
@@ -32,14 +33,14 @@ export default function Index() {
 
       {/* about */}
       <header
-        className={`container bigHeader topMargin ${
-          expanded.about ? "active typedCollapsedAbout" : "typedAbout"
+        className={`container topMargin bigHeader ${
+          expanded.about ? "active typedCollapsedAbout" : " typedAbout"
         }`}
         onClick={() => toggle("about")}
       ></header>
       <div
         className={`collapseContainer ${
-          expanded.about ? "initialDelay about expanded" : ""
+          expanded.about ? "transitionDelay about expanded" : ""
         }`}
       >
         <About />
@@ -48,13 +49,15 @@ export default function Index() {
       {/* project */}
       <header
         className={`container bigHeader ${
-          expanded.project ? "active typedCollapsedProject" : "typedProject"
+          expanded.project
+            ? "active typedCollapsedProject"
+            : "typedProject"
         }`}
         onClick={() => toggle("project")}
       ></header>
       <div
         className={`collapseContainer ${
-          expanded.project ? "initialDelay project expanded" : ""
+          expanded.project ? "transitionDelay project expanded" : ""
         }`}
       >
         <Project />
@@ -63,20 +66,23 @@ export default function Index() {
       {/* contact */}
       <header
         className={`container bigHeader ${
-          expanded.contact ? "active typedCollapsedContact" : "typedContact"
+          expanded.contact
+            ? "active typedCollapsedContact"
+            : "typedContact"
         }`}
         onClick={() => toggle("contact")}
       ></header>
       <div
         id="contact"
-        className={`collapseContainer ${
-          expanded.contact ? "initialDelay contact expanded" : ""
+        className={`collapseContainer bottomMargin ${
+          expanded.contact ? "transitionDelay contact expanded" : ""
         }`}
       >
         <Contact />
       </div>
 
-      <BotCard />
+      <ToolTip />
+      <BottomCard />
     </Fragment>
   );
 }

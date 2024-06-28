@@ -71,7 +71,7 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
       .getPropertyValue("--background-color")
       .trim();
     const cursorSvg = `
-      <svg xmlns='http://www.w3.org/2000/svg' height='40' viewBox='0 -960 960 960' width='40' fill='${backgroundColor}'>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' width='80' fill='${backgroundColor}'>
         <path d='m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' />
       </svg>`;
     return `url("data:image/svg+xml;base64,${btoa(cursorSvg)}"), auto`;
@@ -81,6 +81,31 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
     document.body.style.cursor = getCursorSvg();
   };
 
+  /* reset theme */
+  useEffect(() => {
+    const handleKeyPress = (event: { key: string }) => {
+      if (event.key === "r" || event.key === "R") {
+        document.documentElement.style.setProperty("--text-color", "black");
+
+        document.documentElement.style.setProperty(
+          "--background-color",
+          "antiquewhite"
+        );
+
+        if (isOpen) {
+          updateCursorStyle();
+        }
+      }
+    };
+
+    document.addEventListener("keypress", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress);
+    };
+  }, [isOpen]);
+
+  /* generate theme */
   useEffect(() => {
     const handleKeyPress = (event: { key: string }) => {
       if (event.key === "e" || event.key === "E") {
@@ -108,7 +133,7 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
 
   return (
     <Fragment>
-      <nav className="navbar">
+      <nav id="navNormal" className="navbar">
         <Link className="logo dotHoverTC" to="/">
           les ranalan
         </Link>
@@ -117,6 +142,20 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
           menu
         </span>
       </nav>
+
+      <Link id="navFixed" className="logo noNav dotHoverTC" to="/">
+        les ranalan
+      </Link>
+
+      <span
+        id="navFixed"
+        className="hamburgerButtonTC noNav dotHoverTC"
+        onClick={toggleMenu}
+      >
+        menu
+      </span>
+
+      <nav className="navbar"></nav>
 
       <div
         className={`hamburgerMenu ${isOpen ? "open" : ""}`}
@@ -129,6 +168,7 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
         >
           close
         </span>
+
         <a
           className="dotHoverBC"
           onClick={() => {

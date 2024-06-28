@@ -1,6 +1,7 @@
 import { Fragment, useEffect } from "react";
-import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
 import mediumZoom from "medium-zoom";
+import IconGithub from "../assets/IconGithub";
+import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
 
 export default function Project() {
   useEffect(() => {
@@ -16,20 +17,21 @@ export default function Project() {
     <Fragment>
       {/* portfolio */}
       <section className="container bottomMargin">
-        <header className="smallHeader">portfolio</header>
+        <header className="smallHeader flexCenterH">portfolio</header>
 
         <div className="flexCenterH">2024</div>
 
-        <ul className="architecture">
-          <li>javascript (react)</li>
+        <ul className="architecture flexCenterH">
+          <li>react javascript</li>
           <li>html</li>
           <li>css</li>
           <li>sass</li>
+          <li>ui/ux</li>
         </ul>
 
-        <p className="textJustify">
+        <p>
           this portfolio website showcases all things me;{" "}
-          <u>my projects, research, and life history!</u>. by creating this
+          <u>my projects, research, and life history!</u> by creating this
           portfolio, i was able to fully learn and understand how html, css, and
           react are all implemented as a baseline for web development.
           <br />
@@ -40,34 +42,70 @@ export default function Project() {
           <br />
           <br />
           <b>attributions:</b>{" "}
-          <a href="https://github.com/brandonmcconnell" target="_blank">
+          <a
+            className="hyperLink"
+            href="https://github.com/brandonmcconnell"
+            target="_blank"
+          >
             brandon mcconnell
           </a>
           ,{" "}
-          <a href="https://github.com/francoischalifour" target="_blank">
+          <a
+            className="hyperLink"
+            href="https://github.com/francoischalifour"
+            target="_blank"
+          >
             françois chalifour
           </a>
           , and{" "}
-          <a href="https://www.linkedin.com/in/frankmyles/" target="_blank">
+          <a
+            className="hyperLink"
+            href="https://www.linkedin.com/in/frankmyles/"
+            target="_blank"
+          >
             frank myles.
           </a>{" "}
         </p>
       </section>
 
+      <line>
+        <IllustrationHorizontalLine />
+      </line>
+
       {/* circuitcentral */}
       <section className="container bottomMargin">
         <header className="flexCenterH smallHeader">circuitcentral</header>
         <div className="flexCenterH">2024</div>
-        <ul className="architecture">
+        <ul className="architecture flexCenterH">
           <li>c#</li>
-          <li>sql</li>
+          <li>windows sql server</li>
           <li>windows forms</li>
+          <li>ui/ux</li>
         </ul>
-        <p className="textJustify">
-          circuitcentral is an <u>e-commerce management system</u> that sells
-          electronic products. its system features fundamental crud operations:
-          create, read, update, and delete. additionally, it features error
-          handling of all user events and a login system for two user types.
+        <p>
+          circuitcentral is an <u>e-commerce management system</u> that covers
+          ordering products, viewing product catalogs, handling customer, staff,
+          and supplier information, etc. its system features fundamental crud
+          operations: create, read, update, and delete. additionally, it
+          features search filtering on all records, error handling of all user
+          events, input validation, and a login system for two user types.
+        </p>
+
+        <p className="projectLinks">
+          <a
+            className="hyperLink withIcon"
+            href="https://github.com/shadowisf/CircuitCentral"
+            target="_blank"
+          >
+            <IconGithub />
+            github
+          </a>
+          <a className="hyperLink withIcon" href="">
+            proposal report
+          </a>
+          <a className="hyperLink withIcon" href="">
+            implementation report
+          </a>
         </p>
 
         <br />
@@ -82,16 +120,18 @@ export default function Project() {
 
         <header className="flexCenterH">2023</header>
 
-        <ul className="architecture">
-          <li>python</li>
-          <li>sql</li>
+        <ul className="architecture flexCenterH">
+          <li>python flask</li>
+          <li>xampp sql server</li>
           <li>html</li>
-          <li>css (bootstrap)</li>
+          <li>bootstrap css</li>
           <li>javascript</li>
+          <li>ui/ux</li>
         </ul>
 
         <p>
-          apollo hospital is a <u>hospital management system.</u>
+          apollo hospital is a <u>hospital management system</u> that covers
+          scheduling appointments with patients,
         </p>
       </section>
 
@@ -101,9 +141,10 @@ export default function Project() {
 
         <header className="flexCenterH">2022</header>
 
-        <ul className="architecture">
+        <ul className="architecture flexCenterH">
           <li>java</li>
           <li>swing</li>
+          <li>ui/ux</li>
         </ul>
 
         <p>
