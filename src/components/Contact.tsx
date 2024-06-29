@@ -13,15 +13,7 @@ export default function Contact() {
           various social media platforms below.
         </p>
 
-        <br />
-        <br />
-
-        <header className="smallHeader flexCenterH">
-          leave a message and <br /> i'll get back to you!
-        </header>
-      </section>
-
-      <section className="container socials">
+        <section className="container socials">
         <span className="flexCenterV">
           <picture className="flexCenterV">
             <IconLinkedIn />
@@ -58,6 +50,11 @@ export default function Contact() {
             @les.rx
           </a>
         </span>
+      </section>
+
+        <header className="smallHeader flexCenterH">
+          leave a message and <br /> i'll get back to you!
+        </header>
       </section>
     </Fragment>
   );

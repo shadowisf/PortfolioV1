@@ -10,7 +10,7 @@ export default function About() {
   return (
     <Fragment>
       <section className="container vhalf">
-        <header id="hs" className="container smallHeader">
+        <header id="hs" className="container smallHeader textCenter">
           i'm a <span className="typedSeries"></span> <br /> software engineer.
         </header>
 
@@ -23,7 +23,7 @@ export default function About() {
         </picture>
 
         <aside className="aboutText">
-          <header id="fs" className="smallHeader">
+          <header id="fs" className="smallHeader textCenter">
             i'm a <span className="typedSeries"></span> <br />
             software engineer
           </header>

@@ -34,7 +34,7 @@ export default function Index() {
       {/* about */}
       <header
         className={`container topMargin bigHeader ${
-          expanded.about ? "active typedCollapsedAbout" : " typedAbout"
+          expanded.about ? "active typedCollapsedAbout" : "typedAbout"
         }`}
         onClick={() => toggle("about")}
       ></header>
@@ -49,9 +49,7 @@ export default function Index() {
       {/* project */}
       <header
         className={`container bigHeader ${
-          expanded.project
-            ? "active typedCollapsedProject"
-            : "typedProject"
+          expanded.project ? "active typedCollapsedProject" : "typedProject"
         }`}
         onClick={() => toggle("project")}
       ></header>
@@ -66,9 +64,7 @@ export default function Index() {
       {/* contact */}
       <header
         className={`container bigHeader ${
-          expanded.contact
-            ? "active typedCollapsedContact"
-            : "typedContact"
+          expanded.contact ? "active typedCollapsedContact" : "typedContact"
         }`}
         onClick={() => toggle("contact")}
       ></header>

@@ -1,10 +1,11 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { ExpandedState } from "../components/Types";
 import NavBar from "../components/NavBar";
-import BotCard from "../components/BottomCard";
 import Project from "../components/Project";
 import Contact from "../components/Contact";
 import About from "../components/About";
+import BottomCard from "../components/BottomCard";
+import ToolTip from "../components/ToolTip";
 
 export default function Index() {
   const [expanded, setExpanded] = useState<ExpandedState>({
@@ -12,6 +13,8 @@ export default function Index() {
     contact: false,
     about: true,
   });
+
+  const sections = ["about", "project", "contact"];
 
   const toggle = (key: keyof ExpandedState) => {
     setExpanded((prevState) =>
@@ -26,20 +29,44 @@ export default function Index() {
     );
   };
 
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const aboutSection = document.querySelector(".typedCollapsedAbout");
+    const projectSection = document.querySelector(".typedCollapsedProject");
+    const contactSection = document.querySelector(".typedCollapsedContact");
+
+    const aboutBottom = aboutSection?.getBoundingClientRect().bottom ?? 0;
+    const projectBottom = projectSection?.getBoundingClientRect().bottom ?? 0;
+    const contactBottom = contactSection?.getBoundingClientRect().bottom ?? 0;
+
+    if (scrollPosition >= aboutBottom && !expanded.project) {
+      toggle("project");
+    } else if (scrollPosition >= projectBottom && !expanded.contact) {
+      toggle("contact");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [expanded]);
+
   return (
     <Fragment>
       <NavBar toggleExpand={toggle} />
 
       {/* about */}
       <header
-        className={`container bigHeader topMargin ${
+        className={`container topMargin bigHeader ${
           expanded.about ? "active typedCollapsedAbout" : "typedAbout"
         }`}
         onClick={() => toggle("about")}
       ></header>
       <div
         className={`collapseContainer ${
-          expanded.about ? "initialDelay about expanded" : ""
+          expanded.about ? "transitionDelay about expanded" : ""
         }`}
       >
         <About />
@@ -54,7 +81,7 @@ export default function Index() {
       ></header>
       <div
         className={`collapseContainer ${
-          expanded.project ? "initialDelay project expanded" : ""
+          expanded.project ? "transitionDelay project expanded" : ""
         }`}
       >
         <Project />
@@ -69,14 +96,15 @@ export default function Index() {
       ></header>
       <div
         id="contact"
-        className={`collapseContainer ${
-          expanded.contact ? "initialDelay contact expanded" : ""
+        className={`collapseContainer bottomMargin ${
+          expanded.contact ? "transitionDelay contact expanded" : ""
         }`}
       >
         <Contact />
       </div>
 
-      <BotCard />
+      <ToolTip />
+      <BottomCard />
     </Fragment>
   );
 }

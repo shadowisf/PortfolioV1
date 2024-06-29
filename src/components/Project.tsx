@@ -16,15 +16,15 @@ export default function Project() {
   return (
     <Fragment>
       {/* portfolio */}
-      <section className="container bottomMargin">
+      <section className="container">
         <header className="smallHeader flexCenterH">portfolio</header>
 
         <div className="flexCenterH">2024</div>
 
         <ul className="architecture flexCenterH">
-          <li>react javascript</li>
+          <li>typescript (react)</li>
           <li>html</li>
-          <li>css</li>
+          <li>css (vanilla)</li>
           <li>sass</li>
           <li>ui/ux</li>
         </ul>
@@ -68,8 +68,8 @@ export default function Project() {
         </p>
       </section>
 
-      <line>
-        <IllustrationHorizontalLine />
+      <line className="flexCenterH topMargin bottomMargin">
+        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
       </line>
 
       {/* circuitcentral */}
@@ -92,14 +92,18 @@ export default function Project() {
         </p>
 
         <p className="projectLinks">
-          <a
-            className="hyperLink withIcon"
-            href="https://github.com/shadowisf/CircuitCentral"
-            target="_blank"
-          >
-            <IconGithub />
-            github
-          </a>
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconGithub />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href="https://github.com/shadowisf/CircuitCentral"
+              target="_blank"
+            >
+              github
+            </a>
+          </span>
           <a className="hyperLink withIcon" href="">
             proposal report
           </a>
@@ -114,6 +118,10 @@ export default function Project() {
         <img className="image" src="src\assets\ImageCircuitCentral2.PNG" />
       </section>
 
+      <line className="flexCenterH topMargin bottomMargin">
+        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+      </line>
+
       {/* apollo */}
       <section className="container bottomMargin">
         <div className="flexCenterH smallHeader">apollo hospital</div>
@@ -121,10 +129,10 @@ export default function Project() {
         <header className="flexCenterH">2023</header>
 
         <ul className="architecture flexCenterH">
-          <li>python flask</li>
+          <li>python (flask)</li>
           <li>xampp sql server</li>
           <li>html</li>
-          <li>bootstrap css</li>
+          <li>css (bootstrap)</li>
           <li>javascript</li>
           <li>ui/ux</li>
         </ul>
@@ -134,6 +142,10 @@ export default function Project() {
           scheduling appointments with patients,
         </p>
       </section>
+
+      <line className="flexCenterH  topMargin bottomMargin">
+        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+      </line>
 
       {/* calculator */}
       <section className="container">
