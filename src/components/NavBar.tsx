@@ -66,21 +66,6 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
     document.documentElement.style.setProperty("--background-color", bgColor);
   };
 
-  const getCursorSvg = () => {
-    const backgroundColor = getComputedStyle(document.documentElement)
-      .getPropertyValue("--background-color")
-      .trim();
-    const cursorSvg = `
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' width='80' fill='${backgroundColor}'>
-        <path d='m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z' />
-      </svg>`;
-    return `url("data:image/svg+xml;base64,${btoa(cursorSvg)}"), auto`;
-  };
-
-  const updateCursorStyle = () => {
-    document.body.style.cursor = getCursorSvg();
-  };
-
   /* reset theme */
   useEffect(() => {
     const handleKeyPress = (event: { key: string }) => {
@@ -91,10 +76,6 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
           "--background-color",
           "antiquewhite"
         );
-
-        if (isOpen) {
-          updateCursorStyle();
-        }
       }
     };
 
@@ -110,9 +91,6 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
     const handleKeyPress = (event: { key: string }) => {
       if (event.key === "e" || event.key === "E") {
         generateADACompliantColors();
-        if (isOpen) {
-          updateCursorStyle();
-        }
       }
     };
 
@@ -121,14 +99,6 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen) {
-      updateCursorStyle();
-    } else {
-      document.body.style.cursor = "auto";
-    }
   }, [isOpen]);
 
   return (
@@ -155,14 +125,11 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
         menu
       </span>
 
-      <nav className="navbar"></nav>
-
       <div
         className={`hamburgerMenu ${isOpen ? "open" : ""}`}
         onClick={toggleMenu}
       >
         <span
-          id="hs"
           className="hamburgerButtonBC dotHoverBC hamburgerMobileCloseButton"
           onClick={toggleMenu}
         >

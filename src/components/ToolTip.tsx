@@ -3,7 +3,7 @@ import IconLetterR from "../assets/IconLetterR";
 
 export default function ToolTip() {
   return (
-    <footer id="fs" className="tooltip">
+    <footer id="tooltip" className="tooltip">
       <span className="flexCenterV">
         <picture className="flexCenterV">
           <IconLetterE />
