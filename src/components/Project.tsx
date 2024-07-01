@@ -2,6 +2,7 @@ import { Fragment, useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
 import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
+import IconPDF from "../assets/IconPDF";
 
 export default function Project() {
   useEffect(() => {
@@ -19,12 +20,12 @@ export default function Project() {
       <section className="container">
         <header className="smallHeader flexCenterH">portfolio</header>
 
-        <div className="flexCenterH">2024</div>
+        <text className="flexCenterH">2024</text>
 
         <ul className="architecture flexCenterH">
           <li>typescript (react)</li>
           <li>html</li>
-          <li>css (vanilla)</li>
+          <li>css</li>
           <li>sass</li>
           <li>ui/ux</li>
         </ul>
@@ -57,14 +58,23 @@ export default function Project() {
           >
             françois chalifour
           </a>
+          ,{" "}
+          <a
+            className="hyperLink"
+            href="https://www.instagram.com/pablostanley/"
+            target="_blank"
+          >
+            pablo stanley
+          </a>
           , and{" "}
           <a
             className="hyperLink"
             href="https://www.linkedin.com/in/frankmyles/"
             target="_blank"
           >
-            frank myles.
-          </a>{" "}
+            frank myles
+          </a>
+          .
         </p>
       </section>
 
@@ -75,13 +85,17 @@ export default function Project() {
       {/* circuitcentral */}
       <section className="container bottomMargin">
         <header className="flexCenterH smallHeader">circuitcentral</header>
-        <div className="flexCenterH">2024</div>
+
+        <text className="flexCenterH">2024</text>
+
         <ul className="architecture flexCenterH">
           <li>c#</li>
           <li>windows sql server</li>
           <li>windows forms</li>
           <li>ui/ux</li>
+          <li>crud</li>
         </ul>
+
         <p>
           circuitcentral is an <u>e-commerce management system</u> that covers
           ordering products, viewing product catalogs, handling customer, staff,
@@ -91,7 +105,9 @@ export default function Project() {
           events, input validation, and a login system for two user types.
         </p>
 
-        <p className="projectLinks">
+        <br />
+
+        <div className="projectLinks">
           <span className="flexCenterV">
             <picture className="flexCenterV">
               <IconGithub />
@@ -104,54 +120,114 @@ export default function Project() {
               github
             </a>
           </span>
-          <a className="hyperLink withIcon" href="">
-            proposal report
-          </a>
-          <a className="hyperLink withIcon" href="">
-            implementation report
-          </a>
-        </p>
+
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconPDF />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href=""
+              download="CircuitCentralProposal.PDF"
+            >
+              proposal report
+            </a>
+          </span>
+
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconPDF />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href=""
+              download="CircuitCentralImplementation.PDF"
+            >
+              implementation report
+            </a>
+          </span>
+        </div>
 
         <br />
 
-        <img className="image" src="src\assets\ImageCircuitCentral1.PNG" />
-        <img className="image" src="src\assets\ImageCircuitCentral2.PNG" />
+        <img className="image" src="files\ImageCircuitCentral1.PNG" />
+        <img className="image" src="files\ImageCircuitCentral2.PNG" />
       </section>
 
       <line className="flexCenterH topMargin bottomMargin">
         <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
       </line>
 
-      {/* apollo */}
+      {/* apollo hospital */}
       <section className="container bottomMargin">
-        <div className="flexCenterH smallHeader">apollo hospital</div>
+        <header className="flexCenterH smallHeader">apollo hospital</header>
 
-        <header className="flexCenterH">2023</header>
+        <text className="flexCenterH">2023</text>
 
         <ul className="architecture flexCenterH">
           <li>python (flask)</li>
-          <li>xampp sql server</li>
-          <li>html</li>
+          <li>xampp</li>
+          <li>html (django)</li>
           <li>css (bootstrap)</li>
           <li>javascript</li>
           <li>ui/ux</li>
+          <li>crud</li>
         </ul>
 
         <p>
           apollo hospital is a <u>hospital management system</u> that covers
-          scheduling appointments with patients,
+          handling patient and doctor information, scheduling appointments with
+          patients, manage patient's prescription and payables, etc. similarly
+          to circuitcentral, its system features fundamental crud operations:
+          create, read, update, delete. as well as a login system, error
+          handling, input validation, and search filtering of patient records.
         </p>
+
+        <br />
+
+        <div className="projectLinks">
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconGithub />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href="https://github.com/shadowisf/ApolloHospital"
+              target="_blank"
+            >
+              github
+            </a>
+          </span>
+
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconPDF />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href="files/FileApolloHospital.PDF"
+              target="_blank"
+            >
+              report
+            </a>
+          </span>
+        </div>
+
+        <br />
+
+        <img className="image" src="files/ImageApolloHospital1.PNG" />
+        <img className="image" src="files/ImageApolloHospital2.PNG" />
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
         <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
       </line>
 
-      {/* calculator */}
+      {/* funculator */}
       <section className="container">
-        <div className="flexCenterH smallHeader">calculator</div>
+        <header className="flexCenterH smallHeader">funculator</header>
 
-        <header className="flexCenterH">2022</header>
+        <text className="flexCenterH">2022</text>
 
         <ul className="architecture flexCenterH">
           <li>java</li>
@@ -160,11 +236,222 @@ export default function Project() {
         </ul>
 
         <p>
+          funculator is an <u>all-in-one calculator application</u> for
+          students. its system features a login system and a menu that shows all
+          possible maethematical operations a student needs; arithmetics,
+          fibonacci sequences, area of different shapes, etc. the design
+          aesthetic for this project was heavily inspired by vibrant pixel art
+          and sprites.
+        </p>
+
+        <br />
+
+        <div className="projectLinks">
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconGithub />
+            </picture>
+
+            <a
+              className="hyperLink withIcon"
+              href="https://github.com/shadowisf/FunCulator"
+              target="_blank"
+            >
+              github
+            </a>
+          </span>
+
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconPDF />
+            </picture>
+
+            <a
+              className="hyperLink withIcon"
+              href="/files/FileFunCulator.PDF"
+              target="_blank"
+            >
+              report
+            </a>
+          </span>
+        </div>
+
+        <br />
+
+        <img className="image" src="files/ImageFunCulator1.PNG" />
+        <img className="image" src="files/ImageFunCulator2.PNG" />
+        <img className="image" src="files/ImageFunCulator3.PNG" />
+      </section>
+
+      <line className="flexCenterH  topMargin bottomMargin">
+        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+      </line>
+
+      {/* bell hospital */}
+      <section className="container">
+        <header className="flexCenterH smallHeader">bell hospital</header>
+
+        <text className="flexCenterH">2022</text>
+
+        <ul className="architecture flexCenterH">
+          <li>java</li>
+          <li>file handling</li>
+          <li>cli</li>
+        </ul>
+
+        <p>
+          bell hospital is a <u>hospital management system</u> that is intended
+          to be used with a command line interface (cli), with coverage to
+          handling patient and doctor information, appointment scheduling, and
+          medical records. its system feature crud operations: create, read,
+          update, and delete. additionally, it has error handling and persistent
+          data management since it utilizes text files through file handling.
+        </p>
+
+        <br />
+
+        <div className="projectLinks">
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconGithub />
+            </picture>
+
+            <a
+              className="hyperLink withIcon"
+              href="https://github.com/shadowisf/BellHospital"
+              target="_blank"
+            >
+              github
+            </a>
+          </span>
+
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconPDF />
+            </picture>
+
+            <a
+              className="hyperLink withIcon"
+              href="files/FileBellHospital.PDF"
+              target="_blank"
+            >
+              report
+            </a>
+          </span>
+        </div>
+
+        <br />
+
+        <img className="image" src="files/ImageBellHospital1.PNG" />
+        <img className="image" src="files/ImageBellHospital2.PNG" />
+      </section>
+
+      <line className="flexCenterH  topMargin bottomMargin">
+        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+      </line>
+
+      {/* plug-ins */}
+      <section className="container">
+        <header className="flexCenterH smallHeader">plug-ins</header>
+
+        <text className="flexCenterH">2022</text>
+
+        <ul className="architecture flexCenterH">
+          <li>php</li>
+          <li>html</li>
+          <li>xampp</li>
+        </ul>
+
+        <p>
+          plug-ins is a fictitious (not real) company that required a database
+          solution that utilizes forms. its system covers insertion of customer,
+          product, and order information into a database. through that, search
+          and display queries can be performed.
+        </p>
+
+        <br />
+
+        <div className="projectLinks">
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconGithub />
+            </picture>
+
+            <a
+              className="hyperLink withIcon"
+              href="https://github.com/shadowisf/PlugInsDatabase"
+              target="_blank"
+            >
+              github
+            </a>
+          </span>
+
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconPDF />
+            </picture>
+
+            <a
+              className="hyperLink withIcon"
+              href="files/FilePlugInsDatabase.PDF"
+              target="_blank"
+            >
+              report
+            </a>
+          </span>
+        </div>
+
+        <br />
+
+        <img className="image" src="files/ImagePlugInsDatabase1.PNG" />
+        <img className="image" src="files/ImagePlugInsDatabase2.PNG" />
+      </section>
+
+      {/*
+      <section className="container">
+        <header className="flexCenterH smallHeader">project name</header>
+
+        <text className="flexCenterH">year</text>
+
+        <ul className="architecture flexCenterH">
+          <li></li>
+        </ul>
+
+        <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi dicta
           eum doloremque id architecto ullam quis iure animi sunt totam. Rerum
           quis, temporibus beatae ea illum amet? Laborum, iste earum.
         </p>
+
+        <br />
+
+        <div className="projectLinks">
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconGithub />
+            </picture>
+
+            <a className="hyperLink withIcon" href="" target="_blank">
+              github
+            </a>
+          </span>
+
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconPDF />
+            </picture>
+
+            <a className="hyperLink withIcon" href="" target="_blank">
+              report
+            </a>
+          </span>
+        </div>
+
+        <br />
+
+        <img src="" />
       </section>
+      */}
     </Fragment>
   );
 }

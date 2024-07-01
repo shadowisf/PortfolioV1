@@ -8,12 +8,13 @@
   --mobile-max-width: 90%;
 
   --about-height: 1400px;
-  --project-height: 3700px;
+  --project-height: 9500px;
   --contact-height: 600px;
 }
 
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
+
   .container,
   .collapseContainer {
     max-width: var(--mobile-max-width);
@@ -38,6 +39,7 @@
 
 /* PC SCREEN */
 @media (min-width: 800.98px) {
+
   .container,
   .collapseContainer {
     max-width: var(--pc-max-width);
@@ -101,7 +103,7 @@ p {
 }
 
 .image {
-  max-width: 100%;
+  width: 100%;
 }
 
 .flexCenterH {
@@ -170,6 +172,7 @@ p {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  cursor: default;
 }
 
 .architecture li {
@@ -335,6 +338,8 @@ p {
   -moz-user-select: none;
   -ms-user-select: none;
 
+  cursor: default;
+
   color: var(--text-color);
   background-color: var(--background-color);
   font-size: small;
@@ -436,7 +441,9 @@ p {
 }
 
 .collapseContainer {
-  margin-top: -3.19rem;
+  z-index: -1;
+  position: relative;
+  margin-top: -3.25rem;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -452,18 +459,25 @@ p {
 
 .collapseContainer.about.expanded {
   max-height: var(--about-height);
-  border-bottom: dashed;
   margin-bottom: 15rem;
+  z-index: 0;
 }
 
 .collapseContainer.project.expanded {
   max-height: var(--project-height);
-  border-bottom: dashed;
   margin-bottom: 15rem;
+  z-index: 0;
 }
 
 .collapseContainer.contact.expanded {
   max-height: var(--contact-height);
-  border-bottom: dashed;
   margin-bottom: 15rem;
+  z-index: 0;
+}
+
+.quoteCard {
+  display: flex;
+  border: solid;
+  gap: 3rem;
+  padding: 1rem;
 }

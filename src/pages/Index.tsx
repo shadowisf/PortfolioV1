@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { ExpandedState } from "../components/Types";
 import NavBar from "../components/NavBar";
 import Project from "../components/Project";
@@ -6,13 +6,20 @@ import Contact from "../components/Contact";
 import About from "../components/About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
+import IllustrationOttoOctavius from "../assets/IllustrationOttoOctavius";
+
+const initialExpandedState: ExpandedState = {
+  project: false,
+  contact: false,
+  about: true,
+};
 
 export default function Index() {
-  const [expanded, setExpanded] = useState<ExpandedState>({
-    project: false,
-    contact: false,
-    about: true,
-  });
+  const [expanded, setExpanded] = useState<ExpandedState>(initialExpandedState);
+
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const toggle = (key: keyof ExpandedState) => {
     setExpanded((prevState) =>
@@ -25,6 +32,38 @@ export default function Index() {
         {} as { [key in keyof ExpandedState]: boolean }
       )
     );
+
+    // Scroll only when expanding a section
+    if (!expanded[key]) {
+      setTimeout(() => {
+        let ref: React.RefObject<HTMLDivElement> | null = null;
+        let offset = 25; // Adjust offset value as needed
+
+        switch (key) {
+          case "about":
+            ref = aboutRef;
+            break;
+          case "project":
+            ref = projectRef;
+            break;
+          case "contact":
+            ref = contactRef;
+            break;
+          default:
+            break;
+        }
+
+        if (ref && ref.current) {
+          const element = ref.current;
+          const topOffset = element.offsetTop - offset;
+          element.scrollIntoView({ behavior: "smooth" });
+          window.scrollTo({
+            top: topOffset,
+            behavior: "smooth",
+          });
+        }
+      }, 1400); // Adjust delay time as needed (500ms here)
+    }
   };
 
   return (
@@ -33,6 +72,7 @@ export default function Index() {
 
       {/* about */}
       <header
+        ref={aboutRef}
         className={`container topMargin bigHeader ${
           expanded.about ? "active typedCollapsedAbout" : "typedAbout"
         }`}
@@ -48,6 +88,7 @@ export default function Index() {
 
       {/* project */}
       <header
+        ref={projectRef}
         className={`container bigHeader ${
           expanded.project ? "active typedCollapsedProject" : "typedProject"
         }`}
@@ -63,22 +104,54 @@ export default function Index() {
 
       {/* contact */}
       <header
+        ref={contactRef}
         className={`container bigHeader ${
           expanded.contact ? "active typedCollapsedContact" : "typedContact"
         }`}
         onClick={() => toggle("contact")}
       ></header>
       <div
-        id="contact"
-        className={`collapseContainer bottomMargin ${
+        className={`bottomMargin collapseContainer ${
           expanded.contact ? "transitionDelay contact expanded" : ""
         }`}
       >
         <Contact />
       </div>
 
+      <section className="container quoteCard">
+        <picture className="image flexCenterV">
+          <IllustrationOttoOctavius />
+        </picture>
+        <text className="aboutText textCenter">
+          <span>
+            <span className="smallHeader">"</span>he tells me you're{" "}
+            <span className="smallHeader">brilliant.</span> he also tells me
+            you're <span className="smallHeader">lazy."</span>
+
+            <br />
+            <br />
+            <br />
+
+            <b>-- otto octavius</b> <br /> (spiderman 2)
+          </span>
+        </text>
+      </section>
+
       <ToolTip />
       <BottomCard />
     </Fragment>
   );
+}
+
+{
+  /* 
+FOR MAKING TWO-TONE PNG
+https://onlinetools.com/image/create-two-color-image
+
+FOR PNG TO SVG 
+https://www.pngtosvg.com
+
+FOR SVG COMPRESSION
+https://jakearchibald.github.io/svgomg/
+*/
 }
