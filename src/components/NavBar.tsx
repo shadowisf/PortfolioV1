@@ -104,40 +104,40 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
   return (
     <Fragment>
       <nav id="navNormal" className="navbar">
-        <Link className="logo dotHoverTC" to="/">
+        <Link className="logo noCursor dotHoverTC" to="/">
           les ranalan
         </Link>
 
-        <span className="hamburgerButtonTC dotHoverTC" onClick={toggleMenu}>
+        <span
+          className="hamburgerButtonTC noCursor dotHoverTC"
+          onClick={toggleMenu}
+        >
           menu
         </span>
       </nav>
 
-      <Link id="navFixed" className="logo noNav dotHoverTC" to="/">
+      <Link id="navFixed" className="logo noCursor noNav dotHoverTC" to="/">
         les ranalan
       </Link>
 
       <span
         id="navFixed"
-        className="hamburgerButtonTC noNav dotHoverTC"
+        className="hamburgerButtonTC noCursor noNav dotHoverTC"
         onClick={toggleMenu}
       >
         menu
       </span>
 
-      <div
-        className={`hamburgerMenu ${isOpen ? "open" : ""}`}
-        onClick={toggleMenu}
-      >
+      <div className={`hamburgerMenu ${isOpen ? "open" : ""}`}>
         <span
-          className="hamburgerButtonBC dotHoverBC hamburgerMobileCloseButton"
+          className="hamburgerButtonBC noCursor dotHoverBC hamburgerMobileCloseButton"
           onClick={toggleMenu}
         >
           close
         </span>
 
         <a
-          className="dotHoverBC"
+          className="dotHoverBC noCursor"
           onClick={() => {
             toggleMenu();
             toggleExpand("about");
@@ -146,7 +146,7 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
           about
         </a>
         <a
-          className="dotHoverBC"
+          className="dotHoverBC noCursor"
           onClick={() => {
             toggleMenu();
             toggleExpand("project");
@@ -155,7 +155,7 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
           projects
         </a>
         <a
-          className="dotHoverBC"
+          className="dotHoverBC noCursor"
           onClick={() => {
             toggleMenu();
             toggleExpand("contact");

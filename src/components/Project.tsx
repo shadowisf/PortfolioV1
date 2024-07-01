@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
-import IllustrationHorizontalLine from "../assets/IllustrationHorizontalLine";
+import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
 
 export default function Project() {
@@ -22,7 +22,7 @@ export default function Project() {
 
         <text className="flexCenterH">2024</text>
 
-        <ul className="architecture flexCenterH">
+        <ul className="architecture noCursor flexCenterH">
           <li>typescript (react)</li>
           <li>html</li>
           <li>css</li>
@@ -79,7 +79,7 @@ export default function Project() {
       </section>
 
       <line className="flexCenterH topMargin bottomMargin">
-        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+        <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </line>
 
       {/* circuitcentral */}
@@ -88,7 +88,7 @@ export default function Project() {
 
         <text className="flexCenterH">2024</text>
 
-        <ul className="architecture flexCenterH">
+        <ul className="architecture noCursor flexCenterH">
           <li>c#</li>
           <li>windows sql server</li>
           <li>windows forms</li>
@@ -155,7 +155,7 @@ export default function Project() {
       </section>
 
       <line className="flexCenterH topMargin bottomMargin">
-        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+        <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </line>
 
       {/* apollo hospital */}
@@ -164,7 +164,7 @@ export default function Project() {
 
         <text className="flexCenterH">2023</text>
 
-        <ul className="architecture flexCenterH">
+        <ul className="architecture noCursor flexCenterH">
           <li>python (flask)</li>
           <li>xampp</li>
           <li>html (django)</li>
@@ -220,7 +220,7 @@ export default function Project() {
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
-        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+        <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </line>
 
       {/* funculator */}
@@ -229,7 +229,7 @@ export default function Project() {
 
         <text className="flexCenterH">2022</text>
 
-        <ul className="architecture flexCenterH">
+        <ul className="architecture noCursor flexCenterH">
           <li>java</li>
           <li>swing</li>
           <li>ui/ux</li>
@@ -284,7 +284,7 @@ export default function Project() {
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
-        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+        <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </line>
 
       {/* bell hospital */}
@@ -293,7 +293,7 @@ export default function Project() {
 
         <text className="flexCenterH">2022</text>
 
-        <ul className="architecture flexCenterH">
+        <ul className="architecturenoCursor flexCenterH">
           <li>java</li>
           <li>file handling</li>
           <li>cli</li>
@@ -347,7 +347,7 @@ export default function Project() {
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
-        <IllustrationHorizontalLine width="25%" strokeDasharray="10" />
+        <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </line>
 
       {/* plug-ins */}
@@ -356,7 +356,7 @@ export default function Project() {
 
         <text className="flexCenterH">2022</text>
 
-        <ul className="architecture flexCenterH">
+        <ul className="architecture noCursor flexCenterH">
           <li>php</li>
           <li>html</li>
           <li>xampp</li>
@@ -413,7 +413,7 @@ export default function Project() {
 
         <text className="flexCenterH">year</text>
 
-        <ul className="architecture flexCenterH">
+        <ul className="architecture noCursor flexCenterH">
           <li></li>
         </ul>
 

@@ -1,18 +1,20 @@
 interface Props {
   className?: string;
   strokeDasharray?: string;
-  width?: string;
+  height?: string;
+  id?: string;
 }
 
-export default function IllustrationHorizontalLine({
+export default function IllustrationLineV({
   className,
   strokeDasharray,
-  width,
+  height,
+  id,
 }: Props) {
   return (
-    <svg width={width} height="40" className={className}>
+    <svg width="40" height={height} className={className} id={id}>
       <path
-        d="M 0 20 L 5000 20"
+        d="M 20 0 L 20 1000"
         style={{
           stroke: "var(--text-color)",
           strokeDasharray: strokeDasharray,

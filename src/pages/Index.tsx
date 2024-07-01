@@ -7,6 +7,8 @@ import About from "../components/About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import IllustrationOttoOctavius from "../assets/IllustrationOttoOctavius";
+import IconQuoteLeft from "../assets/IconQuoteLeft";
+import IconQuoteRight from "../assets/IconQuoteRight";
 
 const initialExpandedState: ExpandedState = {
   project: false,
@@ -33,11 +35,10 @@ export default function Index() {
       )
     );
 
-    // Scroll only when expanding a section
     if (!expanded[key]) {
       setTimeout(() => {
         let ref: React.RefObject<HTMLDivElement> | null = null;
-        let offset = 25; // Adjust offset value as needed
+        let offset = 75;
 
         switch (key) {
           case "about":
@@ -62,7 +63,7 @@ export default function Index() {
             behavior: "smooth",
           });
         }
-      }, 1400); // Adjust delay time as needed (500ms here)
+      }, 0);
     }
   };
 
@@ -73,18 +74,20 @@ export default function Index() {
       {/* about */}
       <header
         ref={aboutRef}
-        className={`container topMargin bigHeader ${
+        className={`container topMargin bigHeader noCursor ${
           expanded.about ? "active typedCollapsedAbout" : "typedAbout"
         }`}
         onClick={() => toggle("about")}
       ></header>
-      <div
+      <section
         className={`collapseContainer ${
           expanded.about ? "transitionDelay about expanded" : ""
         }`}
       >
-        <About />
-      </div>
+        <About toggleExpand={toggle}/>
+      </section>
+
+      <br />
 
       {/* project */}
       <header
@@ -94,13 +97,15 @@ export default function Index() {
         }`}
         onClick={() => toggle("project")}
       ></header>
-      <div
+      <section
         className={`collapseContainer ${
           expanded.project ? "transitionDelay project expanded" : ""
         }`}
       >
         <Project />
-      </div>
+      </section>
+
+      <br />
 
       {/* contact */}
       <header
@@ -110,31 +115,61 @@ export default function Index() {
         }`}
         onClick={() => toggle("contact")}
       ></header>
-      <div
+      <section
         className={`bottomMargin collapseContainer ${
           expanded.contact ? "transitionDelay contact expanded" : ""
         }`}
       >
         <Contact />
-      </div>
+      </section>
 
-      <section className="container quoteCard">
-        <picture className="image flexCenterV">
+      <br />
+
+      {/* otto octavius */}
+      <section className="container vhalf quoteCard noCursor">
+        <picture id="fs" className="flexCenterV">
           <IllustrationOttoOctavius />
         </picture>
-        <text className="aboutText textCenter">
-          <span>
-            <span className="smallHeader">"</span>he tells me you're{" "}
-            <span className="smallHeader">brilliant.</span> he also tells me
-            you're <span className="smallHeader">lazy."</span>
 
-            <br />
-            <br />
-            <br />
+        <picture id="hs" className="flexCenterH">
+          <IllustrationOttoOctavius />
+        </picture>
 
+        <aside id="ottoText" className="gridCenterV textCenter">
+          <p id="fs">
+            <picture className="flexLeftH">
+              <IconQuoteLeft />
+            </picture>
+            he told me you're <span className="smallHeader">brilliant.</span>
+            <br />
+            he also told me you're
+            <br />
+            <span className="smallHeader">lazy.</span>
+            <picture className="flexRightH">
+              <IconQuoteRight />
+            </picture>
+          </p>
+
+          <p id="fs" className="textCenter">
             <b>-- otto octavius</b> <br /> (spiderman 2)
-          </span>
-        </text>
+          </p>
+
+          <p id="hs">
+            <IconQuoteLeft /> he told me you're{" "}
+            <span className="smallHeader">brilliant.</span>
+            <br />
+            he also told me you're <span className="smallHeader">
+              lazy.
+            </span>{" "}
+            <IconQuoteRight />
+          </p>
+
+          <p id="hs" className="textCenter">
+            <br />
+            <br />
+            <b>-- otto octavius</b> <br /> (spiderman 2)
+          </p>
+        </aside>
       </section>
 
       <ToolTip />
@@ -145,13 +180,17 @@ export default function Index() {
 
 {
   /* 
-FOR MAKING TWO-TONE PNG
+BLACK AND WHITE PNG CONVERTER
 https://onlinetools.com/image/create-two-color-image
 
-FOR PNG TO SVG 
+PNG TO SVG CONVERTER
 https://www.pngtosvg.com
 
-FOR SVG COMPRESSION
+SVG OPTIMIZATION AND COMPRESSION
 https://jakearchibald.github.io/svgomg/
+
+SVG ICONS
+https://remixicon.com/
+https://www.flaticon.com/
 */
 }
