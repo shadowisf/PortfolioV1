@@ -730,18 +730,6 @@ $__typed-id: 0;
   );
 }
 
-.typedAbout {
-  @include typed(
-    "about",
-    null,
-    (
-      caret: false,
-      iterations: 0,
-      delay: 1,
-    )
-  );
-}
-
 .typedCollapsedAbout {
   @include typed(
     "hey, i'm les!",
@@ -749,19 +737,7 @@ $__typed-id: 0;
     (
       caret: false,
       iterations: 0,
-      delay: 0,
-    )
-  );
-}
-
-.typedProject {
-  @include typed(
-    "projects",
-    null,
-    (
-      caret: false,
-      iterations: 0,
-      delay: 1,
+      delay: 0.3,
     )
   );
 }
@@ -773,19 +749,7 @@ $__typed-id: 0;
     (
       caret: false,
       iterations: 0,
-      delay: 0,
-    )
-  );
-}
-
-.typedContact {
-  @include typed(
-    "contact",
-    null,
-    (
-      caret: false,
-      iterations: 0,
-      delay: 1,
+      delay: 0.3,
     )
   );
 }
@@ -793,6 +757,18 @@ $__typed-id: 0;
 .typedCollapsedContact {
   @include typed(
     "get in touch!",
+    null,
+    (
+      caret: false,
+      iterations: 0,
+      delay: 0.3,
+    )
+  );
+}
+
+.typedEmpty {
+  @include typed(
+    " ",
     null,
     (
       caret: false,

@@ -18,7 +18,7 @@ export default function Project() {
     <Fragment>
       {/* portfolio */}
       <section className="container">
-        <header className="smallHeader flexCenterH">portfolio</header>
+        <header className="largeHeader flexCenterH">portfolio</header>
 
         <text className="flexCenterH">2024</text>
 
@@ -92,7 +92,7 @@ export default function Project() {
 
       {/* circuitcentral */}
       <section className="container bottomMargin">
-        <header className="flexCenterH smallHeader">circuitcentral</header>
+        <header className="flexCenterH largeHeader">circuitcentral</header>
 
         <text className="flexCenterH">2024</text>
 
@@ -168,7 +168,7 @@ export default function Project() {
 
       {/* apollo hospital */}
       <section className="container bottomMargin">
-        <header className="flexCenterH smallHeader">apollo hospital</header>
+        <header className="flexCenterH largeHeader">apollo hospital</header>
 
         <text className="flexCenterH">2023</text>
 
@@ -233,7 +233,7 @@ export default function Project() {
 
       {/* funculator */}
       <section className="container">
-        <header className="flexCenterH smallHeader">funculator</header>
+        <header className="flexCenterH largeHeader">funculator</header>
 
         <text className="flexCenterH">2022</text>
 
@@ -297,11 +297,11 @@ export default function Project() {
 
       {/* bell hospital */}
       <section className="container">
-        <header className="flexCenterH smallHeader">bell hospital</header>
+        <header className="flexCenterH largeHeader">bell hospital</header>
 
         <text className="flexCenterH">2022</text>
 
-        <ul className="architecturenoCursor flexCenterH">
+        <ul className="architecture noCursor flexCenterH">
           <li>java</li>
           <li>file handling</li>
           <li>cli</li>
@@ -360,7 +360,7 @@ export default function Project() {
 
       {/* plug-ins */}
       <section className="container">
-        <header className="flexCenterH smallHeader">plug-ins</header>
+        <header className="flexCenterH largeHeader">plug-ins</header>
 
         <text className="flexCenterH">2022</text>
 
@@ -417,7 +417,7 @@ export default function Project() {
 
       {/*
       <section className="container">
-        <header className="flexCenterH smallHeader">project name</header>
+        <header className="flexCenterH largeHeader">project name</header>
 
         <text className="flexCenterH">year</text>
 

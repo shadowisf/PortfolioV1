@@ -2,11 +2,13 @@ import { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 type NavBarProps = {
-  collapseDiv: (div: string) => void;
+  collapseDiv: (element: string) => void;
+  scrollTo: (element: string) => void;
 };
 
-const NavBar: React.FC<NavBarProps> = ({ collapseDiv }) => {
+const NavBar: React.FC<NavBarProps> = ({ collapseDiv, scrollTo }) => {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
+  const [isBordersExist, setBordersExist] = useState(false);
 
   const toggleHamburgerMenu = () => {
     setHamburgerMenuOpen(!isHamburgerMenuOpen);
@@ -65,40 +67,38 @@ const NavBar: React.FC<NavBarProps> = ({ collapseDiv }) => {
     document.documentElement.style.setProperty("--background-color", bgColor);
   };
 
-  /* reset theme */
-  useEffect(() => {
-    const handleKeyPress = (event: { key: string }) => {
-      if (event.key === "r" || event.key === "R") {
-        document.documentElement.style.setProperty("--text-color", "black");
+  document.addEventListener("keydown", function (event) {
+    // generate theme
+    if (event.key === "E" || event.key === "e") {
+      generateADACompliantColors();
+    }
 
-        document.documentElement.style.setProperty(
-          "--background-color",
-          "antiquewhite"
-        );
+    // reset theme
+    if (event.key === "R" || event.key === "r") {
+      document.documentElement.style.setProperty("--text-color", "black");
+
+      document.documentElement.style.setProperty(
+        "--background-color",
+        "antiquewhite"
+      );
+    }
+
+    // mass borders
+    if (event.key === "T" || event.key === "t") {
+      if (!isBordersExist) {
+        document.documentElement.style.setProperty("--border", "solid");
+        setBordersExist(true);
+      } else {
+        document.documentElement.style.setProperty("--border", "none");
+        setBordersExist(false);
       }
-    };
+    }
 
-    document.addEventListener("keypress", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("keypress", handleKeyPress);
-    };
-  }, [isHamburgerMenuOpen]);
-
-  /* generate theme */
-  useEffect(() => {
-    const handleKeyPress = (event: { key: string }) => {
-      if (event.key === "e" || event.key === "E") {
-        generateADACompliantColors();
-      }
-    };
-
-    document.addEventListener("keypress", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("keypress", handleKeyPress);
-    };
-  }, [isHamburgerMenuOpen]);
+    // unbind keys
+    if (event.key === "Tab" || event.key === " ") {
+      event.preventDefault();
+    }
+  });
 
   return (
     <Fragment>
@@ -140,6 +140,7 @@ const NavBar: React.FC<NavBarProps> = ({ collapseDiv }) => {
           onClick={() => {
             toggleHamburgerMenu();
             collapseDiv("about");
+            scrollTo("about");
           }}
         >
           about
@@ -149,6 +150,7 @@ const NavBar: React.FC<NavBarProps> = ({ collapseDiv }) => {
           onClick={() => {
             toggleHamburgerMenu();
             collapseDiv("project");
+            scrollTo("project");
           }}
         >
           projects
@@ -158,6 +160,7 @@ const NavBar: React.FC<NavBarProps> = ({ collapseDiv }) => {
           onClick={() => {
             toggleHamburgerMenu();
             collapseDiv("contact");
+            scrollTo("contact");
           }}
         >
           contact

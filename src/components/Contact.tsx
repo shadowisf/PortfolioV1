@@ -14,47 +14,47 @@ export default function Contact() {
         </p>
 
         <section className="container socials">
-        <span className="flexCenterV">
-          <picture className="flexCenterV">
-            <IconLinkedIn />
-          </picture>
-          <a
-            className="hyperLink withIcon"
-            href="https://www.linkedin.com/in/les-paul-ranalan/"
-            target="_blank"
-          >
-            les paul ranalan
-          </a>
-        </span>
-        <span className="flexCenterV">
-          <picture className="flexCenterV">
-            <IconEmail />
-          </picture>
-          <a
-            className="hyperLink withIcon"
-            href="mailto:les.ranalan@gmail.com"
-            target="_blank"
-          >
-            les.ranalan@gmail.com
-          </a>
-        </span>
-        <span className="flexCenterV">
-          <picture className="flexCenterV">
-            <IconInstagram />
-          </picture>
-          <a
-            className="hyperLink withIcon"
-            href="https://www.instagram.com/les.rx"
-            target="_blank"
-          >
-            @les.rx
-          </a>
-        </span>
-      </section>
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconLinkedIn />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href="https://www.linkedin.com/in/les-paul-ranalan/"
+              target="_blank"
+            >
+              les paul ranalan
+            </a>
+          </span>
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconEmail />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href="mailto:les.ranalan@gmail.com"
+              target="_blank"
+            >
+              les.ranalan@gmail.com
+            </a>
+          </span>
+          <span className="flexCenterV">
+            <picture className="flexCenterV">
+              <IconInstagram />
+            </picture>
+            <a
+              className="hyperLink withIcon"
+              href="https://www.instagram.com/les.rx"
+              target="_blank"
+            >
+              @les.rx
+            </a>
+          </span>
+        </section>
 
-        <header className="smallHeader flexCenterH">
+        <p className="mediumHeader textCenter">
           leave a message and <br /> i'll get back to you!
-        </header>
+        </p>
       </section>
     </Fragment>
   );

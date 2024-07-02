@@ -1,4 +1,4 @@
-export default function IconGraduateHate() {
+export default function IconGraduateHat() {
   return (
     <svg
       height="40"

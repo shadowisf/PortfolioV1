@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { scroller, Element, animateScroll } from "react-scroll";
 import NavBar from "../components/NavBar";
 import Project from "../components/Project";
@@ -14,192 +14,238 @@ import IconQuoteRight from "../assets/IconQuoteRight";
 }
 
 export default function Index() {
+  useEffect(() => {
+    hideDiv("contactHeader", "contactContainer", "now");
+    hideDiv("projectHeader", "projectContainer", "now");
+
+    collapseDiv("about");
+    animateScroll.scrollTo(0, scrollOptions);
+  }, []);
+
   const [isAboutOpen, setAboutOpen] = useState(false);
   const [isProjectOpen, setProjectOpen] = useState(false);
   const [isContactOpen, setContactOpen] = useState(false);
+
   const scrollOptions = {
     duration: 500,
-    delay: 0,
     smooth: true,
     offset: -100,
     ignoreCancelEvents: false,
   };
 
-  const collapseDiv = (div: string) => {
-    let scrollDelay = 1500;
-    let animationDelay = 2000;
+  const animationDelay = 1100;
 
-    if (div === "about") {
-      if (isContactOpen || isProjectOpen) {
-        setContactOpen(false);
-        setProjectOpen(false);
+  const scrollTo = (element: string) => {
+    if (
+      (element === "about" && isAboutOpen) ||
+      (element === "project" && isProjectOpen) ||
+      (element === "contact" && isContactOpen)
+    ) {
+      setTimeout(() => {
+        scroller.scrollTo(element, scrollOptions);
+      }, 0);
+    } else {
+      animateScroll.scrollTo(0, scrollOptions);
+    }
+  };
 
-        setTimeout(() => {
-          setAboutOpen(!isAboutOpen);
-        }, animationDelay);
-      } else {
+  const hideDiv = (
+    elementHeader: string,
+    elementContainer: string,
+    when?: string
+  ) => {
+    let divHeader = document.getElementById(elementHeader);
+    let divContainer = document.getElementById(elementContainer);
+
+    if (divHeader && divContainer && when === "delay") {
+      setTimeout(() => {
+        divHeader.style.display = "none";
+        divContainer.style.display = "none";
+        divHeader.style.opacity = "0";
+        divContainer.style.opacity = "0";
+      }, 1000);
+    } else if (divHeader && divContainer && when === "now") {
+      setTimeout(() => {
+        divHeader.style.display = "none";
+        divContainer.style.display = "none";
+        divHeader.style.opacity = "0";
+        divContainer.style.opacity = "0";
+      }, 0);
+    }
+  };
+
+  const showDiv = (
+    elementHeader: string,
+    elementContainer: string,
+    when?: string
+  ) => {
+    let divHeader = document.getElementById(elementHeader);
+    let divContainer = document.getElementById(elementContainer);
+
+    if (divHeader && divContainer && when === "delay") {
+      setTimeout(() => {
+        divHeader.style.display = "block";
+        divContainer.style.display = "block";
+        divContainer.style.opacity = "1";
+        divHeader.style.opacity = "1";
+      }, 1000);
+    } else if (divHeader && divContainer && when === "now") {
+      setTimeout(() => {
+        divHeader.style.display = "block";
+        divContainer.style.display = "block";
+        divContainer.style.opacity = "1";
+        divHeader.style.opacity = "1";
+      }, 0);
+    }
+  };
+
+  const collapseDiv = (element: string) => {
+    if (element === "about" && !isAboutOpen) {
+      setContactOpen(false);
+      setProjectOpen(false);
+
+      showDiv("aboutHeader", "aboutContainer", "delay");
+      hideDiv("contactHeader", "contactContainer", "delay");
+      hideDiv("projectHeader", "projectContainer", "delay");
+
+      setTimeout(() => {
         setAboutOpen(!isAboutOpen);
-      }
+      }, animationDelay);
 
-      if (!isAboutOpen) {
-        animateScroll.scrollTo(0);
-        setTimeout(() => {
-          scroller.scrollTo(div, scrollOptions);
-        }, scrollDelay);
-      } else {
-        animateScroll.scrollTo(0);
-      }
+      scrollTo(element);
     }
 
-    if (div === "project") {
-      if (isContactOpen || isAboutOpen) {
-        setContactOpen(false);
-        setAboutOpen(false);
+    if (element === "project" && !isProjectOpen) {
+      setContactOpen(false);
+      setAboutOpen(false);
 
-        setTimeout(() => {
-          setProjectOpen(!isProjectOpen);
-        }, animationDelay);
-      } else {
+      showDiv("projectHeader", "projectContainer", "delay");
+      hideDiv("contactHeader", "contactContainer", "delay");
+      hideDiv("aboutHeader", "aboutContainer", "delay");
+
+      setTimeout(() => {
         setProjectOpen(!isProjectOpen);
-      }
+      }, animationDelay);
 
-      if (!isProjectOpen) {
-        animateScroll.scrollTo(0);
-        setTimeout(() => {
-          scroller.scrollTo(div, scrollOptions);
-        }, scrollDelay);
-      } else {
-        animateScroll.scrollTo(0);
-      }
+      scrollTo(element);
     }
 
-    if (div === "contact") {
-      if (isAboutOpen || isProjectOpen) {
-        setAboutOpen(false);
-        setProjectOpen(false);
+    if (element === "contact" && !isContactOpen) {
+      setAboutOpen(false);
+      setProjectOpen(false);
 
-        setTimeout(() => {
-          setContactOpen(!isContactOpen);
-        }, animationDelay);
-      } else {
+      showDiv("contactHeader", "contactContainer", "delay");
+      hideDiv("projectHeader", "projectContainer", "delay");
+      hideDiv("aboutHeader", "aboutContainer", "delay");
+
+      setTimeout(() => {
         setContactOpen(!isContactOpen);
-      }
+      }, animationDelay);
 
-      if (!isContactOpen) {
-        animateScroll.scrollTo(0);
-        setTimeout(() => {
-          scroller.scrollTo(div, scrollOptions);
-        }, scrollDelay);
-      } else {
-        animateScroll.scrollTo(0);
-      }
+      scrollTo(element);
     }
   };
 
   return (
     <Fragment>
-      <NavBar collapseDiv={collapseDiv} />
+      <NavBar collapseDiv={collapseDiv} scrollTo={scrollTo} />
 
       {/* about */}
       <Element
+        id="aboutHeader"
         name="about"
-        className={`container topMargin bigHeader noCursor ${
-          isAboutOpen ? "active typedCollapsedAbout" : "typedAbout"
+        className={`container topMargin noCursor divHeader ${
+          isAboutOpen ? "active typedCollapsedAbout" : "typedEmpty"
         }`}
-        onClick={() => collapseDiv("about")}
       ></Element>
       <section
-        className={`collapseContainer ${
+        id="aboutContainer"
+        className={`bottomMarginHUGE collapseContainer ${
           isAboutOpen ? "transitionDelay about expanded" : ""
         }`}
       >
         <About collapseDiv={collapseDiv} />
       </section>
-      <br />
 
       {/* project */}
       <Element
+        id="projectHeader"
         name="project"
-        className={`container bigHeader ${
-          isProjectOpen ? "active typedCollapsedProject" : "typedProject"
+        className={`container topMargin noCursor divHeader ${
+          isProjectOpen ? "active typedCollapsedProject" : "typedEmpty"
         }`}
-        onClick={() => collapseDiv("project")}
       ></Element>
       <section
-        className={`collapseContainer ${
+        id="projectContainer"
+        className={`bottomMarginHUGE collapseContainer ${
           isProjectOpen ? "transitionDelay project expanded" : ""
         }`}
       >
         <Project />
       </section>
 
-      <br />
-
       {/* contact */}
       <Element
+        id="contactHeader"
         name="contact"
-        className={`container bigHeader ${
-          isContactOpen ? "active typedCollapsedContact" : "typedContact"
+        className={`container topMargin noCursor divHeader ${
+          isContactOpen ? "active typedCollapsedContact" : "typedEmpty"
         }`}
-        onClick={() => collapseDiv("contact")}
       ></Element>
       <section
-        className={`bottomMargin collapseContainer ${
+        id="contactContainer"
+        className={`bottomMarginHUGE collapseContainer ${
           isContactOpen ? "transitionDelay contact expanded" : ""
         }`}
       >
         <Contact />
       </section>
 
-      <br />
+      {/* wall of quotes */}
+      <section className="topMargin container">
+        <header className="largeHeader flexCenterH">the wall of quotes!</header>
 
-      {/* otto octavius */}
-      <section className="container vhalf quoteCard noCursor">
-        <picture id="fs" className="flexCenterV">
-          <IllustrationOttoOctavius />
-        </picture>
+        <br />
 
-        <picture id="hs" className="flexCenterH">
-          <IllustrationOttoOctavius />
-        </picture>
+        <section className="vhalf quoteCard">
+          <picture className="flexCenterH">
+            <IllustrationOttoOctavius />
+          </picture>
 
-        <aside id="ottoText" className="gridCenterV textCenter">
-          <p id="fs">
-            <picture className="flexLeftH">
-              <IconQuoteLeft />
-            </picture>
-            he told me you're <span className="smallHeader">brilliant.</span>
-            <br />
-            he also told me you're
-            <br />
-            <span className="smallHeader">lazy.</span>
-            <picture className="flexRightH">
-              <IconQuoteRight />
-            </picture>
-          </p>
+          <aside id="ottoText" className="gridCenterV textCenter">
+            <p id="fs">
+              <picture className="flexLeftH">
+                <IconQuoteLeft />
+              </picture>
+              he told me you're <span className="mediumHeader">brilliant.</span>
+              <br />
+              he also told me <br /> you're{" "}
+              <span className="mediumHeader">lazy.</span>
+              <picture className="flexRightH">
+                <IconQuoteRight />
+              </picture>
+            </p>
 
-          <p id="fs" className="textCenter">
-            <b>-- otto octavius</b> <br /> (spiderman 2)
-          </p>
+            <p id="fs" className="textCenter">
+              <b className="smallHeader">otto octavius</b> <br /> (spiderman 2)
+            </p>
 
-          <p id="hs">
-            <IconQuoteLeft /> he told me you're{" "}
-            <span className="smallHeader">brilliant.</span>
-            <br />
-            he also told me you're <span className="smallHeader">
-              lazy.
-            </span>{" "}
-            <IconQuoteRight />
-          </p>
+            <p id="hs">
+              <br />
+              <IconQuoteLeft /> he told me you're <br />
+              <span className="mediumHeader">brilliant.</span>
+              <br />
+              he also told me you're <br />{" "}
+              <span className="mediumHeader">lazy.</span> <IconQuoteRight />
+            </p>
 
-          <p id="hs" className="textCenter">
-            <br />
-            <br />
-            <b>-- otto octavius</b> <br /> (spiderman 2)
-          </p>
-        </aside>
+            <p id="hs" className="textCenter">
+              <br />
+              <b className="smallHeader">otto octavius</b> <br /> (spiderman 2)
+            </p>
+          </aside>
+        </section>
       </section>
-
       <ToolTip />
       <BottomCard />
     </Fragment>

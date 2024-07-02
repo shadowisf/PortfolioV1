@@ -7,13 +7,11 @@
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
-  --about-height: 2000px;
+  --about-height: 3500px;
   --project-height: 9500px;
   --contact-height: 600px;
-}
 
-html {
-  scroll-behavior: smooth;
+  --border: none;
 }
 
 /* MOBILE SCREEN */
@@ -24,8 +22,10 @@ html {
   }
 
   :root {
-    --font-xl: 10vw;
-    --font-l: 1.5rem;
+    --font-xl: 10vw; /* divHeader */
+    --font-l: 6vw; /* largeHeader */
+    --font-m: 1.5rem; /* mediumHeader */
+    --font-s: 1.25rem; /* smallHeader */
     --font-navbar: x-large;
   }
 
@@ -33,11 +33,6 @@ html {
   #navFixed,
   #tooltip {
     display: none;
-  }
-
-  #aboutText:last-child,
-  #ottoText {
-    margin-top: 3rem;
   }
 }
 
@@ -49,8 +44,10 @@ html {
   }
 
   :root {
-    --font-xl: 5.8rem;
-    --font-l: 2rem;
+    --font-xl: 5.8rem; /* divHeader */
+    --font-l: 3.5rem; /* largeHeader */
+    --font-m: 2rem; /* mediumHeader */
+    --font-s: 1.25rem; /* smallHeader */
     --font-navbar: x-large;
   }
 
@@ -63,10 +60,6 @@ html {
   #hs,
   #navNormal {
     display: none;
-  }
-
-  #aboutText:last-child {
-    margin-top: 0rem;
   }
 
   .bottomcard {
@@ -96,12 +89,14 @@ p {
 }
 
 * {
+  border: var(--border);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-#navFixed, #navNormal {
+#navFixed,
+#navNormal {
   z-index: 1;
 }
 
@@ -156,19 +151,39 @@ p {
   font-weight: 900;
   text-align: center;
   font-style: italic;
-  border: solid;
   padding: 1rem;
   background-color: var(--text-color);
   color: var(--background-color);
 
   cursor: pointer;
+  border: none;
+
+  transition: scale 0.2s ease;
 }
 
-.handPointingButton {
- margin-bottom: 150px;
+.button:hover {
+  scale: 1.1;
 }
 
-.bigHeader {
+.mirrorLeft {
+  transform: rotateY(180deg);
+}
+
+.mirrorUp {
+  transform: rotate(180deg);
+}
+
+.handPointingButtonBottomMargin {
+  margin-bottom: 150px;
+}
+
+.largeHeader {
+  font-weight: 900;
+  font-size: var(--font-l);
+  font-style: italic;
+}
+
+.divHeader {
   font-weight: 900;
   text-align: center;
   font-size: var(--font-xl);
@@ -179,22 +194,29 @@ p {
   box-shadow: 10px 10px var(--text-color);
   border: solid var(--text-color);
 
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    border 0.3s ease;
 }
 
-.bigHeader.active,
-.bigHeader:hover {
+.collapseContainer.transitionDelay {
+  transition-delay: 1.8s;
+}
+
+.divHeader.active {
   background-color: var(--text-color);
   color: var(--background-color);
   box-shadow: none;
   border: solid var(--text-color);
-  cursor: pointer;
+}
+
+.mediumHeader {
+  font-weight: 900;
+  font-size: var(--font-m);
 }
 
 .smallHeader {
   font-weight: 900;
-  font-size: var(--font-l);
-  line-height: 2.5rem;
+  font-size: var(--font-s);
 }
 
 .architecture {
@@ -258,9 +280,9 @@ nav {
 
 .logo:hover,
 .hamburgerButtonTC:hover,
-.hamburgerButtonBC:hover {
+.hamburgerButtonBC:hover,
+.hamburgerMenu a {
   cursor: pointer;
-  font-weight: 900;
 }
 
 .hamburgerButtonTC {
@@ -312,7 +334,6 @@ nav {
   color: var(--background-color);
   text-decoration: none;
   font-size: 7vw;
-  cursor: pointer;
 }
 
 .hamburgerMobileCloseButton {
@@ -372,13 +393,10 @@ nav {
 }
 
 .timelineCaption {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   margin-left: 1rem;
-}
-
-.aboutBust {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  line-height: 1.5rem;
 }
 
 .dotHoverBC {
@@ -434,11 +452,15 @@ nav {
 }
 
 .topMargin {
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 .bottomMargin {
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
+}
+
+.bottomMarginHUGE {
+  margin-bottom: 50rem;
 }
 
 .collapseContainer {
@@ -451,28 +473,21 @@ nav {
   max-height: 0;
   border-bottom: dashed;
 
-  transition: max-height 1s ease, margin-top 1s ease, margin-bottom 1s ease;
-}
-
-.collapseContainer.transitionDelay {
-  transition-delay: 1.5s;
+  transition: max-height 1s ease, margin-top 1s ease, z-index 1s ease;
 }
 
 .collapseContainer.about.expanded {
   max-height: var(--about-height);
-  margin-bottom: 15rem;
   z-index: 0;
 }
 
 .collapseContainer.project.expanded {
   max-height: var(--project-height);
-  margin-bottom: 15rem;
   z-index: 0;
 }
 
 .collapseContainer.contact.expanded {
   max-height: var(--contact-height);
-  margin-bottom: 15rem;
   z-index: 0;
 }
 
@@ -493,4 +508,12 @@ nav {
 .gridCenterV {
   display: grid;
   align-items: center;
+}
+
+.handPointingMarginLeft {
+  margin-left: 25px;
+}
+
+.handPointingMarginRight {
+  margin-right: 60px;
 }
