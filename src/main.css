@@ -12,6 +12,10 @@
   --contact-height: 600px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
   .container,
@@ -164,8 +168,6 @@ p {
  margin-bottom: 150px;
 }
 
-*{border:solid}
-
 .bigHeader {
   font-weight: 900;
   text-align: center;
@@ -223,7 +225,7 @@ p {
   align-items: center;
 }
 
-.navbar {
+nav {
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem;

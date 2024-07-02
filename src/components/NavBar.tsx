@@ -1,16 +1,15 @@
 import { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ExpandedState } from "./Types";
 
 type NavBarProps = {
-  toggleExpand: (key: keyof ExpandedState) => void;
+  collapseDiv: (div: string) => void;
 };
 
-const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const NavBar: React.FC<NavBarProps> = ({ collapseDiv }) => {
+  const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleHamburgerMenu = () => {
+    setHamburgerMenuOpen(!isHamburgerMenuOpen);
   };
 
   const getRandomColor = () => {
@@ -84,7 +83,7 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, [isOpen]);
+  }, [isHamburgerMenuOpen]);
 
   /* generate theme */
   useEffect(() => {
@@ -99,18 +98,18 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, [isOpen]);
+  }, [isHamburgerMenuOpen]);
 
   return (
     <Fragment>
-      <nav id="navNormal" className="navbar">
+      <nav id="navNormal">
         <Link className="logo noCursor dotHoverTC" to="/">
           les ranalan
         </Link>
 
         <span
           className="hamburgerButtonTC noCursor dotHoverTC"
-          onClick={toggleMenu}
+          onClick={toggleHamburgerMenu}
         >
           menu
         </span>
@@ -123,15 +122,15 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
       <span
         id="navFixed"
         className="hamburgerButtonTC noCursor noNav dotHoverTC"
-        onClick={toggleMenu}
+        onClick={toggleHamburgerMenu}
       >
         menu
       </span>
 
-      <div className={`hamburgerMenu ${isOpen ? "open" : ""}`}>
+      <div className={`hamburgerMenu ${isHamburgerMenuOpen ? "open" : ""}`}>
         <span
           className="hamburgerButtonBC noCursor dotHoverBC hamburgerMobileCloseButton"
-          onClick={toggleMenu}
+          onClick={toggleHamburgerMenu}
         >
           close
         </span>
@@ -139,8 +138,8 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
         <a
           className="dotHoverBC noCursor"
           onClick={() => {
-            toggleMenu();
-            toggleExpand("about");
+            toggleHamburgerMenu();
+            collapseDiv("about");
           }}
         >
           about
@@ -148,8 +147,8 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
         <a
           className="dotHoverBC noCursor"
           onClick={() => {
-            toggleMenu();
-            toggleExpand("project");
+            toggleHamburgerMenu();
+            collapseDiv("project");
           }}
         >
           projects
@@ -157,8 +156,8 @@ const NavBar: React.FC<NavBarProps> = ({ toggleExpand }) => {
         <a
           className="dotHoverBC noCursor"
           onClick={() => {
-            toggleMenu();
-            toggleExpand("contact");
+            toggleHamburgerMenu();
+            collapseDiv("contact");
           }}
         >
           contact

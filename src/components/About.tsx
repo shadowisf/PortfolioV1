@@ -1,5 +1,4 @@
 import { Fragment } from "react/jsx-runtime";
-import { ExpandedState } from "./Types";
 import IconCake from "../assets/IconCake";
 import IllustrationVerticalLine from "../assets/IllustrationLineV";
 import IconLocation from "../assets/IconLocation";
@@ -7,13 +6,12 @@ import IconEyeGlasses from "../assets/IconEyeGlasses";
 import IconGraduateHate from "../assets/IconGraduateHat";
 import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
 import IllustrationHandPointingH from "../assets/IllustrationHandPointingH";
-import { Link } from "react-router-dom";
 
 type AboutProps = {
-  toggleExpand: (key: keyof ExpandedState) => void;
+  collapseDiv: (div: string) => void;
 };
 
-const About: React.FC<AboutProps> = ({ toggleExpand }) => {
+const About: React.FC<AboutProps> = ({ collapseDiv }) => {
   return (
     <Fragment>
       {/* hey, i'm les! */}
@@ -61,7 +59,7 @@ const About: React.FC<AboutProps> = ({ toggleExpand }) => {
           </picture>
           <aside className="timelineCaption">
             born in davao, ph <br />
-            <b>april 6, 2018</b>
+            <b>february 15, 2004</b>
           </aside>
         </section>
 
@@ -73,7 +71,7 @@ const About: React.FC<AboutProps> = ({ toggleExpand }) => {
           </picture>
           <aside className="timelineCaption">
             moved to dubai, uae <br />
-            <b>april 6, 2018</b>
+            <b>may 12, 2012</b>
           </aside>
         </section>
 
@@ -122,7 +120,7 @@ const About: React.FC<AboutProps> = ({ toggleExpand }) => {
             <a
               className="button handPointingButton"
               onClick={() => {
-                toggleExpand("project");
+                collapseDiv("project");
               }}
             >
               click me!

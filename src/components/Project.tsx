@@ -66,6 +66,14 @@ export default function Project() {
           >
             pablo stanley
           </a>
+          ,{" "}
+          <a
+            className="hyperLink"
+            href="https://github.com/fisshy"
+            target="_blank"
+          >
+            joachim (fisshy)
+          </a>
           , and{" "}
           <a
             className="hyperLink"

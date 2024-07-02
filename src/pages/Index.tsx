@@ -1,5 +1,5 @@
-import { Fragment, useRef, useState } from "react";
-import { ExpandedState } from "../components/Types";
+import { Fragment, useState } from "react";
+import { scroller, Element, animateScroll } from "react-scroll";
 import NavBar from "../components/NavBar";
 import Project from "../components/Project";
 import Contact from "../components/Contact";
@@ -9,97 +9,125 @@ import ToolTip from "../components/ToolTip";
 import IllustrationOttoOctavius from "../assets/IllustrationOttoOctavius";
 import IconQuoteLeft from "../assets/IconQuoteLeft";
 import IconQuoteRight from "../assets/IconQuoteRight";
-
-const initialExpandedState: ExpandedState = {
-  project: false,
-  contact: false,
-  about: true,
-};
+{
+  /* https://github.com/fisshy/react-scroll */
+}
 
 export default function Index() {
-  const [expanded, setExpanded] = useState<ExpandedState>(initialExpandedState);
+  const [isAboutOpen, setAboutOpen] = useState(false);
+  const [isProjectOpen, setProjectOpen] = useState(false);
+  const [isContactOpen, setContactOpen] = useState(false);
+  const scrollOptions = {
+    duration: 500,
+    delay: 0,
+    smooth: true,
+    offset: -100,
+    ignoreCancelEvents: false,
+  };
 
-  const aboutRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
+  const collapseDiv = (div: string) => {
+    let scrollDelay = 1500;
+    let animationDelay = 2000;
 
-  const toggle = (key: keyof ExpandedState) => {
-    setExpanded((prevState) =>
-      Object.keys(prevState).reduce(
-        (acc: { [key in keyof ExpandedState]: boolean }, currentKey) => {
-          acc[currentKey as keyof ExpandedState] =
-            currentKey === key ? !prevState[key] : false;
-          return acc;
-        },
-        {} as { [key in keyof ExpandedState]: boolean }
-      )
-    );
+    if (div === "about") {
+      if (isContactOpen || isProjectOpen) {
+        setContactOpen(false);
+        setProjectOpen(false);
 
-    if (!expanded[key]) {
-      setTimeout(() => {
-        let ref: React.RefObject<HTMLDivElement> | null = null;
-        let offset = 75;
+        setTimeout(() => {
+          setAboutOpen(!isAboutOpen);
+        }, animationDelay);
+      } else {
+        setAboutOpen(!isAboutOpen);
+      }
 
-        switch (key) {
-          case "about":
-            ref = aboutRef;
-            break;
-          case "project":
-            ref = projectRef;
-            break;
-          case "contact":
-            ref = contactRef;
-            break;
-          default:
-            break;
-        }
+      if (!isAboutOpen) {
+        animateScroll.scrollTo(0);
+        setTimeout(() => {
+          scroller.scrollTo(div, scrollOptions);
+        }, scrollDelay);
+      } else {
+        animateScroll.scrollTo(0);
+      }
+    }
 
-        if (ref && ref.current) {
-          const element = ref.current;
-          const topOffset = element.offsetTop - offset;
-          element.scrollIntoView({ behavior: "smooth" });
-          window.scrollTo({
-            top: topOffset,
-            behavior: "smooth",
-          });
-        }
-      }, 0);
+    if (div === "project") {
+      if (isContactOpen || isAboutOpen) {
+        setContactOpen(false);
+        setAboutOpen(false);
+
+        setTimeout(() => {
+          setProjectOpen(!isProjectOpen);
+        }, animationDelay);
+      } else {
+        setProjectOpen(!isProjectOpen);
+      }
+
+      if (!isProjectOpen) {
+        animateScroll.scrollTo(0);
+        setTimeout(() => {
+          scroller.scrollTo(div, scrollOptions);
+        }, scrollDelay);
+      } else {
+        animateScroll.scrollTo(0);
+      }
+    }
+
+    if (div === "contact") {
+      if (isAboutOpen || isProjectOpen) {
+        setAboutOpen(false);
+        setProjectOpen(false);
+
+        setTimeout(() => {
+          setContactOpen(!isContactOpen);
+        }, animationDelay);
+      } else {
+        setContactOpen(!isContactOpen);
+      }
+
+      if (!isContactOpen) {
+        animateScroll.scrollTo(0);
+        setTimeout(() => {
+          scroller.scrollTo(div, scrollOptions);
+        }, scrollDelay);
+      } else {
+        animateScroll.scrollTo(0);
+      }
     }
   };
 
   return (
     <Fragment>
-      <NavBar toggleExpand={toggle} />
+      <NavBar collapseDiv={collapseDiv} />
 
       {/* about */}
-      <header
-        ref={aboutRef}
+      <Element
+        name="about"
         className={`container topMargin bigHeader noCursor ${
-          expanded.about ? "active typedCollapsedAbout" : "typedAbout"
+          isAboutOpen ? "active typedCollapsedAbout" : "typedAbout"
         }`}
-        onClick={() => toggle("about")}
-      ></header>
+        onClick={() => collapseDiv("about")}
+      ></Element>
       <section
         className={`collapseContainer ${
-          expanded.about ? "transitionDelay about expanded" : ""
+          isAboutOpen ? "transitionDelay about expanded" : ""
         }`}
       >
-        <About toggleExpand={toggle}/>
+        <About collapseDiv={collapseDiv} />
       </section>
-
       <br />
 
       {/* project */}
-      <header
-        ref={projectRef}
+      <Element
+        name="project"
         className={`container bigHeader ${
-          expanded.project ? "active typedCollapsedProject" : "typedProject"
+          isProjectOpen ? "active typedCollapsedProject" : "typedProject"
         }`}
-        onClick={() => toggle("project")}
-      ></header>
+        onClick={() => collapseDiv("project")}
+      ></Element>
       <section
         className={`collapseContainer ${
-          expanded.project ? "transitionDelay project expanded" : ""
+          isProjectOpen ? "transitionDelay project expanded" : ""
         }`}
       >
         <Project />
@@ -108,16 +136,16 @@ export default function Index() {
       <br />
 
       {/* contact */}
-      <header
-        ref={contactRef}
+      <Element
+        name="contact"
         className={`container bigHeader ${
-          expanded.contact ? "active typedCollapsedContact" : "typedContact"
+          isContactOpen ? "active typedCollapsedContact" : "typedContact"
         }`}
-        onClick={() => toggle("contact")}
-      ></header>
+        onClick={() => collapseDiv("contact")}
+      ></Element>
       <section
         className={`bottomMargin collapseContainer ${
-          expanded.contact ? "transitionDelay contact expanded" : ""
+          isContactOpen ? "transitionDelay contact expanded" : ""
         }`}
       >
         <Contact />
