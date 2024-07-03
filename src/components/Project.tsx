@@ -4,7 +4,7 @@ import IconGithub from "../assets/IconGithub";
 import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
 
-export default function Project() {
+const Project = () => {
   useEffect(() => {
     const zoom = mediumZoom("img", { background: "var(--background-color)" });
     /* https://github.com/francoischalifour/medium-zoom */
@@ -17,6 +17,7 @@ export default function Project() {
   return (
     <Fragment>
       {/* portfolio */}
+
       <section className="container">
         <header className="largeHeader flexCenterH">portfolio</header>
 
@@ -135,8 +136,8 @@ export default function Project() {
             </picture>
             <a
               className="hyperLink withIcon"
-              href=""
-              download="CircuitCentralProposal.PDF"
+              href="files/FileCircuitCentralProposal.PDF"
+              target="_blank"
             >
               proposal report
             </a>
@@ -148,8 +149,8 @@ export default function Project() {
             </picture>
             <a
               className="hyperLink withIcon"
-              href=""
-              download="CircuitCentralImplementation.PDF"
+              href="files/FileCircuitCentralImplementation.PDF"
+              target="_blank"
             >
               implementation report
             </a>
@@ -158,8 +159,15 @@ export default function Project() {
 
         <br />
 
-        <img className="image" src="files\ImageCircuitCentral1.PNG" />
-        <img className="image" src="files\ImageCircuitCentral2.PNG" />
+        <img
+          className="image flexCenterH"
+          src="files\ImageCircuitCentral1.PNG"
+        />
+        <br />
+        <img
+          className="image flexCenterH"
+          src="files\ImageCircuitCentral2.PNG"
+        />
       </section>
 
       <line className="flexCenterH topMargin bottomMargin">
@@ -223,8 +231,15 @@ export default function Project() {
 
         <br />
 
-        <img className="image" src="files/ImageApolloHospital1.PNG" />
-        <img className="image" src="files/ImageApolloHospital2.PNG" />
+        <img
+          className="image flexCenterH"
+          src="files/ImageApolloHospital1.PNG"
+        />
+        <br />
+        <img
+          className="image flexCenterH"
+          src="files/ImageApolloHospital2.PNG"
+        />
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
@@ -286,9 +301,11 @@ export default function Project() {
 
         <br />
 
-        <img className="image" src="files/ImageFunCulator1.PNG" />
-        <img className="image" src="files/ImageFunCulator2.PNG" />
-        <img className="image" src="files/ImageFunCulator3.PNG" />
+        <img className="image flexCenterH" src="files/ImageFunCulator1.PNG" />
+        <br />
+        <img className="image flexCenterH" src="files/ImageFunCulator2.PNG" />
+        <br />
+        <img className="image flexCenterH" src="files/ImageFunCulator3.PNG" />
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
@@ -350,8 +367,9 @@ export default function Project() {
 
         <br />
 
-        <img className="image" src="files/ImageBellHospital1.PNG" />
-        <img className="image" src="files/ImageBellHospital2.PNG" />
+        <img className="image flexCenterH" src="files/ImageBellHospital1.PNG" />
+        <br />
+        <img className="image flexCenterH" src="files/ImageBellHospital2.PNG" />
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
@@ -411,8 +429,15 @@ export default function Project() {
 
         <br />
 
-        <img className="image" src="files/ImagePlugInsDatabase1.PNG" />
-        <img className="image" src="files/ImagePlugInsDatabase2.PNG" />
+        <img
+          className="image flexCenterH"
+          src="files/ImagePlugInsDatabase1.PNG"
+        />
+        <br />
+        <img
+          className="image flexCenterH"
+          src="files/ImagePlugInsDatabase2.PNG"
+        />
       </section>
 
       {/*
@@ -462,4 +487,6 @@ export default function Project() {
       */}
     </Fragment>
   );
-}
+};
+
+export default Project;

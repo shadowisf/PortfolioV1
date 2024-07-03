@@ -1,5 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
 import { scroller, Element, animateScroll } from "react-scroll";
+import {
+  generateADACompliantColors,
+  keyControls,
+} from "../components/ColorUtils";
 import NavBar from "../components/NavBar";
 import Project from "../components/Project";
 import Contact from "../components/Contact";
@@ -13,8 +17,11 @@ import IconQuoteRight from "../assets/IconQuoteRight";
   /* https://github.com/fisshy/react-scroll */
 }
 
-export default function Index() {
+const Index = () => {
+  // startup sequence
   useEffect(() => {
+    keyControls();
+    generateADACompliantColors();
     hideDiv("contactHeader", "contactContainer", "now");
     hideDiv("projectHeader", "projectContainer", "now");
 
@@ -217,31 +224,11 @@ export default function Index() {
               <picture className="flexLeftH">
                 <IconQuoteLeft />
               </picture>
-              he told me you're <span className="mediumHeader">brilliant.</span>
-              <br />
-              he also told me <br /> you're{" "}
-              <span className="mediumHeader">lazy.</span>
+              intelligence is not a priviledge, it's a gift. and you use it for
+              the good of mankind.
               <picture className="flexRightH">
                 <IconQuoteRight />
               </picture>
-            </p>
-
-            <p id="fs" className="textCenter">
-              <b className="smallHeader">otto octavius</b> <br /> (spiderman 2)
-            </p>
-
-            <p id="hs">
-              <br />
-              <IconQuoteLeft /> he told me you're <br />
-              <span className="mediumHeader">brilliant.</span>
-              <br />
-              he also told me you're <br />{" "}
-              <span className="mediumHeader">lazy.</span> <IconQuoteRight />
-            </p>
-
-            <p id="hs" className="textCenter">
-              <br />
-              <b className="smallHeader">otto octavius</b> <br /> (spiderman 2)
             </p>
           </aside>
         </section>
@@ -250,10 +237,11 @@ export default function Index() {
       <BottomCard />
     </Fragment>
   );
-}
+};
 
-{
-  /* 
+export default Index;
+
+/* 
 BLACK AND WHITE PNG CONVERTER
 https://onlinetools.com/image/create-two-color-image
 
@@ -267,4 +255,3 @@ SVG ICONS
 https://remixicon.com/
 https://www.flaticon.com/
 */
-}

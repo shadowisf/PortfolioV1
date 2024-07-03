@@ -2,7 +2,7 @@ export default function BottomCard() {
   return (
     <footer className="bottomcard">
       <p>
-        designed & developed by <b>les ranalan</b>
+        designed & developed by <br /> <b>les ranalan</b>
       </p>
       <br />
       <p>

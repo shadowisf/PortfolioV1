@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  --text-color: black;
-  --background-color: antiquewhite;
+  --text-color: transparent;
+  --background-color: transparent;
   --primary-font: "Space Mono", monospace;
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
@@ -10,8 +10,6 @@
   --about-height: 3500px;
   --project-height: 9500px;
   --contact-height: 600px;
-
-  --border: none;
 }
 
 /* MOBILE SCREEN */
@@ -62,6 +60,10 @@
     display: none;
   }
 
+  #navFixed {
+    z-index: 0;
+  }
+
   .bottomcard {
     font-size: var(--font-navbar);
   }
@@ -89,13 +91,11 @@ p {
 }
 
 * {
-  border: var(--border);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-#navFixed,
 #navNormal {
   z-index: 1;
 }
@@ -155,13 +155,17 @@ p {
   background-color: var(--text-color);
   color: var(--background-color);
 
-  cursor: pointer;
   border: none;
 
   transition: scale 0.2s ease;
 }
 
-.button:hover {
+.scaleHover {
+  transition: scale 0.2s ease;
+}
+
+.button:hover,
+.scaleHover:hover {
   scale: 1.1;
 }
 
@@ -232,6 +236,14 @@ p {
   list-style: none;
   padding: 0.5rem 1rem;
   border: 2px dashed var(--text-color);
+
+  transition: all 0.2s ease;
+}
+
+.architecture li:hover {
+  border: 2px solid var(--text-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
 
 .projectLinks {
@@ -278,10 +290,10 @@ nav {
   font-size: var(--font-navbar);
 }
 
-.logo:hover,
-.hamburgerButtonTC:hover,
-.hamburgerButtonBC:hover,
-.hamburgerMenu a {
+.dotHoverBC:hover,
+.dotHoverTC:hover,
+.button:hover,
+.scaleHover:hover {
   cursor: pointer;
 }
 

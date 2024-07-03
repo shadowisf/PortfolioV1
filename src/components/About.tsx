@@ -21,6 +21,9 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           i'm a <span className="typedSeries"></span> <br /> software engineer
         </header>
 
+        <br />
+        <br />
+
         <picture className="flexCenterH">
           <IllustrationBustNoChat />
         </picture>
@@ -47,7 +50,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
 
       {/* my life as a timeline */}
       <section className="container">
-        <header className="largeHeader flexCenterH">
+        <header className="largeHeader flexCenterH textCenter">
           my life as a timeline
         </header>
 
@@ -145,7 +148,9 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
 
       {/* click? click! */}
       <section className="container">
-        <header className="largeHeader textCenter">click? click!</header>
+        <header className="largeHeader flexCenterH textCenter">
+          click? click!
+        </header>
 
         <br />
 
@@ -183,7 +188,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
 
         <section id="hs" className=" noCursor">
           <picture className="flexRightH handPointingMarginRight">
-            <IllustrationHandPointingV height="400" />
+            <IllustrationHandPointingV height="300" />
           </picture>
           <br />
           <aside className="flexRightH">
@@ -213,9 +218,15 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
           <br />
           <picture className="flexRightH mirrorUp handPointingMarginLeft">
-            <IllustrationHandPointingV height="400" />
+            <IllustrationHandPointingV height="300" />
           </picture>
         </section>
+
+        <br />
+
+        <p className="flexCenterH textCenter">
+          use the menu at the top right to go anywhere!
+        </p>
       </section>
     </Fragment>
   );
