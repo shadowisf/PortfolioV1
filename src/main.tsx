@@ -2,32 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./main.css";
 import "./typed.scss";
-import Index from "./pages/Index.tsx";
-import About from "./components/About.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Contact from "./components/Contact.tsx";
-import Project from "./components/Project.tsx";
 import Test from "./pages/Test.tsx";
+import LoadingScreen from "./components/LoadingScreen.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Index />,
-  },
-
-  {
-    path: "/about",
-    element: <About />,
-  },
-
-  {
-    path: "/projects",
-    element: <Project />,
-  },
-
-  {
-    path: "/contact",
-    element: <Contact />,
+    element: <LoadingScreen />,
   },
 
   {

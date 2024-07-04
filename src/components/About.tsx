@@ -21,8 +21,8 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           i'm a <span className="typedSeries"></span> <br /> software engineer
         </header>
 
-        <br />
-        <br />
+        <br id="hs"/>
+        <br id="hs"/>
 
         <picture className="flexCenterH">
           <IllustrationBustNoChat />
@@ -46,17 +46,12 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
         </aside>
       </section>
 
-      <br />
-
       {/* my life as a timeline */}
-      <section className="container">
-        <header className="largeHeader flexCenterH textCenter">
-          my life as a timeline
-        </header>
-
-        <br />
-
-        <section className="flexCenterV">
+      <header className="largeHeader textCenter topMargin">
+        my life as a timeline
+      </header>
+      <section className="container bottomMargin timeline">
+        <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
             <IconCake />
           </picture>
@@ -66,22 +61,22 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV" />
+        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
 
-        <section className="flexCenterV">
+        <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
             <IconGraduateHat />
           </picture>
           <aside className="timelineCaption">
-            graduated kindergarten in st. peter's college of toril
+            graduated kindergarten at st. peter's college of toril
             <br />
             <b>???</b>
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV" />
+        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
 
-        <section className="flexCenterV">
+        <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
             <IconLocation />
           </picture>
@@ -91,22 +86,22 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV" />
+        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
 
-        <section className="flexCenterV">
+        <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
             <IconGraduateHat />
           </picture>
           <aside className="timelineCaption">
-            graduated elementary in far eastern private school
+            graduated elementary at far eastern private school
             <br />
             <b>???</b>
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV" />
+        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
 
-        <section className="flexCenterV">
+        <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
             <IconEyeGlasses />
           </picture>
@@ -116,27 +111,27 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV" />
+        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
 
-        <section className="flexCenterV">
+        <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
             <IconGraduateHat />
           </picture>
           <aside className="timelineCaption">
-            graduated high school in far eastern private school
+            graduated high school at far eastern private school
             <br />
             <b>???</b>
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV" />
+        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
 
-        <section className="flexCenterV">
+        <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
             <IconGraduateHat />
           </picture>
           <aside className="timelineCaption">
-            graduated college in university of bolton, ras al khaimah as
+            graduated college in university of bolton, ras al khaimah with a
             bachelor of engineering in software engineering
             <br />
             <b>???</b>
@@ -144,23 +139,18 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
         </section>
       </section>
 
-      <br />
-
       {/* click? click! */}
+      <header className="largeHeader flexCenterH textCenter topMargin">
+        click? click!
+      </header>
       <section className="container">
-        <header className="largeHeader flexCenterH textCenter">
-          click? click!
-        </header>
-
-        <br />
-
         <section id="fs" className="vhalf noCursor">
           <picture className="flexCenterH">
             <IllustrationHandPointingH width="400" />
           </picture>
           <aside className="flexCenterV">
             <a
-              className="button smallHeader handPointingButtonBottomMargin"
+              className="button scaleHover smallHeader handPointingButtonBottomMargin"
               onClick={() => {
                 collapseDiv("project");
               }}
@@ -173,7 +163,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
         <section id="fs" className="vhalf noCursor">
           <aside className="flexCenterV">
             <a
-              className="button smallHeader handPointingButtonBottomMargin"
+              className="button scaleHover smallHeader handPointingButtonBottomMargin"
               onClick={() => {
                 collapseDiv("contact");
               }}
@@ -186,7 +176,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </picture>
         </section>
 
-        <section id="hs" className=" noCursor">
+        <section id="hs" className="noCursor">
           <picture className="flexRightH handPointingMarginRight">
             <IllustrationHandPointingV height="300" />
           </picture>

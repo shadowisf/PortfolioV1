@@ -1,29 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  --text-color: transparent;
-  --background-color: transparent;
+  --text-color: black;
+  --background-color: antiquewhite;
   --primary-font: "Space Mono", monospace;
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
-  --about-height: 3500px;
-  --project-height: 9500px;
+  --about-height: 3200px;
+  --project-height: 9600px;
   --contact-height: 600px;
 }
 
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
+
   .container,
   .collapseContainer {
     max-width: var(--mobile-max-width);
   }
 
   :root {
-    --font-xl: 10vw; /* divHeader */
-    --font-l: 6vw; /* largeHeader */
-    --font-m: 1.5rem; /* mediumHeader */
-    --font-s: 1.25rem; /* smallHeader */
+    --font-xl: 10vw;
+    /* divHeader */
+    --font-l: 6vw;
+    /* largeHeader */
+    --font-m: 1.5rem;
+    /* mediumHeader */
+    --font-s: 1.25rem;
+    /* smallHeader */
     --font-navbar: x-large;
   }
 
@@ -36,23 +41,28 @@
 
 /* PC SCREEN */
 @media (min-width: 800.98px) {
+
   .container,
   .collapseContainer {
     max-width: var(--pc-max-width);
   }
 
   :root {
-    --font-xl: 5.8rem; /* divHeader */
-    --font-l: 3.5rem; /* largeHeader */
-    --font-m: 2rem; /* mediumHeader */
-    --font-s: 1.25rem; /* smallHeader */
+    --font-xl: 5.8rem;
+    /* divHeader */
+    --font-l: 3.5rem;
+    /* largeHeader */
+    --font-m: 2rem;
+    /* mediumHeader */
+    --font-s: 1.25rem;
+    /* smallHeader */
     --font-navbar: x-large;
   }
 
   .vhalf {
     justify-content: center;
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   #hs,
@@ -156,15 +166,12 @@ p {
   color: var(--background-color);
 
   border: none;
-
-  transition: scale 0.2s ease;
 }
 
 .scaleHover {
   transition: scale 0.2s ease;
 }
 
-.button:hover,
 .scaleHover:hover {
   scale: 1.1;
 }
@@ -278,6 +285,7 @@ nav {
 .logo {
   text-decoration: none;
   color: var(--text-color);
+  background-color: var(--background-color);
   font-weight: 900;
 }
 
@@ -288,6 +296,7 @@ nav {
   left: 0;
   top: 0;
   font-size: var(--font-navbar);
+  background-color: var(--background-color);
 }
 
 .dotHoverBC:hover,
@@ -464,15 +473,19 @@ nav {
 }
 
 .topMargin {
-  margin-top: 5rem;
+  margin-top: 10rem;
 }
 
 .bottomMargin {
-  margin-bottom: 5rem;
+  margin-bottom: 10rem;
 }
 
 .bottomMarginHUGE {
-  margin-bottom: 50rem;
+  margin-bottom: 35rem;
+}
+
+.topMarginHUGE {
+  margin-top: 35rem;
 }
 
 .collapseContainer {
@@ -528,4 +541,32 @@ nav {
 
 .handPointingMarginRight {
   margin-right: 60px;
+}
+
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  background: var(--background-color);
+  height: 100vh;
+  z-index: 1000;
+}
+
+#projectHeader,
+#projectContainer,
+#contactHeader,
+#contactContainer {
+  display: none;
+}
+
+.quoteFont {
+  font-size: 25px;
+}
+
+.timeline {
+  border-left: dashed;
+}
+
+.timelineRow {
+  margin-left: 3rem;
 }

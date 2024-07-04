@@ -778,4 +778,16 @@ $__typed-id: 0;
   );
 }
 
+.typedLoading {
+  @include typed(
+    "loading...",
+    null,
+    (
+      caret-width: 2px,
+      iterations: 0,
+      delay: 0.5,
+    )
+  );
+}
+
 /* https://github.com/brandonmcconnell/typed.css */

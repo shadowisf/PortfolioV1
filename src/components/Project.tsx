@@ -4,7 +4,7 @@ import IconGithub from "../assets/IconGithub";
 import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
 
-const Project = () => {
+export default function Project() {
   useEffect(() => {
     const zoom = mediumZoom("img", { background: "var(--background-color)" });
     /* https://github.com/francoischalifour/medium-zoom */
@@ -136,7 +136,7 @@ const Project = () => {
             </picture>
             <a
               className="hyperLink withIcon"
-              href="files/FileCircuitCentralProposal.PDF"
+              href="src/assets/FileCircuitCentralProposal.PDF"
               target="_blank"
             >
               proposal report
@@ -149,7 +149,7 @@ const Project = () => {
             </picture>
             <a
               className="hyperLink withIcon"
-              href="files/FileCircuitCentralImplementation.PDF"
+              href="src/assets/FileCircuitCentralImplementation.PDF"
               target="_blank"
             >
               implementation report
@@ -161,12 +161,12 @@ const Project = () => {
 
         <img
           className="image flexCenterH"
-          src="files\ImageCircuitCentral1.PNG"
+          src="src/assets/ImageCircuitCentral1.PNG"
         />
         <br />
         <img
           className="image flexCenterH"
-          src="files\ImageCircuitCentral2.PNG"
+          src="src/assets/ImageCircuitCentral2.PNG"
         />
       </section>
 
@@ -221,7 +221,7 @@ const Project = () => {
             </picture>
             <a
               className="hyperLink withIcon"
-              href="files/FileApolloHospital.PDF"
+              href="src/assets/FileApolloHospital.PDF"
               target="_blank"
             >
               report
@@ -233,12 +233,12 @@ const Project = () => {
 
         <img
           className="image flexCenterH"
-          src="files/ImageApolloHospital1.PNG"
+          src="src/assets/ImageApolloHospital1.PNG"
         />
         <br />
         <img
           className="image flexCenterH"
-          src="files/ImageApolloHospital2.PNG"
+          src="src/assets/ImageApolloHospital2.PNG"
         />
       </section>
 
@@ -291,7 +291,7 @@ const Project = () => {
 
             <a
               className="hyperLink withIcon"
-              href="/files/FileFunCulator.PDF"
+              href="/src/assets/FileFunCulator.PDF"
               target="_blank"
             >
               report
@@ -301,11 +301,20 @@ const Project = () => {
 
         <br />
 
-        <img className="image flexCenterH" src="files/ImageFunCulator1.PNG" />
+        <img
+          className="image flexCenterH"
+          src="src/assets/ImageFunCulator1.PNG"
+        />
         <br />
-        <img className="image flexCenterH" src="files/ImageFunCulator2.PNG" />
+        <img
+          className="image flexCenterH"
+          src="src/assets/ImageFunCulator2.PNG"
+        />
         <br />
-        <img className="image flexCenterH" src="files/ImageFunCulator3.PNG" />
+        <img
+          className="image flexCenterH"
+          src="src/assets/ImageFunCulator3.PNG"
+        />
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
@@ -357,7 +366,7 @@ const Project = () => {
 
             <a
               className="hyperLink withIcon"
-              href="files/FileBellHospital.PDF"
+              href="src/assets/FileBellHospital.PDF"
               target="_blank"
             >
               report
@@ -367,9 +376,15 @@ const Project = () => {
 
         <br />
 
-        <img className="image flexCenterH" src="files/ImageBellHospital1.PNG" />
+        <img
+          className="image flexCenterH"
+          src="src/assets/ImageBellHospital1.PNG"
+        />
         <br />
-        <img className="image flexCenterH" src="files/ImageBellHospital2.PNG" />
+        <img
+          className="image flexCenterH"
+          src="src/assets/ImageBellHospital2.PNG"
+        />
       </section>
 
       <line className="flexCenterH  topMargin bottomMargin">
@@ -419,7 +434,7 @@ const Project = () => {
 
             <a
               className="hyperLink withIcon"
-              href="files/FilePlugInsDatabase.PDF"
+              href="src/assets/FilePlugInsDatabase.PDF"
               target="_blank"
             >
               report
@@ -431,12 +446,12 @@ const Project = () => {
 
         <img
           className="image flexCenterH"
-          src="files/ImagePlugInsDatabase1.PNG"
+          src="src/assets/ImagePlugInsDatabase1.PNG"
         />
         <br />
         <img
           className="image flexCenterH"
-          src="files/ImagePlugInsDatabase2.PNG"
+          src="src/assets/ImagePlugInsDatabase2.PNG"
         />
       </section>
 
@@ -487,6 +502,4 @@ const Project = () => {
       */}
     </Fragment>
   );
-};
-
-export default Project;
+}
