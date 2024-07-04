@@ -7,6 +7,7 @@ import IconGraduateHat from "../assets/IconGraduateHat";
 import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
 import IllustrationHandPointingH from "../assets/IllustrationHandPointingH";
 import IllustrationHandPointingV from "../assets/IllustrationHandPointingV";
+import WallOfQuotes from "./WallOfQuotes";
 
 type AboutProps = {
   collapseDiv: (div: string) => void;
@@ -21,8 +22,8 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           i'm a <span className="typedSeries"></span> <br /> software engineer
         </header>
 
-        <br id="hs"/>
-        <br id="hs"/>
+        <br id="hs" />
+        <br id="hs" />
 
         <picture className="flexCenterH">
           <IllustrationBustNoChat />
@@ -61,7 +62,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
+        <IllustrationVerticalLine
+          height="50"
+          className="flexCenterV timelineRow"
+        />
 
         <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
@@ -74,7 +78,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
+        <IllustrationVerticalLine
+          height="50"
+          className="flexCenterV timelineRow"
+        />
 
         <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
@@ -86,7 +93,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
+        <IllustrationVerticalLine
+          height="50"
+          className="flexCenterV timelineRow"
+        />
 
         <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
@@ -99,7 +109,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
+        <IllustrationVerticalLine
+          height="50"
+          className="flexCenterV timelineRow"
+        />
 
         <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
@@ -111,7 +124,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
+        <IllustrationVerticalLine
+          height="50"
+          className="flexCenterV timelineRow"
+        />
 
         <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
@@ -124,7 +140,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </aside>
         </section>
 
-        <IllustrationVerticalLine height="50" className="flexCenterV timelineRow" />
+        <IllustrationVerticalLine
+          height="50"
+          className="flexCenterV timelineRow"
+        />
 
         <section className="flexCenterV timelineRow">
           <picture className="flexCenterV">
@@ -139,9 +158,9 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
         </section>
       </section>
 
-      {/* click? click! */}
+      {/* now what? */}
       <header className="largeHeader flexCenterH textCenter topMargin">
-        click? click!
+        now what?
       </header>
       <section className="container">
         <section id="fs" className="vhalf noCursor">

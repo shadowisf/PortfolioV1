@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import Index from "../pages/Index";
-import { generateADACompliantColors } from "../components/ColorUtils";
+import {
+  generateADACompliantColors,
+  keyControls,
+} from "../components/ColorUtils";
 
 const LoadingScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     generateADACompliantColors();
+    keyControls();
 
     setTimeout(() => {
       setIsLoading(false);

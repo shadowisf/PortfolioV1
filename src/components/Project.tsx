@@ -7,7 +7,7 @@ import IconPDF from "../assets/IconPDF";
 export default function Project() {
   useEffect(() => {
     const zoom = mediumZoom("img", { background: "var(--background-color)" });
-    /* https://github.com/francoischalifour/medium-zoom */
+    // https://github.com/francoischalifour/medium-zoom
 
     return () => {
       zoom.detach();
@@ -21,7 +21,7 @@ export default function Project() {
       <section className="container">
         <header className="largeHeader flexCenterH">portfolio</header>
 
-        <text className="flexCenterH">2024</text>
+        <span className="flexCenterH">2024</span>
 
         <ul className="architecture noCursor flexCenterH">
           <li>typescript (react)</li>
@@ -68,6 +68,10 @@ export default function Project() {
             pablo stanley
           </a>
           ,{" "}
+          <a className="hyperLink" href="https://awik.io" target="_blank">
+            andreas wilk
+          </a>
+          ,{" "}
           <a
             className="hyperLink"
             href="https://github.com/fisshy"
@@ -87,15 +91,15 @@ export default function Project() {
         </p>
       </section>
 
-      <line className="flexCenterH topMargin bottomMargin">
+      <span className="flexCenterH topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
-      </line>
+      </span>
 
       {/* circuitcentral */}
       <section className="container bottomMargin">
         <header className="flexCenterH largeHeader">circuitcentral</header>
 
-        <text className="flexCenterH">2024</text>
+        <span className="flexCenterH">2024</span>
 
         <ul className="architecture noCursor flexCenterH">
           <li>c#</li>
@@ -170,15 +174,15 @@ export default function Project() {
         />
       </section>
 
-      <line className="flexCenterH topMargin bottomMargin">
+      <span className="flexCenterH topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
-      </line>
+      </span>
 
       {/* apollo hospital */}
       <section className="container bottomMargin">
         <header className="flexCenterH largeHeader">apollo hospital</header>
 
-        <text className="flexCenterH">2023</text>
+        <span className="flexCenterH">2023</span>
 
         <ul className="architecture noCursor flexCenterH">
           <li>python (flask)</li>
@@ -242,15 +246,15 @@ export default function Project() {
         />
       </section>
 
-      <line className="flexCenterH  topMargin bottomMargin">
+      <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
-      </line>
+      </span>
 
       {/* funculator */}
       <section className="container">
         <header className="flexCenterH largeHeader">funculator</header>
 
-        <text className="flexCenterH">2022</text>
+        <span className="flexCenterH">2022</span>
 
         <ul className="architecture noCursor flexCenterH">
           <li>java</li>
@@ -317,15 +321,15 @@ export default function Project() {
         />
       </section>
 
-      <line className="flexCenterH  topMargin bottomMargin">
+      <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
-      </line>
+      </span>
 
       {/* bell hospital */}
       <section className="container">
         <header className="flexCenterH largeHeader">bell hospital</header>
 
-        <text className="flexCenterH">2022</text>
+        <span className="flexCenterH">2022</span>
 
         <ul className="architecture noCursor flexCenterH">
           <li>java</li>
@@ -339,7 +343,7 @@ export default function Project() {
           handling patient and doctor information, appointment scheduling, and
           medical records. its system feature crud operations: create, read,
           update, and delete. additionally, it has error handling and persistent
-          data management since it utilizes text files through file handling.
+          data management since it utilizes span files through file handling.
         </p>
 
         <br />
@@ -387,15 +391,15 @@ export default function Project() {
         />
       </section>
 
-      <line className="flexCenterH  topMargin bottomMargin">
+      <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
-      </line>
+      </span>
 
       {/* plug-ins */}
       <section className="container">
         <header className="flexCenterH largeHeader">plug-ins</header>
 
-        <text className="flexCenterH">2022</text>
+        <span className="flexCenterH">2022</span>
 
         <ul className="architecture noCursor flexCenterH">
           <li>php</li>
@@ -459,7 +463,7 @@ export default function Project() {
       <section className="container">
         <header className="flexCenterH largeHeader">project name</header>
 
-        <text className="flexCenterH">year</text>
+        <span className="flexCenterH">year</span>
 
         <ul className="architecture noCursor flexCenterH">
           <li></li>

@@ -1,5 +1,4 @@
 import { Fragment, useEffect } from "react";
-import { keyControls } from "../components/ColorUtils";
 import {
   useToggleStates,
   scrollTo,
@@ -31,8 +30,6 @@ const Index: React.FC = () => {
     hideDiv("projectHeader", "projectContainer", "now");
     hideDiv("contactHeader", "contactContainer", "now");
 
-    keyControls();
-
     collapseDiv(
       "about",
       isAboutOpen,
@@ -42,7 +39,7 @@ const Index: React.FC = () => {
       isContactOpen,
       setContactOpen
     );
-    animateScroll.scrollTo(0, scrollOptions);
+    //animateScroll.scrollTo(0, scrollOptions);
   }, []);
 
   return (

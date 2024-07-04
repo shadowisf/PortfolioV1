@@ -18,6 +18,8 @@ const router = createBrowserRouter([
   },
 ]);
 
+window.name = "colorTheme";
+
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
 root.render(
