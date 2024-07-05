@@ -5,51 +5,48 @@ import IllustrationSansaStark from "../assets/IllustrationSansaStark";
 export default function WallOfQuotes() {
   return (
     <Fragment>
-      <header id="woqHeader" className="largeHeader flexCenterH topMarginHUGE">
+      <header className="largeHeader flexCenterH topMarginHUGE">
         the wall of quotes!
       </header>
 
-      <section id="woqContainer">
-        <section className="container vhalf quoteCard">
-          <picture className="flexCenterH">
-            <IllustrationOttoOctavius />
-          </picture>
+      <section className="container vhalf quoteCard">
+        <picture className="flexCenterH">
+          <IllustrationOttoOctavius />
+        </picture>
 
-          <br id="hs" />
+        <br id="hs" />
 
-          <aside className="gridCenterV textCenter">
-            <p className="quoteFont">
-              <span className="mediumHeader flexLeftH">“</span>intelligence is
-              not a privilege, it's a gift. and you use it for the good of
-              mankind.
-              <span className="mediumHeader flexRightH">„</span>
-            </p>
+        <aside className="gridCenterV textCenter">
+          <p className="quoteFont">
+            <span className="mediumHeader flexLeftH">“</span>intelligence is not
+            a privilege, it's a gift. and you use it for the good of mankind.
+            <span className="mediumHeader flexRightH">„</span>
+          </p>
 
-            <span>
-              <b>otto octavius</b> <br /> (spiderman 2)
-            </span>
-          </aside>
-        </section>
+          <span>
+            <b>otto octavius</b> <br /> (spiderman 2)
+          </span>
+        </aside>
+      </section>
 
-        <section className="container vhalf quoteCard">
-          <picture className="flexCenterH">
-            <IllustrationSansaStark />
-          </picture>
+      <section className="container vhalf quoteCard">
+        <picture className="flexCenterH">
+          <IllustrationSansaStark />
+        </picture>
 
-          <br id="hs" />
+        <br id="hs" />
 
-          <aside className="gridCenterV textCenter">
-            <p className="quoteFont">
-              <span className="mediumHeader flexLeftH">“</span>i'm a slow
-              learner, that's true. but i learn.
-              <span className="mediumHeader flexRightH">„</span>
-            </p>
+        <aside className="gridCenterV textCenter">
+          <p className="quoteFont">
+            <span className="mediumHeader flexLeftH">“</span>i'm a slow learner,
+            that's true. but i learn.
+            <span className="mediumHeader flexRightH">„</span>
+          </p>
 
-            <span>
-              <b>sansa stark</b> <br /> (game of thrones)
-            </span>
-          </aside>
-        </section>
+          <span>
+            <b>sansa stark</b> <br /> (game of thrones)
+          </span>
+        </aside>
       </section>
     </Fragment>
   );

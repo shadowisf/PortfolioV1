@@ -123,7 +123,6 @@ export const collapseDiv = (
   setContactOpen: (state: boolean) => void
 ) => {
   if (element === "about" && !isAboutOpen) {
-    hideDiv("woqHeader", "woqContainer", "delay");
     setContactOpen(false);
     setProjectOpen(false);
 
@@ -135,15 +134,10 @@ export const collapseDiv = (
       setAboutOpen(!isAboutOpen);
     }, animationDelay);
 
-    setTimeout(() => {
-      showDiv("woqHeader", "woqContainer", "delay", "flex");
-    }, quoteDelay);
-
     scrollTo(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
 
   if (element === "project" && !isProjectOpen) {
-    hideDiv("woqHeader", "woqContainer", "delay");
     setContactOpen(false);
     setAboutOpen(false);
 
@@ -155,15 +149,10 @@ export const collapseDiv = (
       setProjectOpen(!isProjectOpen);
     }, animationDelay);
 
-    setTimeout(() => {
-      showDiv("woqHeader", "woqContainer", "delay", "flex");
-    }, quoteDelay);
-
     scrollTo(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
 
   if (element === "contact" && !isContactOpen) {
-    hideDiv("woqHeader", "woqContainer", "delay");
     setAboutOpen(false);
     setProjectOpen(false);
 
@@ -174,10 +163,6 @@ export const collapseDiv = (
     setTimeout(() => {
       setContactOpen(!isContactOpen);
     }, animationDelay);
-
-    setTimeout(() => {
-      showDiv("woqHeader", "woqContainer", "delay", "flex");
-    }, quoteDelay);
 
     scrollTo(element, isAboutOpen, isProjectOpen, isContactOpen);
   }

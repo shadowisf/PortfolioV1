@@ -9,7 +9,7 @@
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
-  --about-height: 3200px;
+  --about-height: 4500px;
   --project-height: 9600px;
   --contact-height: 600px;
 }
@@ -38,10 +38,6 @@
   #navFixed,
   #tooltip {
     display: none;
-  }
-
-  .quoteCard {
-    padding: 2rem;
   }
 }
 
@@ -82,10 +78,6 @@
 
   .bottomcard {
     font-size: var(--font-navbar);
-  }
-
-  .quoteCard {
-    padding-right: 2rem;
   }
 }
 
@@ -527,6 +519,7 @@ nav {
 }
 
 .quoteCard {
+  padding: 2rem;
   border: solid;
   box-shadow: 10px 10px;
 }
@@ -578,8 +571,4 @@ nav {
 
 .timelineRow {
   margin-left: 3rem;
-}
-
-.quoteCard picture {
-  border-right: solid var(--text-color);
 }

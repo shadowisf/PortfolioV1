@@ -7,7 +7,6 @@ import IconGraduateHat from "../assets/IconGraduateHat";
 import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
 import IllustrationHandPointingH from "../assets/IllustrationHandPointingH";
 import IllustrationHandPointingV from "../assets/IllustrationHandPointingV";
-import WallOfQuotes from "./WallOfQuotes";
 
 type AboutProps = {
   collapseDiv: (div: string) => void;
@@ -162,81 +161,80 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       <header className="largeHeader flexCenterH textCenter topMargin">
         now what?
       </header>
-      <section className="container">
-        <section id="fs" className="vhalf noCursor">
-          <picture className="flexCenterH">
-            <IllustrationHandPointingH width="400" />
-          </picture>
-          <aside className="flexCenterV">
-            <a
-              className="button scaleHover smallHeader handPointingButtonBottomMargin"
-              onClick={() => {
-                collapseDiv("project");
-              }}
-            >
-              view my projects
-            </a>
-          </aside>
-        </section>
-
-        <section id="fs" className="vhalf noCursor">
-          <aside className="flexCenterV">
-            <a
-              className="button scaleHover smallHeader handPointingButtonBottomMargin"
-              onClick={() => {
-                collapseDiv("contact");
-              }}
-            >
-              contact me
-            </a>
-          </aside>
-          <picture className="flexCenterH mirrorLeft">
-            <IllustrationHandPointingH width="400" />
-          </picture>
-        </section>
-
-        <section id="hs" className="noCursor">
-          <picture className="flexRightH handPointingMarginRight">
-            <IllustrationHandPointingV height="300" />
-          </picture>
-          <br />
-          <aside className="flexRightH">
-            <a
-              className="button smallHeader"
-              onClick={() => {
-                collapseDiv("project");
-              }}
-            >
-              view my projects
-            </a>
-          </aside>
-        </section>
-
-        <br id="hs" />
-
-        <section id="hs" className=" noCursor">
-          <aside className="flexLeftH">
-            <a
-              className="button smallHeader"
-              onClick={() => {
-                collapseDiv("project");
-              }}
-            >
-              contact me
-            </a>
-          </aside>
-          <br />
-          <picture className="flexRightH mirrorUp handPointingMarginLeft">
-            <IllustrationHandPointingV height="300" />
-          </picture>
-        </section>
-
-        <br />
-
-        <p className="flexCenterH textCenter">
-          use the menu at the top right to go anywhere!
-        </p>
+      <section id="fs" className="container vhalf noCursor">
+        <picture className="flexCenterH">
+          <IllustrationHandPointingH width="400" />
+        </picture>
+        <aside className="flexCenterV">
+          <a
+            className="button scaleHover smallHeader handPointingButtonBottomMargin"
+            onClick={() => {
+              collapseDiv("project");
+            }}
+          >
+            view my projects
+          </a>
+        </aside>
       </section>
+
+      <section id="fs" className="container vhalf noCursor">
+        <aside className="flexCenterV">
+          <a
+            className="button scaleHover smallHeader handPointingButtonBottomMargin"
+            onClick={() => {
+              collapseDiv("contact");
+            }}
+          >
+            contact me
+          </a>
+        </aside>
+        <picture className="flexCenterH mirrorLeft">
+          <IllustrationHandPointingH width="400" />
+        </picture>
+      </section>
+
+      <section id="hs" className="container">
+        <picture className="flexRightH handPointingMarginRight">
+          <IllustrationHandPointingV height="300" />
+        </picture>
+        <br />
+        <aside className="flexRightH">
+          <a
+            className="button smallHeader scaleHover"
+            onClick={() => {
+              collapseDiv("project");
+            }}
+          >
+            view my projects
+          </a>
+        </aside>
+      </section>
+
+      <br id="hs" />
+
+      <section id="hs" className="container noCursor">
+        <aside className="flexLeftH">
+          <a
+            className="button smallHeader scaleHover"
+            onClick={() => {
+              collapseDiv("contact");
+            }}
+          >
+            contact me
+          </a>
+        </aside>
+        <br />
+        <picture className="flexRightH mirrorUp handPointingMarginLeft">
+          <IllustrationHandPointingV height="300" />
+        </picture>
+      </section>
+
+      <p className="flexCenterH textCenter">
+        use the menu at the top right to go anywhere!
+      </p>
+
+      <br />
+      <br />
     </Fragment>
   );
 };

@@ -1,9 +1,8 @@
-import { Fragment } from "react/jsx-runtime";
+
 
 export default function Test() {
-
   return (
-    <Fragment>
-    </Fragment>
+    <h1>test</h1>
   );
 }
+

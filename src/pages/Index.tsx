@@ -14,6 +14,7 @@ import About from "../components/About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import WallOfQuotes from "../components/WallOfQuotes";
+import { keyControls } from "../components/ColorUtils";
 
 const Index: React.FC = () => {
   const {
@@ -39,6 +40,11 @@ const Index: React.FC = () => {
       isContactOpen,
       setContactOpen
     );
+
+    setTimeout(() => {
+      keyControls();
+    }, 3500);
+
     //animateScroll.scrollTo(0, scrollOptions);
   }, []);
 
