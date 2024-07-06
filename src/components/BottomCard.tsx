@@ -1,6 +1,6 @@
 export default function BottomCard() {
   return (
-    <footer className="bottomcard">
+    <footer className="container bottomcard">
       <p>
         designed & developed by <br /> <b>les ranalan</b>
       </p>

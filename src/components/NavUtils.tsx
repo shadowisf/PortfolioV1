@@ -26,11 +26,11 @@ export const scrollOptions = {
 export const animationDelay = 1100;
 export const quoteDelay = 2500;
 
-export const scrollTo = (
+export const scrollToPage = (
   element: string,
-  isAboutOpen: boolean,
-  isProjectOpen: boolean,
-  isContactOpen: boolean
+  isAboutOpen?: boolean,
+  isProjectOpen?: boolean,
+  isContactOpen?: boolean
 ) => {
   if (
     (element === "about" && isAboutOpen) ||
@@ -40,7 +40,8 @@ export const scrollTo = (
     setTimeout(() => {
       scroller.scrollTo(element, scrollOptions);
     }, 0);
-  } else {
+  }
+  else {
     animateScroll.scrollTo(0, scrollOptions);
   }
 };
@@ -98,19 +99,7 @@ export const showDiv = (
       divContainer.style.opacity = "1";
       divHeader.style.opacity = "1";
     }, 0);
-  } else if (
-    divHeader &&
-    divContainer &&
-    when === "delay" &&
-    display === "flex"
-  ) {
-    setTimeout(() => {
-      divHeader.style.display = "flex";
-      divContainer.style.display = "block";
-      divContainer.style.opacity = "1";
-      divHeader.style.opacity = "1";
-    }, 1000);
-  }
+  } 
 };
 
 export const collapseDiv = (
@@ -134,7 +123,7 @@ export const collapseDiv = (
       setAboutOpen(!isAboutOpen);
     }, animationDelay);
 
-    scrollTo(element, isAboutOpen, isProjectOpen, isContactOpen);
+    scrollToPage(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
 
   if (element === "project" && !isProjectOpen) {
@@ -149,7 +138,7 @@ export const collapseDiv = (
       setProjectOpen(!isProjectOpen);
     }, animationDelay);
 
-    scrollTo(element, isAboutOpen, isProjectOpen, isContactOpen);
+    scrollToPage(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
 
   if (element === "contact" && !isContactOpen) {
@@ -164,6 +153,6 @@ export const collapseDiv = (
       setContactOpen(!isContactOpen);
     }, animationDelay);
 
-    scrollTo(element, isAboutOpen, isProjectOpen, isContactOpen);
+    scrollToPage(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
 };

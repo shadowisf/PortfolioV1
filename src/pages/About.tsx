@@ -60,7 +60,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       </span>
 
       {/* my life as a timeline */}
-      <header className="largeHeader textCenter topMargin">
+      <header className="container largeHeader textCenter topMargin">
         my life as a timeline
       </header>
       <section className="container bottomMargin timeline">
@@ -140,7 +140,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       </span>
 
       {/* now what? */}
-      <header className="largeHeader flexCenterH textCenter topMargin">
+      <header className="container largeHeader flexCenterH textCenter topMargin">
         now what?
       </header>
       <HandPointingLeft
@@ -188,7 +188,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       </span>
 
       {/* wall of quotes */}
-      <header className="largeHeader flexCenterH topMargin">
+      <header className="container largeHeader flexCenterH topMargin">
         the wall of quotes!
       </header>
       <QuoteCard

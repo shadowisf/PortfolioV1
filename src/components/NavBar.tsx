@@ -3,10 +3,13 @@ import { generateADACompliantColors } from "./ColorUtils";
 
 type NavBarProps = {
   collapseDiv: (element: string) => void;
-  scrollTo: (element: string) => void;
+  scrollToPage: (element: string) => void;
 };
 
-const NavBar: React.FC<NavBarProps> = ({ collapseDiv, scrollTo }) => {
+const NavBar: React.FC<NavBarProps> = ({
+  collapseDiv,
+  scrollToPage: scrollTo,
+}) => {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
   const toggleHamburgerMenu = () => {
@@ -15,7 +18,7 @@ const NavBar: React.FC<NavBarProps> = ({ collapseDiv, scrollTo }) => {
 
   return (
     <Fragment>
-      <nav id="navNormal">
+      <nav>
         <a
           className="logo noCursor dotHoverTC"
           onClick={() => generateADACompliantColors()}
@@ -30,22 +33,6 @@ const NavBar: React.FC<NavBarProps> = ({ collapseDiv, scrollTo }) => {
           menu
         </a>
       </nav>
-
-      <a
-        id="navFixed"
-        className="logo noNav noCursor dotHoverTC"
-        onClick={() => generateADACompliantColors()}
-      >
-        les ranalan
-      </a>
-
-      <a
-        id="navFixed"
-        className="hamburgerButtonTC noCursor noNav dotHoverTC"
-        onClick={toggleHamburgerMenu}
-      >
-        menu
-      </a>
 
       <section className={`hamburgerMenu ${isHamburgerMenuOpen ? "open" : ""}`}>
         <span

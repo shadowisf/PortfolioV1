@@ -1,20 +1,20 @@
 import { Fragment, useEffect } from "react";
 import {
   useToggleStates,
-  scrollTo,
+  scrollToPage,
   hideDiv,
   collapseDiv,
-  scrollOptions,
 } from "../components/NavUtils";
-import { animateScroll, Element } from "react-scroll";
+import { Element } from "react-scroll";
 import NavBar from "../components/NavBar";
 import Project from "./Project";
 import Contact from "./Contact";
 import About from "./About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
-import { QuoteCard } from "../components/QuoteCards";
 import { keyControls } from "../components/ColorUtils";
+import { Background1, Background2 } from "../components/Background";
+import { ProjectNav } from "../components/ProjectNav";
 
 const Index: React.FC = () => {
   const {
@@ -44,8 +44,6 @@ const Index: React.FC = () => {
     setTimeout(() => {
       keyControls();
     }, 3500);
-
-    //animateScroll.scrollTo(0, scrollOptions);
   }, []);
 
   return (
@@ -62,9 +60,18 @@ const Index: React.FC = () => {
             setContactOpen
           )
         }
-        scrollTo={(element) =>
-          scrollTo(element, isAboutOpen, isProjectOpen, isContactOpen)
-        }
+        scrollToPage={(element) => scrollToPage(element)}
+      />
+
+      <div className="backgroundContainer">
+        <Background1 className="backgroundSVG" />
+        <Background2 className="backgroundSVG" />
+      </div>
+
+      <ProjectNav
+        className={`container projectNav ${
+          isProjectOpen ? "transitionDelay show" : "hidden"
+        } `}
       />
 
       {/* about */}

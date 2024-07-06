@@ -4,6 +4,16 @@ import IconGithub from "../assets/IconGithub";
 import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
 import { HyperLink, HyperLinkWithIcon } from "../components/HyperLink";
+import { ProjectNav } from "../components/ProjectNav";
+
+export const projectData = {
+  projectName1: "portfolio",
+  projectName2: "circuitcentral",
+  projectName3: "apollo hospital",
+  projectName4: "funculator",
+  projectName5: "bell hospital",
+  projectName6: "plug-ins",
+};
 
 export default function Project() {
   useEffect(() => {
@@ -19,7 +29,9 @@ export default function Project() {
     <Fragment>
       {/* portfolio */}
       <section className="container">
-        <header className="largeHeader flexCenterH">portfolio</header>
+        <header className="largeHeader flexCenterH">
+          {projectData.projectName1}
+        </header>
 
         <span className="flexCenterH">2024</span>
 
@@ -75,7 +87,9 @@ export default function Project() {
 
       {/* circuitcentral */}
       <section className="container bottomMargin">
-        <header className="flexCenterH largeHeader">circuitcentral</header>
+        <header className="flexCenterH largeHeader">
+          {projectData.projectName2}
+        </header>
 
         <span className="flexCenterH">2024</span>
 
@@ -140,7 +154,9 @@ export default function Project() {
 
       {/* apollo hospital */}
       <section className="container bottomMargin">
-        <header className="flexCenterH largeHeader">apollo hospital</header>
+        <header className="flexCenterH largeHeader">
+          {projectData.projectName3}
+        </header>
 
         <span className="flexCenterH">2023</span>
 
@@ -200,7 +216,9 @@ export default function Project() {
 
       {/* funculator */}
       <section className="container">
-        <header className="flexCenterH largeHeader">funculator</header>
+        <header className="flexCenterH largeHeader">
+          {projectData.projectName4}
+        </header>
 
         <span className="flexCenterH">2022</span>
 
@@ -261,7 +279,9 @@ export default function Project() {
 
       {/* bell hospital */}
       <section className="container">
-        <header className="flexCenterH largeHeader">bell hospital</header>
+        <header className="flexCenterH largeHeader">
+          {projectData.projectName5}
+        </header>
 
         <span className="flexCenterH">2022</span>
 
@@ -317,7 +337,9 @@ export default function Project() {
 
       {/* plug-ins */}
       <section className="container">
-        <header className="flexCenterH largeHeader">plug-ins</header>
+        <header className="flexCenterH largeHeader">
+          {projectData.projectName6}
+        </header>
 
         <span className="flexCenterH">2022</span>
 
