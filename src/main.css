@@ -190,6 +190,14 @@ p {
   margin-bottom: 150px;
 }
 
+.handPointingButtonRightMargin {
+  margin-right: 10px;
+}
+
+.handPointingButtonLeftMargin {
+  margin-left: 10px;
+}
+
 .largeHeader {
   font-weight: 900;
   font-size: var(--font-l);

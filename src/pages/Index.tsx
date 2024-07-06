@@ -8,9 +8,9 @@ import {
 } from "../components/NavUtils";
 import { animateScroll, Element } from "react-scroll";
 import NavBar from "../components/NavBar";
-import Project from "../components/Project";
-import Contact from "../components/Contact";
-import About from "../components/About";
+import Project from "./Project";
+import Contact from "./Contact";
+import About from "./About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import WallOfQuotes from "../components/WallOfQuotes";
@@ -123,7 +123,7 @@ const Index: React.FC = () => {
       ></Element>
       <section
         id="contactContainer"
-        className={`bottomMarginHUGE collapseContainer ${
+        className={`collapseContainer ${
           isContactOpen ? "transitionDelay contact expanded" : ""
         }`}
       >
@@ -131,7 +131,6 @@ const Index: React.FC = () => {
       </section>
 
       {/* wall of quotes */}
-      <WallOfQuotes />
 
       <ToolTip />
       <BottomCard />

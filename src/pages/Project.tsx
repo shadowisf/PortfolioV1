@@ -3,6 +3,7 @@ import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
 import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
+import { HyperLink, HyperLinkWithIcon } from "../components/HyperLink";
 
 export default function Project() {
   useEffect(() => {
@@ -17,7 +18,6 @@ export default function Project() {
   return (
     <Fragment>
       {/* portfolio */}
-
       <section className="container">
         <header className="largeHeader flexCenterH">portfolio</header>
 
@@ -44,50 +44,28 @@ export default function Project() {
           <br />
           <br />
           <b>attributions:</b>{" "}
-          <a
-            className="hyperLink"
-            href="https://github.com/brandonmcconnell"
-            target="_blank"
-          >
+          <HyperLink href="https://github.com/brandonmcconnell">
             brandon mcconnell
-          </a>
-          ,{" "}
-          <a
-            className="hyperLink"
-            href="https://github.com/francoischalifour"
-            target="_blank"
-          >
+          </HyperLink>
+          {", "}
+          <HyperLink href="https://github.com/francoischalifour">
             françois chalifour
-          </a>
-          ,{" "}
-          <a
-            className="hyperLink"
-            href="https://www.instagram.com/pablostanley/"
-            target="_blank"
-          >
+          </HyperLink>
+          {", "}
+          <HyperLink href="https://www.instagram.com/pablostanley/">
             pablo stanley
-          </a>
-          ,{" "}
-          <a className="hyperLink" href="https://awik.io" target="_blank">
-            andreas wilk
-          </a>
-          ,{" "}
-          <a
-            className="hyperLink"
-            href="https://github.com/fisshy"
-            target="_blank"
-          >
+          </HyperLink>
+          {", "}
+          <HyperLink href="https://awik.io">andreas wilk</HyperLink>
+          {", "}
+          <HyperLink href="https://github.com/fisshy">
             joachim (fisshy)
-          </a>
-          , and{" "}
-          <a
-            className="hyperLink"
-            href="https://www.linkedin.com/in/frankmyles/"
-            target="_blank"
-          >
+          </HyperLink>
+          {", "}
+          <HyperLink href="https://www.linkedin.com/in/frankmyles/">
             frank myles
-          </a>
-          .
+          </HyperLink>
+          {"."}
         </p>
       </section>
 
@@ -103,7 +81,7 @@ export default function Project() {
 
         <ul className="architecture noCursor flexCenterH">
           <li>c#</li>
-          <li>windows sql server</li>
+          <li>microsoft sql server</li>
           <li>windows forms</li>
           <li>ui/ux</li>
           <li>crud</li>
@@ -121,44 +99,26 @@ export default function Project() {
         <br />
 
         <div className="projectLinks">
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconGithub />
-            </picture>
-            <a
-              className="hyperLink withIcon"
-              href="https://github.com/shadowisf/CircuitCentral"
-              target="_blank"
-            >
-              github
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconGithub />}
+            href="https://github.com/shadowisf/CircuitCentral"
+          >
+            github
+          </HyperLinkWithIcon>
 
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconPDF />
-            </picture>
-            <a
-              className="hyperLink withIcon"
-              href="src/assets/FileCircuitCentralProposal.PDF"
-              target="_blank"
-            >
-              proposal report
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconPDF />}
+            href="src/assets/FileCircuitCentralProposal.PDF"
+          >
+            proposal report
+          </HyperLinkWithIcon>
 
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconPDF />
-            </picture>
-            <a
-              className="hyperLink withIcon"
-              href="src/assets/FileCircuitCentralImplementation.PDF"
-              target="_blank"
-            >
-              implementation report
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconPDF />}
+            href="src/assets/FileCircuitCentralImplementation.PDF"
+          >
+            implementation report
+          </HyperLinkWithIcon>
         </div>
 
         <br />
@@ -206,31 +166,19 @@ export default function Project() {
         <br />
 
         <div className="projectLinks">
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconGithub />
-            </picture>
-            <a
-              className="hyperLink withIcon"
-              href="https://github.com/shadowisf/ApolloHospital"
-              target="_blank"
-            >
-              github
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconGithub />}
+            href="https://github.com/shadowisf/ApolloHospital"
+          >
+            github
+          </HyperLinkWithIcon>
 
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconPDF />
-            </picture>
-            <a
-              className="hyperLink withIcon"
-              href="src/assets/FileApolloHospital.PDF"
-              target="_blank"
-            >
-              report
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconPDF />}
+            href="src/assets/FileApolloHospital.PDF"
+          >
+            report
+          </HyperLinkWithIcon>
         </div>
 
         <br />
@@ -274,33 +222,19 @@ export default function Project() {
         <br />
 
         <div className="projectLinks">
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconGithub />
-            </picture>
+          <HyperLinkWithIcon
+            img={<IconGithub />}
+            href="https://github.com/shadowisf/FunCulator"
+          >
+            github
+          </HyperLinkWithIcon>
 
-            <a
-              className="hyperLink withIcon"
-              href="https://github.com/shadowisf/FunCulator"
-              target="_blank"
-            >
-              github
-            </a>
-          </span>
-
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconPDF />
-            </picture>
-
-            <a
-              className="hyperLink withIcon"
-              href="/src/assets/FileFunCulator.PDF"
-              target="_blank"
-            >
-              report
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconPDF />}
+            href="/src/assets/FileFunCulator.PDF"
+          >
+            report
+          </HyperLinkWithIcon>
         </div>
 
         <br />
@@ -349,33 +283,19 @@ export default function Project() {
         <br />
 
         <div className="projectLinks">
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconGithub />
-            </picture>
+          <HyperLinkWithIcon
+            img={<IconGithub />}
+            href="https://github.com/shadowisf/BellHospital"
+          >
+            github
+          </HyperLinkWithIcon>
 
-            <a
-              className="hyperLink withIcon"
-              href="https://github.com/shadowisf/BellHospital"
-              target="_blank"
-            >
-              github
-            </a>
-          </span>
-
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconPDF />
-            </picture>
-
-            <a
-              className="hyperLink withIcon"
-              href="src/assets/FileBellHospital.PDF"
-              target="_blank"
-            >
-              report
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconPDF />}
+            href="src/assets/FileBellHospital.PDF"
+          >
+            report
+          </HyperLinkWithIcon>
         </div>
 
         <br />
@@ -417,33 +337,19 @@ export default function Project() {
         <br />
 
         <div className="projectLinks">
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconGithub />
-            </picture>
+          <HyperLinkWithIcon
+            img={<IconGithub />}
+            href="https://github.com/shadowisf/PlugInsDatabase"
+          >
+            github
+          </HyperLinkWithIcon>
 
-            <a
-              className="hyperLink withIcon"
-              href="https://github.com/shadowisf/PlugInsDatabase"
-              target="_blank"
-            >
-              github
-            </a>
-          </span>
-
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconPDF />
-            </picture>
-
-            <a
-              className="hyperLink withIcon"
-              href="src/assets/FilePlugInsDatabase.PDF"
-              target="_blank"
-            >
-              report
-            </a>
-          </span>
+          <HyperLinkWithIcon
+            img={<IconPDF />}
+            href="src/assets/FilePlugInsDatabase.PDF"
+          >
+            report
+          </HyperLinkWithIcon>
         </div>
 
         <br />
