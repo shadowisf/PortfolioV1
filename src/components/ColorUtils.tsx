@@ -73,8 +73,6 @@ export const keyControls = () => {
 };
 
 export function lightOrDark(color) {
-  // https://awik.io/determine-color-bright-dark-using-javascript/
-
   var r, g, b, hsp;
 
   if (color.match(/^rgb/)) {

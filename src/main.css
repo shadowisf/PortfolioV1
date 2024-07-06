@@ -24,13 +24,13 @@
   justify-content: space-between;
   align-items: start;
 
-  padding-left: 10rem;
-  padding-right: 10rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .backgroundSVG {
-  width: 200px;
-  opacity: 0.25;
+  width: 280px;
+  opacity: 0.5;
 }
 
 /* MOBILE SCREEN */
@@ -587,13 +587,17 @@ nav {
   margin-left: 10rem;
   margin-top: 10rem;
 
-  opacity: 1;
+  opacity: 0;
 
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
+}
+
+.projectNav.show {
+  opacity: 1;
 }
 
 .projectNav.transitionDelay {
-  transition-delay: 2.5s;
+  transition-delay: 2s;
 }
 
 .projectNav ul {
@@ -613,6 +617,5 @@ nav {
 }
 
 .hidden {
-  position: absolute;
   opacity: 0;
 }

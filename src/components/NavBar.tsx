@@ -8,7 +8,7 @@ type NavBarProps = {
 
 const NavBar: React.FC<NavBarProps> = ({
   collapseDiv,
-  scrollToPage: scrollTo,
+  scrollToPage: scrollToPage,
 }) => {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
@@ -47,7 +47,7 @@ const NavBar: React.FC<NavBarProps> = ({
           onClick={() => {
             toggleHamburgerMenu();
             collapseDiv("about");
-            scrollTo("about");
+            scrollToPage("about");
           }}
         >
           about
@@ -57,7 +57,7 @@ const NavBar: React.FC<NavBarProps> = ({
           onClick={() => {
             toggleHamburgerMenu();
             collapseDiv("project");
-            scrollTo("project");
+            scrollToPage("project");
           }}
         >
           projects
@@ -67,7 +67,7 @@ const NavBar: React.FC<NavBarProps> = ({
           onClick={() => {
             toggleHamburgerMenu();
             collapseDiv("contact");
-            scrollTo("contact");
+            scrollToPage("contact");
           }}
         >
           contact

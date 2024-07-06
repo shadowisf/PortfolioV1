@@ -25,7 +25,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
   return (
     <Fragment>
       {/* hey, i'm les! */}
-      <section className="container vhalf">
+      <section className="container vhalf noMarginTop">
         <header id="hs" className="largeHeader textCenter">
           i'm a <span className="typedSeries"></span> <br /> software engineer
         </header>

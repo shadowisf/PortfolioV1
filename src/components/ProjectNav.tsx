@@ -1,16 +1,29 @@
 import { projectData } from "../pages/Project";
 
-export const ProjectNav = ({ className }: { className?: string }) => {
+type ProjectNavProps = {
+  className?: string;
+  scrollToElement: (element: string) => void;
+};
+
+const ProjectNav: React.FC<ProjectNavProps> = ({
+  className,
+  scrollToElement: scrollTo,
+}) => {
   return (
     <section id="projectNav" className={className}>
       <ul className="textCenter">
-        <li className="active noCursor">{projectData.projectName1}</li>
-        <li className="scaleHover noCursor">{projectData.projectName2}</li>
-        <li className="scaleHover noCursor">{projectData.projectName3}</li>
-        <li className="scaleHover noCursor">{projectData.projectName4}</li>
-        <li className="scaleHover noCursor">{projectData.projectName5}</li>
-        <li className="scaleHover noCursor">{projectData.projectName6}</li>
+        {projectData.map((project, index) => (
+          <li
+            key={project.id}
+            className={`scaleHover noCursor ${index === 0 ? "active" : ""}`}
+            onClick={() => scrollTo(project.name)}
+          >
+            {project.name}
+          </li>
+        ))}
       </ul>
     </section>
   );
 };
+
+export default ProjectNav;

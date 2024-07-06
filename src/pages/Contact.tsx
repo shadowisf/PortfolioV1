@@ -7,7 +7,7 @@ import { HyperLinkWithIcon } from "../components/HyperLink";
 export default function Contact() {
   return (
     <Fragment>
-      <section className="container socials">
+      <section className="container socials noMarginTop">
         <p>
           wanna discuss your next big thing? have questions about a project?
           does your coffee machine need fixing? you can always contact me on

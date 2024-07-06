@@ -4,6 +4,7 @@ import {
   scrollToPage,
   hideDiv,
   collapseDiv,
+  scrollToElement,
 } from "../components/NavUtils";
 import { Element } from "react-scroll";
 import NavBar from "../components/NavBar";
@@ -14,7 +15,7 @@ import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import { keyControls } from "../components/ColorUtils";
 import { Background1, Background2 } from "../components/Background";
-import { ProjectNav } from "../components/ProjectNav";
+import ProjectNav from "../components/ProjectNav";
 
 const Index: React.FC = () => {
   const {
@@ -69,8 +70,9 @@ const Index: React.FC = () => {
       </div>
 
       <ProjectNav
+        scrollToElement={scrollToElement}
         className={`container projectNav ${
-          isProjectOpen ? "transitionDelay show" : "hidden"
+          isProjectOpen ? "transitionDelay show" : ""
         } `}
       />
 

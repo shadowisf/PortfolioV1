@@ -4,15 +4,20 @@ import IconGithub from "../assets/IconGithub";
 import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
 import { HyperLink, HyperLinkWithIcon } from "../components/HyperLink";
-import { ProjectNav } from "../components/ProjectNav";
+import { Element } from "react-scroll";
 
-export const projectData = {
-  projectName1: "portfolio",
-  projectName2: "circuitcentral",
-  projectName3: "apollo hospital",
-  projectName4: "funculator",
-  projectName5: "bell hospital",
-  projectName6: "plug-ins",
+export const projectData = [
+  { id: 1, name: "portfolio" },
+  { id: 2, name: "circuitcentral" },
+  { id: 3, name: "apollo hospital" },
+  { id: 4, name: "funculator" },
+  { id: 5, name: "bell hospital" },
+  { id: 6, name: "plug-ins" },
+];
+
+export const getProjectNameById = (id: number) => {
+  const project = projectData.find((project) => project.id === id);
+  return project ? project.name : "?";
 };
 
 export default function Project() {
@@ -28,9 +33,9 @@ export default function Project() {
   return (
     <Fragment>
       {/* portfolio */}
-      <section className="container">
+      <Element name={getProjectNameById(1)} className="container noMarginTop">
         <header className="largeHeader flexCenterH">
-          {projectData.projectName1}
+          {getProjectNameById(1)}
         </header>
 
         <span className="flexCenterH">2024</span>
@@ -79,16 +84,16 @@ export default function Project() {
           </HyperLink>
           {"."}
         </p>
-      </section>
+      </Element>
 
       <span className="flexCenterH topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* circuitcentral */}
-      <section className="container bottomMargin">
+      <Element name={getProjectNameById(2)} className="container bottomMargin">
         <header className="flexCenterH largeHeader">
-          {projectData.projectName2}
+          {getProjectNameById(2)}
         </header>
 
         <span className="flexCenterH">2024</span>
@@ -146,16 +151,16 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageCircuitCentral2.PNG"
         />
-      </section>
+      </Element>
 
       <span className="flexCenterH topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* apollo hospital */}
-      <section className="container bottomMargin">
+      <Element name={getProjectNameById(3)} className="container bottomMargin">
         <header className="flexCenterH largeHeader">
-          {projectData.projectName3}
+          {getProjectNameById(3)}
         </header>
 
         <span className="flexCenterH">2023</span>
@@ -208,16 +213,16 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageApolloHospital2.PNG"
         />
-      </section>
+      </Element>
 
       <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* funculator */}
-      <section className="container">
+      <Element name={getProjectNameById(4)} className="container">
         <header className="flexCenterH largeHeader">
-          {projectData.projectName4}
+          {getProjectNameById(4)}
         </header>
 
         <span className="flexCenterH">2022</span>
@@ -271,16 +276,16 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageFunCulator3.PNG"
         />
-      </section>
+      </Element>
 
       <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* bell hospital */}
-      <section className="container">
+      <Element name={getProjectNameById(5)} className="container">
         <header className="flexCenterH largeHeader">
-          {projectData.projectName5}
+          {getProjectNameById(5)}
         </header>
 
         <span className="flexCenterH">2022</span>
@@ -329,16 +334,16 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageBellHospital2.PNG"
         />
-      </section>
+      </Element>
 
       <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* plug-ins */}
-      <section className="container">
+      <Element name={getProjectNameById(6)} className="container">
         <header className="flexCenterH largeHeader">
-          {projectData.projectName6}
+          {getProjectNameById(6)}
         </header>
 
         <span className="flexCenterH">2022</span>
@@ -385,7 +390,7 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImagePlugInsDatabase2.PNG"
         />
-      </section>
+      </Element>
 
       {/*
       <section className="container">

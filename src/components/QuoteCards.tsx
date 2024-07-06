@@ -1,18 +1,3 @@
-/* 
-BLACK AND WHITE PNG CONVERTER
-https://onlinetools.com/image/create-two-color-image
-
-PNG TO SVG CONVERTER
-https://www.pngtosvg.com
-
-SVG OPTIMIZATION AND COMPRESSION
-https://jakearchibald.github.io/svgomg/
-
-SVG ICONS
-https://remixicon.com/
-https://www.flaticon.com/
-*/
-
 export const QuoteCard = ({
   children,
   who,

@@ -16,6 +16,8 @@ export const useToggleStates = () => {
   };
 };
 
+const HTML = document.documentElement;
+
 export const scrollOptions = {
   duration: 500,
   smooth: true,
@@ -40,10 +42,13 @@ export const scrollToPage = (
     setTimeout(() => {
       scroller.scrollTo(element, scrollOptions);
     }, 0);
-  }
-  else {
+  } else {
     animateScroll.scrollTo(0, scrollOptions);
   }
+};
+
+export const scrollToElement = (element: string) => {
+  scroller.scrollTo(element, scrollOptions);
 };
 
 export const hideDiv = (
@@ -99,7 +104,7 @@ export const showDiv = (
       divContainer.style.opacity = "1";
       divHeader.style.opacity = "1";
     }, 0);
-  } 
+  }
 };
 
 export const collapseDiv = (
@@ -120,11 +125,14 @@ export const collapseDiv = (
     hideDiv("projectHeader", "projectContainer", "delay");
 
     setTimeout(() => {
+      HTML.style.overflow = "hidden";
       setAboutOpen(!isAboutOpen);
     }, animationDelay);
-
-    scrollToPage(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
+
+  setTimeout(() => {
+    HTML.style.overflow = "auto";
+  }, 4000);
 
   if (element === "project" && !isProjectOpen) {
     setContactOpen(false);
@@ -137,8 +145,6 @@ export const collapseDiv = (
     setTimeout(() => {
       setProjectOpen(!isProjectOpen);
     }, animationDelay);
-
-    scrollToPage(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
 
   if (element === "contact" && !isContactOpen) {
@@ -152,7 +158,5 @@ export const collapseDiv = (
     setTimeout(() => {
       setContactOpen(!isContactOpen);
     }, animationDelay);
-
-    scrollToPage(element, isAboutOpen, isProjectOpen, isContactOpen);
   }
 };
