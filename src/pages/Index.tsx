@@ -13,7 +13,7 @@ import Contact from "./Contact";
 import About from "./About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
-import WallOfQuotes from "../components/WallOfQuotes";
+import { QuoteCard } from "../components/QuoteCards";
 import { keyControls } from "../components/ColorUtils";
 
 const Index: React.FC = () => {
@@ -129,8 +129,6 @@ const Index: React.FC = () => {
       >
         <Contact />
       </section>
-
-      {/* wall of quotes */}
 
       <ToolTip />
       <BottomCard />

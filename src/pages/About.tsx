@@ -12,6 +12,10 @@ import {
   HandPointingUp,
 } from "../components/HandPointingButtons";
 import { TimelineRow } from "../components/Timeline";
+import IllustrationOttoOctavius from "../assets/IllustrationOttoOctavius";
+import IllustrationSansaStark from "../assets/IllustrationSansaStark";
+import { QuoteCard } from "../components/QuoteCards";
+import IllustrationLineH from "../assets/IllustrationLineH";
 
 type AboutProps = {
   collapseDiv: (div: string) => void;
@@ -50,6 +54,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
           </p>
         </aside>
       </section>
+
+      <span className="flexCenterH topMargin bottomMargin">
+        <IllustrationLineH width="25%" strokeDasharray="10" />
+      </span>
 
       {/* my life as a timeline */}
       <header className="largeHeader textCenter topMargin">
@@ -127,6 +135,10 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
         </TimelineRow>
       </section>
 
+      <span className="flexCenterH topMargin bottomMargin">
+        <IllustrationLineH width="25%" strokeDasharray="10" />
+      </span>
+
       {/* now what? */}
       <header className="largeHeader flexCenterH textCenter topMargin">
         now what?
@@ -170,6 +182,31 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       <p className="container flexCenterH textCenter">
         use the menu at the top right to go anywhere!
       </p>
+
+      <span className="flexCenterH topMargin bottomMargin">
+        <IllustrationLineH width="25%" strokeDasharray="10" />
+      </span>
+
+      {/* wall of quotes */}
+      <header className="largeHeader flexCenterH topMargin">
+        the wall of quotes!
+      </header>
+      <QuoteCard
+        who="otto octavius"
+        where="spiderman 2"
+        img={<IllustrationOttoOctavius />}
+      >
+        intelligence is not a privilege, it's a gift. and you use it for the
+        good of mankind.
+      </QuoteCard>
+
+      <QuoteCard
+        who="sansa stark"
+        where="game of thrones"
+        img={<IllustrationSansaStark />}
+      >
+        i'm a slow learner, that's true. but i learn.
+      </QuoteCard>
     </Fragment>
   );
 };
