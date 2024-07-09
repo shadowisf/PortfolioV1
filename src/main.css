@@ -24,17 +24,18 @@
   justify-content: space-between;
   align-items: start;
 
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .backgroundSVG {
-  width: 280px;
+  width: 180px;
   opacity: 0.5;
 }
 
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
+
   .container,
   .collapseContainer {
     max-width: var(--mobile-max-width);
@@ -76,6 +77,7 @@
 
 /* PC SCREEN */
 @media (min-width: 800.98px) {
+
   .container,
   .collapseContainer {
     max-width: var(--pc-max-width);
@@ -378,7 +380,7 @@ nav {
 .bottomcard {
   text-align: center;
   padding: 3rem;
-  margin-top: 15rem;
+  margin-top: 10rem;
 }
 
 .tooltip {

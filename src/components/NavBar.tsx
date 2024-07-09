@@ -2,14 +2,10 @@ import { Fragment, useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
 
 type NavBarProps = {
-  collapseDiv: (element: string) => void;
-  scrollToPage: (element: string) => void;
+  collapseContainer: (element: string) => void;
 };
 
-const NavBar: React.FC<NavBarProps> = ({
-  collapseDiv,
-  scrollToPage: scrollToPage,
-}) => {
+export default function NavBar({ collapseContainer }: NavBarProps) {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
   const toggleHamburgerMenu = () => {
@@ -46,8 +42,7 @@ const NavBar: React.FC<NavBarProps> = ({
           className="dotHoverBC noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseDiv("about");
-            scrollToPage("about");
+            collapseContainer("about");
           }}
         >
           about
@@ -56,8 +51,7 @@ const NavBar: React.FC<NavBarProps> = ({
           className="dotHoverBC noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseDiv("project");
-            scrollToPage("project");
+            collapseContainer("project");
           }}
         >
           projects
@@ -66,8 +60,7 @@ const NavBar: React.FC<NavBarProps> = ({
           className="dotHoverBC noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseDiv("contact");
-            scrollToPage("contact");
+            collapseContainer("contact");
           }}
         >
           contact
@@ -75,6 +68,4 @@ const NavBar: React.FC<NavBarProps> = ({
       </section>
     </Fragment>
   );
-};
-
-export default NavBar;
+}

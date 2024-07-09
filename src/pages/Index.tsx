@@ -1,10 +1,9 @@
 import { Fragment, useEffect } from "react";
 import {
   useToggleStates,
-  scrollToPage,
-  hideDiv,
-  collapseDiv,
+  collapseContainer,
   scrollToElement,
+  changeContainerVisibility,
 } from "../components/NavUtils";
 import { Element } from "react-scroll";
 import NavBar from "../components/NavBar";
@@ -17,7 +16,7 @@ import { keyControls } from "../components/ColorUtils";
 import { Background1, Background2 } from "../components/Background";
 import ProjectNav from "../components/ProjectNav";
 
-const Index: React.FC = () => {
+export default function Index() {
   const {
     isAboutOpen,
     setAboutOpen,
@@ -29,17 +28,17 @@ const Index: React.FC = () => {
 
   // startup sequence
   useEffect(() => {
-    hideDiv("projectHeader", "projectContainer", "now");
-    hideDiv("contactHeader", "contactContainer", "now");
+    changeContainerVisibility("project", "none", "0", 0);
+    changeContainerVisibility("contact", "none", "0", 0);
 
-    collapseDiv(
+    collapseContainer(
       "about",
       isAboutOpen,
       setAboutOpen,
       isProjectOpen,
       setProjectOpen,
       isContactOpen,
-      setContactOpen
+      setProjectOpen
     );
 
     setTimeout(() => {
@@ -50,8 +49,8 @@ const Index: React.FC = () => {
   return (
     <Fragment>
       <NavBar
-        collapseDiv={(element) =>
-          collapseDiv(
+        collapseContainer={(element) =>
+          collapseContainer(
             element,
             isAboutOpen,
             setAboutOpen,
@@ -61,7 +60,6 @@ const Index: React.FC = () => {
             setContactOpen
           )
         }
-        scrollToPage={(element) => scrollToPage(element)}
       />
 
       <div className="backgroundContainer">
@@ -91,8 +89,8 @@ const Index: React.FC = () => {
         }`}
       >
         <About
-          collapseDiv={(element) =>
-            collapseDiv(
+          collapseContainer={(element) =>
+            collapseContainer(
               element,
               isAboutOpen,
               setAboutOpen,
@@ -143,6 +141,4 @@ const Index: React.FC = () => {
       <BottomCard />
     </Fragment>
   );
-};
-
-export default Index;
+}

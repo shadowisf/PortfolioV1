@@ -18,10 +18,10 @@ import { QuoteCard } from "../components/QuoteCards";
 import IllustrationLineH from "../assets/IllustrationLineH";
 
 type AboutProps = {
-  collapseDiv: (div: string) => void;
+  collapseContainer: (element: string) => void;
 };
 
-const About: React.FC<AboutProps> = ({ collapseDiv }) => {
+export default function About({ collapseContainer }: AboutProps) {
   return (
     <Fragment>
       {/* hey, i'm les! */}
@@ -146,7 +146,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       <HandPointingLeft
         id="fs"
         onClick={() => {
-          collapseDiv("project");
+          collapseContainer("project");
         }}
       >
         view my project
@@ -155,7 +155,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       <HandPointingRight
         id="fs"
         onClick={() => {
-          collapseDiv("contact");
+          collapseContainer("contact");
         }}
       >
         contact me
@@ -164,7 +164,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       <HandPointingDown
         id="hs"
         onClick={() => {
-          collapseDiv("project");
+          collapseContainer("project");
         }}
       >
         view my projects
@@ -173,7 +173,7 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       <HandPointingUp
         id="hs"
         onClick={() => {
-          collapseDiv("contact");
+          collapseContainer("contact");
         }}
       >
         contact me
@@ -209,6 +209,4 @@ const About: React.FC<AboutProps> = ({ collapseDiv }) => {
       </QuoteCard>
     </Fragment>
   );
-};
-
-export default About;
+}
