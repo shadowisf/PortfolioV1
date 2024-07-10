@@ -590,19 +590,12 @@ nav {
 }
 
 .projectNav {
-  font-size: xxx-large;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  line-height: 0.5;
-}
-
-.projectNavContainer {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  line-height: 0.5;
   padding-left: 1rem;
   padding-right: 1rem;
+  margin-bottom: 3rem;
 }
 
 .scaleText {
@@ -625,3 +618,4 @@ nav {
   min-width: 0;
 }
 
+*{border:solid}

@@ -2,11 +2,12 @@ import { Fragment } from "react/jsx-runtime";
 import { projectData } from "../pages/Project";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
-import { isElementOfType } from "react-dom/test-utils";
 
 type ProjectNavProps = {
-  className?: string;
-  scrollTo: (int: number) => void;
+  slideTo: (index: number) => void;
+  slideNext: () => void;
+  slidePrev: () => void;
+  activeIndex: number;
 };
 
 type ProjectContainerProps = {
@@ -33,17 +34,17 @@ function getProjectArchitecture(id: number) {
 }
 
 export const useEmblaStuff = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
-  const scrollPrev = useCallback(() => {
+  const slidePrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
 
-  const scrollNext = useCallback(() => {
+  const slideNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  const scrollTo = useCallback(
+  const slideTo = useCallback(
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
@@ -53,27 +54,41 @@ export const useEmblaStuff = () => {
   return {
     emblaRef,
     emblaApi,
-    scrollPrev,
-    scrollNext,
-    scrollTo,
+    slidePrev,
+    slideNext,
+    slideTo,
   };
 };
 
-export default function ProjectNav({ scrollTo }: ProjectNavProps) {
+export default function ProjectNav({
+  slideTo,
+  slideNext,
+  slidePrev,
+  activeIndex,
+}: ProjectNavProps) {
   return (
-    <>
-      <section id="projectNav" className="projectNav noCursor">
+    <section id="projectNav" className="projectNav noCursor flexCenterV">
+      <span className="scaleHover flexCenterV" onClick={slidePrev}>
+        ← previous
+      </span>
+
+      <span className="flexCenterV">
         {projectData.map((project, index) => (
           <span
             key={project.id}
-            className={` ${index === 0 ? "active" : "scaleHover"}`}
-            onClick={() => scrollTo(index)}
+            className={index === activeIndex ? "active" : "scaleHover"}
+            onClick={() => slideTo(index)}
+            style={{ fontSize: "xxx-large" }}
           >
-            {index === 0 ? "•" : "◦"}
+            {index === activeIndex ? "•" : "◦"}
           </span>
         ))}
-      </section>
-    </>
+      </span>
+
+      <span className="scaleHover flexCenterV" onClick={slideNext}>
+        next →
+      </span>
+    </section>
   );
 }
 

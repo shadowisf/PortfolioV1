@@ -11,7 +11,7 @@ import About from "./About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import { keyControls } from "../components/ColorUtils";
-import { Background1, Background2 } from "../assets/Background";
+import { Background1, Background2 } from "../assets/IllustrationBackground";
 import { useEffect } from "react";
 
 export default function Index() {

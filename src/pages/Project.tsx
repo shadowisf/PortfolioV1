@@ -1,14 +1,12 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
-import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
 import { HyperLink, HyperLinkWithIcon } from "../components/HyperLink";
 import ProjectNav, {
   ProjectContainer,
   useEmblaStuff,
 } from "../components/ProjectComps";
-import { scrollToElement } from "../components/NavUtils";
 
 export const projectData = [
   {
@@ -73,21 +71,38 @@ export default function Project() {
     };
   }, []);
 
-  const { emblaRef, scrollPrev, scrollNext, scrollTo } = useEmblaStuff();
+  const { emblaRef, slidePrev, slideNext, slideTo } = useEmblaStuff();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScrollTo = useCallback(
+    (index: number) => {
+      slideTo(index);
+      setActiveIndex(index);
+    },
+    [slideTo, activeIndex]
+  );
+
+  const handleScrollNext = useCallback(() => {
+    const newIndex = (activeIndex + 1) % projectData.length;
+    slideNext();
+    setActiveIndex(newIndex);
+  }, [slideNext, activeIndex]);
+
+  const handleScrollPrev = useCallback(() => {
+    const newIndex =
+      (activeIndex - 1 + projectData.length) % projectData.length;
+    slidePrev();
+    setActiveIndex(newIndex);
+  }, [slidePrev, activeIndex]);
 
   return (
     <>
-      <div className="projectNavContainer">
-        <span className="scaleHover noCursor" onClick={scrollPrev}>
-          ← previous
-        </span>
-
-        <ProjectNav scrollTo={scrollTo} />
-
-        <span className="scaleHover noCursor" onClick={scrollNext}>
-          next →
-        </span>
-      </div>
+      <ProjectNav
+        slideTo={handleScrollTo}
+        slideNext={handleScrollNext}
+        slidePrev={handleScrollPrev}
+        activeIndex={activeIndex}
+      />
 
       <div className="embla" ref={emblaRef}>
         <div className="embla_container">
