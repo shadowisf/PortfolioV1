@@ -64,33 +64,38 @@ export const collapseContainer = (
 ) => {
   scrollToElement("top");
 
-  setAboutOpen(false);
-  setContactOpen(false);
-  setProjectOpen(false);
-
   if (element === "about" && !isAboutOpen) {
+    setProjectOpen(false);
+    setContactOpen(false);
+
     changeContainerVisibility("about", "block", "1", 1000);
     changeContainerVisibility("project", "none", "0", 1000);
     changeContainerVisibility("contact", "none", "0", 1000);
 
     setTimeout(() => {
-      setAboutOpen(!isAboutOpen);
+      setAboutOpen(true);
     }, animationDelay);
   } else if (element === "project" && !isProjectOpen) {
+    setAboutOpen(false);
+    setContactOpen(false);
+
     changeContainerVisibility("project", "block", "1", 1000);
     changeContainerVisibility("about", "none", "0", 1000);
     changeContainerVisibility("contact", "none", "0", 1000);
 
     setTimeout(() => {
-      setProjectOpen(!isProjectOpen);
+      setProjectOpen(true);
     }, animationDelay);
   } else if (element === "contact" && !isContactOpen) {
+    setAboutOpen(false);
+    setProjectOpen(false);
+
     changeContainerVisibility("contact", "block", "1", 1000);
     changeContainerVisibility("project", "none", "0", 1000);
     changeContainerVisibility("about", "none", "0", 1000);
 
     setTimeout(() => {
-      setContactOpen(!isContactOpen);
+      setContactOpen(true);
     }, animationDelay);
   } else {
     scrollToElement(element);

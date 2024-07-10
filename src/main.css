@@ -572,7 +572,7 @@ nav {
 }
 
 .timelineRow {
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .scaleHover {
@@ -584,40 +584,20 @@ nav {
 }
 
 .projectNav {
-  position: fixed;
-  z-index: 1;
-  margin-left: 10rem;
-  margin-top: 10rem;
-
-  opacity: 0;
-
-  transition: opacity 0.5s ease;
-}
-
-.projectNav.show {
-  opacity: 1;
-}
-
-.projectNav.transitionDelay {
-  transition-delay: 2s;
-}
-
-.projectNav ul {
+  font-size: xxx-large;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  gap: 20px;
+  line-height: 0.5;
 }
 
-.projectNav li {
-  list-style: none;
-  padding: 0.5rem;
+.scale__container--js {
+  text-align: center;
+}
+.scale--js {
+  display: inline-block;
+  transform-origin: 50% 0;
+  -webkit-font-smoothing: antialiased;
+  transform: translate3d( 0, 0, 0);
 }
 
-.projectNav .active {
-  background: var(--text-color);
-  color: var(--background-color);
-}
-
-.hidden {
-  opacity: 0;
-}

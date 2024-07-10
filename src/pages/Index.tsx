@@ -13,8 +13,8 @@ import About from "./About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import { keyControls } from "../components/ColorUtils";
-import { Background1, Background2 } from "../components/Background";
-import ProjectNav from "../components/ProjectNav";
+import { Background1, Background2 } from "../assets/Background";
+import ProjectNav from "../components/ProjectComps";
 
 export default function Index() {
   const {
@@ -62,17 +62,10 @@ export default function Index() {
         }
       />
 
-      <div className="backgroundContainer">
+      {/* <div className="backgroundContainer">
         <Background1 className="backgroundSVG" />
         <Background2 className="backgroundSVG" />
-      </div>
-
-      <ProjectNav
-        scrollToElement={scrollToElement}
-        className={`container projectNav ${
-          isProjectOpen ? "transitionDelay show" : ""
-        } `}
-      />
+      </div> */}
 
       {/* about */}
       <Element

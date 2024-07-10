@@ -5,20 +5,61 @@ import IllustrationLineHorizontal from "../assets/IllustrationLineH";
 import IconPDF from "../assets/IconPDF";
 import { HyperLink, HyperLinkWithIcon } from "../components/HyperLink";
 import { Element } from "react-scroll";
+import ProjectNav, { ProjectContainer } from "../components/ProjectComps";
+import { scrollToElement } from "../components/NavUtils";
 
 export const projectData = [
-  { id: 1, name: "portfolio" },
-  { id: 2, name: "circuitcentral" },
-  { id: 3, name: "apollo hospital" },
-  { id: 4, name: "funculator" },
-  { id: 5, name: "bell hospital" },
-  { id: 6, name: "plug-ins" },
+  {
+    id: 1,
+    name: "portfolio",
+    year: "2024",
+    architecture: ["typescript (react)", "html", "css", "sass", "ui/ux"],
+  },
+  {
+    id: 2,
+    name: "circuitcentral",
+    year: "2024",
+    architecture: [
+      "c#",
+      "microsoft sql server",
+      "windows forms",
+      "ui/ux",
+      "crud",
+    ],
+  },
+  {
+    id: 3,
+    name: "apollo hospital",
+    year: "2023",
+    architecture: [
+      "python (flask)",
+      "xampp",
+      "html (django)",
+      "css (bootstrap)",
+      "javascript",
+      "ui/ux",
+      "crud",
+    ],
+  },
+  {
+    id: 4,
+    name: "funculator",
+    year: "2022",
+    architecture: ["java", "swing", "ui/ux"],
+  },
+  {
+    id: 5,
+    name: "bell hospital",
+    year: "2022",
+    architecture: ["java", "file handling", "cli"],
+  },
+  {
+    id: 6,
+    name: "plug-ins",
+    year: "2022",
+    architecture: ["php", "html", "xampp"],
+  },
 ];
-
-export const getProjectNameById = (id: number) => {
-  const project = projectData.find((project) => project.id === id);
-  return project ? project.name : "?";
-};
 
 export default function Project() {
   useEffect(() => {
@@ -32,22 +73,10 @@ export default function Project() {
 
   return (
     <Fragment>
+      <ProjectNav scrollToElement={scrollToElement} className="noMarginTop" />
+
       {/* portfolio */}
-      <Element name={getProjectNameById(1)} className="container noMarginTop">
-        <header className="largeHeader flexCenterH">
-          {getProjectNameById(1)}
-        </header>
-
-        <span className="flexCenterH">2024</span>
-
-        <ul className="architecture noCursor flexCenterH">
-          <li>typescript (react)</li>
-          <li>html</li>
-          <li>css</li>
-          <li>sass</li>
-          <li>ui/ux</li>
-        </ul>
-
+      <ProjectContainer dataID={1}>
         <p>
           this portfolio website showcases all things me;{" "}
           <u>my projects, research, and life history!</u> by creating this
@@ -84,28 +113,14 @@ export default function Project() {
           </HyperLink>
           {"."}
         </p>
-      </Element>
+      </ProjectContainer>
 
       <span className="flexCenterH topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* circuitcentral */}
-      <Element name={getProjectNameById(2)} className="container bottomMargin">
-        <header className="flexCenterH largeHeader">
-          {getProjectNameById(2)}
-        </header>
-
-        <span className="flexCenterH">2024</span>
-
-        <ul className="architecture noCursor flexCenterH">
-          <li>c#</li>
-          <li>microsoft sql server</li>
-          <li>windows forms</li>
-          <li>ui/ux</li>
-          <li>crud</li>
-        </ul>
-
+      <ProjectContainer dataID={2}>
         <p>
           circuitcentral is an <u>e-commerce management system</u> that covers
           ordering products, viewing product catalogs, handling customer, staff,
@@ -151,30 +166,14 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageCircuitCentral2.PNG"
         />
-      </Element>
+      </ProjectContainer>
 
       <span className="flexCenterH topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* apollo hospital */}
-      <Element name={getProjectNameById(3)} className="container bottomMargin">
-        <header className="flexCenterH largeHeader">
-          {getProjectNameById(3)}
-        </header>
-
-        <span className="flexCenterH">2023</span>
-
-        <ul className="architecture noCursor flexCenterH">
-          <li>python (flask)</li>
-          <li>xampp</li>
-          <li>html (django)</li>
-          <li>css (bootstrap)</li>
-          <li>javascript</li>
-          <li>ui/ux</li>
-          <li>crud</li>
-        </ul>
-
+      <ProjectContainer dataID={3}>
         <p>
           apollo hospital is a <u>hospital management system</u> that covers
           handling patient and doctor information, scheduling appointments with
@@ -213,26 +212,14 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageApolloHospital2.PNG"
         />
-      </Element>
+      </ProjectContainer>
 
       <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* funculator */}
-      <Element name={getProjectNameById(4)} className="container">
-        <header className="flexCenterH largeHeader">
-          {getProjectNameById(4)}
-        </header>
-
-        <span className="flexCenterH">2022</span>
-
-        <ul className="architecture noCursor flexCenterH">
-          <li>java</li>
-          <li>swing</li>
-          <li>ui/ux</li>
-        </ul>
-
+      <ProjectContainer dataID={4}>
         <p>
           funculator is an <u>all-in-one calculator application</u> for
           students. its system features a login system and a menu that shows all
@@ -276,26 +263,14 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageFunCulator3.PNG"
         />
-      </Element>
+      </ProjectContainer>
 
       <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* bell hospital */}
-      <Element name={getProjectNameById(5)} className="container">
-        <header className="flexCenterH largeHeader">
-          {getProjectNameById(5)}
-        </header>
-
-        <span className="flexCenterH">2022</span>
-
-        <ul className="architecture noCursor flexCenterH">
-          <li>java</li>
-          <li>file handling</li>
-          <li>cli</li>
-        </ul>
-
+      <ProjectContainer dataID={5}>
         <p>
           bell hospital is a <u>hospital management system</u> that is intended
           to be used with a command line interface (cli), with coverage to
@@ -334,26 +309,15 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImageBellHospital2.PNG"
         />
-      </Element>
+      </ProjectContainer>
 
       <span className="flexCenterH  topMargin bottomMargin">
         <IllustrationLineHorizontal width="25%" strokeDasharray="10" />
       </span>
 
       {/* plug-ins */}
-      <Element name={getProjectNameById(6)} className="container">
-        <header className="flexCenterH largeHeader">
-          {getProjectNameById(6)}
-        </header>
 
-        <span className="flexCenterH">2022</span>
-
-        <ul className="architecture noCursor flexCenterH">
-          <li>php</li>
-          <li>html</li>
-          <li>xampp</li>
-        </ul>
-
+      <ProjectContainer dataID={6}>
         <p>
           plug-ins is a fictitious (not real) company that required a database
           solution that utilizes forms. its system covers insertion of customer,
@@ -390,53 +354,7 @@ export default function Project() {
           className="image flexCenterH"
           src="src/assets/ImagePlugInsDatabase2.PNG"
         />
-      </Element>
-
-      {/*
-      <section className="container">
-        <header className="flexCenterH largeHeader">project name</header>
-
-        <span className="flexCenterH">year</span>
-
-        <ul className="architecture noCursor flexCenterH">
-          <li></li>
-        </ul>
-
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi dicta
-          eum doloremque id architecto ullam quis iure animi sunt totam. Rerum
-          quis, temporibus beatae ea illum amet? Laborum, iste earum.
-        </p>
-
-        <br />
-
-        <div className="projectLinks">
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconGithub />
-            </picture>
-
-            <a className="hyperLink withIcon" href="" target="_blank">
-              github
-            </a>
-          </span>
-
-          <span className="flexCenterV">
-            <picture className="flexCenterV">
-              <IconPDF />
-            </picture>
-
-            <a className="hyperLink withIcon" href="" target="_blank">
-              report
-            </a>
-          </span>
-        </div>
-
-        <br />
-
-        <img src="" />
-      </section>
-      */}
+      </ProjectContainer>
     </Fragment>
   );
 }
