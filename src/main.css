@@ -9,7 +9,7 @@
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
-  --about-height: 4500px;
+  --about-height: 6000px;
   --project-height: 9600px;
   --contact-height: 600px;
 }
@@ -126,6 +126,11 @@ p {
   padding: 0;
 }
 
+header {
+  font-weight: bold;
+  font-style: italic;
+}
+
 #navNormal {
   z-index: 1;
 }
@@ -176,6 +181,7 @@ p {
   margin-right: auto;
   margin-top: 3rem;
   margin-bottom: 3rem;
+
 }
 
 .button {
@@ -591,13 +597,9 @@ nav {
   line-height: 0.5;
 }
 
-.scale__container--js {
-  text-align: center;
-}
-.scale--js {
+.scaleText {
   display: inline-block;
   transform-origin: 50% 0;
   -webkit-font-smoothing: antialiased;
-  transform: translate3d( 0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
-

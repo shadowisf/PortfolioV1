@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
 import IconEmail from "../assets/IconEmail";
 import IconInstagram from "../assets/IconInstagram";
 import IconLinkedIn from "../assets/IconLinkedIn";
@@ -6,7 +5,7 @@ import { HyperLinkWithIcon } from "../components/HyperLink";
 
 export default function Contact() {
   return (
-    <Fragment>
+    <>
       <section className="container socials noMarginTop">
         <p>
           wanna discuss your next big thing? have questions about a project?
@@ -43,6 +42,6 @@ export default function Contact() {
           leave a message and <br /> i'll get back to you!
         </p>
       </section>
-    </Fragment>
+    </>
   );
 }

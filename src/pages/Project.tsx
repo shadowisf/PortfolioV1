@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
 import IllustrationLineHorizontal from "../assets/IllustrationLineH";
@@ -72,8 +72,8 @@ export default function Project() {
   }, []);
 
   return (
-    <Fragment>
-      <ProjectNav scrollToElement={scrollToElement} className="noMarginTop" />
+    <>
+      <ProjectNav scrollToElement={scrollToElement} className="" />
 
       {/* portfolio */}
       <ProjectContainer dataID={1}>
@@ -84,31 +84,44 @@ export default function Project() {
           react are all implemented as a baseline for web development.
           <br />
           <br />
-          <b>fun fact:</b> this entire portfolio is made out of vanilla css; no
-          tailwind, no bootstrap, no foundation, just pure vanilla! (with some
-          exceptions of course).
+          <b>fun fact:</b> this entire portfolio website is made with little to
+          no libraries or frameworks! that means features are built manually;
+          just pure vanilla!
           <br />
           <br />
           <b>attributions:</b>{" "}
           <HyperLink href="https://github.com/brandonmcconnell">
+            {/* typedcss */}
             brandon mcconnell
           </HyperLink>
           {", "}
           <HyperLink href="https://github.com/francoischalifour">
+            {/* medium zoom */}
             françois chalifour
           </HyperLink>
           {", "}
           <HyperLink href="https://www.instagram.com/pablostanley/">
+            {/* avatar illustration */}
             pablo stanley
           </HyperLink>
           {", "}
-          <HyperLink href="https://awik.io">andreas wilk</HyperLink>
+          <HyperLink href="https://awik.io">
+            {/* color theory */}
+            andreas wilk
+          </HyperLink>
           {", "}
           <HyperLink href="https://github.com/fisshy">
+            {/* react-scroll */}
             joachim (fisshy)
           </HyperLink>
           {", "}
+          <HyperLink href="https://davidwalsh.name">
+            {/* scaleText */}
+            david walsh
+          </HyperLink>
+          {", "}
           <HyperLink href="https://www.linkedin.com/in/frankmyles/">
+            {/* theme engine */}
             frank myles
           </HyperLink>
           {"."}
@@ -355,6 +368,6 @@ export default function Project() {
           src="src/assets/ImagePlugInsDatabase2.PNG"
         />
       </ProjectContainer>
-    </Fragment>
+    </>
   );
 }

@@ -1,8 +1,6 @@
-import { Fragment, useEffect } from "react";
 import {
   useToggleStates,
   collapseContainer,
-  scrollToElement,
   changeContainerVisibility,
 } from "../components/NavUtils";
 import { Element } from "react-scroll";
@@ -14,7 +12,7 @@ import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import { keyControls } from "../components/ColorUtils";
 import { Background1, Background2 } from "../assets/Background";
-import ProjectNav from "../components/ProjectComps";
+import { useEffect } from "react";
 
 export default function Index() {
   const {
@@ -47,7 +45,7 @@ export default function Index() {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <NavBar
         collapseContainer={(element) =>
           collapseContainer(
@@ -132,6 +130,6 @@ export default function Index() {
 
       <ToolTip />
       <BottomCard />
-    </Fragment>
+    </>
   );
 }

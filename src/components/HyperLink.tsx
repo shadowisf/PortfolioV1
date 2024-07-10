@@ -6,7 +6,7 @@ export const HyperLink = ({
   href?: string;
 }) => {
   return (
-    <a className="hyperLink" href={href} target="_blank">
+    <a className="hyperLink noCursor" href={href} target="_blank">
       {children}
     </a>
   );
@@ -24,7 +24,7 @@ export const HyperLinkWithIcon = ({
   return (
     <span className="flexCenterV">
       <picture className="flexCenterV">{img}</picture>
-      <a className="hyperLink withIcon" href={href} target="_blank">
+      <a className="hyperLink noCursor withIcon" href={href} target="_blank">
         {children}
       </a>
     </span>

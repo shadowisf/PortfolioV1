@@ -48,11 +48,13 @@ export default function ProjectNav({ scrollToElement }: ProjectNavProps) {
 export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
   return (
     <Fragment>
-      <section
-        id={getProjectName(dataID)}
-        className="container noMarginTop"
-      >
-        <header className="largeHeader flexCenterH">
+      <section id={getProjectName(dataID)} className="container noMarginTop">
+        <div id="hs" className="container noMarginTop noMarginBottom textCenter">
+          <header className="scaleText">
+            {getProjectName(dataID)}
+          </header>
+        </div>
+        <header id="fs" className="largeHeader flexCenterH">
           {getProjectName(dataID)}
         </header>
 
