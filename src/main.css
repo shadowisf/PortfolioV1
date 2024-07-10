@@ -603,3 +603,16 @@ nav {
   -webkit-font-smoothing: antialiased;
   transform: translate3d(0, 0, 0);
 }
+
+.embla {
+  overflow: hidden;
+}
+
+.embla_container {
+  display: flex;
+}
+
+.embla_slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
