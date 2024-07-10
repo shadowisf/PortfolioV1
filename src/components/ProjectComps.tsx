@@ -1,9 +1,12 @@
 import { Fragment } from "react/jsx-runtime";
 import { projectData } from "../pages/Project";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback } from "react";
+import { isElementOfType } from "react-dom/test-utils";
 
 type ProjectNavProps = {
   className?: string;
-  scrollToElement: (element: string) => void;
+  scrollTo: (int: number) => void;
 };
 
 type ProjectContainerProps = {
@@ -29,35 +32,63 @@ function getProjectArchitecture(id: number) {
   return project?.architecture ?? [];
 }
 
-export default function ProjectNav({ scrollToElement }: ProjectNavProps) {
+export const useEmblaStuff = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) emblaApi.scrollTo(index);
+    },
+    [emblaApi]
+  );
+
+  return {
+    emblaRef,
+    emblaApi,
+    scrollPrev,
+    scrollNext,
+    scrollTo,
+  };
+};
+
+export default function ProjectNav({ scrollTo }: ProjectNavProps) {
   return (
-    <section id="projectNav" className="projectNav noCursor">
-      {projectData.map((project, index) => (
-        <span
-          key={project.id}
-          className={` ${index === 0 ? "active" : "scaleHover"}`}
-          onClick={() => scrollToElement(project.name)}
-        >
-          {index === 0 ? "•" : "◦"}
-        </span>
-      ))}
-    </section>
+    <>
+      <section id="projectNav" className="projectNav noCursor">
+        {projectData.map((project, index) => (
+          <span
+            key={project.id}
+            className={` ${index === 0 ? "active" : "scaleHover"}`}
+            onClick={() => scrollTo(index)}
+          >
+            {index === 0 ? "•" : "◦"}
+          </span>
+        ))}
+      </section>
+    </>
   );
 }
 
 export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
   return (
     <Fragment>
-
-
-
-
-
-      <section id={getProjectName(dataID)} className="container noMarginTop">
-        <div id="hs" className="container noMarginTop noMarginBottom textCenter">
-          <header className="scaleText">
-            {getProjectName(dataID)}
-          </header>
+      <section
+        id={getProjectName(dataID)}
+        className="container noMarginTop embla_slide"
+      >
+        <div
+          id="hs"
+          className="container noMarginTop noMarginBottom textCenter"
+        >
+          <header className="scaleText">{getProjectName(dataID)}</header>
         </div>
         <header id="fs" className="largeHeader flexCenterH">
           {getProjectName(dataID)}

@@ -597,6 +597,14 @@ nav {
   line-height: 0.5;
 }
 
+.projectNavContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .scaleText {
   display: inline-block;
   transform-origin: 50% 0;
@@ -616,3 +624,4 @@ nav {
   flex: 0 0 100%;
   min-width: 0;
 }
+
