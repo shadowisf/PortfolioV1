@@ -1,7 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import { projectData } from "../pages/Project";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 type ProjectNavProps = {
   slideTo: (index: number) => void;
@@ -35,20 +35,33 @@ function getProjectArchitecture(id: number) {
 
 export const useEmblaStuff = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const slidePrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+    if (emblaApi) {
+      const newIndex =
+        (activeIndex - 1 + projectData.length) % projectData.length;
+      setActiveIndex(newIndex);
+      emblaApi.scrollPrev();
+    }
+  }, [emblaApi, activeIndex]);
 
   const slideNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+    if (emblaApi) {
+      const newIndex = (activeIndex + 1) % projectData.length;
+      setActiveIndex(newIndex);
+      emblaApi.scrollNext();
+    }
+  }, [emblaApi, activeIndex]);
 
   const slideTo = useCallback(
     (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
+      if (emblaApi) {
+        setActiveIndex(index);
+        emblaApi.scrollTo(index);
+      }
     },
-    [emblaApi]
+    [emblaApi, activeIndex]
   );
 
   return {
@@ -57,6 +70,8 @@ export const useEmblaStuff = () => {
     slidePrev,
     slideNext,
     slideTo,
+    activeIndex,
+    setActiveIndex,
   };
 };
 
@@ -67,26 +82,26 @@ export default function ProjectNav({
   activeIndex,
 }: ProjectNavProps) {
   return (
-    <section id="projectNav" className="projectNav noCursor flexCenterV">
+    <section id="projectNav" className="projectNav noCursor flexCenterV" style={{gap: "5px"}}>
       <span className="scaleHover flexCenterV" onClick={slidePrev}>
-        ← previous
+        <b>⭠ back</b>
       </span>
 
-      <span className="flexCenterV">
+      <span className="flexCenterV" style={{gap: "10px"}}>
         {projectData.map((project, index) => (
           <span
             key={project.id}
             className={index === activeIndex ? "active" : "scaleHover"}
             onClick={() => slideTo(index)}
-            style={{ fontSize: "xxx-large" }}
+            style={{ fontSize: "large", marginTop: "-5px"}}
           >
-            {index === activeIndex ? "•" : "◦"}
+            {index === activeIndex ? "◉" : "○"}
           </span>
         ))}
       </span>
 
       <span className="scaleHover flexCenterV" onClick={slideNext}>
-        next →
+        <b>next ⭢</b>
       </span>
     </section>
   );
@@ -95,14 +110,8 @@ export default function ProjectNav({
 export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
   return (
     <Fragment>
-      <section
-        id={getProjectName(dataID)}
-        className="container noMarginTop embla_slide"
-      >
-        <div
-          id="hs"
-          className="container noMarginTop noMarginBottom textCenter"
-        >
+      <section id={getProjectName(dataID)} className="embla__slide">
+        <div id="hs" className="textCenter">
           <header className="scaleText">{getProjectName(dataID)}</header>
         </div>
         <header id="fs" className="largeHeader flexCenterH">
@@ -117,7 +126,7 @@ export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
           ))}
         </ul>
 
-        <p>{children}</p>
+        {children}
       </section>
     </Fragment>
   );

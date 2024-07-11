@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
 import IconPDF from "../assets/IconPDF";
@@ -59,6 +59,12 @@ export const projectData = [
     year: "2022",
     architecture: ["php", "html", "xampp"],
   },
+  {
+    id: 6,
+    name: "test",
+    year: "69",
+    architecture: ["ur", "mom"],
+  },
 ];
 
 export default function Project() {
@@ -71,41 +77,20 @@ export default function Project() {
     };
   }, []);
 
-  const { emblaRef, slidePrev, slideNext, slideTo } = useEmblaStuff();
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleScrollTo = useCallback(
-    (index: number) => {
-      slideTo(index);
-      setActiveIndex(index);
-    },
-    [slideTo, activeIndex]
-  );
-
-  const handleScrollNext = useCallback(() => {
-    const newIndex = (activeIndex + 1) % projectData.length;
-    slideNext();
-    setActiveIndex(newIndex);
-  }, [slideNext, activeIndex]);
-
-  const handleScrollPrev = useCallback(() => {
-    const newIndex =
-      (activeIndex - 1 + projectData.length) % projectData.length;
-    slidePrev();
-    setActiveIndex(newIndex);
-  }, [slidePrev, activeIndex]);
+  const { emblaRef, slidePrev, slideNext, slideTo, activeIndex } =
+    useEmblaStuff();
 
   return (
     <>
       <ProjectNav
-        slideTo={handleScrollTo}
-        slideNext={handleScrollNext}
-        slidePrev={handleScrollPrev}
+        slideTo={slideTo}
+        slideNext={slideNext}
+        slidePrev={slidePrev}
         activeIndex={activeIndex}
       />
 
       <div className="embla" ref={emblaRef}>
-        <div className="embla_container">
+        <div className="embla__container">
           {/* portfolio */}
           <ProjectContainer dataID={0}>
             <p>
@@ -149,6 +134,11 @@ export default function Project() {
               <HyperLink href="https://davidwalsh.name">
                 {/* scaleText */}
                 david walsh
+              </HyperLink>
+              {", "}
+              <HyperLink href="https://github.com/davidjerleke">
+                {/* scaleText */}
+                david jerleke
               </HyperLink>
               {", "}
               <HyperLink href="https://www.linkedin.com/in/frankmyles/">
@@ -202,7 +192,9 @@ export default function Project() {
               className="image flexCenterH"
               src="src/assets/ImageCircuitCentral1.PNG"
             />
+
             <br />
+
             <img
               className="image flexCenterH"
               src="src/assets/ImageCircuitCentral2.PNG"
@@ -380,6 +372,11 @@ export default function Project() {
               className="image flexCenterH"
               src="src/assets/ImagePlugInsDatabase2.PNG"
             />
+          </ProjectContainer>
+
+          {/* test */}
+          <ProjectContainer dataID={6}>
+            <p>LOL</p>
           </ProjectContainer>
         </div>
       </div>

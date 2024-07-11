@@ -1,14 +1,11 @@
-export const QuoteCard = ({
-  children,
-  who,
-  where,
-  img,
-}: {
-  children?: string | undefined;
-  who?: string | undefined;
-  where?: string | undefined;
-  img?: React.ReactNode | undefined;
-}) => {
+type QuoteCardProps = {
+  children: string;
+  who: string;
+  where: string;
+  img: React.ReactNode;
+};
+
+export function QuoteCard({ children, who, where, img }: QuoteCardProps) {
   return (
     <section className="container vhalf quoteCard">
       <picture className="flexCenterH">{img}</picture>
@@ -28,4 +25,4 @@ export const QuoteCard = ({
       </aside>
     </section>
   );
-};
+}
