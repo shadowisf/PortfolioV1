@@ -7,11 +7,29 @@ import ProjectNav, {
   ProjectContainer,
   useEmblaStuff,
 } from "../components/ProjectComps";
-import CircuitCentralProposal from "../assets/FileCircuitCentralProposal.PDF";
-import CircuitCentralImplementation from "../assets/FileCircuitCentralImplementation.PDF";
+//
+import CircuitCentralProposalPDF from "../assets/FileCircuitCentralProposal.PDF";
+import CircuitCentralImplementationPDF from "../assets/FileCircuitCentralImplementation.PDF";
 import CircuitCentralImage1 from "../assets/ImageCircuitCentral1.PNG";
 import CircuitCentralImage2 from "../assets/ImageCircuitCentral2.PNG";
-
+//
+import ApolloHospitalPDF from "../assets/FileApolloHospital.PDF";
+import ApolloHospitalImage1 from "../assets/ImageApolloHospital1.PNG";
+import ApolloHospitalImage2 from "../assets/ImageApolloHospital2.PNG";
+//
+import FunCulatorPDF from "../assets/FileFunCulator.PDF";
+import FunCulatorImage1 from "../assets/ImageFunCulator1.PNG";
+import FunCulatorImage2 from "../assets/ImageFunCulator2.PNG";
+import FunCulatorImage3 from "../assets/ImageFunCulator3.PNG";
+//
+import BellHospitalPDF from "../assets/FileBellHospital.PDF";
+import BellHospitalImage1 from "../assets/ImageBellHospital1.PNG";
+import BellHospitalImage2 from "../assets/ImageBellHospital2.PNG";
+//
+import PlugInsPDF from "../assets/FilePlugInsDatabase.PDF";
+import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.PNG";
+import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
+//
 export const projectData = [
   {
     id: 0,
@@ -177,14 +195,14 @@ export default function Project() {
 
               <HyperLinkWithIcon
                 img={<IconPDF />}
-                href={CircuitCentralProposal}
+                href={CircuitCentralProposalPDF}
               >
                 proposal report
               </HyperLinkWithIcon>
 
               <HyperLinkWithIcon
                 img={<IconPDF />}
-                href={CircuitCentralImplementation}
+                href={CircuitCentralImplementationPDF}
               >
                 implementation report
               </HyperLinkWithIcon>
@@ -221,25 +239,16 @@ export default function Project() {
                 github
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon
-                img={<IconPDF />}
-                href="src/assets/FileApolloHospital.PDF"
-              >
+              <HyperLinkWithIcon img={<IconPDF />} href={ApolloHospitalPDF}>
                 report
               </HyperLinkWithIcon>
             </div>
 
             <br />
 
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageApolloHospital1.PNG"
-            />
+            <img className="image flexCenterH" src={ApolloHospitalImage1} />
             <br />
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageApolloHospital2.PNG"
-            />
+            <img className="image flexCenterH" src={ApolloHospitalImage2} />
           </ProjectContainer>
 
           {/* funculator */}
@@ -263,30 +272,18 @@ export default function Project() {
                 github
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon
-                img={<IconPDF />}
-                href="/src/assets/FileFunCulator.PDF"
-              >
+              <HyperLinkWithIcon img={<IconPDF />} href={FunCulatorPDF}>
                 report
               </HyperLinkWithIcon>
             </div>
 
             <br />
 
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageFunCulator1.PNG"
-            />
+            <img className="image flexCenterH" src={FunCulatorImage1} />
             <br />
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageFunCulator2.PNG"
-            />
+            <img className="image flexCenterH" src={FunCulatorImage2} />
             <br />
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageFunCulator3.PNG"
-            />
+            <img className="image flexCenterH" src={FunCulatorImage3} />
           </ProjectContainer>
 
           {/* bell hospital */}
@@ -311,25 +308,16 @@ export default function Project() {
                 github
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon
-                img={<IconPDF />}
-                href="src/assets/FileBellHospital.PDF"
-              >
+              <HyperLinkWithIcon img={<IconPDF />} href={BellHospitalPDF}>
                 report
               </HyperLinkWithIcon>
             </div>
 
             <br />
 
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageBellHospital1.PNG"
-            />
+            <img className="image flexCenterH" src={BellHospitalImage1} />
             <br />
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageBellHospital2.PNG"
-            />
+            <img className="image flexCenterH" src={BellHospitalImage2} />
           </ProjectContainer>
 
           {/* plug-ins */}
@@ -351,25 +339,16 @@ export default function Project() {
                 github
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon
-                img={<IconPDF />}
-                href="src/assets/FilePlugInsDatabase.PDF"
-              >
+              <HyperLinkWithIcon img={<IconPDF />} href={PlugInsPDF}>
                 report
               </HyperLinkWithIcon>
             </div>
 
             <br />
 
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImagePlugInsDatabase1.PNG"
-            />
+            <img className="image flexCenterH" src={PlugInsImage1} />
             <br />
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImagePlugInsDatabase2.PNG"
-            />
+            <img className="image flexCenterH" src={PlugInsImage2} />
           </ProjectContainer>
 
           {/* test */}
