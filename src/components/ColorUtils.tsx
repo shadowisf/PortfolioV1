@@ -72,30 +72,32 @@ export const keyControls = () => {
   document.removeEventListener;
 };
 
-export function lightOrDark(color) {
-  var r, g, b, hsp;
+export function lightOrDark(color: string): string {
+  let r: number, g: number, b: number, hsp: number;
 
   if (color.match(/^rgb/)) {
-    color = color.match(
+    const match = color.match(
       /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
     );
 
-    r = color[1];
-    g = color[2];
-    b = color[3];
+    if (match) {
+      r = parseInt(match[1]);
+      g = parseInt(match[2]);
+      b = parseInt(match[3]);
+    } else {
+      throw new Error("Invalid color format");
+    }
   } else {
-    color = +("0x" + color.slice(1).replace(color.length < 5 && /./g, "$&$&"));
+    const hex = color.slice(1);
+    const hexVal = hex.length < 5 ? hex.replace(/./g, "$&$&") : hex;
+    const numericColor = parseInt(hexVal, 16);
 
-    r = color >> 16;
-    g = (color >> 8) & 255;
-    b = color & 255;
+    r = numericColor >> 16;
+    g = (numericColor >> 8) & 255;
+    b = numericColor & 255;
   }
 
   hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
 
-  if (hsp > 127.5) {
-    return "light";
-  } else {
-    return "dark";
-  }
+  return hsp > 127.5 ? "light" : "dark";
 }

@@ -11,7 +11,6 @@ import About from "./About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import { keyControls } from "../components/ColorUtils";
-import { Background1, Background2 } from "../assets/IllustrationBackground";
 import { useEffect } from "react";
 
 export default function Index() {
@@ -60,7 +59,7 @@ export default function Index() {
         }
       />
 
-       {/* <div className="backgroundContainer">
+      {/* <div className="backgroundContainer">
         <Background1 className="backgroundSVG" />
         <Background2 className="backgroundSVG" />
       </div> */}

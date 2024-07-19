@@ -12,13 +12,6 @@ export default function Test() {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
-    },
-    [emblaApi]
-  );
-
   return (
     <>
       <div className="container embla" ref={emblaRef}>
