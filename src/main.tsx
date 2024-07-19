@@ -4,13 +4,12 @@ import "./main.css";
 import "./typed.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen.tsx";
-import Index from "./pages/Index.tsx";
 import Test from "./pages/Test.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Index />,
+    element: <LoadingScreen />,
   },
 
   {

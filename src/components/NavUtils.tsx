@@ -101,3 +101,4 @@ export const collapseContainer = (
     scrollToElement(element);
   }
 };
+

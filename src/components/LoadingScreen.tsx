@@ -14,7 +14,7 @@ const LoadingScreen: React.FC = () => {
   }, []);
 
   return isLoading ? (
-    <section className="loadingScreen">
+    <section className="loadingScreen textCenter">
       <span className="largeHeader typedLoading"></span>
     </section>
   ) : (

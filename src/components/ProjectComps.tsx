@@ -34,7 +34,10 @@ function getProjectArchitecture(id: number) {
 }
 
 export const useEmblaStuff = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    watchDrag: false,
+  });
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slidePrev = useCallback(() => {
@@ -82,18 +85,18 @@ export default function ProjectNav({
   activeIndex,
 }: ProjectNavProps) {
   return (
-    <section id="projectNav" className="projectNav noCursor flexCenterV" style={{gap: "5px"}}>
+    <section className="projectNav noCursor flexCenterV" style={{ gap: "5px" }}>
       <span className="scaleHover flexCenterV" onClick={slidePrev}>
         <b>⭠ back</b>
       </span>
 
-      <span className="flexCenterV" style={{gap: "10px"}}>
+      <span className="flexCenterV" style={{ gap: "10px" }}>
         {projectData.map((project, index) => (
           <span
             key={project.id}
             className={index === activeIndex ? "active" : "scaleHover"}
             onClick={() => slideTo(index)}
-            style={{ fontSize: "large", marginTop: "-5px"}}
+            style={{ fontSize: "large", marginTop: "-5px" }}
           >
             {index === activeIndex ? "◉" : "○"}
           </span>

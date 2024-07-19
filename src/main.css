@@ -356,13 +356,16 @@ nav {
   place-content: center;
   gap: 7rem;
   text-align: center;
-  transition: left 0.3s ease;
+  transition: left 0.7s ease, opacity 0.7s ease;
+
+  opacity: 0;
 
   z-index: 999;
 }
 
 .hamburgerMenu.open {
   left: 0;
+  opacity: 1;
 }
 
 .hamburgerMenu a {
@@ -507,6 +510,7 @@ nav {
   margin-right: auto;
   overflow: hidden;
   max-height: 0;
+
   border-bottom: dashed;
 
   transition: max-height 1s ease, margin-top 1s ease;
@@ -552,9 +556,9 @@ nav {
 }
 
 .loadingScreen {
-  display: flex;
+  display: grid;
   justify-content: center;
-  place-items: center;
+  align-content: center;
   background: var(--background-color);
   height: 100vh;
   z-index: 999;
@@ -608,7 +612,7 @@ nav {
 
 .embla__container {
   display: flex;
-  gap: 20rem;
+  gap: 30rem;
 }
 
 .embla__slide {
