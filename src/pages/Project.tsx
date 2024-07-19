@@ -7,6 +7,10 @@ import ProjectNav, {
   ProjectContainer,
   useEmblaStuff,
 } from "../components/ProjectComps";
+import CircuitCentralProposal from "../assets/FileCircuitCentralProposal.PDF";
+import CircuitCentralImplementation from "../assets/FileCircuitCentralImplementation.PDF";
+import CircuitCentralImage1 from "../assets/ImageCircuitCentral1.PNG";
+import CircuitCentralImage2 from "../assets/ImageCircuitCentral2.PNG";
 
 export const projectData = [
   {
@@ -173,14 +177,14 @@ export default function Project() {
 
               <HyperLinkWithIcon
                 img={<IconPDF />}
-                href="src/assets/FileCircuitCentralProposal.PDF"
+                href={CircuitCentralProposal}
               >
                 proposal report
               </HyperLinkWithIcon>
 
               <HyperLinkWithIcon
                 img={<IconPDF />}
-                href="src/assets/FileCircuitCentralImplementation.PDF"
+                href={CircuitCentralImplementation}
               >
                 implementation report
               </HyperLinkWithIcon>
@@ -188,17 +192,11 @@ export default function Project() {
 
             <br />
 
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageCircuitCentral1.PNG"
-            />
+            <img className="image flexCenterH" src={CircuitCentralImage1} />
 
             <br />
 
-            <img
-              className="image flexCenterH"
-              src="src/assets/ImageCircuitCentral2.PNG"
-            />
+            <img className="image flexCenterH" src={CircuitCentralImage2} />
           </ProjectContainer>
 
           {/* apollo hospital */}
