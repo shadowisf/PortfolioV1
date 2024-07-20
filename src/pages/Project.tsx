@@ -2,14 +2,17 @@ import { useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
 import IconPDF from "../assets/IconPDF";
+import IconArrowTopRight from "../assets/IconArrowTopRight";
+import IconInstagram from "../assets/IconInstagram";
+import IconLinkedIn from "../assets/IconLinkedIn";
 import { HyperLinkWithIcon } from "../components/HyperLink";
 import ProjectNav, {
   ProjectContainer,
   useEmblaStuff,
 } from "../components/ProjectComps";
 //
-import PortfolioImage1 from "../assets/ImagePortfolio1.png";
-import PortfolioImage2 from "../assets/ImagePortfolio2.png";
+import PortfolioImage1 from "../assets/ImagePortfolio1.PNG";
+import PortfolioImage2 from "../assets/ImagePortfolio2.PNG";
 //
 import CircuitCentralProposalPDF from "../assets/FileCircuitCentralProposal.PDF";
 import CircuitCentralImplementationPDF from "../assets/FileCircuitCentralImplementation.PDF";
@@ -32,9 +35,6 @@ import BellHospitalImage2 from "../assets/ImageBellHospital2.PNG";
 import PlugInsPDF from "../assets/FilePlugInsDatabase.PDF";
 import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.PNG";
 import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
-import IconArrowTopRight from "../assets/IconArrowTopRight";
-import IconInstagram from "../assets/IconInstagram";
-import IconLinkedIn from "../assets/IconLinkedIn";
 //
 export const projectData = [
   {
