@@ -3,7 +3,6 @@ import {
   collapseContainer,
   changeContainerVisibility,
 } from "../components/NavUtils";
-import { Element } from "react-scroll";
 import NavBar from "../components/NavBar";
 import Project from "./Project";
 import Contact from "./Contact";
@@ -65,13 +64,12 @@ export default function Index() {
       </div> */}
 
       {/* about */}
-      <Element
+      <section
         id="aboutHeader"
-        name="about"
         className={`container topMargin noCursor divHeader ${
           isAboutOpen ? "active typedCollapsedAbout" : "typedEmpty"
         }`}
-      ></Element>
+      ></section>
       <section
         id="aboutContainer"
         className={`collapseContainer ${
@@ -94,13 +92,12 @@ export default function Index() {
       </section>
 
       {/* project */}
-      <Element
+      <section
         id="projectHeader"
-        name="project"
         className={`container topMargin noCursor divHeader ${
           isProjectOpen ? "active typedCollapsedProject" : "typedEmpty"
         }`}
-      ></Element>
+      ></section>
       <section
         id="projectContainer"
         className={`collapseContainer ${
@@ -111,13 +108,12 @@ export default function Index() {
       </section>
 
       {/* contact */}
-      <Element
+      <section
         id="contactHeader"
-        name="contact"
         className={`container topMargin noCursor divHeader ${
           isContactOpen ? "active typedCollapsedContact" : "typedEmpty"
         }`}
-      ></Element>
+      ></section>
       <section
         id="contactContainer"
         className={`collapseContainer ${

@@ -2,11 +2,14 @@ import { useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
 import IconPDF from "../assets/IconPDF";
-import { HyperLink, HyperLinkWithIcon } from "../components/HyperLink";
+import { HyperLinkWithIcon } from "../components/HyperLink";
 import ProjectNav, {
   ProjectContainer,
   useEmblaStuff,
 } from "../components/ProjectComps";
+//
+import PortfolioImage1 from "../assets/ImagePortfolio1.png";
+import PortfolioImage2 from "../assets/ImagePortfolio2.png";
 //
 import CircuitCentralProposalPDF from "../assets/FileCircuitCentralProposal.PDF";
 import CircuitCentralImplementationPDF from "../assets/FileCircuitCentralImplementation.PDF";
@@ -29,6 +32,9 @@ import BellHospitalImage2 from "../assets/ImageBellHospital2.PNG";
 import PlugInsPDF from "../assets/FilePlugInsDatabase.PDF";
 import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.PNG";
 import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
+import IconArrowTopRight from "../assets/IconArrowTopRight";
+import IconInstagram from "../assets/IconInstagram";
+import IconLinkedIn from "../assets/IconLinkedIn";
 //
 export const projectData = [
   {
@@ -77,15 +83,9 @@ export const projectData = [
   },
   {
     id: 5,
-    name: "plug-ins",
+    name: "plug-ins database",
     year: "2022",
     architecture: ["php", "html", "xampp"],
-  },
-  {
-    id: 6,
-    name: "test",
-    year: "69",
-    architecture: ["ur", "mom"],
   },
 ];
 
@@ -120,55 +120,76 @@ export default function Project() {
               <u>my projects, research, and life history!</u> by creating this
               portfolio, i was able to fully learn and understand how html, css,
               and react are all implemented as a baseline for web development.
-              <br />
-              <br />
-              <b>fun fact:</b> this entire portfolio website is made with little
-              to no libraries or frameworks! that means features are built
+              additionally, this entire portfolio website is made with little to
+              no libraries or frameworks! that means features are built
               manually; just pure vanilla!
               <br />
               <br />
-              <b>attributions:</b>{" "}
-              <HyperLink href="https://github.com/brandonmcconnell">
-                {/* typedcss */}
-                brandon mcconnell
-              </HyperLink>
-              {", "}
-              <HyperLink href="https://github.com/francoischalifour">
-                {/* medium zoom */}
-                françois chalifour
-              </HyperLink>
-              {", "}
-              <HyperLink href="https://www.instagram.com/pablostanley/">
-                {/* avatar illustration */}
-                pablo stanley
-              </HyperLink>
-              {", "}
-              <HyperLink href="https://awik.io">
-                {/* color theory */}
-                andreas wilk
-              </HyperLink>
-              {", "}
-              <HyperLink href="https://github.com/fisshy">
-                {/* react-scroll */}
-                joachim (fisshy)
-              </HyperLink>
-              {", "}
-              <HyperLink href="https://davidwalsh.name">
-                {/* scaleText */}
-                david walsh
-              </HyperLink>
-              {", "}
-              <HyperLink href="https://github.com/davidjerleke">
-                {/* scaleText */}
-                david jerleke
-              </HyperLink>
-              {", "}
-              <HyperLink href="https://www.linkedin.com/in/frankmyles/">
-                {/* theme engine */}
-                frank myles
-              </HyperLink>
-              {"."}
+              <b>attributions:</b>
+              <div className="projectLinks">
+                <HyperLinkWithIcon
+                  img={<IconGithub />}
+                  href="https://github.com/brandonmcconnell"
+                >
+                  {/* typedcss */}
+                  brandon mcconnell
+                </HyperLinkWithIcon>
+                <HyperLinkWithIcon
+                  img={<IconGithub />}
+                  href="https://github.com/francoischalifour"
+                >
+                  {/* medium zoom */}
+                  françois chalifour
+                </HyperLinkWithIcon>
+                <HyperLinkWithIcon
+                  img={<IconInstagram />}
+                  href="https://www.instagram.com/pablostanley/"
+                >
+                  {/* avatar illustration */}
+                  pablo stanley
+                </HyperLinkWithIcon>
+                <HyperLinkWithIcon
+                  img={<IconArrowTopRight />}
+                  href="https://awik.io"
+                >
+                  {/* color theory */}
+                  andreas wilk
+                </HyperLinkWithIcon>
+                <HyperLinkWithIcon
+                  img={<IconGithub />}
+                  href="https://github.com/fisshy"
+                >
+                  {/* react-scroll */}
+                  joachim
+                </HyperLinkWithIcon>
+                <HyperLinkWithIcon
+                  img={<IconArrowTopRight />}
+                  href="https://davidwalsh.name"
+                >
+                  {/* scaleText */}
+                  david walsh
+                </HyperLinkWithIcon>
+                <HyperLinkWithIcon
+                  img={<IconGithub />}
+                  href="https://github.com/davidjerleke"
+                >
+                  {/* scaleText */}
+                  david jerleke
+                </HyperLinkWithIcon>
+                <HyperLinkWithIcon
+                  img={<IconLinkedIn />}
+                  href="https://www.linkedin.com/in/frankmyles/"
+                >
+                  {/* theme engine */}
+                  frank myles
+                </HyperLinkWithIcon>
+              </div>
             </p>
+
+            <br />
+
+            <img className="image" src={PortfolioImage1}></img>
+            <img className="image" src={PortfolioImage2}></img>
           </ProjectContainer>
 
           {/* circuitcentral */}
@@ -190,7 +211,7 @@ export default function Project() {
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/CircuitCentral"
               >
-                github
+                repository
               </HyperLinkWithIcon>
 
               <HyperLinkWithIcon
@@ -210,11 +231,8 @@ export default function Project() {
 
             <br />
 
-            <img className="image flexCenterH" src={CircuitCentralImage1} />
-
-            <br />
-
-            <img className="image flexCenterH" src={CircuitCentralImage2} />
+            <img className="image" src={CircuitCentralImage1} />
+            <img className="image" src={CircuitCentralImage2} />
           </ProjectContainer>
 
           {/* apollo hospital */}
@@ -236,7 +254,7 @@ export default function Project() {
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/ApolloHospital"
               >
-                github
+                repository
               </HyperLinkWithIcon>
 
               <HyperLinkWithIcon img={<IconPDF />} href={ApolloHospitalPDF}>
@@ -246,9 +264,8 @@ export default function Project() {
 
             <br />
 
-            <img className="image flexCenterH" src={ApolloHospitalImage1} />
-            <br />
-            <img className="image flexCenterH" src={ApolloHospitalImage2} />
+            <img className="image" src={ApolloHospitalImage1} />
+            <img className="image" src={ApolloHospitalImage2} />
           </ProjectContainer>
 
           {/* funculator */}
@@ -269,7 +286,7 @@ export default function Project() {
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/FunCulator"
               >
-                github
+                repository
               </HyperLinkWithIcon>
 
               <HyperLinkWithIcon img={<IconPDF />} href={FunCulatorPDF}>
@@ -279,11 +296,9 @@ export default function Project() {
 
             <br />
 
-            <img className="image flexCenterH" src={FunCulatorImage1} />
-            <br />
-            <img className="image flexCenterH" src={FunCulatorImage2} />
-            <br />
-            <img className="image flexCenterH" src={FunCulatorImage3} />
+            <img className="image" src={FunCulatorImage1} />
+            <img className="image" src={FunCulatorImage2} />
+            <img className="image" src={FunCulatorImage3} />
           </ProjectContainer>
 
           {/* bell hospital */}
@@ -305,7 +320,7 @@ export default function Project() {
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/BellHospital"
               >
-                github
+                repository
               </HyperLinkWithIcon>
 
               <HyperLinkWithIcon img={<IconPDF />} href={BellHospitalPDF}>
@@ -315,9 +330,8 @@ export default function Project() {
 
             <br />
 
-            <img className="image flexCenterH" src={BellHospitalImage1} />
-            <br />
-            <img className="image flexCenterH" src={BellHospitalImage2} />
+            <img className="image" src={BellHospitalImage1} />
+            <img className="image" src={BellHospitalImage2} />
           </ProjectContainer>
 
           {/* plug-ins */}
@@ -336,7 +350,7 @@ export default function Project() {
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/PlugInsDatabase"
               >
-                github
+                repository
               </HyperLinkWithIcon>
 
               <HyperLinkWithIcon img={<IconPDF />} href={PlugInsPDF}>
@@ -346,14 +360,8 @@ export default function Project() {
 
             <br />
 
-            <img className="image flexCenterH" src={PlugInsImage1} />
-            <br />
-            <img className="image flexCenterH" src={PlugInsImage2} />
-          </ProjectContainer>
-
-          {/* test */}
-          <ProjectContainer dataID={6}>
-            <p>LOL</p>
+            <img className="image" src={PlugInsImage1} />
+            <img className="image" src={PlugInsImage2} />
           </ProjectContainer>
         </div>
       </div>

@@ -9,8 +9,8 @@
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
-  --about-height: 6000px;
-  --project-height: 9600px;
+  --about-height: 5500px;
+  --project-height: 2000px;
   --contact-height: 600px;
 }
 
@@ -190,6 +190,8 @@ header {
   background-color: var(--text-color);
   color: var(--background-color);
 
+  font-family: var(--primary-font);
+
   border: none;
 }
 
@@ -356,16 +358,13 @@ nav {
   place-content: center;
   gap: 7rem;
   text-align: center;
-  transition: left 0.7s ease, opacity 0.7s ease;
-
-  opacity: 0;
+  transition: left 0.7s ease;
 
   z-index: 999;
 }
 
 .hamburgerMenu.open {
   left: 0;
-  opacity: 1;
 }
 
 .hamburgerMenu a {
@@ -532,6 +531,7 @@ nav {
   padding: 2rem;
   border: solid;
   box-shadow: 10px 10px;
+  margin-right: 10px;
 }
 
 .noCursor {
@@ -612,10 +612,9 @@ nav {
 
 .embla__container {
   display: flex;
-  gap: 30rem;
+  gap: 15rem;
 }
 
 .embla__slide {
   flex: 0 0 100%;
-  min-width: 0;
 }

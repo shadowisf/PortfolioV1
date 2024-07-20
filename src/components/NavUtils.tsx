@@ -98,7 +98,6 @@ export const collapseContainer = (
       setContactOpen(true);
     }, animationDelay);
   } else {
-    scrollToElement(element);
+    scrollToElement("top");
   }
 };
-

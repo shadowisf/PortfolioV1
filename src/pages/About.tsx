@@ -15,6 +15,7 @@ import IllustrationOttoOctavius from "../assets/IllustrationOttoOctavius";
 import IllustrationSansaStark from "../assets/IllustrationSansaStark";
 import { QuoteCard } from "../components/QuoteCards";
 import IllustrationLineH from "../assets/IllustrationLineH";
+import IllustrationBustWithChat from "../assets/IllustrationBustWithChat";
 
 type AboutProps = {
   collapseContainer: (element: string) => void;
@@ -127,17 +128,6 @@ export default function About({ collapseContainer }: AboutProps) {
           className="flexCenterV timelineRow"
         />
 
-        <TimelineRow img={<IconGraduateHat />}>
-          graduated kindergarten at st. peter's college of toril
-          <br />
-          <b>???</b>
-        </TimelineRow>
-
-        <IllustrationVerticalLine
-          height="50"
-          className="flexCenterV timelineRow"
-        />
-
         <TimelineRow img={<IconLocation />}>
           moved to dubai, united arab emirates <br />
           <b>may 12, 2012</b>
@@ -148,31 +138,9 @@ export default function About({ collapseContainer }: AboutProps) {
           className="flexCenterV timelineRow"
         />
 
-        <TimelineRow img={<IconGraduateHat />}>
-          graduated elementary at far eastern private school
-          <br />
-          <b>???</b>
-        </TimelineRow>
-
-        <IllustrationVerticalLine
-          height="50"
-          className="flexCenterV timelineRow"
-        />
-
         <TimelineRow img={<IconEyeGlasses />}>
           first pair of eyeglasses <br />
           <b>april 6, 2018</b>
-        </TimelineRow>
-
-        <IllustrationVerticalLine
-          height="50"
-          className="flexCenterV timelineRow"
-        />
-
-        <TimelineRow img={<IconGraduateHat />}>
-          graduated high school at far eastern private school
-          <br />
-          <b>???</b>
         </TimelineRow>
 
         <IllustrationVerticalLine
@@ -208,7 +176,7 @@ export default function About({ collapseContainer }: AboutProps) {
           collapseContainer("project");
         }}
       >
-        view my project
+        view my projects
       </HandPointingLeft>
 
       <HandPointingRight

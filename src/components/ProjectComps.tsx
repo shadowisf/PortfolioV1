@@ -35,13 +35,13 @@ function getProjectArchitecture(id: number) {
 
 export const useEmblaStuff = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
+    loop: false,
     watchDrag: false,
   });
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slidePrev = useCallback(() => {
-    if (emblaApi) {
+    if (emblaApi && activeIndex != 0) {
       const newIndex =
         (activeIndex - 1 + projectData.length) % projectData.length;
       setActiveIndex(newIndex);
@@ -50,7 +50,7 @@ export const useEmblaStuff = () => {
   }, [emblaApi, activeIndex]);
 
   const slideNext = useCallback(() => {
-    if (emblaApi) {
+    if (emblaApi && activeIndex != projectData.length - 1) {
       const newIndex = (activeIndex + 1) % projectData.length;
       setActiveIndex(newIndex);
       emblaApi.scrollNext();
@@ -84,9 +84,34 @@ export default function ProjectNav({
   slidePrev,
   activeIndex,
 }: ProjectNavProps) {
+  const backButton = document.getElementById("backButton");
+  const nextButton = document.getElementById("nextButton");
+  const maxIndex = projectData.length - 1;
+
+  if (activeIndex === 0 && backButton) {
+    backButton.style.opacity = "0.25";
+    backButton.classList.remove("scaleHover");
+  } else if (backButton) {
+    backButton.style.opacity = "1";
+    backButton.classList.add("scaleHover");
+  }
+
+  if (activeIndex === maxIndex && nextButton) {
+    nextButton.style.opacity = "0.25";
+    nextButton.classList.remove("scaleHover");
+  } else if (nextButton) {
+    nextButton.style.opacity = "1";
+    nextButton.classList.add("scaleHover");
+  }
+
   return (
     <section className="projectNav noCursor flexCenterV" style={{ gap: "5px" }}>
-      <span className="scaleHover flexCenterV" onClick={slidePrev}>
+      <span
+        id="backButton"
+        className="scaleHover flexCenterV"
+        onClick={slidePrev}
+        style={{ transition: "opacity 0.3s ease, scale 0.2s ease" }}
+      >
         <b>⭠ back</b>
       </span>
 
@@ -97,13 +122,19 @@ export default function ProjectNav({
             className={index === activeIndex ? "active" : "scaleHover"}
             onClick={() => slideTo(index)}
             style={{ fontSize: "large", marginTop: "-5px" }}
+            title={project.name}
           >
             {index === activeIndex ? "◉" : "○"}
           </span>
         ))}
       </span>
 
-      <span className="scaleHover flexCenterV" onClick={slideNext}>
+      <span
+        id="nextButton"
+        className="scaleHover flexCenterV"
+        onClick={slideNext}
+        style={{ transition: "opacity 0.3s ease, scale 0.2s ease" }}
+      >
         <b>next ⭢</b>
       </span>
     </section>
