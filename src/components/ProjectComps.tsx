@@ -156,7 +156,9 @@ export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
 
         <ul className="architecture noCursor flexCenterH">
           {getProjectArchitecture(dataID).map((arch, index) => (
-            <li key={index}>{arch}</li>
+            <li id="architectureItem" key={index}>
+              {arch}
+            </li>
           ))}
         </ul>
 
