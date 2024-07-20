@@ -15,7 +15,6 @@ import IllustrationOttoOctavius from "../assets/IllustrationOttoOctavius";
 import IllustrationSansaStark from "../assets/IllustrationSansaStark";
 import { QuoteCard } from "../components/QuoteCards";
 import IllustrationLineH from "../assets/IllustrationLineH";
-import IllustrationBustWithChat from "../assets/IllustrationBustWithChat";
 
 type AboutProps = {
   collapseContainer: (element: string) => void;
