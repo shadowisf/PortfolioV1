@@ -9,7 +9,7 @@ export default function Test() {
         where="game of thrones"
         img={<IllustrationSansaStark />}
       >
-        i'm a slow learner, that's true. but i learn.
+        TESTTEST2
       </QuoteCard>
     </>
   );
