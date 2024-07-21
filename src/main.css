@@ -212,7 +212,7 @@ header {
 }
 
 .largeHeader {
-  font-variation-settings: 'wght' 1000, 'CONT' 1;
+  font-weight: 900;
   font-size: var(--font-l);
   font-style: italic;
 }
@@ -233,6 +233,7 @@ header {
   font-weight: 900;
 }
 
+/* delay after changing headers */
 .collapseContainer.transitionDelayAfter {
   transition-delay: 1.8s;
 }
@@ -505,8 +506,7 @@ nav {
 
   max-height: 3px;
 
-  transition: max-height 1s;
-  will-change: max-height;
+  transition: max-height 1s ease-in-out;
 }
 
 .collapseContainer.about.expanded {

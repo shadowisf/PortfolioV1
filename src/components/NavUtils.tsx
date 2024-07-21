@@ -8,6 +8,7 @@ export const scrollOptions = {
   ignoreCancelEvents: false,
 };
 
+// delay changing headers
 export const animationDelay = 1100;
 
 export const useToggleStates = () => {
