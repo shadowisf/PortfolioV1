@@ -210,6 +210,7 @@ export default function Project() {
               <HyperLinkWithIcon
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/CircuitCentral"
+                alt={true}
               >
                 repository
               </HyperLinkWithIcon>
@@ -217,6 +218,7 @@ export default function Project() {
               <HyperLinkWithIcon
                 img={<IconPDF />}
                 href={CircuitCentralProposalPDF}
+                alt={true}
               >
                 proposal report
               </HyperLinkWithIcon>
@@ -224,6 +226,7 @@ export default function Project() {
               <HyperLinkWithIcon
                 img={<IconPDF />}
                 href={CircuitCentralImplementationPDF}
+                alt={true}
               >
                 implementation report
               </HyperLinkWithIcon>
@@ -253,11 +256,16 @@ export default function Project() {
               <HyperLinkWithIcon
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/ApolloHospital"
+                alt={true}
               >
                 repository
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon img={<IconPDF />} href={ApolloHospitalPDF}>
+              <HyperLinkWithIcon
+                img={<IconPDF />}
+                href={ApolloHospitalPDF}
+                alt={true}
+              >
                 report
               </HyperLinkWithIcon>
             </div>
@@ -285,11 +293,16 @@ export default function Project() {
               <HyperLinkWithIcon
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/FunCulator"
+                alt={true}
               >
                 repository
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon img={<IconPDF />} href={FunCulatorPDF}>
+              <HyperLinkWithIcon
+                img={<IconPDF />}
+                href={FunCulatorPDF}
+                alt={true}
+              >
                 report
               </HyperLinkWithIcon>
             </div>
@@ -319,11 +332,16 @@ export default function Project() {
               <HyperLinkWithIcon
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/BellHospital"
+                alt={true}
               >
                 repository
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon img={<IconPDF />} href={BellHospitalPDF}>
+              <HyperLinkWithIcon
+                img={<IconPDF />}
+                href={BellHospitalPDF}
+                alt={true}
+              >
                 report
               </HyperLinkWithIcon>
             </div>
@@ -349,11 +367,12 @@ export default function Project() {
               <HyperLinkWithIcon
                 img={<IconGithub />}
                 href="https://github.com/shadowisf/PlugInsDatabase"
+                alt={true}
               >
                 repository
               </HyperLinkWithIcon>
 
-              <HyperLinkWithIcon img={<IconPDF />} href={PlugInsPDF}>
+              <HyperLinkWithIcon img={<IconPDF />} href={PlugInsPDF} alt={true}>
                 report
               </HyperLinkWithIcon>
             </div>

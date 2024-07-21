@@ -16,14 +16,14 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
     <Fragment>
       <nav>
         <a
-          className="logo noCursor highlightHover"
+          className="toThinHover logo noCursor highlightHover"
           onClick={() => generateADACompliantColors()}
         >
           les ranalan
         </a>
 
         <a
-          className="hamburgerButtonTC noCursor highlightHover"
+          className="toThinHover hamburgerButtonTC noCursor highlightHover"
           onClick={toggleHamburgerMenu}
         >
           menu
@@ -32,14 +32,14 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
 
       <section className={`hamburgerMenu ${isHamburgerMenuOpen ? "open" : ""}`}>
         <span
-          className="hamburgerButtonBC noCursor scaleHover hamburgerMobileCloseButton"
+          className="hamburgerButtonBC noCursor toThinHover hamburgerMobileCloseButton"
           onClick={toggleHamburgerMenu}
         >
           close
         </span>
 
         <a
-          className="scaleHover noCursor"
+          className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
             collapseContainer("about");
@@ -48,7 +48,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
           about
         </a>
         <a
-          className="scaleHover noCursor"
+          className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
             collapseContainer("project");
@@ -57,7 +57,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
           projects
         </a>
         <a
-          className="scaleHover noCursor"
+          className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
             collapseContainer("contact");

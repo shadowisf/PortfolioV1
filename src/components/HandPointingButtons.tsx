@@ -17,7 +17,7 @@ export const HandPointingRight = ({
       </picture>
       <a
         style={{ marginBottom: "150px", marginRight: "auto" }}
-        className="button scaleHover smallHeader"
+        className="flickerTextHover button toThinHover smallHeader"
         onClick={onClick}
       >
         {children}
@@ -39,7 +39,7 @@ export const HandPointingLeft = ({
     <section id={id} className="container vhalf noCursor handPointing">
       <a
         style={{ marginBottom: "150px", marginLeft: "auto" }}
-        className="button scaleHover smallHeader"
+        className="flickerTextHover button toThinHover smallHeader"
         onClick={onClick}
       >
         {children}
@@ -69,7 +69,7 @@ export const HandPointingDown = ({
       <aside className="flexRightH">
         <a
           style={{ marginRight: "10px" }}
-          className="button smallHeader scaleHover"
+          className="flickerTextHover button smallHeader toThinHover"
           onClick={onClick}
         >
           {children}
@@ -93,7 +93,7 @@ export const HandPointingUp = ({
       <aside className="flexLeftH">
         <a
           style={{ marginLeft: "10px" }}
-          className="button smallHeader scaleHover"
+          className="flickerTextHover button smallHeader toThinHover"
           onClick={onClick}
         >
           {children}

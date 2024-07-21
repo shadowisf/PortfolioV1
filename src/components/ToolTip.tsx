@@ -1,13 +1,9 @@
 import IconLetterE from "../assets/IconLetterE";
-import { generateADACompliantColors } from "./ColorUtils";
 
 export default function ToolTip() {
   return (
     <footer id="tooltip" className="tooltip noCursor">
-      <span
-        className="flexCenterV scaleHover"
-        onClick={() => generateADACompliantColors()}
-      >
+      <span className="flexCenterV">
         <picture className="flexCenterV">
           <IconLetterE />
         </picture>

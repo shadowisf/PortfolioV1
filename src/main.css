@@ -1,6 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght,BNCE,INFM,SPAC@0,300..800,-100..100,0..100,0..100;1,300..800,-100..100,0..100,0..100&display=swap');
+@font-face {
+  font-family: "Kyiv Sans";
+  src: url(../src/fonts/KyivTypeSans-VarGX.ttf) format("opentype");
+  font-weight: 1 1000;
+}
 
 :root {
   --text-color: ;
@@ -8,6 +12,7 @@
   --svg-inner-color: ;
   --svg-outer-color: ;
   --primary-font: "Space Mono", monospace;
+  --secondary-font: "Kyiv sans", sans-serif;
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
@@ -119,8 +124,8 @@
 
 body {
   font-family: var(--primary-font);
-  background-color: var(--background-color);
   color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 p {
@@ -134,7 +139,7 @@ p {
 }
 
 header {
-  font-weight: bold;
+  font-weight: 900;
   font-style: italic;
 }
 
@@ -203,19 +208,16 @@ header {
   background-color: var(--text-color);
   color: var(--background-color);
 
-  font-family: var(--primary-font);
-
   border: none;
 }
 
 .largeHeader {
-  font-weight: 900;
+  font-variation-settings: 'wght' 1000, 'CONT' 1;
   font-size: var(--font-l);
   font-style: italic;
 }
 
 .divHeader {
-  font-weight: 900;
   text-align: center;
   font-size: var(--font-xl);
   font-style: italic;
@@ -225,11 +227,13 @@ header {
   box-shadow: 10px 10px var(--text-color);
   border: solid var(--text-color);
 
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s,
-    border 0.3s;
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s,
+    border 0.5s;
+
+  font-weight: 900;
 }
 
-.collapseContainer.transitionDelay {
+.collapseContainer.transitionDelayAfter {
   transition-delay: 1.8s;
 }
 
@@ -302,7 +306,6 @@ nav {
 .logo {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 900;
 }
 
 .dotHoverBC:hover,
@@ -310,14 +313,13 @@ nav {
 .button:hover,
 .scaleHover:hover,
 .hyperLink:hover,
-.highlightHover:hover {
+.toThinHover:hover {
   cursor: pointer;
 }
 
 .hamburgerButtonTC {
   border: none;
   background: none;
-  font-family: var(--primary-font);
   font-weight: 900;
   color: var(--text-color);
 }
@@ -325,12 +327,12 @@ nav {
 .hamburgerButtonBC {
   border: none;
   background: none;
-  font-family: var(--primary-font);
   font-weight: 900;
   color: var(--background-color);
 }
 
 .hamburgerMenu {
+  font-weight: 900;
   position: fixed;
   top: 0px;
   left: -100%;
@@ -400,20 +402,16 @@ nav {
   text-decoration: none;
   color: var(--text-color);
 
-  border-bottom: 2px dashed;
-}
-
-.hyperLink:hover {
-  font-weight: 900;
+  border-bottom: 3px dashed;
 }
 
 .hyperLink::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -3px;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: var(--text-color);
   transform: scaleX(0);
   transform-origin: left;
@@ -423,11 +421,6 @@ nav {
 .hyperLink:hover::after {
   transform: scaleX(1);
 }
-
-
-
-
-
 
 .timelineCaption {
   padding-top: 1rem;
@@ -589,6 +582,8 @@ nav {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   margin-bottom: 1.5rem;
+  gap: 5px;
+  padding-top: 3px;
 }
 
 .scaleText {
@@ -611,42 +606,13 @@ nav {
   flex: 0 0 100%;
 }
 
-.flicker-text {
-  font-family: 'Shantell Sans', sans-serif;
-  font-size: 72px;
-  text-align: center;
+.toThinHover {
+  font-family: var(--secondary-font);
+  transition: all 0.5s ease;
+
+  font-variation-settings: 'wght' 400, 'CONT' 1;
 }
 
-.flicker-text {
-  animation: 0.5s linear 0.5s infinite flicker;
-}
-
-@keyframes flicker {
-  from { 
-    font-variation-settings: 'INFM' 0, 'BNCE' -10;
-  }
-  33.33% {
-    font-variation-settings: 'INFM' 0, 'BNCE' -10;
-  }
-  33.34% {
-    font-variation-settings: 'INFM' 100, 'BNCE' 20;
-  }
-  66.66% {
-    font-variation-settings: 'INFM' 100, 'BNCE' 20;
-  }
-  66.67% {
-    font-variation-settings: 'INFM' 50, 'BNCE' 10;
-  }
-  to { 
-    font-variation-settings: 'INFM' 50, 'BNCE' 10;
-  }
-}
-
-/* Credits: don't include this in your code: */
-.learn-more {
-  text-align: center;
-  font-family: 'Shantell Sans', sans-serif;
-  margin-top: 58px;
-  font-size: 14px;
-  color: #333333;
+.toThinHover:hover {
+  font-variation-settings: 'wght' 1000, 'CONT' 1000;
 }

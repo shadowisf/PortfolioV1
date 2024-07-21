@@ -90,40 +90,41 @@ export default function ProjectNav({
 
   if (activeIndex === 0 && backButton) {
     backButton.style.opacity = "0.25";
-    backButton.classList.remove("scaleHover");
+    backButton.style.pointerEvents = "none";
   } else if (backButton) {
     backButton.style.opacity = "1";
-    backButton.classList.add("scaleHover");
+    backButton.style.pointerEvents = "auto";
   }
 
   if (activeIndex === maxIndex && nextButton) {
     nextButton.style.opacity = "0.25";
-    nextButton.classList.remove("scaleHover");
+    nextButton.style.pointerEvents = "none";
   } else if (nextButton) {
     nextButton.style.opacity = "1";
-    nextButton.classList.add("scaleHover");
+    nextButton.style.pointerEvents = "auto";
   }
 
   slideTo(activeIndex);
 
   return (
-    <section className="projectNav noCursor flexCenterV" style={{ gap: "5px" }}>
-      <span
-        id="backButton"
-        className="scaleHover flexCenterV"
-        onClick={slidePrev}
-        style={{ transition: "opacity 0.3s ease, scale 0.2s ease" }}
-      >
-        <b>⭠ back</b>
+    <section className="projectNav noCursor">
+      <span className="toThinHover" id="backButton" onClick={slidePrev}>
+        <b>← back</b>
       </span>
 
-      <span className="flexCenterV" style={{ gap: "10px" }}>
+      <span
+        className="flexCenterV"
+        style={{ gap: "10px", fontFamily: "Space Mono" }}
+      >
         {projectData.map((project, index) => (
           <span
             key={project.id}
-            className={index === activeIndex ? "active" : "scaleHover"}
             onClick={() => slideTo(index)}
-            style={{ fontSize: "large", marginTop: "-5px" }}
+            style={{
+              fontSize: "large",
+              marginTop: "-5px",
+              cursor: "pointer",
+            }}
             title={project.name}
           >
             {index === activeIndex ? "◉" : "○"}
@@ -131,13 +132,8 @@ export default function ProjectNav({
         ))}
       </span>
 
-      <span
-        id="nextButton"
-        className="scaleHover flexCenterV"
-        onClick={slideNext}
-        style={{ transition: "opacity 0.3s ease, scale 0.2s ease" }}
-      >
-        <b>next ⭢</b>
+      <span className="toThinHover" id="nextButton" onClick={slideNext}>
+        <b>next →</b>
       </span>
     </section>
   );
@@ -158,9 +154,7 @@ export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
 
         <ul className="architecture noCursor flexCenterH">
           {getProjectArchitecture(dataID).map((arch, index) => (
-            <li id="architectureItem" key={index}>
-              {arch}
-            </li>
+            <li key={index}>{arch}</li>
           ))}
         </ul>
 

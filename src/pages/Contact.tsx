@@ -18,6 +18,7 @@ export default function Contact() {
         <HyperLinkWithIcon
           img={<IconLinkedIn />}
           href="https://www.linkedin.com/in/les-paul-ranalan/"
+          alt={true}
         >
           les paul ranalan
         </HyperLinkWithIcon>
@@ -25,6 +26,7 @@ export default function Contact() {
         <HyperLinkWithIcon
           img={<IconEmail />}
           href="mailto:les.ranalan@gmail.com"
+          alt={true}
         >
           les.ranalan@gmail.com
         </HyperLinkWithIcon>
@@ -32,6 +34,7 @@ export default function Contact() {
         <HyperLinkWithIcon
           img={<IconInstagram />}
           href="https://www.instagram.com/les.rx"
+          alt={true}
         >
           @les.rx
         </HyperLinkWithIcon>

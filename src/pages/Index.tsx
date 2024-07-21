@@ -11,7 +11,6 @@ import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import { keyControls } from "../components/ColorUtils";
 import { useEffect } from "react";
-import IllustrationLineH from "../assets/IllustrationLineH";
 
 export default function Index() {
   const {
@@ -74,7 +73,7 @@ export default function Index() {
       <section
         id="aboutContainer"
         className={`dashedBorderBottom collapseContainer ${
-          isAboutOpen ? "transitionDelay about expanded" : ""
+          isAboutOpen ? "transitionDelayAfter about expanded" : ""
         }`}
       >
         <About
@@ -102,7 +101,7 @@ export default function Index() {
       <section
         id="projectContainer"
         className={`dashedBorderBottom collapseContainer ${
-          isProjectOpen ? "transitionDelay project expanded" : ""
+          isProjectOpen ? "transitionDelayAfter project expanded" : ""
         }`}
       >
         <Project />
@@ -118,12 +117,11 @@ export default function Index() {
       <section
         id="contactContainer"
         className={`dashedBorderBottom collapseContainer ${
-          isContactOpen ? "transitionDelay contact expanded" : ""
+          isContactOpen ? "transitionDelayAfter contact expanded" : ""
         }`}
       >
         <Contact />
       </section>
-
 
       <ToolTip />
       <BottomCard />
