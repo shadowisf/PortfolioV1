@@ -13,7 +13,7 @@ export function QuoteCard({ children, who, where, img }: QuoteCardProps) {
       <br id="hs" />
 
       <aside className="gridCenterV textCenter">
-        <p className="quoteFont">
+        <p style={{fontSize: "25px"}}>
           <span className="mediumHeader flexLeftH">“</span>
           {children}
           <span className="mediumHeader flexRightH">„</span>

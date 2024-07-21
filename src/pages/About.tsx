@@ -6,8 +6,8 @@ import IconGraduateHat from "../assets/IconGraduateHat";
 import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
 import {
   HandPointingDown,
-  HandPointingLeft,
   HandPointingRight,
+  HandPointingLeft,
   HandPointingUp,
 } from "../components/HandPointingButtons";
 import { TimelineRow } from "../components/Timeline";
@@ -71,7 +71,10 @@ export default function About({ collapseContainer }: AboutProps) {
   return (
     <>
       {/* hey, i'm les! */}
-      <section className="container vhalf noMarginTop">
+      <section
+        style={{ paddingTop: "3px" }}
+        className="container vhalf noMarginTop"
+      >
         <div id="hs" className="textCenter">
           <header className="scaleText">
             i'm a <span className="typedSeries"></span> <br /> software engineer
@@ -116,7 +119,7 @@ export default function About({ collapseContainer }: AboutProps) {
       <header id="fs" className="largeHeader textCenter">
         my life as a timeline
       </header>
-      <section className="container bottomMargin timeline">
+      <section className="container bottomMargin dashedBorderLeft">
         <TimelineRow img={<IconCake />}>
           born in davao city, philippines <br />
           <b>february 15, 2004</b>
@@ -169,23 +172,23 @@ export default function About({ collapseContainer }: AboutProps) {
       >
         now what?
       </header>
-      <HandPointingLeft
+      <HandPointingRight
         id="fs"
         onClick={() => {
           collapseContainer("project");
         }}
       >
         view my projects
-      </HandPointingLeft>
+      </HandPointingRight>
 
-      <HandPointingRight
+      <HandPointingLeft
         id="fs"
         onClick={() => {
           collapseContainer("contact");
         }}
       >
         contact me
-      </HandPointingRight>
+      </HandPointingLeft>
 
       <HandPointingDown
         id="hs"

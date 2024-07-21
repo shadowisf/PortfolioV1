@@ -41,6 +41,9 @@ https://jakearchibald.github.io/svgomg/
 SVG ICONS
 https://remixicon.com/
 https://www.flaticon.com/
+
+BORDER GENERATOR
+https://webspe.net/tools/en/border/
 */
 
 /*

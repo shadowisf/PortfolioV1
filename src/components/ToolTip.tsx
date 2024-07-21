@@ -11,6 +11,7 @@ export default function ToolTip() {
         <picture className="flexCenterV">
           <IconLetterE />
         </picture>
+        &emsp;
         <span className="withIcon">generate theme</span>
       </span>
     </footer>

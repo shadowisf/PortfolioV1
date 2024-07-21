@@ -24,7 +24,12 @@ export const HyperLinkWithIcon = ({
   return (
     <span className="flexCenterV">
       <picture className="flexCenterV">{img}</picture>
-      <a className="hyperLink noCursor withIcon" href={href} target="_blank">
+      <a
+        style={{ marginLeft: "0.5rem" }}
+        className="hyperLink noCursor"
+        href={href}
+        target="_blank"
+      >
         {children}
       </a>
     </span>

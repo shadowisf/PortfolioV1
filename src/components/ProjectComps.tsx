@@ -104,6 +104,8 @@ export default function ProjectNav({
     nextButton.classList.add("scaleHover");
   }
 
+  slideTo(activeIndex);
+
   return (
     <section className="projectNav noCursor flexCenterV" style={{ gap: "5px" }}>
       <span

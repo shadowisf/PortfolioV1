@@ -1,30 +1,6 @@
 import IllustrationHandPointingH from "../assets/IllustrationHandPointingH";
 import IllustrationHandPointingV from "../assets/IllustrationHandPointingV";
 
-export const HandPointingLeft = ({
-  children,
-  id,
-  onClick,
-}: {
-  children?: string;
-  id?: string;
-  onClick?: () => void;
-}) => {
-  return (
-    <section id={id} className="container vhalf noCursor flexCenterV">
-      <picture className="flexCenterH">
-        <IllustrationHandPointingH width="400" />
-      </picture>
-      <a
-        className="button scaleHover smallHeader handPointingButtonBottomMargin"
-        onClick={onClick}
-      >
-        {children}
-      </a>
-    </section>
-  );
-};
-
 export const HandPointingRight = ({
   children,
   id,
@@ -35,14 +11,40 @@ export const HandPointingRight = ({
   onClick?: () => void;
 }) => {
   return (
-    <section id={id} className="container vhalf noCursor flexCenterV">
+    <section id={id} className="container vhalf noCursor handPointing">
+      <picture className="flexCenterH">
+        <IllustrationHandPointingH width="400" />
+      </picture>
       <a
-        className="button scaleHover smallHeader handPointingButtonBottomMargin"
+        style={{ marginBottom: "150px", marginRight: "auto" }}
+        className="button scaleHover smallHeader"
         onClick={onClick}
       >
         {children}
       </a>
-      <picture className="flexCenterH mirrorLeft">
+    </section>
+  );
+};
+
+export const HandPointingLeft = ({
+  children,
+  id,
+  onClick,
+}: {
+  children?: string;
+  id?: string;
+  onClick?: () => void;
+}) => {
+  return (
+    <section id={id} className="container vhalf noCursor handPointing">
+      <a
+        style={{ marginBottom: "150px", marginLeft: "auto" }}
+        className="button scaleHover smallHeader"
+        onClick={onClick}
+      >
+        {children}
+      </a>
+      <picture style={{ transform: "rotateY(180deg)" }} className="flexCenterH">
         <IllustrationHandPointingH width="400" />
       </picture>
     </section>
@@ -60,13 +62,14 @@ export const HandPointingDown = ({
 }) => {
   return (
     <section id={id} className="container">
-      <picture className="flexRightH handPointingMarginRight">
+      <picture style={{ marginRight: "60px" }} className="flexRightH">
         <IllustrationHandPointingV height="300" />
       </picture>
       <br />
       <aside className="flexRightH">
         <a
-          className="button smallHeader scaleHover handPointingButtonRightMargin"
+          style={{ marginRight: "10px" }}
+          className="button smallHeader scaleHover"
           onClick={onClick}
         >
           {children}
@@ -89,14 +92,18 @@ export const HandPointingUp = ({
     <section id={id} className="container">
       <aside className="flexLeftH">
         <a
-          className="button smallHeader scaleHover handPointingButtonLeftMargin"
+          style={{ marginLeft: "10px" }}
+          className="button smallHeader scaleHover"
           onClick={onClick}
         >
           {children}
         </a>
       </aside>
       <br />
-      <picture className="flexRightH handPointingMarginLeft mirrorUp">
+      <picture
+        style={{ marginLeft: "25px", transform: "rotate(180deg)" }}
+        className="flexRightH"
+      >
         <IllustrationHandPointingV height="300" />
       </picture>
       <br />
