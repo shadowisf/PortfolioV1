@@ -12,18 +12,36 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
     setHamburgerMenuOpen(!isHamburgerMenuOpen);
   };
 
+  const scrollBarColorChangeDelay = 700;
+
+  if (isHamburgerMenuOpen) {
+    setTimeout(() => {
+      document.documentElement.style.setProperty(
+        "--track-scrollbar-color",
+        "var(--text-color)"
+      );
+    }, scrollBarColorChangeDelay);
+  } else {
+    setTimeout(() => {
+      document.documentElement.style.setProperty(
+        "--track-scrollbar-color",
+        "transparent"
+      );
+    }, 0);
+  }
+
   return (
     <Fragment>
       <nav>
         <a
-          className="toThinHover logo noCursor highlightHover"
+          className="toThinHover logo noCursor"
           onClick={() => generateADACompliantColors()}
         >
           les ranalan
         </a>
 
         <a
-          className="toThinHover hamburgerButtonTC noCursor highlightHover"
+          className="toThinHover hamburgerButtonTC noCursor"
           onClick={toggleHamburgerMenu}
         >
           menu

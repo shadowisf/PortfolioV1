@@ -9,6 +9,7 @@
 :root {
   --text-color: ;
   --background-color: ;
+  --track-scrollbar-color: "transparent";
   --svg-inner-color: ;
   --svg-outer-color: ;
   --primary-font: "Space Mono", monospace;
@@ -21,7 +22,7 @@
   --contact-height: 600px;
 }
 
-.backgroundContainer {
+/* .backgroundContainer {
   width: 100%;
   z-index: -999;
 
@@ -38,7 +39,7 @@
 .backgroundSVG {
   width: 180px;
   opacity: 0.5;
-}
+} */
 
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
@@ -122,14 +123,16 @@
   }
 }
 
-body {
+p {
+  line-height: 2rem;
+}
+
+html {
   font-family: var(--primary-font);
   color: var(--text-color);
   background-color: var(--background-color);
-}
 
-p {
-  line-height: 2rem;
+  overflow-y: scroll;
 }
 
 * {
@@ -309,10 +312,7 @@ nav {
   color: var(--text-color);
 }
 
-.dotHoverBC:hover,
-.dotHoverTC:hover,
 .button:hover,
-.scaleHover:hover,
 .hyperLink:hover,
 .toThinHover:hover {
   cursor: pointer;
@@ -321,19 +321,18 @@ nav {
 .hamburgerButtonTC {
   border: none;
   background: none;
-  font-weight: 900;
   color: var(--text-color);
+
+  align-content: center;
 }
 
 .hamburgerButtonBC {
   border: none;
   background: none;
-  font-weight: 900;
   color: var(--background-color);
 }
 
 .hamburgerMenu {
-  font-weight: 900;
   position: fixed;
   top: 0px;
   left: -100%;
@@ -356,7 +355,9 @@ nav {
 .hamburgerMenu a {
   color: var(--background-color);
   text-decoration: none;
-  font-size: 7vw;
+  font-size: 8.5vw;
+
+  padding: 0px 0px 10px 0px;
 }
 
 .hamburgerMobileCloseButton {
@@ -370,6 +371,7 @@ nav {
 }
 
 .bottomcard {
+  opacity: 0.5;
   text-align: center;
   padding: 3rem;
   margin-top: 10rem;
@@ -430,50 +432,6 @@ nav {
   line-height: 1.5rem;
 }
 
-.dotHoverBC {
-  position: relative;
-}
-
-.dotHoverBC::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: var(--background-color);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.dotHoverBC:hover::after {
-  opacity: 1;
-}
-
-.dotHoverTC {
-  position: relative;
-}
-
-.dotHoverTC::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: var(--text-color);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.dotHoverTC:hover::after {
-  opacity: 1;
-}
-
 .noMarginBottom {
   margin-bottom: 0 !important;
 }
@@ -506,7 +464,7 @@ nav {
 
   max-height: 3px;
 
-  transition: max-height 1s ease-in-out;
+  transition: max-height 1s;
 }
 
 .collapseContainer.about.expanded {
@@ -568,14 +526,6 @@ nav {
   margin-left: 2rem;
 }
 
-.scaleHover {
-  transition: scale 0.2s;
-}
-
-.scaleHover:hover {
-  scale: 1.1;
-}
-
 .projectNav {
   display: flex;
   justify-content: space-between;
@@ -615,4 +565,27 @@ nav {
 
 .toThinHover:hover {
   font-variation-settings: 'wght' 1000, 'CONT' 1000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+}
+
+::-webkit-scrollbar-track-piece:start,
+::-webkit-scrollbar-track-piece:end {
+  background: var(--track-scrollbar-color);
+}
+
+::selection {
+  color: var(--background-color);
+  background-color: var(--text-color);
+}
+
+::-moz-selection {
+  color: var(--background-color);
+  background-color: var(--text-color);
 }

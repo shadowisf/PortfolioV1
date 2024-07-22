@@ -41,7 +41,14 @@ export const projectData = [
     id: 0,
     name: "portfolio",
     year: "2024",
-    architecture: ["typescript (react)", "html", "css", "sass", "ui/ux"],
+    architecture: [
+      "typescript (react)",
+      "firebase",
+      "html",
+      "css",
+      "sass",
+      "ui/ux",
+    ],
   },
   {
     id: 1,

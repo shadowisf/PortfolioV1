@@ -58,7 +58,7 @@ export default function Index() {
         }
       />
 
-      {/* <div className="backgroundContainer">
+      {/*       <div className="backgroundContainer">
         <Background1 className="backgroundSVG" />
         <Background2 className="backgroundSVG" />
       </div> */}
