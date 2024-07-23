@@ -88,43 +88,43 @@ export default function ProjectNav({
   const nextButton = document.getElementById("nextButton");
   const maxIndex = projectData.length - 1;
 
-  if (activeIndex === 0 && backButton) {
-    backButton.style.opacity = "0.25";
-    backButton.style.pointerEvents = "none";
-  } else if (backButton) {
-    backButton.style.opacity = "1";
-    backButton.style.pointerEvents = "auto";
+  if (activeIndex === 0) {
+    backButton?.classList.add("disabled");
+  } else {
+    backButton?.classList.remove("disabled");
   }
 
-  if (activeIndex === maxIndex && nextButton) {
-    nextButton.style.opacity = "0.25";
-    nextButton.style.pointerEvents = "none";
-  } else if (nextButton) {
-    nextButton.style.opacity = "1";
-    nextButton.style.pointerEvents = "auto";
+  if (activeIndex === maxIndex) {
+    nextButton?.classList.add("disabled");
+  } else {
+    nextButton?.classList.remove("disabled");
   }
 
   slideTo(activeIndex);
 
   return (
     <section className="projectNav noCursor">
-      <span className="toThinHover" id="backButton" onClick={slidePrev}>
+      <span
+        className="toThinHover flexCenterH"
+        id="backButton"
+        onClick={slidePrev}
+      >
         <b>← back</b>
       </span>
 
       <span
         className="flexCenterV"
-        style={{ gap: "10px", fontFamily: "Space Mono" }}
+        style={{ gap: "10px", fontFamily: "var(--primary-font)" }}
       >
         {projectData.map((project, index) => (
           <span
+            className={
+              index === activeIndex
+                ? "flexCenterV projectNavCircle active"
+                : "flexCenterV projectNavCircle"
+            }
             key={project.id}
             onClick={() => slideTo(index)}
-            style={{
-              fontSize: "large",
-              marginTop: "-5px",
-              cursor: "pointer",
-            }}
             title={project.name}
           >
             {index === activeIndex ? "◉" : "○"}
@@ -132,7 +132,11 @@ export default function ProjectNav({
         ))}
       </span>
 
-      <span className="toThinHover" id="nextButton" onClick={slideNext}>
+      <span
+        className="toThinHover flexCenterH"
+        id="nextButton"
+        onClick={slideNext}
+      >
         <b>next →</b>
       </span>
     </section>
