@@ -2,6 +2,7 @@ import { Fragment } from "react/jsx-runtime";
 import { projectData } from "../pages/Project";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useState } from "react";
+import { scrollToElement } from "./NavUtils";
 
 type ProjectNavProps = {
   slideTo: (index: number) => void;
@@ -163,6 +164,19 @@ export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
         </ul>
 
         {children}
+
+        <footer
+          style={{ marginTop: "100px", textAlign: "center" }}
+          className="flexCenterH"
+        >
+          <span className="toThinHover" onClick={() => scrollToElement("top")}>
+            ↑ <br /> back to top
+          </span>
+        </footer>
+
+        <br />
+        <br />
+        <br />
       </section>
     </Fragment>
   );

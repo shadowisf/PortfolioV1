@@ -3,13 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./main.scss";
 import "./typed.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LoadingScreen from "./components/LoadingScreen.tsx";
 import Test from "./pages/Test.tsx";
+import Index from "./pages/Index.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoadingScreen />,
+    element: <Index />,
   },
 
   {

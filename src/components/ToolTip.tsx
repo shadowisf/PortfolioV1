@@ -1,7 +1,17 @@
+import { useState } from "react";
 import IconLetterE from "../assets/IconLetterE";
+import { animationDelay } from "./NavUtils";
 
 export default function ToolTip() {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, animationDelay - 200);
+
+  return isLoading ? (
+    <></>
+  ) : (
     <footer id="tooltip" className="tooltip noCursor">
       <span className="flexCenterV">
         <picture className="flexCenterV">

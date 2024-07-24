@@ -743,7 +743,7 @@ $__typed-id: 0;
 
 .typedCollapsedProject {
   @include typed(
-    "my creations!",
+    "builds by me!",
     null,
     (
       caret: false,
@@ -755,7 +755,7 @@ $__typed-id: 0;
 
 .typedCollapsedContact {
   @include typed(
-    "let's chat!",
+    "get in touch!",
     null,
     (
       caret: false,
@@ -806,7 +806,7 @@ $__typed-id: 0;
 
 .deletedCollapsedProject {
   @include typed(
-    "my creations!",
+    "builds by me!",
     (
       type: 0.0001,
       pause-typed: 1,
@@ -821,7 +821,7 @@ $__typed-id: 0;
 
 .deletedCollapsedContact {
   @include typed(
-    "let's chat!",
+    "get in touch!",
     (
       type: 0.0001,
       pause-typed: 1,

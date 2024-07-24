@@ -7,19 +7,26 @@
 }
 
 :root {
-  --text-color: ;
-  --background-color: ;
+  --text-color: black;
+  --background-color: white;
   --track-scrollbar-color: "transparent";
-  --svg-inner-color: ;
-  --svg-outer-color: ;
+  --svg-inner-color: white;
+  --svg-outer-color: black;
+
   --primary-font: "Space Mono", monospace;
   --secondary-font: "Kyiv sans", sans-serif;
+
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
   --about-height: 5500px;
   --project-height: 2000px;
   --contact-height: 600px;
+
+  --collapse-transition-duration: 1s;
+  --collapse-transition-delay-after: 1.8s;
+
+  --scroll-overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -162,7 +169,7 @@ html {
   color: var(--text-color);
   background-color: var(--background-color);
 
-  overflow-y: scroll;
+  overflow-y: var(--scroll-overflow);
 }
 
 * {
@@ -314,20 +321,14 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   justify-content: space-evenly;
   align-items: center;
 }
 
 nav {
   justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem 2rem;
   display: flex;
   position: fixed;
   top: 0;
@@ -393,9 +394,7 @@ nav {
   position: absolute !important;
   top: 0;
   right: 0;
-  padding-top: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 1rem 2rem;
   font-size: var(--font-navbar);
 }
 
@@ -410,8 +409,7 @@ nav {
   position: fixed;
   bottom: 0;
   right: 0;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
+  margin: 0 2rem 1rem 0;
   gap: 0.5rem;
 
   color: var(--text-color);
@@ -444,20 +442,18 @@ nav {
 }
 
 .timelineCaption {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
   margin-left: 1rem;
   line-height: 1.5rem;
 }
 
 .collapseContainer {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   overflow: hidden;
 
   max-height: 3px;
 
-  transition: max-height 1s;
+  transition: max-height var(--collapse-transition-duration);
 
   &.about.expanded {
     max-height: var(--about-height);
@@ -472,7 +468,7 @@ nav {
   }
 
   &.transitionDelayAfter {
-    transition-delay: 1.8s;
+    transition-delay: var(--collapse-transition-delay-after);
   }
 }
 
@@ -537,11 +533,9 @@ nav {
 .projectNav {
   display: flex;
   justify-content: space-between;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 0 0.5rem;
   margin-bottom: 1.5rem;
   gap: 5px;
-  padding-top: 3px;
 }
 
 .scaleText {

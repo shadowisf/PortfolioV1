@@ -1,11 +1,18 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
+import { animationDelay } from "./NavUtils";
 
 type NavBarProps = {
   collapseContainer: (element: string) => void;
 };
 
 export default function NavBar({ collapseContainer }: NavBarProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, animationDelay - 200);
+
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
   const toggleHamburgerMenu = () => {
@@ -30,8 +37,10 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
     }, 0);
   }
 
-  return (
-    <Fragment>
+  return isLoading ? (
+    <></>
+  ) : (
+    <>
       <nav>
         <a
           className="toThinHover logo noCursor"
@@ -84,6 +93,6 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
           contact
         </a>
       </section>
-    </Fragment>
+    </>
   );
 }

@@ -1,25 +1,20 @@
-import { useState, useEffect } from "react";
-import Index from "../pages/Index";
-import { generateADACompliantColors } from "../components/ColorUtils";
+import { useState } from "react";
+import { animationDelay, scrollToElement } from "./NavUtils";
 
-const LoadingScreen: React.FC = () => {
+export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    generateADACompliantColors();
+  setTimeout(() => {
+    setIsLoading(false);
+  }, animationDelay - 200);
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  scrollToElement("top");
 
   return isLoading ? (
     <section className="loadingScreen textCenter">
       <span className="largeHeader typedLoading"></span>
     </section>
   ) : (
-    <Index />
+    <></>
   );
-};
-
-export default LoadingScreen;
+}

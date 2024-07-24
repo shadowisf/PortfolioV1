@@ -1,7 +1,8 @@
 import {
   useToggleStates,
   collapseContainer,
-  changeContainerVisibility
+  changeContainerVisibility,
+  animationDelay,
 } from "../components/NavUtils";
 import NavBar from "../components/NavBar";
 import Project from "./Project";
@@ -9,8 +10,12 @@ import Contact from "./Contact";
 import About from "./About";
 import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
-import { keyControls } from "../components/ColorUtils";
+import {
+  generateADACompliantColors,
+  keyControls,
+} from "../components/ColorUtils";
 import { useEffect } from "react";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function Index() {
   const {
@@ -24,6 +29,8 @@ export default function Index() {
 
   // startup sequence
   useEffect(() => {
+    generateADACompliantColors();
+
     changeContainerVisibility("project", "none", "0", 0);
     changeContainerVisibility("contact", "none", "0", 0);
 
@@ -39,11 +46,14 @@ export default function Index() {
 
     setTimeout(() => {
       keyControls();
-    }, 3500);
+      document.documentElement.style.setProperty("--scroll-overflow", "scroll");
+    }, animationDelay);
   }, []);
 
   return (
     <>
+      <LoadingScreen />
+
       <NavBar
         collapseContainer={(element) =>
           collapseContainer(
@@ -57,11 +67,6 @@ export default function Index() {
           )
         }
       />
-
-      {/*       <div className="backgroundContainer">
-        <Background1 className="backgroundSVG" />
-        <Background2 className="backgroundSVG" />
-      </div> */}
 
       {/* about */}
       <section
