@@ -1,7 +1,7 @@
 import {
   useToggleStates,
   collapseContainer,
-  changeContainerVisibility,
+  changeContainerVisibility
 } from "../components/NavUtils";
 import NavBar from "../components/NavBar";
 import Project from "./Project";
@@ -67,17 +67,13 @@ export default function Index() {
       <section
         id="aboutHeader"
         className={`container topMargin noCursor divHeader ${
-          isAboutOpen
-            ? "typedCollapsedAbout"
-            : "transitionDelayAfter deletedCollapsedAbout"
+          isAboutOpen ? "typedCollapsedAbout" : "deletedCollapsedAbout"
         }`}
       ></section>
       <section
         id="aboutContainer"
         className={`dashedBorderBottom collapseContainer ${
-          isAboutOpen
-            ? "transitionDelayAfter about expanded"
-            : ""
+          isAboutOpen ? "transitionDelayAfter about expanded" : ""
         }`}
       >
         <About
@@ -99,9 +95,7 @@ export default function Index() {
       <section
         id="projectHeader"
         className={`container topMargin noCursor divHeader ${
-          isProjectOpen
-            ? "typedCollapsedProject"
-            : "transitionDelayAfter deletedCollapsedProject"
+          isProjectOpen ? "typedCollapsedProject" : "deletedCollapsedProject"
         }`}
       ></section>
       <section
@@ -117,9 +111,7 @@ export default function Index() {
       <section
         id="contactHeader"
         className={`container topMargin noCursor divHeader ${
-          isContactOpen
-            ? "typedCollapsedContact"
-            : "transitionDelayAfter deletedCollapsedContact"
+          isContactOpen ? "typedCollapsedContact" : "deletedCollapsedContact"
         }`}
       ></section>
       <section

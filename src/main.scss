@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 @font-face {
   font-family: "Kyiv Sans";
@@ -20,36 +20,50 @@
   --about-height: 5500px;
   --project-height: 2000px;
   --contact-height: 600px;
-
-  --transition-delay-after: ;
-  --transition-duration: ;
 }
 
-/* .backgroundContainer {
-  width: 100%;
-  z-index: -999;
-
-  position: absolute;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-
-  padding-left: 3rem;
-  padding-right: 3rem;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.backgroundSVG {
-  width: 180px;
-  opacity: 0.5;
-} */
+::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+}
+
+::-webkit-scrollbar-track-piece:start,
+::-webkit-scrollbar-track-piece:end {
+  background: var(--track-scrollbar-color);
+}
+
+::selection {
+  color: var(--background-color);
+  background-color: var(--text-color);
+}
+
+::-moz-selection {
+  color: var(--background-color);
+  background-color: var(--text-color);
+}
 
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
-
   .container,
   .collapseContainer {
     max-width: var(--mobile-max-width);
+  }
+
+  .topMargin {
+    margin-top: 6rem !important;
+  }
+
+  .bottomMargin {
+    margin-bottom: 6rem !important;
+  }
+
+  .hamburgerMenu {
+    a {
+      font-size: 8vh;
+    }
   }
 
   :root {
@@ -89,10 +103,23 @@
 
 /* PC SCREEN */
 @media (min-width: 800.98px) {
-
   .container,
   .collapseContainer {
     max-width: var(--pc-max-width);
+  }
+
+  .topMargin {
+    margin-top: 10rem !important;
+  }
+
+  .bottomMargin {
+    margin-bottom: 10rem !important;
+  }
+
+  .hamburgerMenu {
+    a {
+      font-size: 8.5vw;
+    }
   }
 
   :root {
@@ -169,6 +196,22 @@ header {
   width: 100%;
 }
 
+.noMarginBottom {
+  margin-bottom: 0 !important;
+}
+
+.noMarginTop {
+  margin-top: 0 !important;
+}
+
+.bottomMarginHUGE {
+  margin-bottom: 35rem !important;
+}
+
+.topMarginHUGE {
+  margin-top: 35rem !important;
+}
+
 .handPointing {
   display: flex;
   align-items: center;
@@ -235,14 +278,6 @@ header {
   font-weight: 900;
 }
 
-.collapseContainer {
-  transition: max-height 1s;
-}
-
-.collapseContainer.transitionDelayAfter {
-  transition-delay: 1.8s;
-}
-
 .mediumHeader {
   font-weight: 900;
   font-size: var(--font-m);
@@ -260,19 +295,19 @@ header {
   gap: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
 
-.architecture li {
-  list-style: none;
-  padding: 0.5rem 1rem;
-  border: 2px dashed var(--text-color);
+  li {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    border: 2px dashed var(--text-color);
 
-  transition: all 0.2s;
-}
+    transition: all 0.2s;
+  }
 
-.architecture li:hover {
-  background-color: var(--text-color);
-  color: var(--background-color);
+  li:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  }
 }
 
 .projectLinks {
@@ -341,18 +376,17 @@ nav {
   transition: left 0.7s;
 
   z-index: 999;
-}
 
-.hamburgerMenu.open {
-  left: 0;
-}
+  &.open {
+    left: 0;
+  }
 
-.hamburgerMenu a {
-  color: var(--background-color);
-  text-decoration: none;
-  font-size: 8.5vw;
+  a {
+    color: var(--background-color);
+    text-decoration: none;
 
-  padding: 0px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
+  }
 }
 
 .hamburgerMobileCloseButton {
@@ -390,23 +424,23 @@ nav {
   color: var(--text-color);
 
   border-bottom: 3px dashed;
-}
 
-.hyperLink::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 3px;
-  background-color: var(--text-color);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s;
-}
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+  }
 
-.hyperLink:hover::after {
-  transform: scaleX(1);
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .timelineCaption {
@@ -416,50 +450,31 @@ nav {
   line-height: 1.5rem;
 }
 
-.noMarginBottom {
-  margin-bottom: 0 !important;
-}
-
-.noMarginTop {
-  margin-top: 0 !important;
-}
-
-.topMargin {
-  margin-top: 10rem;
-}
-
-.bottomMargin {
-  margin-bottom: 10rem;
-}
-
-.bottomMarginHUGE {
-  margin-bottom: 35rem;
-}
-
-.topMarginHUGE {
-  margin-top: 35rem;
-}
-
 .collapseContainer {
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
 
   max-height: 3px;
-}
 
-.collapseContainer.about.expanded {
-  max-height: var(--about-height);
-}
+  transition: max-height 1s;
 
-.collapseContainer.project.expanded {
-  max-height: var(--project-height);
-}
+  &.about.expanded {
+    max-height: var(--about-height);
+  }
 
-.collapseContainer.contact.expanded {
-  max-height: var(--contact-height);
-}
+  &.project.expanded {
+    max-height: var(--project-height);
+  }
 
+  &.contact.expanded {
+    max-height: var(--contact-height);
+  }
+
+  &.transitionDelayAfter {
+    transition-delay: 1.8s;
+  }
+}
 
 .quoteCard {
   padding: 2rem;
@@ -490,14 +505,26 @@ nav {
 }
 
 .dashedBorderLeft {
-  background-image: repeating-linear-gradient(180deg, var(--text-color), var(--text-color) 12px, transparent 12px, transparent 22px);
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--text-color),
+    var(--text-color) 12px,
+    transparent 12px,
+    transparent 22px
+  );
   background-position: left top;
   background-repeat: repeat-y;
   background-size: 2px 100%;
 }
 
 .dashedBorderBottom {
-  background-image: repeating-linear-gradient(90deg, var(--text-color), var(--text-color) 12px, transparent 12px, transparent 22px);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--text-color),
+    var(--text-color) 12px,
+    transparent 12px,
+    transparent 22px
+  );
   background-position: bottom left;
   background-repeat: repeat-x;
   background-size: 100% 2px;
@@ -541,39 +568,16 @@ nav {
   font-family: var(--secondary-font);
   transition: opacity 0.5s, font-variation-settings 0.5s;
 
-  font-variation-settings: 'wght' 400, 'CONT' 1;
-}
+  font-variation-settings: "wght" 400, "CONT" 1;
 
-.toThinHover.disabled {
-  opacity: 0.25;
-  pointer-events: none;
-}
+  &.disabled {
+    opacity: 0.25;
+    pointer-events: none;
+  }
 
-.toThinHover:hover {
-  font-variation-settings: 'wght' 1000, 'CONT' 1000;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--text-color);
-}
-
-::-webkit-scrollbar-track-piece:start,
-::-webkit-scrollbar-track-piece:end {
-  background: var(--track-scrollbar-color);
-}
-
-::selection {
-  color: var(--background-color);
-  background-color: var(--text-color);
-}
-
-::-moz-selection {
-  color: var(--background-color);
-  background-color: var(--text-color);
+  &:hover {
+    font-variation-settings: "wght" 1000, "CONT" 1000;
+  }
 }
 
 .projectNavCircle {
@@ -584,23 +588,23 @@ nav {
   scale: 1;
   transition: scale 0.3s, margin-top 0.3s;
   margin-top: -3px;
-}
 
-.projectNavCircle.active {
-  margin-top: -5.5px;
-  scale: 1.5;
-}
+  &.active {
+    margin-top: -5.5px;
+    scale: 1.5;
+  }
 
-.projectNavCircle::after {
-  transition: opacity 0.3s;
-  content: "◉";
-  position: absolute;
+  &::after {
+    transition: opacity 0.3s;
+    content: "◉";
+    position: absolute;
 
-  z-index: -1;
+    z-index: -1;
 
-  opacity: 0;
-}
+    opacity: 0;
+  }
 
-.projectNavCircle:hover::after {
-  opacity: 0.5;
+  &:hover::after {
+    opacity: 0.5;
+  }
 }
