@@ -788,3 +788,48 @@ $__typed-id: 0;
     )
   );
 }
+
+.deletedCollapsedAbout {
+  @include typed(
+    "hey, i'm les!",
+    (
+      type: 0.0001,
+      pause-typed: 1,
+    ),
+    (
+      caret: false,
+      iterations: 1,
+      delay: 0,
+    )
+  );
+}
+
+.deletedCollapsedProject {
+  @include typed(
+    "my creations!",
+    (
+      type: 0.0001,
+      pause-typed: 1,
+    ),
+    (
+      caret: false,
+      iterations: 1,
+      delay: 0,
+    )
+  );
+}
+
+.deletedCollapsedContact {
+  @include typed(
+    "let's chat!",
+    (
+      type: 0.0001,
+      pause-typed: 1,
+    ),
+    (
+      caret: false,
+      iterations: 1,
+      delay: 0,
+    )
+  );
+}

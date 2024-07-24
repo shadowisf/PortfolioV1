@@ -20,6 +20,9 @@
   --about-height: 5500px;
   --project-height: 2000px;
   --contact-height: 600px;
+
+  --transition-delay-after: ;
+  --transition-duration: ;
 }
 
 /* .backgroundContainer {
@@ -225,27 +228,19 @@ header {
   font-size: var(--font-xl);
   font-style: italic;
 
-  background-color: var(--background-color);
-  color: var(--text-color);
-  box-shadow: 10px 10px var(--text-color);
-  border: solid var(--text-color);
-
-  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s,
-    border 0.5s;
+  border: 50px red;
+  background-color: var(--text-color);
+  color: var(--background-color);
 
   font-weight: 900;
 }
 
-/* delay after changing headers */
-.collapseContainer.transitionDelayAfter {
-  transition-delay: 1.8s;
+.collapseContainer {
+  transition: max-height 1s;
 }
 
-.divHeader.active {
-  background-color: var(--text-color);
-  color: var(--background-color);
-  box-shadow: none;
-  border: solid var(--text-color);
+.collapseContainer.transitionDelayAfter {
+  transition-delay: 1.8s;
 }
 
 .mediumHeader {
@@ -451,8 +446,6 @@ nav {
   overflow: hidden;
 
   max-height: 3px;
-
-  transition: max-height 1s;
 }
 
 .collapseContainer.about.expanded {

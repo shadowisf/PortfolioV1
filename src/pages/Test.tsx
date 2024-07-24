@@ -1,7 +1,10 @@
 export default function Test() {
   return (
     <>
-      <div className="toThinHover" style={{ fontSize: "200px" }}>test</div>
+      <div
+        className="deletedCollapsedContact"
+        style={{ fontSize: "200px" }}
+      ></div>
     </>
   );
 }

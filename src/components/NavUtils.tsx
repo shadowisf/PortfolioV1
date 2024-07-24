@@ -9,7 +9,16 @@ export const scrollOptions = {
 };
 
 // delay changing headers
-export const animationDelay = 1100;
+export const animationDelay = 2300;
+
+// delay of collapse container after changing headers
+export const transitionDelayAfter = "1.8s";
+
+// duration of collapsing container
+export const transitionDuration = "1s";
+
+document.documentElement.style.setProperty("--transition-delay-after", transitionDelayAfter);
+document.documentElement.style.setProperty("--transition-duration", transitionDuration);
 
 export const useToggleStates = () => {
   const [isAboutOpen, setAboutOpen] = useState(false);
@@ -69,9 +78,9 @@ export const collapseContainer = (
     setProjectOpen(false);
     setContactOpen(false);
 
-    changeContainerVisibility("about", "block", "1", 1000);
-    changeContainerVisibility("project", "none", "0", 1000);
-    changeContainerVisibility("contact", "none", "0", 1000);
+    changeContainerVisibility("about", "block", "1", animationDelay);
+    changeContainerVisibility("project", "none", "0", animationDelay);
+    changeContainerVisibility("contact", "none", "0", animationDelay);
 
     setTimeout(() => {
       setAboutOpen(true);
@@ -80,9 +89,9 @@ export const collapseContainer = (
     setAboutOpen(false);
     setContactOpen(false);
 
-    changeContainerVisibility("project", "block", "1", 1000);
-    changeContainerVisibility("about", "none", "0", 1000);
-    changeContainerVisibility("contact", "none", "0", 1000);
+    changeContainerVisibility("project", "block", "1", animationDelay);
+    changeContainerVisibility("about", "none", "0", animationDelay);
+    changeContainerVisibility("contact", "none", "0", animationDelay);
 
     setTimeout(() => {
       setProjectOpen(true);
@@ -91,9 +100,9 @@ export const collapseContainer = (
     setAboutOpen(false);
     setProjectOpen(false);
 
-    changeContainerVisibility("contact", "block", "1", 1000);
-    changeContainerVisibility("project", "none", "0", 1000);
-    changeContainerVisibility("about", "none", "0", 1000);
+    changeContainerVisibility("contact", "block", "1", animationDelay);
+    changeContainerVisibility("project", "none", "0", animationDelay);
+    changeContainerVisibility("about", "none", "0", animationDelay);
 
     setTimeout(() => {
       setContactOpen(true);

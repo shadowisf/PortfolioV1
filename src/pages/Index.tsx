@@ -67,13 +67,17 @@ export default function Index() {
       <section
         id="aboutHeader"
         className={`container topMargin noCursor divHeader ${
-          isAboutOpen ? "active typedCollapsedAbout" : "typedEmpty"
+          isAboutOpen
+            ? "typedCollapsedAbout"
+            : "transitionDelayAfter deletedCollapsedAbout"
         }`}
       ></section>
       <section
         id="aboutContainer"
         className={`dashedBorderBottom collapseContainer ${
-          isAboutOpen ? "transitionDelayAfter about expanded" : ""
+          isAboutOpen
+            ? "transitionDelayAfter about expanded"
+            : ""
         }`}
       >
         <About
@@ -95,7 +99,9 @@ export default function Index() {
       <section
         id="projectHeader"
         className={`container topMargin noCursor divHeader ${
-          isProjectOpen ? "active typedCollapsedProject" : "typedEmpty"
+          isProjectOpen
+            ? "typedCollapsedProject"
+            : "transitionDelayAfter deletedCollapsedProject"
         }`}
       ></section>
       <section
@@ -111,7 +117,9 @@ export default function Index() {
       <section
         id="contactHeader"
         className={`container topMargin noCursor divHeader ${
-          isContactOpen ? "active typedCollapsedContact" : "typedEmpty"
+          isContactOpen
+            ? "typedCollapsedContact"
+            : "transitionDelayAfter deletedCollapsedContact"
         }`}
       ></section>
       <section
