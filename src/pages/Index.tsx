@@ -47,6 +47,9 @@ export default function Index() {
     setTimeout(() => {
       keyControls();
       document.documentElement.style.setProperty("--scroll-overflow", "scroll");
+      document.documentElement.style.setProperty("--all-position", "auto");
+      document.documentElement.style.setProperty("--all-height", "auto");
+      document.documentElement.style.setProperty("--all-width", "auto");
     }, animationDelay);
   }, []);
 

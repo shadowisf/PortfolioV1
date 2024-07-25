@@ -8,13 +8,13 @@ export const scrollOptions = {
   ignoreCancelEvents: false,
 };
 
-// delay changing visibility of collapse containers
-export const visibilityDelay = 2300;
-
-// NOTE: visibilityDelay should go first then animationDelay
-
 // delay changing headers
 export const animationDelay = 2400;
+
+// delay changing visibility of collapse containers
+export const visibilityDelay = animationDelay - 100;
+
+// NOTE: visibilityDelay should go first then animationDelay
 
 export const useToggleStates = () => {
   const [isAboutOpen, setAboutOpen] = useState(false);

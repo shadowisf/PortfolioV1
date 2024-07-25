@@ -39,9 +39,9 @@ import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
 export const projectData = [
   {
     id: 0,
-    name: "portfolio",
+    name: "portfolio website",
     year: "2024",
-    architecture: ["typescript (react)", "firebase", "html", "sass", "ui/ux"],
+    architecture: ["typescript (react)", "firebase", "html", "scss", "ui/ux"],
   },
   {
     id: 1,

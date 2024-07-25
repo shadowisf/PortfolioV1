@@ -11,7 +11,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
 
   setTimeout(() => {
     setIsLoading(false);
-  }, animationDelay - 200);
+  }, animationDelay);
 
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 

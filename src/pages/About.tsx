@@ -5,16 +5,12 @@ import IconEyeGlasses from "../assets/IconEyeGlasses";
 import IconGraduateHat from "../assets/IconGraduateHat";
 import IllustrationBustNoChat from "../assets/IllustrationBustNoChat";
 import {
-  HandPointingDown,
   HandPointingRight,
   HandPointingLeft,
-  HandPointingUp,
 } from "../components/HandPointingButtons";
 import { TimelineRow } from "../components/Timeline";
-import IllustrationOttoOctavius from "../assets/IllustrationOttoOctavius";
-import IllustrationSansaStark from "../assets/IllustrationSansaStark";
-import { QuoteCard } from "../components/QuoteCards";
 import IllustrationLineH from "../assets/IllustrationLineH";
+import IllustrationHandPointingH from "../assets/IllustrationHandPointing";
 
 type AboutProps = {
   collapseContainer: (element: string) => void;
@@ -75,17 +71,20 @@ export default function About({ collapseContainer }: AboutProps) {
         style={{ paddingTop: "3px" }}
         className="container vhalf noMarginTop"
       >
-        <div id="hs" className="textCenter">
-          <header className="scaleText">
-            i'm a <span className="typedSeries"></span> <br /> software engineer
-          </header>
-        </div>
+        <header
+          style={{ marginBottom: "50px" }}
+          id="hs"
+          className="textCenter mediumHeader"
+        >
+          i'm a <span className="typedSeries"></span> <br /> software engineer
+        </header>
 
-        <br id="hs" />
-        <br id="hs" />
+        <picture id="hs" className="flexCenterH">
+          <IllustrationBustNoChat width="200" />
+        </picture>
 
-        <picture className="flexCenterH">
-          <IllustrationBustNoChat />
+        <picture id="fs" className="flexCenterH">
+          <IllustrationBustNoChat width="250" />
         </picture>
 
         <picture id="fs">
@@ -151,8 +150,7 @@ export default function About({ collapseContainer }: AboutProps) {
         />
 
         <TimelineRow img={<IconGraduateHat />}>
-          graduated college in university of bolton, ras al khaimah with a
-          bachelor of engineering in software engineering
+          graduated uob with bachelor in swe
           <br />
           <b>???</b>
         </TimelineRow>
@@ -174,6 +172,8 @@ export default function About({ collapseContainer }: AboutProps) {
       </header>
       <HandPointingRight
         id="fs"
+        width="400"
+        marginBottom="150px"
         onClick={() => {
           collapseContainer("project");
         }}
@@ -183,41 +183,51 @@ export default function About({ collapseContainer }: AboutProps) {
 
       <HandPointingLeft
         id="fs"
+        width="400"
+        marginBottom="150px"
         onClick={() => {
           collapseContainer("contact");
         }}
       >
-        contact me
+        drop a message
       </HandPointingLeft>
 
-      <HandPointingDown
+      <HandPointingRight
         id="hs"
+        width="100%"
+        marginBottom="100px"
+        marginLeft="20px"
         onClick={() => {
           collapseContainer("project");
         }}
       >
         view my projects
-      </HandPointingDown>
+      </HandPointingRight>
 
-      <HandPointingUp
+      <HandPointingLeft
         id="hs"
+        width="100%"
+        marginBottom="100px"
+        marginRight="20px"
         onClick={() => {
           collapseContainer("contact");
         }}
       >
-        contact me
-      </HandPointingUp>
+        drop a message
+      </HandPointingLeft>
 
       <p className="container flexCenterH textCenter">
         use the menu at the top right to go anywhere!
       </p>
 
-      <span className="container flexCenterH topMargin bottomMargin">
+      <IllustrationHandPointingH />
+
+      {/* <span className="container flexCenterH topMargin bottomMargin">
         <IllustrationLineH width="25%" strokeDasharray="10" />
-      </span>
+      </span> */}
 
       {/* wall of quotes */}
-      <div id="hs" className="container textCenter">
+      {/* <div id="hs" className="container textCenter">
         <header className="scaleText">
           the wall <br /> of quotes!
         </header>
@@ -241,7 +251,7 @@ export default function About({ collapseContainer }: AboutProps) {
         img={<IllustrationSansaStark />}
       >
         i'm a slow learner, that's true. but i learn.
-      </QuoteCard>
+      </QuoteCard> */}
     </>
   );
 }

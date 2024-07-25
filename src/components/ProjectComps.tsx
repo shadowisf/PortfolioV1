@@ -147,7 +147,7 @@ export default function ProjectNav({
 export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
   return (
     <Fragment>
-      <section id={getProjectName(dataID)} className="embla__slide">
+      <section id={getProjectName(dataID)} className="embla__slide" style={{paddingLeft: "0.85px"}}>
         <div id="hs" className="textCenter">
           <header className="scaleText">{getProjectName(dataID)}</header>
         </div>

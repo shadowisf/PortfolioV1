@@ -27,6 +27,9 @@
   --collapse-transition-delay-after: 1.8s;
 
   --scroll-overflow: hidden;
+  --all-position: fixed;
+  --all-height: 100%;
+  --all-width: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -60,11 +63,11 @@
   }
 
   .topMargin {
-    margin-top: 6rem !important;
+    margin-top: 5.5rem !important;
   }
 
   .bottomMargin {
-    margin-bottom: 6rem !important;
+    margin-bottom: 5.5rem !important;
   }
 
   .hamburgerMenu {
@@ -164,12 +167,17 @@ p {
   line-height: 2rem;
 }
 
-html {
+html,
+body {
   font-family: var(--primary-font);
   color: var(--text-color);
   background-color: var(--background-color);
 
   overflow-y: var(--scroll-overflow);
+
+  position: var(--all-position);
+  height: var(--all-height);
+  width: var(--all-width);
 }
 
 * {
@@ -222,7 +230,7 @@ header {
 .handPointing {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .flexCenterH {
@@ -278,7 +286,6 @@ header {
   font-size: var(--font-xl);
   font-style: italic;
 
-  border: 50px red;
   background-color: var(--text-color);
   color: var(--background-color);
 
@@ -496,8 +503,14 @@ nav {
   justify-content: center;
   align-content: center;
   background: var(--background-color);
-  height: 100vh;
+  height: 100lvh;
   z-index: 999;
+
+  .typedLoading {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    font-style: italic;
+  }
 }
 
 .dashedBorderLeft {

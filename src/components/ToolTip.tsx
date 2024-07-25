@@ -7,7 +7,7 @@ export default function ToolTip() {
 
   setTimeout(() => {
     setIsLoading(false);
-  }, animationDelay - 200);
+  }, animationDelay);
 
   return isLoading ? (
     <></>

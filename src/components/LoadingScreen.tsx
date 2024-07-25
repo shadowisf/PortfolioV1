@@ -6,14 +6,22 @@ export default function LoadingScreen() {
 
   setTimeout(() => {
     setIsLoading(false);
-  }, animationDelay - 200);
+  }, animationDelay);
 
   scrollToElement("top");
 
   return isLoading ? (
-    <section className="loadingScreen textCenter">
-      <span className="largeHeader typedLoading"></span>
-    </section>
+    <>
+      <div className="noMarginTop loadingScreen textCenter">
+        <span className="typedLoading"></span>
+
+        <br />
+
+        <span style={{ fontSize: "var(--font-s" }}>
+          website is better viewed on <b>desktop</b>
+        </span>
+      </div>
+    </>
   ) : (
     <></>
   );
