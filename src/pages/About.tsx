@@ -10,7 +10,6 @@ import {
 } from "../components/HandPointingButtons";
 import { TimelineRow } from "../components/Timeline";
 import IllustrationLineH from "../assets/IllustrationLineH";
-import IllustrationHandPointingH from "../assets/IllustrationHandPointing";
 
 type AboutProps = {
   collapseContainer: (element: string) => void;
@@ -109,16 +108,17 @@ export default function About({ collapseContainer }: AboutProps) {
         <IllustrationLineH width="25%" strokeDasharray="10" />
       </span>
 
-      {/* my life as a timeline */}
-      <div id="hs" className="container textCenter">
-        <header className="scaleText">
-          my life as <br /> a timeline
-        </header>
-      </div>
-      <header id="fs" className="largeHeader textCenter">
-        my life as a timeline
+      {/* my life's arc */}
+      {/* <div id="hs" className="container textCenter">
+        <header className="scaleText">my life's arc</header>
+      </div> */}
+      <header id="hs" style={{ fontSize: "8vw" }} className="container textCenter">
+        my life's arc
       </header>
-      <section className="container bottomMargin dashedBorderLeft">
+      <header id="fs" className="container largeHeader textCenter">
+        my life's arc
+      </header>
+      <section className="container dashedBorderLeft">
         <TimelineRow img={<IconCake />}>
           born in davao city, philippines <br />
           <b>february 15, 2004</b>
@@ -156,71 +156,74 @@ export default function About({ collapseContainer }: AboutProps) {
         </TimelineRow>
       </section>
 
-      <span className="flexCenterH topMargin bottomMargin">
+      <span className="container flexCenterH topMargin bottomMargin">
         <IllustrationLineH width="25%" strokeDasharray="10" />
       </span>
 
       {/* now what? */}
-      <div id="hs" className="container textCenter">
+      {/* <div id="hs" className="container textCenter">
         <header className="scaleText">now what?</header>
-      </div>
+      </div> */}
+      <header id="hs" style={{ fontSize: "8vw" }} className="container textCenter">
+        now what?
+      </header>
       <header
         id="fs"
-        className="container largeHeader flexCenterH textCenter topMargin"
+        className="container largeHeader flexCenterH textCenter"
       >
         now what?
       </header>
-      <HandPointingRight
-        id="fs"
-        width="400"
-        marginBottom="150px"
-        onClick={() => {
-          collapseContainer("project");
-        }}
-      >
-        view my projects
-      </HandPointingRight>
+      <section className="container">
+        <HandPointingRight
+          id="fs"
+          width="400"
+          marginBottom="150px"
+          onClick={() => {
+            collapseContainer("project");
+          }}
+        >
+          view my projects
+        </HandPointingRight>
 
-      <HandPointingLeft
-        id="fs"
-        width="400"
-        marginBottom="150px"
-        onClick={() => {
-          collapseContainer("contact");
-        }}
-      >
-        drop a message
-      </HandPointingLeft>
+        <HandPointingLeft
+          id="fs"
+          width="400"
+          marginBottom="150px"
+          onClick={() => {
+            collapseContainer("contact");
+          }}
+        >
+          drop a message
+        </HandPointingLeft>
 
-      <HandPointingRight
-        id="hs"
-        width="100%"
-        marginBottom="100px"
-        marginLeft="20px"
-        onClick={() => {
-          collapseContainer("project");
-        }}
-      >
-        view my projects
-      </HandPointingRight>
+        <HandPointingRight
+          id="hs"
+          width="200"
+          marginBottom="75px"
+          marginLeft="20px"
+          onClick={() => {
+            collapseContainer("project");
+          }}
+        >
+          view my <br /> projects
+        </HandPointingRight>
 
-      <HandPointingLeft
-        id="hs"
-        width="100%"
-        marginBottom="100px"
-        marginRight="20px"
-        onClick={() => {
-          collapseContainer("contact");
-        }}
-      >
-        drop a message
-      </HandPointingLeft>
+        <HandPointingLeft
+          id="hs"
+          width="200"
+          marginBottom="75px"
+          marginRight="20px"
+          onClick={() => {
+            collapseContainer("contact");
+          }}
+        >
+          drop a <br /> message
+        </HandPointingLeft>
+      </section>
 
       <p className="container flexCenterH textCenter">
         use the menu at the top right to go anywhere!
       </p>
-
-      <IllustrationHandPointingH />
 
       {/* <span className="container flexCenterH topMargin bottomMargin">
         <IllustrationLineH width="25%" strokeDasharray="10" />

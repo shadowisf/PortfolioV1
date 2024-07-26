@@ -2,7 +2,7 @@ import IllustrationHandPointingH from "../assets/IllustrationHandPointing";
 
 type handPointingProps = {
   width?: string;
-  children?: string;
+  children?: React.ReactNode;
   id?: string;
   onClick?: () => void;
   marginBottom?: string;
@@ -19,13 +19,13 @@ export function HandPointingRight({
   onClick,
 }: handPointingProps) {
   return (
-    <section id={id} className="container vhalf noCursor handPointing">
+    <section id={id} className="vhalf noCursor handPointing">
       <picture className="flexCenterH">
         <IllustrationHandPointingH width={width} />
       </picture>
       <a
         style={{ marginBottom: marginBottom, marginLeft: marginLeft }}
-        className="flickerTextHover button toThinHover smallHeader"
+        className="button toThinHover smallHeader"
         onClick={onClick}
       >
         {children}
@@ -43,10 +43,10 @@ export function HandPointingLeft({
   onClick,
 }: handPointingProps) {
   return (
-    <section id={id} className="container vhalf noCursor handPointing">
+    <section id={id} className="vhalf noCursor handPointing">
       <a
         style={{ marginBottom: marginBottom, marginRight: marginRight }}
-        className="flickerTextHover button toThinHover smallHeader"
+        className="button toThinHover smallHeader"
         onClick={onClick}
       >
         {children}

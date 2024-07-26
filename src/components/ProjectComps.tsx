@@ -16,6 +16,12 @@ type ProjectContainerProps = {
   children: React.ReactNode;
 };
 
+type ProjectCardProps = {
+  img?: string;
+  children?: React.ReactNode;
+  onClick?: () => void;
+};
+
 function getProjectName(id: number) {
   const project = projectData.find((project) => project.id === id);
 
@@ -147,10 +153,22 @@ export default function ProjectNav({
 export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
   return (
     <Fragment>
-      <section id={getProjectName(dataID)} className="embla__slide" style={{paddingLeft: "0.85px"}}>
-        <div id="hs" className="textCenter">
+      <section
+        id={getProjectName(dataID)}
+        className="embla__slide"
+        style={{ paddingLeft: "0.85px" }}
+      >
+        {/* <div id="hs" className="textCenter">
           <header className="scaleText">{getProjectName(dataID)}</header>
-        </div>
+        </div> */}
+
+        <header
+          style={{ fontSize: "8vw" }}
+          id="hs"
+          className="largeHeader textCenter"
+        >
+          {getProjectName(dataID)}
+        </header>
         <header id="fs" className="largeHeader flexCenterH">
           {getProjectName(dataID)}
         </header>
@@ -179,5 +197,14 @@ export function ProjectContainer({ dataID, children }: ProjectContainerProps) {
         <br />
       </section>
     </Fragment>
+  );
+}
+
+export function ProjectCard({ img, children, onClick }: ProjectCardProps) {
+  return (
+    <div className="card toThinHover" onClick={onClick}>
+      <img className="logo" src={img} />
+      <header className=" title">{children}</header>
+    </div>
   );
 }

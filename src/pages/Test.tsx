@@ -1,14 +1,24 @@
-import IllustrationHeadWithChat from "../assets/IllustrationHeadWithChat";
+import CircuitCentralLogo from "../assets/ImageCircuitCentralLogo.PNG";
+import FunCulatorLogo from "../assets/ImageFunCulatorLogo.PNG";
+import { ProjectCard } from "../components/ProjectComps";
 
 export default function Test() {
   return (
     <>
-      <div id="hs" className="headWithCaption">
-        <IllustrationHeadWithChat />
+      <div className="projectCards">
+        <ProjectCard img={CircuitCentralLogo}>circuitcentral</ProjectCard>
 
-        <header  className="headWithCaptionText mediumHeader">
-          i'm a <span className="typedSeries"></span> <br /> software engineer
-        </header>
+        <ProjectCard img={FunCulatorLogo}>funculator</ProjectCard>
+
+        <div className="card toThinHover">funculator</div>
+
+        <div className="card toThinHover">bell hospital</div>
+
+        <div className="card toThinHover">plug-ins database</div>
+
+        <div className="card toThinHover">portfolio</div>
+
+        <div className="card toThinHover">apollo hospital</div>
       </div>
     </>
   );

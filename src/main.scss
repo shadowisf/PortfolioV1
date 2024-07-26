@@ -63,11 +63,11 @@
   }
 
   .topMargin {
-    margin-top: 5.5rem !important;
+    margin-top: 7rem !important;
   }
 
   .bottomMargin {
-    margin-bottom: 5.5rem !important;
+    margin-bottom: 7rem !important;
   }
 
   .hamburgerMenu {
@@ -108,6 +108,10 @@
 
   #tooltip {
     display: none;
+  }
+
+  body {
+    background-color: red;
   }
 }
 
@@ -292,6 +296,14 @@ header {
   font-weight: 900;
 }
 
+.divHeaderAlt {
+  text-align: center;
+  font-size: var(--font-xl);
+  font-style: italic;
+
+  font-weight: 900;
+}
+
 .mediumHeader {
   font-weight: 900;
   font-size: var(--font-m);
@@ -321,6 +333,58 @@ header {
   li:hover {
     background-color: var(--text-color);
     color: var(--background-color);
+  }
+}
+
+.projectCards {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  .card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border: solid;
+
+    align-content: center;
+    text-align: center;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .logo {
+    opacity: 0.25;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: opacity 0.5s, filter 0.5s;
+
+    filter: grayscale(100%);
+  }
+
+  .card:hover .logo {
+    opacity: 0.5;
+    filter: grayscale(0%);
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 30px;
+    padding: 0 20px;
   }
 }
 
@@ -379,7 +443,7 @@ nav {
   background-color: var(--text-color);
   display: grid;
   place-content: center;
-  gap: 7rem;
+  gap: 50px;
   text-align: center;
   transition: left 0.7s;
 
