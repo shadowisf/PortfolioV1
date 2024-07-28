@@ -10,62 +10,17 @@ import {
 } from "../components/HandPointingButtons";
 import { TimelineRow } from "../components/Timeline";
 import IllustrationLineH from "../assets/IllustrationLineH";
+import NavBar from "../components/NavBar";
 
-type AboutProps = {
-  collapseContainer: (element: string) => void;
-};
-
-export default function About({ collapseContainer }: AboutProps) {
-  function scaleHeader(): void {
-    const scalableElements =
-      document.querySelectorAll<HTMLElement>(".scaleText");
-    const margin = 10;
-    scalableElements.forEach((scalable) => {
-      const scalableContainer = scalable.parentElement as HTMLElement;
-      scalable.style.transform = "scale(1)";
-      const scalableContainerWidth = scalableContainer.offsetWidth - margin;
-      const scalableWidth = scalable.offsetWidth;
-      scalable.style.transform = `scale(${
-        scalableContainerWidth / scalableWidth
-      })`;
-      scalableContainer.style.height = `${
-        scalable.getBoundingClientRect().height
-      }px`;
-    });
-  }
-
-  type DebounceFunction = (...args: any[]) => void;
-
-  function debounce(
-    func: Function,
-    wait: number,
-    immediate?: boolean
-  ): DebounceFunction {
-    let timeout: ReturnType<typeof setTimeout> | null;
-    return function (this: any, ...args: any[]) {
-      const context = this;
-      const later = () => {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      const callNow = immediate && !timeout;
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
-
-  const myScaleFunction = debounce(() => {
-    scaleHeader();
-  }, 250);
-
-  myScaleFunction();
-
-  window.addEventListener("resize", myScaleFunction);
-
+export default function About() {
   return (
     <>
-      {/* hey, i'm les! */}
+      <NavBar />
+
+      <section className="container topMargin noCursor divHeader">
+        hey, i'm les!
+      </section>
+
       <section
         style={{ paddingTop: "3px" }}
         className="container vhalf noMarginTop"
@@ -112,7 +67,11 @@ export default function About({ collapseContainer }: AboutProps) {
       {/* <div id="hs" className="container textCenter">
         <header className="scaleText">my life's arc</header>
       </div> */}
-      <header id="hs" style={{ fontSize: "8vw" }} className="container textCenter">
+      <header
+        id="hs"
+        style={{ fontSize: "8vw" }}
+        className="container textCenter"
+      >
         my life's arc
       </header>
       <header id="fs" className="container largeHeader textCenter">
@@ -164,35 +123,22 @@ export default function About({ collapseContainer }: AboutProps) {
       {/* <div id="hs" className="container textCenter">
         <header className="scaleText">now what?</header>
       </div> */}
-      <header id="hs" style={{ fontSize: "8vw" }} className="container textCenter">
-        now what?
-      </header>
       <header
-        id="fs"
-        className="container largeHeader flexCenterH textCenter"
+        id="hs"
+        style={{ fontSize: "8vw" }}
+        className="container textCenter"
       >
         now what?
       </header>
+      <header id="fs" className="container largeHeader flexCenterH textCenter">
+        now what?
+      </header>
       <section className="container">
-        <HandPointingRight
-          id="fs"
-          width="400"
-          marginBottom="150px"
-          onClick={() => {
-            collapseContainer("project");
-          }}
-        >
+        <HandPointingRight id="fs" width="400" marginBottom="150px">
           view my projects
         </HandPointingRight>
 
-        <HandPointingLeft
-          id="fs"
-          width="400"
-          marginBottom="150px"
-          onClick={() => {
-            collapseContainer("contact");
-          }}
-        >
+        <HandPointingLeft id="fs" width="400" marginBottom="150px">
           drop a message
         </HandPointingLeft>
 
@@ -201,9 +147,6 @@ export default function About({ collapseContainer }: AboutProps) {
           width="200"
           marginBottom="75px"
           marginLeft="20px"
-          onClick={() => {
-            collapseContainer("project");
-          }}
         >
           view my <br /> projects
         </HandPointingRight>
@@ -213,9 +156,6 @@ export default function About({ collapseContainer }: AboutProps) {
           width="200"
           marginBottom="75px"
           marginRight="20px"
-          onClick={() => {
-            collapseContainer("contact");
-          }}
         >
           drop a <br /> message
         </HandPointingLeft>

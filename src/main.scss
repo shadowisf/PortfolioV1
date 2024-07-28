@@ -19,17 +19,7 @@
   --pc-max-width: 750px;
   --mobile-max-width: 90%;
 
-  --about-height: 5500px;
-  --project-height: 2000px;
-  --contact-height: 600px;
-
-  --collapse-transition-duration: 1s;
-  --collapse-transition-delay-after: 1.8s;
-
-  --scroll-overflow: hidden;
-  --all-position: fixed;
-  --all-height: 100%;
-  --all-width: 100%;
+  --overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
@@ -57,8 +47,7 @@
 
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
-  .container,
-  .collapseContainer {
+  .container {
     max-width: var(--mobile-max-width);
   }
 
@@ -97,6 +86,10 @@
     background: var(--background-color);
     z-index: 1;
   }
+
+  .projectCards {
+    flex-direction: column;
+  }
 }
 
 /* IDK WTF */
@@ -109,16 +102,11 @@
   #tooltip {
     display: none;
   }
-
-  body {
-    background-color: red;
-  }
 }
 
 /* PC SCREEN */
 @media (min-width: 800.98px) {
-  .container,
-  .collapseContainer {
+  .container {
     max-width: var(--pc-max-width);
   }
 
@@ -165,23 +153,23 @@
   .quoteCard {
     margin-right: 10px !important;
   }
+
+  .projectCards {
+    flex-direction: row;
+  }
 }
 
 p {
   line-height: 2rem;
 }
 
-html,
-body {
+html {
   font-family: var(--primary-font);
   color: var(--text-color);
   background-color: var(--background-color);
 
-  overflow-y: var(--scroll-overflow);
-
-  position: var(--all-position);
-  height: var(--all-height);
-  width: var(--all-width);
+  overflow-x: hidden;
+  overflow-y: var(--overflow-y);
 }
 
 * {
@@ -338,28 +326,49 @@ header {
 
 .projectCards {
   display: flex;
-  flex-wrap: wrap;
 
   align-items: center;
   justify-content: center;
 
   gap: 1rem;
 
+  &.noGap {
+    gap: 0;
+  }
+
   .card {
     position: relative;
-    width: 300px;
-    height: 200px;
-    border: solid;
+    width: 450px;
+    height: 150px;
+    border: solid var(--text-color);
 
     align-content: center;
     text-align: center;
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    transition: width 1s, height 1s, filter 1s, font-variation-settings 1s,
+      opacity 0.5s, background-color 0.5s, border 0.5s;
+
+    &.active {
+      width: 100%;
+      background-color: var(--text-color);
+    }
+
+    &.hidden {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    &.none {
+      display: none;
+    }
   }
 
   .logo {
+    pointer-events: none;
     opacity: 0.25;
 
     width: 100%;
@@ -369,22 +378,70 @@ header {
 
     transition: opacity 0.5s, filter 0.5s;
 
-    filter: grayscale(100%);
-  }
+    filter: blur(0px) grayscale(100);
 
-  .card:hover .logo {
-    opacity: 0.5;
-    filter: grayscale(0%);
+    &.hidden {
+      opacity: 0;
+    }
   }
 
   .title {
+    line-height: 1;
+    font-family: var(--secondary-font);
+
+    pointer-events: none;
+
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-size: 30px;
+    transition: opacity 1s, font-size 1s, line-height 1s, color 0.5s;
+
+    font-size: 2rem;
+
     padding: 0 20px;
+
+    white-space: nowrap;
+
+    &.active {
+      line-height: 0.7;
+      font-size: var(--font-l);
+      color: var(--background-color);
+      font-variation-settings: "wght" 1000, "CONT" 1000;
+    }
+
+    &.hidden {
+      opacity: 0;
+      font-variation-settings: "wght" 1000, "CONT" 1000;
+    }
+
+    .year {
+      font-size: 1rem;
+      font-family: var(--primary-font);
+    }
+  }
+
+  .content {
+    text-align: left;
+
+    transition: opacity 0.5s;
+    padding-bottom: 10rem;
+
+    &.hidden {
+      opacity: 0;
+    }
+
+    &.none {
+      display: none;
+    }
+  }
+
+  .cardHover:hover {
+    .logo {
+      opacity: 0.5;
+      filter: blur(4px) grayscale(0);
+    }
   }
 }
 
@@ -518,31 +575,6 @@ nav {
   line-height: 1.5rem;
 }
 
-.collapseContainer {
-  margin: 0 auto;
-  overflow: hidden;
-
-  max-height: 3px;
-
-  transition: max-height var(--collapse-transition-duration);
-
-  &.about.expanded {
-    max-height: var(--about-height);
-  }
-
-  &.project.expanded {
-    max-height: var(--project-height);
-  }
-
-  &.contact.expanded {
-    max-height: var(--contact-height);
-  }
-
-  &.transitionDelayAfter {
-    transition-delay: var(--collapse-transition-delay-after);
-  }
-}
-
 .quoteCard {
   padding: 2rem;
   border: solid;
@@ -607,34 +639,6 @@ nav {
   margin-left: 2rem;
 }
 
-.projectNav {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0.5rem;
-  margin-bottom: 1.5rem;
-  gap: 5px;
-}
-
-.scaleText {
-  display: inline-block;
-  transform-origin: 50% 0;
-  -webkit-font-smoothing: antialiased;
-  transform: translate3d(0, 0, 0);
-}
-
-.embla {
-  overflow: hidden;
-}
-
-.embla__container {
-  display: flex;
-  gap: 15rem;
-}
-
-.embla__slide {
-  flex: 0 0 100%;
-}
-
 .toThinHover {
   font-family: var(--secondary-font);
   transition: opacity 0.5s, font-variation-settings 0.5s;
@@ -648,34 +652,5 @@ nav {
 
   &:hover {
     font-variation-settings: "wght" 1000, "CONT" 1000;
-  }
-}
-
-.projectNavCircle {
-  position: relative;
-
-  cursor: pointer;
-
-  scale: 1;
-  transition: scale 0.3s, margin-top 0.3s;
-  margin-top: -3px;
-
-  &.active {
-    margin-top: -5.5px;
-    scale: 1.5;
-  }
-
-  &::after {
-    transition: opacity 0.3s;
-    content: "◉";
-    position: absolute;
-
-    z-index: -1;
-
-    opacity: 0;
-  }
-
-  &:hover::after {
-    opacity: 0.5;
   }
 }

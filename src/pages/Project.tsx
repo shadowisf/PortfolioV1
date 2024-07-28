@@ -1,15 +1,9 @@
-import { useEffect } from "react";
-import mediumZoom from "medium-zoom";
 import IconGithub from "../assets/IconGithub";
 import IconPDF from "../assets/IconPDF";
 import IconArrowTopRight from "../assets/IconArrowTopRight";
 import IconInstagram from "../assets/IconInstagram";
 import IconLinkedIn from "../assets/IconLinkedIn";
-import { HyperLinkWithIcon } from "../components/HyperLink";
-import ProjectNav, {
-  ProjectContainer,
-  useEmblaStuff,
-} from "../components/ProjectComps";
+import CLILogo from "../assets/ImageCLILogo.jpg";
 //
 import PortfolioImage1 from "../assets/ImagePortfolio1.PNG";
 import PortfolioImage2 from "../assets/ImagePortfolio2.PNG";
@@ -18,15 +12,18 @@ import CircuitCentralProposalPDF from "../assets/FileCircuitCentralProposal.PDF"
 import CircuitCentralImplementationPDF from "../assets/FileCircuitCentralImplementation.PDF";
 import CircuitCentralImage1 from "../assets/ImageCircuitCentral1.PNG";
 import CircuitCentralImage2 from "../assets/ImageCircuitCentral2.PNG";
+import CircuitCentralLogo from "../assets/ImageCircuitCentralLogo.PNG";
 //
 import ApolloHospitalPDF from "../assets/FileApolloHospital.PDF";
 import ApolloHospitalImage1 from "../assets/ImageApolloHospital1.PNG";
 import ApolloHospitalImage2 from "../assets/ImageApolloHospital2.PNG";
+import ApolloHospitalLogo from "../assets/ImageApolloHospitalLogo.PNG";
 //
 import FunCulatorPDF from "../assets/FileFunCulator.PDF";
 import FunCulatorImage1 from "../assets/ImageFunCulator1.PNG";
 import FunCulatorImage2 from "../assets/ImageFunCulator2.PNG";
 import FunCulatorImage3 from "../assets/ImageFunCulator3.PNG";
+import FunCulatorLogo from "../assets/ImageFunCulatorLogo.PNG";
 //
 import BellHospitalPDF from "../assets/FileBellHospital.PDF";
 import BellHospitalImage1 from "../assets/ImageBellHospital1.PNG";
@@ -35,6 +32,13 @@ import BellHospitalImage2 from "../assets/ImageBellHospital2.PNG";
 import PlugInsPDF from "../assets/FilePlugInsDatabase.PDF";
 import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.PNG";
 import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
+import {
+  ProjectCard,
+  resetProject,
+  toggleProject,
+} from "../components/ProjectComps";
+import { HyperLinkWithIcon } from "../components/HyperLink";
+import NavBar from "../components/NavBar";
 //
 export const projectData = [
   {
@@ -90,31 +94,19 @@ export const projectData = [
 ];
 
 export default function Project() {
-  useEffect(() => {
-    const zoom = mediumZoom("img", { background: "var(--background-color)" });
-    // https://github.com/francoischalifour/medium-zoom
-
-    return () => {
-      zoom.detach();
-    };
-  }, []);
-
-  const { emblaRef, slidePrev, slideNext, slideTo, activeIndex } =
-    useEmblaStuff();
-
   return (
     <>
-      <ProjectNav
-        slideTo={slideTo}
-        slideNext={slideNext}
-        slidePrev={slidePrev}
-        activeIndex={activeIndex}
-      />
+      <NavBar />
 
-      <div className="embla" ref={emblaRef}>
-        <div className="embla__container">
+      <div className="topMargin container">
+        <div className="projectCards noMarginBottom">
           {/* portfolio */}
-          <ProjectContainer dataID={0}>
+          <ProjectCard
+            dataKey={0}
+            dataID={0}
+            onClick={() => toggleProject(0)}
+            img={CLILogo}
+          >
             <p>
               this portfolio website showcases all things me;{" "}
               <u>my projects, research, and life history!</u> by creating this
@@ -190,10 +182,15 @@ export default function Project() {
 
             <img className="image" src={PortfolioImage1}></img>
             <img className="image" src={PortfolioImage2}></img>
-          </ProjectContainer>
+          </ProjectCard>
 
           {/* circuitcentral */}
-          <ProjectContainer dataID={1}>
+          <ProjectCard
+            dataKey={1}
+            onClick={() => toggleProject(1)}
+            img={CircuitCentralLogo}
+            dataID={1}
+          >
             <p>
               circuitcentral is an <u>e-commerce management system</u> that
               covers ordering products, viewing product catalogs, handling
@@ -236,10 +233,19 @@ export default function Project() {
 
             <img className="image" src={CircuitCentralImage1} />
             <img className="image" src={CircuitCentralImage2} />
-          </ProjectContainer>
-
+          </ProjectCard>
+        </div>
+        <div
+          style={{ marginTop: "1rem" }}
+          className="projectCards noMarginBottom"
+        >
           {/* apollo hospital */}
-          <ProjectContainer dataID={2}>
+          <ProjectCard
+            dataKey={2}
+            dataID={2}
+            img={ApolloHospitalLogo}
+            onClick={() => toggleProject(2)}
+          >
             <p>
               apollo hospital is a <u>hospital management system</u> that covers
               handling patient and doctor information, scheduling appointments
@@ -274,10 +280,15 @@ export default function Project() {
 
             <img className="image" src={ApolloHospitalImage1} />
             <img className="image" src={ApolloHospitalImage2} />
-          </ProjectContainer>
+          </ProjectCard>
 
           {/* funculator */}
-          <ProjectContainer dataID={3}>
+          <ProjectCard
+            dataKey={3}
+            dataID={3}
+            onClick={() => toggleProject(3)}
+            img={FunCulatorLogo}
+          >
             <p>
               funculator is an <u>all-in-one calculator application</u> for
               students. its system features a login system and a menu that shows
@@ -312,10 +323,19 @@ export default function Project() {
             <img className="image" src={FunCulatorImage1} />
             <img className="image" src={FunCulatorImage2} />
             <img className="image" src={FunCulatorImage3} />
-          </ProjectContainer>
-
+          </ProjectCard>
+        </div>
+        <div
+          style={{ marginTop: "1rem" }}
+          className="projectCards noMarginBottom"
+        >
           {/* bell hospital */}
-          <ProjectContainer dataID={4}>
+          <ProjectCard
+            dataKey={4}
+            dataID={4}
+            onClick={() => toggleProject(4)}
+            img={CLILogo}
+          >
             <p>
               bell hospital is a <u>hospital management system</u> that is
               intended to be used with a command line interface (cli), with
@@ -350,10 +370,15 @@ export default function Project() {
 
             <img className="image" src={BellHospitalImage1} />
             <img className="image" src={BellHospitalImage2} />
-          </ProjectContainer>
+          </ProjectCard>
 
-          {/* plug-ins */}
-          <ProjectContainer dataID={5}>
+          {/* plug-ins database */}
+          <ProjectCard
+            dataKey={5}
+            dataID={5}
+            onClick={() => toggleProject(5)}
+            img={CLILogo}
+          >
             <p>
               plug-ins is a fictitious (not real) company that required a
               database solution that utilizes forms. its system covers insertion
@@ -381,7 +406,7 @@ export default function Project() {
 
             <img className="image" src={PlugInsImage1} />
             <img className="image" src={PlugInsImage2} />
-          </ProjectContainer>
+          </ProjectCard>
         </div>
       </div>
     </>

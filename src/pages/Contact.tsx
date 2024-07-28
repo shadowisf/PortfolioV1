@@ -2,11 +2,17 @@ import IconEmail from "../assets/IconEmail";
 import IconInstagram from "../assets/IconInstagram";
 import IconLinkedIn from "../assets/IconLinkedIn";
 import { HyperLinkWithIcon } from "../components/HyperLink";
+import NavBar from "../components/NavBar";
 
 export default function Contact() {
   return (
     <>
-      <section className="container noMarginTop">
+      <NavBar />
+      <section className="container topMargin noCursor divHeader">
+        get in touch!
+      </section>
+
+      <section className="container">
         <p>
           wanna discuss your next big thing? have questions about a project?
           does your coffee machine need fixing? you can always contact me on

@@ -1,18 +1,8 @@
 import { useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
-import { animationDelay } from "./NavUtils";
+import { Link } from "react-router-dom";
 
-type NavBarProps = {
-  collapseContainer: (element: string) => void;
-};
-
-export default function NavBar({ collapseContainer }: NavBarProps) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  setTimeout(() => {
-    setIsLoading(false);
-  }, animationDelay);
-
+export default function NavBar() {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
   const toggleHamburgerMenu = () => {
@@ -37,9 +27,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
     }, 0);
   }
 
-  return isLoading ? (
-    <></>
-  ) : (
+  return (
     <>
       <nav>
         <a
@@ -65,33 +53,33 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
           close
         </span>
 
-        <a
+        <Link
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseContainer("about");
           }}
+          to="/about"
         >
           about
-        </a>
-        <a
+        </Link>
+        <Link
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseContainer("project");
           }}
+          to="/project"
         >
           projects
-        </a>
-        <a
+        </Link>
+        <Link
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseContainer("contact");
           }}
+          to="/contact"
         >
           contact
-        </a>
+        </Link>
       </section>
     </>
   );
