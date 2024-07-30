@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import { PixelGrid } from "../components/NavUtils";
-
 export default function Test() {
   return (
     <>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
-import { Link } from "react-router-dom";
 import { pixelTransition } from "./NavUtils";
 
 export default function NavBar() {
