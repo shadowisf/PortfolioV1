@@ -1,109 +1,84 @@
-import { animateScroll, scroller } from "react-scroll";
-import { useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-export const scrollOptions = {
-  duration: 500,
-  smooth: true,
-  offset: -100,
-  ignoreCancelEvents: false,
-};
+gsap.registerPlugin(useGSAP);
 
-// delay changing headers
-export const animationDelay = 2400;
-
-// delay changing visibility of collapse containers
-export const visibilityDelay = animationDelay - 100;
-
-// NOTE: visibilityDelay should go first then animationDelay
-
-export const useToggleStates = () => {
-  const [isAboutOpen, setAboutOpen] = useState(false);
-  const [isProjectOpen, setProjectOpen] = useState(false);
-  const [isContactOpen, setContactOpen] = useState(false);
-
-  return {
-    isAboutOpen,
-    setAboutOpen,
-    isProjectOpen,
-    setProjectOpen,
-    isContactOpen,
-    setContactOpen,
-  };
-};
-
-export const scrollToElement = (element: string) => {
-  if (element === "top") {
-    animateScroll.scrollTo(0, scrollOptions);
-  } else {
-    scroller.scrollTo(element, scrollOptions);
+export function PixelGrid() {
+  function generatePixel(count: number) {
+    return Array.from({ length: count }, () => (
+      <span className="pixelItem"></span>
+    ));
   }
-};
 
-export const changeContainerVisibility = (
-  element: string,
-  display: string,
-  opacity: string,
-  delay: number
-) => {
-  let header = document.getElementById(element + "Header");
-  let container = document.getElementById(element + "Container");
+  return <div className="pixelGrid">{generatePixel(64)}</div>;
+}
 
-  if (header && container) {
+export function pixelTransition() {
+  const { contextSafe } = useGSAP();
+
+  const start = contextSafe((destination: string, delay: number) => {
     setTimeout(() => {
-      header.style.display = display;
-      container.style.display = display;
+      document.documentElement.style.setProperty(
+        "--track-scrollbar-color",
+        "var(--text-color)"
+      );
 
-      header.style.opacity = opacity;
-      container.style.opacity = opacity;
+      gsap.set(".pixelGrid", { display: "grid" });
+      gsap.fromTo(
+        ".pixelItem",
+        { opacity: "0" },
+        {
+          opacity: "1",
+          duration: "0.005",
+          stagger: { amount: 0.5, from: "random" },
+          onComplete: () => {
+            setActiveContainer(destination);
+            end();
+          },
+        }
+      );
     }, delay);
-  }
-};
+  });
 
-export const collapseContainer = (
-  element: string,
-  isAboutOpen: boolean,
-  setAboutOpen: (state: boolean) => void,
-  isProjectOpen: boolean,
-  setProjectOpen: (state: boolean) => void,
-  isContactOpen: boolean,
-  setContactOpen: (state: boolean) => void
-) => {
-  scrollToElement("top");
-
-  if (element === "about" && !isAboutOpen) {
-    setProjectOpen(false);
-    setContactOpen(false);
-
-    changeContainerVisibility("about", "block", "1", visibilityDelay);
-    changeContainerVisibility("project", "none", "0", visibilityDelay);
-    changeContainerVisibility("contact", "none", "0", visibilityDelay);
-
+  const end = contextSafe(() => {
     setTimeout(() => {
-      setAboutOpen(true);
-    }, animationDelay);
-  } else if (element === "project" && !isProjectOpen) {
-    setAboutOpen(false);
-    setContactOpen(false);
+      gsap.to(".pixelItem", {
+        opacity: "0",
+        duration: "0.005",
+        stagger: { amount: 0.5, from: "random" },
+        onComplete: () => {
+          gsap.set(".pixelGrid", { display: "none" });
+          document.documentElement.style.setProperty(
+            "--track-scrollbar-color",
+            "transparent"
+          );
+        },
+      });
+    }, 500);
+  });
 
-    changeContainerVisibility("project", "block", "1", visibilityDelay);
-    changeContainerVisibility("about", "none", "0", visibilityDelay);
-    changeContainerVisibility("contact", "none", "0", visibilityDelay);
+  return { start };
+}
 
-    setTimeout(() => {
-      setProjectOpen(true);
-    }, animationDelay);
-  } else if (element === "contact" && !isContactOpen) {
-    setAboutOpen(false);
-    setProjectOpen(false);
+export function setActiveContainer(element: string) {
+  const containerElements = document.querySelectorAll("main[id]");
 
-    changeContainerVisibility("contact", "block", "1", visibilityDelay);
-    changeContainerVisibility("project", "none", "0", visibilityDelay);
-    changeContainerVisibility("about", "none", "0", visibilityDelay);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 
-    setTimeout(() => {
-      setContactOpen(true);
-    }, animationDelay);
-  } else {
-    scrollToElement("top");
-  }
-};
+  containerElements?.forEach((item) => {
+    const id = item.getAttribute("id");
+
+    if (id === element) {
+      item.classList.remove("none");
+    } else if (id !== element) {
+      item.classList.add("none");
+    }
+  });
+
+  /* setTimeout(() => {
+      document.documentElement.style.setProperty("--overflow-y", "scroll");
+    }, 1600); */
+}

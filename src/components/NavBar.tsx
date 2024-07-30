@@ -1,23 +1,16 @@
 import { useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
-import { animationDelay } from "./NavUtils";
+import { Link } from "react-router-dom";
+import { pixelTransition } from "./NavUtils";
 
-type NavBarProps = {
-  collapseContainer: (element: string) => void;
-};
-
-export default function NavBar({ collapseContainer }: NavBarProps) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  setTimeout(() => {
-    setIsLoading(false);
-  }, animationDelay);
-
+export default function NavBar() {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
   const toggleHamburgerMenu = () => {
     setHamburgerMenuOpen(!isHamburgerMenuOpen);
   };
+
+  const { start } = pixelTransition();
 
   const scrollBarColorChangeDelay = 700;
 
@@ -37,9 +30,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
     }, 0);
   }
 
-  return isLoading ? (
-    <></>
-  ) : (
+  return (
     <>
       <nav>
         <a
@@ -69,7 +60,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseContainer("about");
+            start("about", 500);
           }}
         >
           about
@@ -78,7 +69,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseContainer("project");
+            start("project", 500);
           }}
         >
           projects
@@ -87,7 +78,7 @@ export default function NavBar({ collapseContainer }: NavBarProps) {
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            collapseContainer("contact");
+            start("contact", 500);
           }}
         >
           contact
