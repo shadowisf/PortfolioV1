@@ -13,7 +13,6 @@ import IconArrowTopRight from "../assets/IconArrowTopRight";
 
 export default function About() {
   const { start } = pixelTransition();
-
   return (
     <main id="about" className="container">
       <h1 className="altBackground topMargin noCursor textCenter">
@@ -21,7 +20,7 @@ export default function About() {
       </h1>
 
       <h3 className="textCenter">
-        i'm a <span className="typedSeries"></span> software engineer
+        i'm a <span className="typedSeries"></span> <br id="hs" /> software engineer
       </h3>
 
       <p className="textCenter">

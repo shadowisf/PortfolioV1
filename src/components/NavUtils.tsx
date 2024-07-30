@@ -18,10 +18,7 @@ export function pixelTransition() {
 
   const start = contextSafe((destination: string, delay: number) => {
     setTimeout(() => {
-      document.documentElement.style.setProperty(
-        "--track-scrollbar-color",
-        "var(--text-color)"
-      );
+      document.documentElement.style.setProperty("--overflow-y", "hidden");
 
       gsap.set(".pixelGrid", { display: "grid" });
       gsap.fromTo(
@@ -48,10 +45,7 @@ export function pixelTransition() {
         stagger: { amount: 0.5, from: "random" },
         onComplete: () => {
           gsap.set(".pixelGrid", { display: "none" });
-          document.documentElement.style.setProperty(
-            "--track-scrollbar-color",
-            "transparent"
-          );
+          document.documentElement.style.setProperty("--overflow-y", "scroll");
         },
       });
     }, 500);
@@ -77,8 +71,4 @@ export function setActiveContainer(element: string) {
       item.classList.add("none");
     }
   });
-
-  /* setTimeout(() => {
-      document.documentElement.style.setProperty("--overflow-y", "scroll");
-    }, 1600); */
 }

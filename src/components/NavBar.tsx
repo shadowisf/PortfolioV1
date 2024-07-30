@@ -12,6 +12,7 @@ export default function NavBar() {
   const { start } = pixelTransition();
 
   const scrollBarColorChangeDelay = 700;
+  const pixelTransitionDelay = 700;
 
   if (isHamburgerMenuOpen) {
     setTimeout(() => {
@@ -59,7 +60,7 @@ export default function NavBar() {
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            start("about", 500);
+            start("about", pixelTransitionDelay);
           }}
         >
           about
@@ -68,7 +69,7 @@ export default function NavBar() {
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            start("project", 500);
+            start("project", pixelTransitionDelay);
           }}
         >
           projects
@@ -77,7 +78,7 @@ export default function NavBar() {
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
-            start("contact", 500);
+            start("contact", pixelTransitionDelay);
           }}
         >
           contact

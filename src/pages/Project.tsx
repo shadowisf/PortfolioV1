@@ -1,7 +1,12 @@
+import { ProjectCard } from "../components/ProjectUtils";
+import { HyperLinkWithIcon } from "../components/Links";
+import mediumZoom from "medium-zoom";
+import { useEffect } from "react";
+import { keyControls } from "../components/ColorUtils";
+//
 import IconGithub from "../assets/IconGithub";
 import IconPDF from "../assets/IconPDF";
 import IconArrowTopRight from "../assets/IconArrowTopRight";
-import IconInstagram from "../assets/IconInstagram";
 import IconLinkedIn from "../assets/IconLinkedIn";
 import CLILogo from "../assets/ImageCLILogo.PNG";
 //
@@ -33,18 +38,20 @@ import BellHospitalImage2 from "../assets/ImageBellHospital2.PNG";
 import PlugInsPDF from "../assets/FilePlugInsDatabase.PDF";
 import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.PNG";
 import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
-import { ProjectCard } from "../components/ProjectUtils";
-import { HyperLinkWithIcon } from "../components/Links";
-import mediumZoom from "medium-zoom";
-import { useEffect } from "react";
-import { keyControls } from "../components/ColorUtils";
 //
 export const projectData = [
   {
     id: 0,
     name: "portfolio",
     year: "2024",
-    architecture: ["typescript (react)", "firebase", "html", "scss", "ui/ux"],
+    architecture: [
+      "typescript (react)",
+      "firebase",
+      "gsap",
+      "html",
+      "scss",
+      "ui/ux",
+    ],
   },
   {
     id: 1,
@@ -107,7 +114,7 @@ export default function Project() {
   }, []);
 
   return (
-    <main id="project" className="container topMargin">
+    <main id="project" className="container topMargin bottomMargin">
       <div className="projectCards noMarginBottom">
         {/* portfolio */}
         <ProjectCard dataID={0} img={PortfolioLogo}>
@@ -117,8 +124,8 @@ export default function Project() {
             portfolio, i was able to fully learn and understand how html, css,
             and react are all implemented as a baseline for web development.
             additionally, this entire portfolio website is made with little to
-            no libraries or frameworks! that means features are built manually;
-            just pure vanilla!
+            no external libraries! that means features are built manually; just
+            pure vanilla!
             <br />
             <br />
             <b>attributions:</b>
@@ -140,12 +147,12 @@ export default function Project() {
               </HyperLinkWithIcon>
 
               {/* avatar illustration */}
-              <HyperLinkWithIcon
+              {/* <HyperLinkWithIcon
                 img={<IconInstagram />}
                 href="https://www.instagram.com/pablostanley/"
               >
                 pablo stanley
-              </HyperLinkWithIcon>
+              </HyperLinkWithIcon> */}
 
               {/* color theory */}
               <HyperLinkWithIcon
@@ -156,28 +163,28 @@ export default function Project() {
               </HyperLinkWithIcon>
 
               {/* react-scroll */}
-              <HyperLinkWithIcon
+              {/* <HyperLinkWithIcon
                 img={<IconGithub />}
                 href="https://github.com/fisshy"
               >
                 joachim
-              </HyperLinkWithIcon>
+              </HyperLinkWithIcon> */}
 
               {/* scaleText */}
-              <HyperLinkWithIcon
+              {/* <HyperLinkWithIcon
                 img={<IconArrowTopRight />}
                 href="https://davidwalsh.name"
               >
                 david walsh
-              </HyperLinkWithIcon>
+              </HyperLinkWithIcon> */}
 
               {/* embla */}
-              <HyperLinkWithIcon
+              {/* <HyperLinkWithIcon
                 img={<IconGithub />}
                 href="https://github.com/davidjerleke"
               >
                 david jerleke
-              </HyperLinkWithIcon>
+              </HyperLinkWithIcon> */}
 
               {/* theme engine */}
               <HyperLinkWithIcon
@@ -185,6 +192,14 @@ export default function Project() {
                 href="https://www.linkedin.com/in/frankmyles/"
               >
                 frank myles
+              </HyperLinkWithIcon>
+
+              {/* gsap */}
+              <HyperLinkWithIcon
+                img={<IconGithub />}
+                href="https://github.com/jackdoyle"
+              >
+                jack doyle
               </HyperLinkWithIcon>
             </div>
           </p>

@@ -50,14 +50,14 @@
 /* MOBILE SCREEN */
 @media (min-width: 0.98px) and (max-width: 800.98px) {
   :root {
-    --font-xl: 10vw;
-    /* divHeader */
-    --font-l: 6vw;
-    /* largeHeader */
+    --font-xl: 2.6rem;
+    /* h1 */
+    --font-l: 2.3rem;
+    /* h2 */
     --font-m: 1.5rem;
-    /* mediumHeader */
+    /* h3 */
     --font-s: 1.25rem;
-    /* smallHeader */
+    /* h4 */
     --font-navbar: x-large;
   }
 
@@ -79,7 +79,8 @@
     }
   }
 
-  #tooltip {
+  #tooltip,
+  #fs {
     display: none;
   }
 
@@ -167,6 +168,10 @@
         font-size: var(--font-l);
       }
     }
+  }
+
+  #hs {
+    display: none;
   }
 }
 

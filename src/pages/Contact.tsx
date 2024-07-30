@@ -5,7 +5,7 @@ import { HyperLinkWithIcon } from "../components/Links";
 
 export default function Contact() {
   return (
-    <main id="contact" className="container topMargin">
+    <main id="contact" className="container topMargin bottomMargin">
       <h1 className="altBackground noCursor textCenter">get in touch!</h1>
 
       <p className="textCenter">
