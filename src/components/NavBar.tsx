@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
 import { Link } from "react-router-dom";
+import { pixelTransition } from "./NavUtils";
 
 export default function NavBar() {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
@@ -8,6 +9,8 @@ export default function NavBar() {
   const toggleHamburgerMenu = () => {
     setHamburgerMenuOpen(!isHamburgerMenuOpen);
   };
+
+  const { start } = pixelTransition();
 
   const scrollBarColorChangeDelay = 700;
 
@@ -53,33 +56,33 @@ export default function NavBar() {
           close
         </span>
 
-        <Link
+        <a
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
+            start("about", 500);
           }}
-          to="/about"
         >
           about
-        </Link>
-        <Link
+        </a>
+        <a
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
+            start("project", 500);
           }}
-          to="/project"
         >
           projects
-        </Link>
-        <Link
+        </a>
+        <a
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
+            start("contact", 500);
           }}
-          to="/contact"
         >
           contact
-        </Link>
+        </a>
       </section>
     </>
   );

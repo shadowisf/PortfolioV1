@@ -1,29 +1,33 @@
 import NavBar from "../components/NavBar";
-import Project from "./Project";
-import Contact from "./Contact";
 import About from "./About";
-import BottomCard from "../components/BottomCard";
 import ToolTip from "../components/ToolTip";
 import {
   generateADACompliantColors,
   keyControls,
 } from "../components/ColorUtils";
 import { useEffect } from "react";
+import Project from "./Project";
+import Contact from "./Contact";
+import { PixelGrid, setActiveContainer } from "../components/NavUtils";
 
 export default function Index() {
-  // startup sequence
   useEffect(() => {
     generateADACompliantColors();
     keyControls();
+    setActiveContainer("about");
   }, []);
 
   return (
     <>
       <NavBar />
-    
+
+      <PixelGrid />
+
+      <About />
+      <Project />
+      <Contact />
 
       <ToolTip />
-      <BottomCard />
     </>
   );
 }

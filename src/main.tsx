@@ -5,26 +5,11 @@ import "./typed.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Test from "./pages/Test.tsx";
 import Index from "./pages/Index.tsx";
-import Project from "./pages/Project.tsx";
-import Contact from "./pages/Contact.tsx";
-import About from "./pages/About.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Index />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/project",
-    element: <Project />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
   },
   {
     path: "/test",

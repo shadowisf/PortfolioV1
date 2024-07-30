@@ -1,13 +1,10 @@
 export default function BottomCard() {
   return (
-    <footer className="container bottomcard noMarginBottom">
-      <p>
-        designed & developed by <br /> <b>les ranalan</b>
-      </p>
+    <footer className="container bottomcard bottomMargin">
+      designed & developed by <br /> <b>les ranalan</b>
       <br />
-      <p>
-        copyright <b>ⓒ</b> 2024
-      </p>
+      <br />
+      copyright <b>ⓒ</b> 2024
     </footer>
   );
 }

@@ -1,36 +1,84 @@
-import { useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-export const useToggleStates = () => {
-  const [isAboutOpen, setAboutOpen] = useState(false);
-  const [isProjectOpen, setProjectOpen] = useState(false);
-  const [isContactOpen, setContactOpen] = useState(false);
+gsap.registerPlugin(useGSAP);
 
-  return {
-    isAboutOpen,
-    setAboutOpen,
-    isProjectOpen,
-    setProjectOpen,
-    isContactOpen,
-    setContactOpen,
-  };
-};
-
-export const changeContainerVisibility = (
-  element: string,
-  display: string,
-  opacity: string,
-  delay: number
-) => {
-  let header = document.getElementById(element + "Header");
-  let container = document.getElementById(element + "Container");
-
-  if (header && container) {
-    setTimeout(() => {
-      header.style.display = display;
-      container.style.display = display;
-
-      header.style.opacity = opacity;
-      container.style.opacity = opacity;
-    }, delay);
+export function PixelGrid() {
+  function generatePixel(count: number) {
+    return Array.from({ length: count }, () => (
+      <span className="pixelItem"></span>
+    ));
   }
-};
+
+  return <div className="pixelGrid">{generatePixel(64)}</div>;
+}
+
+export function pixelTransition() {
+  const { contextSafe } = useGSAP();
+
+  const start = contextSafe((destination: string, delay: number) => {
+    setTimeout(() => {
+      document.documentElement.style.setProperty(
+        "--track-scrollbar-color",
+        "var(--text-color)"
+      );
+
+      gsap.set(".pixelGrid", { display: "grid" });
+      gsap.fromTo(
+        ".pixelItem",
+        { opacity: "0" },
+        {
+          opacity: "1",
+          duration: "0.005",
+          stagger: { amount: 0.5, from: "random" },
+          onComplete: () => {
+            setActiveContainer(destination);
+            end();
+          },
+        }
+      );
+    }, delay);
+  });
+
+  const end = contextSafe(() => {
+    setTimeout(() => {
+      gsap.to(".pixelItem", {
+        opacity: "0",
+        duration: "0.005",
+        stagger: { amount: 0.5, from: "random" },
+        onComplete: () => {
+          gsap.set(".pixelGrid", { display: "none" });
+          document.documentElement.style.setProperty(
+            "--track-scrollbar-color",
+            "transparent"
+          );
+        },
+      });
+    }, 500);
+  });
+
+  return { start };
+}
+
+export function setActiveContainer(element: string) {
+  const containerElements = document.querySelectorAll("main[id]");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+
+  containerElements?.forEach((item) => {
+    const id = item.getAttribute("id");
+
+    if (id === element) {
+      item.classList.remove("none");
+    } else if (id !== element) {
+      item.classList.add("none");
+    }
+  });
+
+  /* setTimeout(() => {
+      document.documentElement.style.setProperty("--overflow-y", "scroll");
+    }, 1600); */
+}
