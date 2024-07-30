@@ -58,19 +58,19 @@ export const generateADACompliantColors = () => {
   }
 };
 
-export const keyControls = () => {
+export function keyControls() {
   document.addEventListener("keydown", function (event) {
-    if (event.key === "e" || event.key === "E") {
-      generateADACompliantColors();
-    }
+    const target = event.target as HTMLElement;
+    const isTextInput =
+      target.tagName === "INPUT" || target.tagName === "TEXTAREA";
 
-    if (event.key === "Tab" || event.key === " ") {
-      event.preventDefault();
+    if (!isTextInput) {
+      if (event.key === "e" || event.key === "E") {
+        generateADACompliantColors();
+      }
     }
   });
-
-  document.removeEventListener;
-};
+}
 
 export function lightOrDark(color: string): string {
   let r: number, g: number, b: number, hsp: number;

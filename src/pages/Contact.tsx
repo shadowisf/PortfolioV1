@@ -1,21 +1,19 @@
 import IconEmail from "../assets/IconEmail";
+import IconGithub from "../assets/IconGithub";
 import IconInstagram from "../assets/IconInstagram";
 import IconLinkedIn from "../assets/IconLinkedIn";
 import { HyperLinkWithIcon } from "../components/Links";
 
 export default function Contact() {
+  const placeholderName = "bartholomew douchebag";
+  const placeholderEmail = "douchebag@mail.com";
+  const placeholderMessage = "i need help with my coffee machine!!";
+
   return (
     <main id="contact" className="container topMargin bottomMargin">
       <h1 className="altBackground noCursor textCenter">get in touch!</h1>
 
-      <p className="textCenter">
-        wanna discuss your next big thing? have questions about a project? you
-        can always contact me on various social media platforms below.
-      </p>
-
-      <br />
-
-      <section className="projectLinks">
+      <section className="contactLinks">
         <HyperLinkWithIcon
           img={<IconLinkedIn />}
           href="https://www.linkedin.com/in/les-paul-ranalan/"
@@ -39,11 +37,38 @@ export default function Contact() {
         >
           @les.rx
         </HyperLinkWithIcon>
+
+        <HyperLinkWithIcon
+          img={<IconGithub />}
+          href="https://github.com/shadowisf"
+          alt={true}
+        >
+          shadowisf
+        </HyperLinkWithIcon>
       </section>
 
-      <h3 className="mediumHeader textCenter">
-        leave a message and <br /> i'll get back to you!
-      </h3>
+      <form>
+        <label>name:</label>
+        <input className="textbox" placeholder={placeholderName} />
+
+        <label>email:</label>
+        <input className="textbox" placeholder={placeholderEmail} />
+
+        <label htmlFor="message">message:</label>
+        <textarea
+          className="textarea"
+          placeholder={placeholderMessage}
+        ></textarea>
+
+        <span className="flexCenterH">
+          <button
+            style={{ fontSize: "var(--font-s)", width: "25%" }}
+            className="button toThinHover noCursor"
+          >
+            submit
+          </button>
+        </span>
+      </form>
     </main>
   );
 }

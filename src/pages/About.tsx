@@ -14,13 +14,14 @@ import IconArrowTopRight from "../assets/IconArrowTopRight";
 export default function About() {
   const { start } = pixelTransition();
   return (
-    <main id="about" className="container">
-      <h1 className="altBackground topMargin noCursor textCenter">
+    <main id="about" className="container topMargin bottomMargin">
+      <h1 style={{ margin: "0" }} className="altBackground noCursor textCenter">
         hey, i'm les!
       </h1>
 
       <h3 className="textCenter">
-        i'm a <span className="typedSeries"></span> <br id="hs" /> software engineer
+        i'm a <span className="typedSeries"></span> <br id="hs" /> software
+        engineer
       </h3>
 
       <p className="textCenter">
@@ -29,7 +30,7 @@ export default function About() {
         uncluttered interfaces.
       </p>
 
-      <section className="aboutLinks">
+      <div className="aboutLinks">
         <PageLinkWithIcon
           img={<IconArchitecture />}
           onClick={() => start("project", 0)}
@@ -47,14 +48,14 @@ export default function About() {
         <HyperLinkWithIcon img={<IconArrowTopRight />} href="ASDASD" alt={true}>
           view my resume
         </HyperLinkWithIcon>
-      </section>
+      </div>
 
       <span className="flexCenterH topMargin bottomMargin">
         <IllustrationLineH width="25%" strokeDasharray="10" />
       </span>
 
       <h2 className="textCenter">my life's arc</h2>
-      <section className="dashedBorderLeft bottomMargin">
+      <div className="dashedBorderLeft">
         <TimelineRow img={<IconCake />}>
           born in davao city, philippines <br />
           <b>february 15, 2004</b>
@@ -90,7 +91,7 @@ export default function About() {
           <br />
           <b>???</b>
         </TimelineRow>
-      </section>
+      </div>
     </main>
   );
 }

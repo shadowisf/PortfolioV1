@@ -1,24 +1,10 @@
 import React, { useState } from "react";
 import { projectData } from "../pages/Project";
 
-function getProjectName(id: number) {
-  const project = projectData.find((project) => project.id === id);
-  return project?.name ?? "?";
-}
-
-function getProjectYear(id: number) {
-  const project = projectData.find((project) => project.id === id);
-  return project?.year ?? "?";
-}
-
-function getProjectArchitecture(id: number) {
-  const project = projectData.find((project) => project.id === id);
-  return project?.architecture ?? [];
-}
-
 export function toggleProject(number: number) {
   const dataKeyElements = document.querySelectorAll("div[data-key]");
   const cardContainers = document.querySelectorAll(".projectCards");
+  const projectHeader = document.getElementById("projectHeader");
 
   window.scrollTo({
     top: 0,
@@ -33,6 +19,8 @@ export function toggleProject(number: number) {
 
     // selected box
     if (dataKey === number.toString()) {
+      projectHeader?.classList.add("hidden");
+
       element.classList.remove("slowTransition");
       element.classList.remove("hidden");
       element.classList.add("active");
@@ -65,6 +53,10 @@ export function resetProject(delay: number) {
   const dataKeyElements = document.querySelectorAll("div[data-key]");
 
   const cardContainers = document.querySelectorAll(".projectCards");
+
+  const projectHeader = document.getElementById("projectHeader");
+
+  projectHeader?.classList.remove("hidden");
 
   dataKeyElements?.forEach((element) => {
     const titleElement = element.querySelector(".title");
@@ -107,6 +99,21 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
+  function getProjectName(id: number) {
+    const project = projectData.find((project) => project.id === id);
+    return project?.name ?? "?";
+  }
+
+  function getProjectYear(id: number) {
+    const project = projectData.find((project) => project.id === id);
+    return project?.year ?? "?";
+  }
+
+  function getProjectArchitecture(id: number) {
+    const project = projectData.find((project) => project.id === id);
+    return project?.architecture ?? [];
+  }
+
   const validDataID = dataID ?? -1;
   const [isSelected, setSelected] = useState(false);
 
@@ -159,7 +166,8 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
 
         {children}
 
-        <span style={{marginTop: "5rem"}}
+        <span
+          style={{ marginTop: "5rem" }}
           className="toThinHover flexCenterH textCenter noCursor"
           onClick={() => {
             resetProject(500);

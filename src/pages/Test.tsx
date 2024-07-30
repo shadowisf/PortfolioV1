@@ -1,11 +1,70 @@
+import IconEmail from "../assets/IconEmail";
+import IconGithub from "../assets/IconGithub";
+import IconInstagram from "../assets/IconInstagram";
+import IconLinkedIn from "../assets/IconLinkedIn";
+import { HyperLinkWithIcon } from "../components/Links";
+
 export default function Test() {
   return (
-    <>
-      <h1>test</h1>
-      <h2>test</h2>
-      <h3>test</h3>
-      <h4>test</h4>
-      <h5>test</h5>
-    </>
+    <main id="contact" className="container topMargin bottomMargin">
+      <h1 className="altBackground noCursor textCenter">get in touch!</h1>
+
+      <section className="contactLinks">
+        <HyperLinkWithIcon
+          img={<IconLinkedIn />}
+          href="https://www.linkedin.com/in/les-paul-ranalan/"
+          alt={true}
+        >
+          les paul ranalan
+        </HyperLinkWithIcon>
+
+        <HyperLinkWithIcon
+          img={<IconEmail />}
+          href="mailto:les.ranalan@gmail.com"
+          alt={true}
+        >
+          les.ranalan@gmail.com
+        </HyperLinkWithIcon>
+
+        <HyperLinkWithIcon
+          img={<IconInstagram />}
+          href="https://www.instagram.com/les.rx"
+          alt={true}
+        >
+          @les.rx
+        </HyperLinkWithIcon>
+
+        <HyperLinkWithIcon
+          img={<IconGithub />}
+          href="https://github.com/shadowisf"
+          alt={true}
+        >
+          shadowisf
+        </HyperLinkWithIcon>
+      </section>
+
+      <form>
+        <label>name:</label>
+        <input className="textbox" placeholder={"placeholderName"} />
+
+        <label>email:</label>
+        <input className="textbox" placeholder={"placeholderEmail"} />
+
+        <label htmlFor="message">message:</label>
+        <textarea
+          className="textarea"
+          placeholder={"placeholderMessage"}
+        ></textarea>
+
+        <span className="flexCenterH">
+          <button
+            style={{ fontSize: "var(--font-s)", width: "25%" }}
+            className="button toThinHover noCursor"
+          >
+            submit
+          </button>
+        </span>
+      </form>
+    </main>
   );
 }

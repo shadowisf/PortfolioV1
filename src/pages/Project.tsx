@@ -2,7 +2,6 @@ import { ProjectCard } from "../components/ProjectUtils";
 import { HyperLinkWithIcon } from "../components/Links";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
-import { keyControls } from "../components/ColorUtils";
 //
 import IconGithub from "../assets/IconGithub";
 import IconPDF from "../assets/IconPDF";
@@ -45,7 +44,7 @@ export const projectData = [
     name: "portfolio",
     year: "2024",
     architecture: [
-      "typescript (react)",
+      "react (typescript)",
       "firebase",
       "gsap",
       "html",
@@ -106,8 +105,6 @@ export default function Project() {
     });
     // https://github.com/francoischalifour/medium-zoom
 
-    keyControls();
-
     return () => {
       zoom.detach();
     };
@@ -115,6 +112,7 @@ export default function Project() {
 
   return (
     <main id="project" className="container topMargin bottomMargin">
+      <h1 id="projectHeader" className="altBackground textCenter noCursor">total: {projectData.length}</h1>
       <div className="projectCards noMarginBottom">
         {/* portfolio */}
         <ProjectCard dataID={0} img={PortfolioLogo}>
@@ -124,8 +122,8 @@ export default function Project() {
             portfolio, i was able to fully learn and understand how html, css,
             and react are all implemented as a baseline for web development.
             additionally, this entire portfolio website is made with little to
-            no external libraries! that means features are built manually; just
-            pure vanilla!
+            no external dependencies! that means features are hand-built
+            manually; just pure vanilla!
             <br />
             <br />
             <b>attributions:</b>
@@ -148,11 +146,11 @@ export default function Project() {
 
               {/* avatar illustration */}
               {/* <HyperLinkWithIcon
-                img={<IconInstagram />}
-                href="https://www.instagram.com/pablostanley/"
-              >
-                pablo stanley
-              </HyperLinkWithIcon> */}
+                  img={<IconInstagram />}
+                  href="https://www.instagram.com/pablostanley/"
+                >
+                  pablo stanley
+                </HyperLinkWithIcon> */}
 
               {/* color theory */}
               <HyperLinkWithIcon
@@ -164,27 +162,27 @@ export default function Project() {
 
               {/* react-scroll */}
               {/* <HyperLinkWithIcon
-                img={<IconGithub />}
-                href="https://github.com/fisshy"
-              >
-                joachim
-              </HyperLinkWithIcon> */}
+                  img={<IconGithub />}
+                  href="https://github.com/fisshy"
+                >
+                  joachim
+                </HyperLinkWithIcon> */}
 
               {/* scaleText */}
               {/* <HyperLinkWithIcon
-                img={<IconArrowTopRight />}
-                href="https://davidwalsh.name"
-              >
-                david walsh
-              </HyperLinkWithIcon> */}
+                  img={<IconArrowTopRight />}
+                  href="https://davidwalsh.name"
+                >
+                  david walsh
+                </HyperLinkWithIcon> */}
 
               {/* embla */}
               {/* <HyperLinkWithIcon
-                img={<IconGithub />}
-                href="https://github.com/davidjerleke"
-              >
-                david jerleke
-              </HyperLinkWithIcon> */}
+                  img={<IconGithub />}
+                  href="https://github.com/davidjerleke"
+                >
+                  david jerleke
+                </HyperLinkWithIcon> */}
 
               {/* theme engine */}
               <HyperLinkWithIcon
