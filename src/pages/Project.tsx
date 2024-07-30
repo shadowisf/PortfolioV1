@@ -35,7 +35,6 @@ import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.PNG";
 import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
 import { ProjectCard } from "../components/ProjectUtils";
 import { HyperLinkWithIcon } from "../components/Links";
-import NavBar from "../components/NavBar";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
 import { keyControls } from "../components/ColorUtils";
