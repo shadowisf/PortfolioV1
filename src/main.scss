@@ -206,7 +206,7 @@ h1 {
   font-style: italic;
   font-family: var(--secondary-font);
 
-  padding-bottom: 1rem;
+  padding-bottom: 2.5%;
 
   margin: 3rem 0;
 
@@ -690,7 +690,7 @@ nav {
 }
 
 form {
-  margin: 3rem 0;
+  margin: 3rem 0rem;
 
   label {
     font-size: var(--font-s);
@@ -708,6 +708,8 @@ form {
 
     margin-top: 0.25rem;
     margin-bottom: 1.5rem;
+
+    text-align: center;
 
     border: 2px solid var(--text-color);
 
@@ -753,15 +755,17 @@ form {
 }
 
 #project {
-  h1 {
-    transition: font-size 1s, opacity 0.5s;
+  #projectHeader {
+    transition: font-size 1s, opacity 0.5s, margin 0.5s, padding 0.5s;
+
+    opacity: 1;
 
     &.hidden {
       opacity: 0;
-      font-size: 0.0001px;
+      font-size: 0.001px;
       border: none;
-      margin: 0;
-      padding: 0;
+      margin: 0 0;
+      padding: 0px;
     }
   }
 }

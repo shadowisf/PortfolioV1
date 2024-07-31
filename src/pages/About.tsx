@@ -10,9 +10,11 @@ import { HyperLinkWithIcon, PageLinkWithIcon } from "../components/Links";
 import IconArchitecture from "../assets/IconArchitecture";
 import IconEmail from "../assets/IconEmail";
 import IconArrowTopRight from "../assets/IconArrowTopRight";
+import CV from "../assets/FileCV.PDF";
 
 export default function About() {
   const { start } = pixelTransition();
+
   return (
     <main id="about" className="container topMargin bottomMargin">
       <h1 style={{ margin: "0" }} className="altBackground noCursor textCenter">
@@ -45,7 +47,7 @@ export default function About() {
         >
           contact me
         </PageLinkWithIcon>
-        <HyperLinkWithIcon img={<IconArrowTopRight />} href="ASDASD" alt={true}>
+        <HyperLinkWithIcon img={<IconArrowTopRight />} href={CV} alt={true}>
           view my resume
         </HyperLinkWithIcon>
       </div>

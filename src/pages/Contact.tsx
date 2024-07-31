@@ -10,7 +10,7 @@ export default function Contact() {
   const placeholderMessage = "i need help with my coffee machine!!";
 
   return (
-    <main id="contact" className="container topMargin bottomMargin">
+    <main id="contact" className="container topMargin">
       <h1 className="altBackground noCursor textCenter">get in touch!</h1>
 
       <section className="contactLinks">

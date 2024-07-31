@@ -1,16 +1,48 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 
 gsap.registerPlugin(useGSAP);
 
 export function PixelGrid() {
   function generatePixel(count: number) {
-    return Array.from({ length: count }, () => (
-      <span className="pixelItem"></span>
+    return Array.from({ length: count }, (_, index) => (
+      <span key={index} className="pixelItem"></span>
     ));
   }
 
   return <div className="pixelGrid">{generatePixel(64)}</div>;
+}
+
+const preventDefault = (e: Event) => {
+  e.preventDefault();
+};
+
+const preventScrollKeys = (e: KeyboardEvent) => {
+  const keys = [37, 38, 39, 40];
+  if (keys.includes(e.keyCode)) {
+    e.preventDefault();
+  }
+};
+
+function toggleScroll(status: boolean) {
+  if (status) {
+    document.documentElement.style.setProperty(
+      "--track-scrollbar-color",
+      "var(--text-color)"
+    );
+    window.addEventListener("wheel", preventDefault, { passive: false });
+    window.addEventListener("touchmove", preventDefault, { passive: false });
+    window.addEventListener("keydown", preventScrollKeys);
+  } else {
+    document.documentElement.style.setProperty(
+      "--track-scrollbar-color",
+      "transparent"
+    );
+    window.removeEventListener("wheel", preventDefault);
+    window.removeEventListener("touchmove", preventDefault);
+    window.removeEventListener("keydown", preventScrollKeys);
+  }
 }
 
 export function pixelTransition() {
@@ -18,7 +50,7 @@ export function pixelTransition() {
 
   const start = contextSafe((destination: string, delay: number) => {
     setTimeout(() => {
-      document.documentElement.style.setProperty("--overflow-y", "hidden");
+      toggleScroll(true);
 
       gsap.set(".pixelGrid", { display: "grid" });
       gsap.fromTo(
@@ -45,10 +77,10 @@ export function pixelTransition() {
         stagger: { amount: 0.5, from: "random" },
         onComplete: () => {
           gsap.set(".pixelGrid", { display: "none" });
-          document.documentElement.style.setProperty("--overflow-y", "scroll");
+          toggleScroll(false);
         },
       });
-    }, 500);
+    }, 250);
   });
 
   return { start };

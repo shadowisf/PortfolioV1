@@ -56,8 +56,6 @@ export function resetProject(delay: number) {
 
   const projectHeader = document.getElementById("projectHeader");
 
-  projectHeader?.classList.remove("hidden");
-
   dataKeyElements?.forEach((element) => {
     const titleElement = element.querySelector(".title");
     const logoElement = element.querySelector(".logo");
@@ -73,6 +71,7 @@ export function resetProject(delay: number) {
     }, delay / 2);
 
     setTimeout(() => {
+      projectHeader?.classList.remove("hidden");
       element.classList.add("slowTransition");
 
       element.classList.remove("active");
