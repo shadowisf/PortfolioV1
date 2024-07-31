@@ -1,6 +1,5 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useState } from "react";
 
 gsap.registerPlugin(useGSAP);
 
