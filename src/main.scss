@@ -466,7 +466,8 @@ h4 {
 .projectLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  column-gap: 2rem;
+  row-gap: 1rem;
   margin: 1rem;
   justify-content: space-evenly;
   align-items: center;
@@ -475,7 +476,8 @@ h4 {
 .aboutLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  column-gap: 2rem;
+  row-gap: 1rem;
   margin: 3rem 0;
   justify-content: space-evenly;
   align-items: center;
@@ -483,7 +485,8 @@ h4 {
 
 .contactLinks {
   display: flex;
-  gap: 3rem;
+  column-gap: 2rem;
+  row-gap: 1rem;
   justify-content: space-between;
   align-items: center;
   margin: 3rem 0;
