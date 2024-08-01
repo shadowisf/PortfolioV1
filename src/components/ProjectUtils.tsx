@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { projectData } from "../pages/Project";
+import { disableScroll } from "./NavUtils";
 
 export function toggleProject(number: number) {
   const dataKeyElements = document.querySelectorAll("div[data-key]");
   const cardContainers = document.querySelectorAll(".projectCards");
-  const projectHeader = document.getElementById("projectHeader");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  /* const projectHeader = document.getElementById("projectHeader"); */
 
   dataKeyElements?.forEach((element) => {
     const dataKey = element.getAttribute("data-key");
@@ -19,32 +15,42 @@ export function toggleProject(number: number) {
 
     // selected box
     if (dataKey === number.toString()) {
-      projectHeader?.classList.add("hidden");
+      /* projectHeader?.classList.add("hidden"); */
 
-      element.classList.remove("slowTransition");
-      element.classList.remove("hidden");
-      element.classList.add("active");
-      titleElement?.classList.add("active");
-      element.classList.remove("cardHover");
-      element.classList.remove("toThinHover");
-      logoElement?.classList.add("hidden");
-
-      cardContainers?.forEach((element) => {
-        element.classList.add("noGap");
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
       });
 
       setTimeout(() => {
-        contentElement?.classList.remove("none");
-      }, 900);
+        element.classList.remove("slowTransition");
+        element.classList.remove("hidden");
+        element.classList.add("active");
+        titleElement?.classList.add("active");
+        element.classList.remove("cardHover");
+        element.classList.remove("toThinHover");
+        logoElement?.classList.add("hidden");
 
-      setTimeout(() => {
-        contentElement?.classList.remove("hidden");
-      }, 1000);
+        cardContainers?.forEach((element) => {
+          element.classList.add("noGap");
+        });
+
+        setTimeout(() => {
+          contentElement?.classList.remove("none");
+        }, 900);
+
+        setTimeout(() => {
+          contentElement?.classList.remove("hidden");
+          disableScroll(false);
+        }, 1000);
+      }, 100);
     }
     // other boxes
     else if (dataKey !== number.toString()) {
-      element.classList.add("hidden");
-      element.classList.remove("slowTransition");
+      setTimeout(() => {
+        element.classList.add("hidden");
+        element.classList.remove("slowTransition");
+      }, 100);
     }
   });
 }
@@ -54,7 +60,7 @@ export function resetProject(delay: number) {
 
   const cardContainers = document.querySelectorAll(".projectCards");
 
-  const projectHeader = document.getElementById("projectHeader");
+  /*   const projectHeader = document.getElementById("projectHeader"); */
 
   dataKeyElements?.forEach((element) => {
     const titleElement = element.querySelector(".title");
@@ -71,7 +77,7 @@ export function resetProject(delay: number) {
     }, delay / 2);
 
     setTimeout(() => {
-      projectHeader?.classList.remove("hidden");
+      /* projectHeader?.classList.remove("hidden"); */
       element.classList.add("slowTransition");
 
       element.classList.remove("active");

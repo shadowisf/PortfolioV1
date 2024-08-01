@@ -39,6 +39,7 @@
 
 .Toastify__toast {
   border-radius: var(--border-radius) !important;
+  border: 2px var(--background-color) solid !important;
 }
 
 ::-webkit-scrollbar {
@@ -110,7 +111,7 @@
     flex-direction: column;
 
     .card {
-      width: var(--mobile-max-width);
+      width: 100%;
     }
 
     .title {
@@ -211,7 +212,7 @@ html {
   background-color: var(--background-color);
 
   overflow-x: hidden;
-  overflow-y: var(--overflow-y);
+  overflow-y: scroll;
 
   scroll-behavior: smooth;
 }
@@ -350,8 +351,6 @@ h4 {
     padding: 0.5rem 1rem;
     border: 2px dashed var(--text-color);
 
-    transition: all 0.2s;
-
     border-radius: var(--border-radius);
   }
 }
@@ -379,6 +378,11 @@ h4 {
 
     transition: width 1s, height 1s, filter 1s, font-variation-settings 0.5s,
       opacity 0.5s, background-color 0.5s, border 0.5s;
+
+    backface-visibility: hidden;
+
+    will-change: width, height, filter, font-variation-settings, opacity,
+      background-color, border, margin, padding;
 
     border-radius: var(--border-radius);
 
@@ -415,7 +419,11 @@ h4 {
 
     object-fit: cover;
 
+    backface-visibility: hidden;
+
     transition: opacity 0.5s, filter 0.5s;
+
+    will-change: opacity, filter;
 
     filter: grayscale(100) brightness(0.5);
     opacity: 0.25;
@@ -444,6 +452,10 @@ h4 {
 
     transition: opacity 0.5s, font-size 1s, line-height 1s, color 0.5s;
 
+    backface-visibility: hidden;
+
+    will-change: opacity, font-size, line-height, color;
+
     padding: 0 20px;
 
     white-space: nowrap;
@@ -468,6 +480,10 @@ h4 {
   .content {
     text-align: justify;
 
+    will-change: opacity;
+
+    backface-visibility: hidden;
+
     transition: opacity 0.5s;
     padding-bottom: 10rem;
 
@@ -486,6 +502,8 @@ h4 {
     position: absolute;
     bottom: 150px;
     left: 0;
+
+    backface-visibility: hidden;
   }
 }
 
@@ -569,6 +587,10 @@ nav {
   text-align: center;
   transition: left 0.7s;
 
+  will-change: left;
+
+  backface-visibility: hidden;
+
   z-index: 999;
 
   &.open {
@@ -615,6 +637,8 @@ nav {
   color: var(--text-color);
 
   border-bottom: 3px dashed;
+
+  backface-visibility: hidden;
 
   &::after {
     content: "";
@@ -684,6 +708,8 @@ nav {
 .toThinHover {
   font-family: var(--secondary-font);
   transition: opacity 0.5s, font-variation-settings 0.5s;
+
+  backface-visibility: hidden;
 
   font-variation-settings: "wght" 400, "CONT" 1;
 
@@ -756,6 +782,8 @@ form {
 
     transition: color 0.5s, background-color 0.5s;
 
+    backface-visibility: hidden;
+
     &.textbox {
       height: 3rem;
       padding: 0 1rem;
@@ -775,6 +803,7 @@ form {
 
       &::placeholder {
         transition: color 0.5s, opacity 0.5s;
+
         color: var(--background-color);
         opacity: 0.25;
       }
@@ -787,13 +816,14 @@ form {
 
     &::placeholder {
       transition: color 0.5s, opacity 0.5s;
+
       color: var(--text-color);
       opacity: 0.25;
     }
   }
 }
 
-#project {
+/* #project {
   #projectHeader {
     transition: font-size 1s, opacity 0.5s, margin 0.5s, padding 0.5s;
 
@@ -808,3 +838,4 @@ form {
     }
   }
 }
+ */

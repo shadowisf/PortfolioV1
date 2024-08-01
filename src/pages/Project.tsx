@@ -48,6 +48,7 @@ export const projectData = [
       "gsap",
       "html",
       "scss",
+      "git",
       "ui/ux",
     ],
   },
@@ -59,6 +60,7 @@ export const projectData = [
       "c#",
       "microsoft sql server",
       "windows forms",
+      "git",
       "ui/ux",
       "crud",
     ],
@@ -110,10 +112,10 @@ export default function Project() {
   }, []);
 
   return (
-    <main id="project" className="container topMargin">
-      <h1 id="projectHeader" className="altBackground textCenter noCursor">
+    <main id="project" className="container topMargin bottomMargin">
+      {/* <h1 id="projectHeader" className="altBackground textCenter noCursor">
         total: {projectData.length}
-      </h1>
+      </h1> */}
       <section className="projectCards noMarginBottom">
         {/* portfolio */}
         <ProjectCard dataID={0} img={PortfolioLogo}>

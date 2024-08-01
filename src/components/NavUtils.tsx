@@ -24,7 +24,7 @@ const preventScrollKeys = (e: KeyboardEvent) => {
   }
 };
 
-function toggleScroll(status: boolean) {
+export function disableScroll(status: boolean) {
   if (status) {
     document.documentElement.style.setProperty(
       "--track-scrollbar-color",
@@ -49,7 +49,7 @@ export function pixelTransition() {
 
   const start = contextSafe((destination: string, delay: number) => {
     setTimeout(() => {
-      toggleScroll(true);
+      disableScroll(true);
 
       gsap.set(".pixelGrid", { display: "grid" });
       gsap.fromTo(
@@ -76,7 +76,7 @@ export function pixelTransition() {
         stagger: { amount: 0.5, from: "random" },
         onComplete: () => {
           gsap.set(".pixelGrid", { display: "none" });
-          toggleScroll(false);
+          disableScroll(false);
         },
       });
     }, 250);

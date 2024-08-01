@@ -39,7 +39,9 @@ export default function NavBar() {
           className="toThinHover logo noCursor"
           onClick={() => {
             generateADACompliantColors();
-            toast.dismiss({ id: "intro", containerId: "" });
+            setTimeout(() => {
+              toast.dismiss({ id: "intro", containerId: "" });
+            }, 500);
           }}
         >
           les ranalan
