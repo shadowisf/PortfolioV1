@@ -1,10 +1,8 @@
 import IconCake from "../assets/IconCake";
-import IllustrationVerticalLine from "../assets/IllustrationLineV";
 import IconLocation from "../assets/IconLocation";
 import IconEyeGlasses from "../assets/IconEyeGlasses";
 import IconGraduateHat from "../assets/IconGraduateHat";
 import { TimelineRow } from "../components/Timeline";
-import IllustrationLineH from "../assets/IllustrationLineH";
 import { pixelTransition } from "../components/NavUtils";
 import { HyperLinkWithIcon, PageLinkWithIcon } from "../components/Links";
 import IconArchitecture from "../assets/IconArchitecture";
@@ -52,41 +50,24 @@ export default function About() {
         </HyperLinkWithIcon>
       </div>
 
-      <span className="flexCenterH topMargin bottomMargin">
-        <IllustrationLineH width="25%" strokeDasharray="10" />
-      </span>
+      <span className="dashedBorderBottom short flexCenterH">&emsp;</span>
 
       <h2 className="textCenter">my life's arc</h2>
       <div className="dashedBorderLeft">
-        <TimelineRow img={<IconCake />}>
+        <TimelineRow img={<IconCake />} verticalLine={true}>
           born in davao city, philippines <br />
           <b>february 15, 2004</b>
         </TimelineRow>
 
-        <IllustrationVerticalLine
-          height="50"
-          className="flexCenterV timelineRow"
-        />
-
-        <TimelineRow img={<IconLocation />}>
+        <TimelineRow img={<IconLocation />} verticalLine={true}>
           moved to dubai, united arab emirates <br />
           <b>may 12, 2012</b>
         </TimelineRow>
 
-        <IllustrationVerticalLine
-          height="50"
-          className="flexCenterV timelineRow"
-        />
-
-        <TimelineRow img={<IconEyeGlasses />}>
+        <TimelineRow img={<IconEyeGlasses />} verticalLine={true}>
           first pair of eyeglasses <br />
           <b>april 6, 2018</b>
         </TimelineRow>
-
-        <IllustrationVerticalLine
-          height="50"
-          className="flexCenterV timelineRow"
-        />
 
         <TimelineRow img={<IconGraduateHat />}>
           graduated uob with bachelor in swe

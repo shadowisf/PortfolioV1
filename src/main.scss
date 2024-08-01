@@ -10,8 +10,6 @@
   --text-color: black;
   --background-color: white;
   --track-scrollbar-color: "transparent";
-  --svg-inner-color: white;
-  --svg-outer-color: black;
 
   --primary-font: "Space Mono", monospace;
   --secondary-font: "Kyiv sans", sans-serif;
@@ -21,7 +19,27 @@
 
   --border-radius: 0;
 
-  --overflow-y: scroll;
+  --toastify-color-light: var(--text-color) !important;
+
+  --toastify-text-color-light: var(--background-color) !important;
+
+  --toastify-color-success: var(--background-color) !important;
+  --toastify-color-error: var(--background-color) !important;
+
+  --toastify-font-family: var(--primary-font) !important;
+}
+
+.Toastify__toast-container {
+  margin-bottom: 2rem;
+}
+
+.Toastify__close-button {
+  color: var(--background-color) !important;
+  opacity: 1 !important;
+}
+
+.Toastify__toast {
+  border-radius: var(--border-radius) !important;
 }
 
 ::-webkit-scrollbar {
@@ -484,10 +502,11 @@ h4 {
 }
 
 .contactLinks {
+  flex-wrap: wrap;
   display: flex;
   column-gap: 2rem;
   row-gap: 1rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin: 3rem 0;
 }
@@ -645,6 +664,13 @@ nav {
   background-position: bottom left;
   background-repeat: repeat-x;
   background-size: 100% 2px;
+
+  margin: 10rem auto;
+
+  &.short {
+    width: 25%;
+    line-height: 0.15;
+  }
 }
 
 .toThinHover {
@@ -740,7 +766,8 @@ form {
 
       &::placeholder {
         transition: color 0.5s, opacity 0.5s;
-        opacity: 0;
+        color: var(--background-color);
+        opacity: 0.25;
       }
 
       &::selection {

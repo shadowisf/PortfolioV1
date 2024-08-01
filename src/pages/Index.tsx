@@ -3,7 +3,7 @@ import About from "./About";
 import ToolTip from "../components/ToolTip";
 import {
   generateADACompliantColors,
-  keyControls,
+  colorControls,
 } from "../components/ColorUtils";
 import { useEffect } from "react";
 import Project from "./Project";
@@ -13,7 +13,7 @@ import { PixelGrid, setActiveContainer } from "../components/NavUtils";
 export default function Index() {
   useEffect(() => {
     generateADACompliantColors();
-    keyControls();
+    colorControls();
     setActiveContainer("about");
   }, []);
 

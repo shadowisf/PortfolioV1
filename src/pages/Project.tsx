@@ -5,7 +5,6 @@ import { useEffect } from "react";
 //
 import IconGithub from "../assets/IconGithub";
 import IconPDF from "../assets/IconPDF";
-import IconArrowTopRight from "../assets/IconArrowTopRight";
 import IconLinkedIn from "../assets/IconLinkedIn";
 import CLILogo from "../assets/ImageCLILogo.PNG";
 //
@@ -151,15 +150,6 @@ export default function Project() {
               alt={true}
             >
               françois chalifour
-            </HyperLinkWithIcon>
-
-            {/* color theory */}
-            <HyperLinkWithIcon
-              img={<IconArrowTopRight />}
-              href="https://awik.io"
-              alt={true}
-            >
-              andreas wilk
             </HyperLinkWithIcon>
 
             {/* theme engine */}

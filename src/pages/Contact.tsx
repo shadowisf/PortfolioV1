@@ -1,13 +1,45 @@
+import { useState } from "react";
 import IconEmail from "../assets/IconEmail";
 import IconGithub from "../assets/IconGithub";
 import IconInstagram from "../assets/IconInstagram";
 import IconLinkedIn from "../assets/IconLinkedIn";
 import { HyperLinkWithIcon } from "../components/Links";
+import { database } from "../firebase";
+import { ref, set } from "firebase/database";
+import { uid } from "uid";
+import { toastFail, toastSuccess } from "../components/Toasts";
+import { ToastContainer } from "react-toastify";
 
 export default function Contact() {
-  const placeholderName = "bartholomew douchebag";
-  const placeholderEmail = "douchebag@mail.com";
+  const placeholderName = "flexbox felix";
+  const placeholderEmail = "display@flex.com";
   const placeholderMessage = "i need help with my coffee machine!!";
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  function submitForm(e: { preventDefault: () => void }) {
+    e.preventDefault();
+
+    const generatedUID = "_" + uid();
+
+    set(ref(database, name + generatedUID), {
+      name: name,
+      email: email,
+      message: message,
+    })
+      .then(() => {
+        toastSuccess(e);
+      })
+      .catch(() => {
+        toastFail(e, "something went wrong");
+      });
+
+    setName("");
+    setEmail("");
+    setMessage("");
+  }
 
   return (
     <main id="contact" className="container topMargin">
@@ -47,28 +79,51 @@ export default function Contact() {
         </HyperLinkWithIcon>
       </section>
 
-      <form>
+      <form onSubmit={submitForm}>
         <label>name:</label>
-        <input className="textbox" placeholder={placeholderName} />
+        <input
+          required
+          className="textbox"
+          placeholder={placeholderName}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <label>email:</label>
-        <input className="textbox" placeholder={placeholderEmail} />
+        <input
+          required
+          className="textbox"
+          placeholder={placeholderEmail}
+          value={email}
+          onChange={(e) => setEmail(e.target.value.replace(/\s+/g, ""))}
+          maxLength={70}
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          title="username@email.com"
+        />
 
-        <label htmlFor="message">message:</label>
+        <label>message:</label>
         <textarea
+          required
           className="textarea"
           placeholder={placeholderMessage}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          maxLength={25}
         ></textarea>
 
         <span className="flexCenterH">
           <button
-            style={{ fontSize: "var(--font-s)", width: "25%" }}
+            type="submit"
+            style={{ padding: "0.75rem 2rem" }}
             className="button toThinHover noCursor"
           >
             submit
           </button>
         </span>
+
+        <span id="text"></span>
       </form>
+      <ToastContainer />
     </main>
   );
 }

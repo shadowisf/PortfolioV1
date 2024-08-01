@@ -1,70 +1,21 @@
-import IconEmail from "../assets/IconEmail";
-import IconGithub from "../assets/IconGithub";
-import IconInstagram from "../assets/IconInstagram";
-import IconLinkedIn from "../assets/IconLinkedIn";
-import { HyperLinkWithIcon } from "../components/Links";
+import { ToastContainer } from "react-toastify";
+import { toastIntro, toastSuccess } from "../components/Toasts";
+import ToolTip from "../components/ToolTip";
+import { colorControls } from "../components/ColorUtils";
 
 export default function Test() {
+  colorControls();
+
   return (
-    <main id="contact" className="container topMargin bottomMargin">
-      <h1 className="altBackground noCursor textCenter">get in touch!</h1>
-
-      <section className="contactLinks">
-        <HyperLinkWithIcon
-          img={<IconLinkedIn />}
-          href="https://www.linkedin.com/in/les-paul-ranalan/"
-          alt={true}
-        >
-          les paul ranalan
-        </HyperLinkWithIcon>
-
-        <HyperLinkWithIcon
-          img={<IconEmail />}
-          href="mailto:les.ranalan@gmail.com"
-          alt={true}
-        >
-          les.ranalan@gmail.com
-        </HyperLinkWithIcon>
-
-        <HyperLinkWithIcon
-          img={<IconInstagram />}
-          href="https://www.instagram.com/les.rx"
-          alt={true}
-        >
-          @les.rx
-        </HyperLinkWithIcon>
-
-        <HyperLinkWithIcon
-          img={<IconGithub />}
-          href="https://github.com/shadowisf"
-          alt={true}
-        >
-          shadowisf
-        </HyperLinkWithIcon>
-      </section>
-
-      <form>
-        <label>name:</label>
-        <input className="textbox" placeholder={"placeholderName"} />
-
-        <label>email:</label>
-        <input className="textbox" placeholder={"placeholderEmail"} />
-
-        <label htmlFor="message">message:</label>
-        <textarea
-          className="textarea"
-          placeholder={"placeholderMessage"}
-        ></textarea>
-
-        <span className="flexCenterH">
-          <button
-            style={{ fontSize: "var(--font-s)", width: "25%" }}
-            className="button toThinHover noCursor"
-          >
-            submit
-          </button>
-        </span>
-      </form>
-    </main>
+    <section className="container">
+      <button className="button" onClick={toastIntro}>
+        intro
+      </button>
+      <button className="button" onClick={toastSuccess}>
+        success
+      </button>
+      <ToastContainer />
+      <ToolTip />
+    </section>
   );
 }
