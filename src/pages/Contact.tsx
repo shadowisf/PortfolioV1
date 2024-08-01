@@ -8,7 +8,6 @@ import { database } from "../firebase";
 import { ref, set } from "firebase/database";
 import { uid } from "uid";
 import { toastFail, toastSuccess } from "../components/Toasts";
-import { ToastContainer } from "react-toastify";
 
 export default function Contact() {
   const placeholderName = "flexbox felix";
@@ -123,7 +122,6 @@ export default function Contact() {
 
         <span id="text"></span>
       </form>
-      <ToastContainer />
     </main>
   );
 }
