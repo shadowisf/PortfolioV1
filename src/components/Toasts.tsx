@@ -19,12 +19,17 @@ export function toastSuccess(msg: string) {
 export function toastIntro(msg: string) {
   toast.info(msg, {
     delay: 10000,
+
     position: "top-left",
     autoClose: false,
     hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
     theme: "light",
     transition: Slide,
-    closeButton: false,
+    closeButton: true,
 
     toastId: "intro",
   });

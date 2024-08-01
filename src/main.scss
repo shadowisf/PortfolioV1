@@ -37,11 +37,6 @@
   opacity: 1 !important;
 }
 
-.Toastify__toast-container--top-left {
-  margin-top: 3rem;
-  max-width: 280px;
-}
-
 .Toastify__toast {
   border-radius: var(--border-radius) !important;
 }
@@ -126,6 +121,10 @@
       }
     }
   }
+
+  .Toastify__toast-container--top-left {
+    margin-top: 3.75rem !important;
+  }
 }
 
 /* IDK WTF */
@@ -194,6 +193,11 @@
 
   #hs {
     display: none;
+  }
+
+  .Toastify__toast-container--top-left {
+    margin-top: 3rem !important;
+    max-width: 280px !important;
   }
 }
 
@@ -745,6 +749,7 @@ form {
     text-align: center;
 
     border: 2px solid var(--text-color);
+    border-radius: 0px;
 
     background-color: var(--background-color);
     color: var(--text-color);

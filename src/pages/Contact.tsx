@@ -21,7 +21,7 @@ export default function Contact() {
   function submitForm(e: { preventDefault: () => void }) {
     e.preventDefault();
 
-    const generatedUID = "_" + uid();
+    const generatedUID = ` (${uid()})`;
 
     set(ref(database, name + generatedUID), {
       name: name,
