@@ -143,6 +143,24 @@ export default function Project() {
               brandon mcconnell
             </HyperLinkWithIcon>
 
+            {/* react-toastify */}
+            <HyperLinkWithIcon
+              img={<IconGithub />}
+              href="https://github.com/fkhadra"
+              alt={true}
+            >
+              fadi khadra
+            </HyperLinkWithIcon>
+
+            {/* uuid */}
+            <HyperLinkWithIcon
+              img={<IconGithub />}
+              href="https://github.com/broofa"
+              alt={true}
+            >
+              robert kieffer
+            </HyperLinkWithIcon>
+
             {/* medium zoom */}
             <HyperLinkWithIcon
               img={<IconGithub />}

@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,16 +19,15 @@ export function toastSuccess(msg: string) {
 
 export function toastIntro(msg: string) {
   toast.info(msg, {
-    delay: 5000,
+    delay: 10000,
     position: "top-left",
-    autoClose: 5000,
+    autoClose: false,
     hideProgressBar: true,
-    closeOnClick: false,
-    pauseOnHover: true,
-    draggable: true,
     theme: "light",
     transition: Slide,
-    closeButton: true,
+    closeButton: false,
+
+    toastId: "intro",
   });
 }
 

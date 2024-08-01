@@ -19,8 +19,6 @@ export default function Index() {
     toastIntro("click my name above to generate a new theme!");
   }, []);
 
-  setTimeout(() => {}, 1000);
-
   return (
     <>
       <NavBar />
