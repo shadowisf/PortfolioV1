@@ -25,17 +25,19 @@
 
   --toastify-color-success: var(--background-color) !important;
   --toastify-color-error: var(--background-color) !important;
+  --toastify-color-info: var(--background-color) !important;
 
   --toastify-font-family: var(--primary-font) !important;
-}
-
-.Toastify__toast-container {
-  margin-bottom: 2rem;
 }
 
 .Toastify__close-button {
   color: var(--background-color) !important;
   opacity: 1 !important;
+}
+
+.Toastify__toast-container--top-left {
+  margin-top: 3rem;
+  max-width: 280px;
 }
 
 .Toastify__toast {

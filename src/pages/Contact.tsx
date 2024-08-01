@@ -30,10 +30,10 @@ export default function Contact() {
       message: message,
     })
       .then(() => {
-        toastSuccess(e);
+        toastSuccess("message sent!");
       })
       .catch(() => {
-        toastFail(e, "something went wrong");
+        toastFail("something went wrong");
       });
 
     setName("");

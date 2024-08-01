@@ -1,12 +1,10 @@
 import { toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export function toastSuccess(e: { preventDefault: () => void }) {
-  e.preventDefault();
-
-  toast.success("message sent! thank you for contacting me!", {
+export function toastSuccess(msg: string) {
+  toast.success(msg, {
     position: "top-center",
-    autoClose: 5000,
+    autoClose: 2500,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
@@ -17,10 +15,8 @@ export function toastSuccess(e: { preventDefault: () => void }) {
   });
 }
 
-export function toastIntro(e: { preventDefault: () => void }) {
-  e.preventDefault();
-
-  toast.info("hint: click my name on the top left to generate a new theme!", {
+export function toastIntro(msg: string) {
+  toast.info(msg, {
     position: "top-left",
     autoClose: 5000,
     hideProgressBar: true,
@@ -32,17 +28,14 @@ export function toastIntro(e: { preventDefault: () => void }) {
   });
 }
 
-export function toastFail(e: { preventDefault: () => void }, error: string) {
-  e.preventDefault();
-
-  toast.error(error, {
+export function toastFail(msg: string) {
+  toast.error(msg, {
     position: "top-center",
-    autoClose: 5000,
+    autoClose: 2500,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
-    progress: undefined,
     theme: "light",
     transition: Slide,
   });

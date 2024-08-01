@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
 import { pixelTransition } from "./NavUtils";
+import { ToastContainer } from "react-toastify";
 
 export default function NavBar() {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
@@ -32,6 +33,7 @@ export default function NavBar() {
 
   return (
     <>
+      <ToastContainer />
       <nav>
         <a
           className="toThinHover logo noCursor"
