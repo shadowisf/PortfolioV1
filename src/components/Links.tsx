@@ -1,12 +1,12 @@
 type hyperLinkProps = {
-  children?: string;
+  children?: React.ReactNode;
   img?: React.ReactNode;
   href?: string;
   alt?: boolean;
 };
 
 type pageLinkProps = {
-  children?: string;
+  children?: React.ReactNode;
   img?: React.ReactNode;
   alt?: boolean;
   onClick?: () => void;

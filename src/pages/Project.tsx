@@ -19,6 +19,7 @@ import CircuitCentralImage2 from "../assets/ImageCircuitCentral2.PNG";
 import CircuitCentralLogo from "../assets/ImageCircuitCentralLogo.PNG";
 //
 import ApolloHospitalPDF from "../assets/FileApolloHospital.PDF";
+import ApolloHospitalProjectDocumentationPDF from "../assets/FileApolloHospitalProjectDocumentation.PDF";
 import ApolloHospitalImage1 from "../assets/ImageApolloHospital1.PNG";
 import ApolloHospitalImage2 from "../assets/ImageApolloHospital2.PNG";
 import ApolloHospitalLogo from "../assets/ImageApolloHospitalLogo.PNG";
@@ -43,11 +44,10 @@ export const projectData = [
     name: "portfolio",
     year: "2024",
     architecture: [
-      "react (typescript)",
-      "firebase",
-      "gsap",
+      "typescript (react)",
       "html",
       "scss",
+      "firebase",
       "git",
       "ui/ux",
     ],
@@ -71,10 +71,9 @@ export const projectData = [
     year: "2023",
     architecture: [
       "python (flask)",
-      "xampp",
       "html (django)",
       "css (bootstrap)",
-      "javascript",
+      "xampp",
       "ui/ux",
       "crud",
     ],
@@ -95,7 +94,7 @@ export const projectData = [
     id: 5,
     name: "plug-ins database",
     year: "2022",
-    architecture: ["php", "html", "xampp"],
+    architecture: ["php", "html", "css", "xampp"],
   },
 ];
 
@@ -113,9 +112,6 @@ export default function Project() {
 
   return (
     <main id="project" className="container topMargin bottomMargin">
-      {/* <h1 id="projectHeader" className="altBackground textCenter noCursor">
-        total: {projectData.length}
-      </h1> */}
       <section className="projectCards noMarginBottom">
         {/* portfolio */}
         <ProjectCard dataID={0} img={PortfolioLogo}>
@@ -124,10 +120,12 @@ export default function Project() {
               this portfolio website showcases all things me;{" "}
               <u>my projects, research, and life history!</u> by creating this
               portfolio, i was able to fully learn and understand how html, css,
-              and react are all implemented as a baseline for web development.
-              additionally, this entire portfolio website is made with little to
-              no external dependencies! that means features are hand-built
-              manually; just pure vanilla!
+              and javascript/typescript are all implemented as a baseline for
+              web development.
+              <br />
+              <br />
+              <b>my role:</b> this was a solo project. every tech stack was
+              implemented by me.
             </p>
           </div>
 
@@ -210,6 +208,10 @@ export default function Project() {
               delete. additionally, it features search filtering on all records,
               error handling of all user events, input validation, and a login
               system for two user types.
+              <br />
+              <br />
+              <b>my role:</b> this was a solo project. every tech stack was
+              implemented by me.
             </p>
           </div>
 
@@ -264,6 +266,11 @@ export default function Project() {
               operations: create, read, update, delete. as well as a login
               system, error handling, input validation, and search filtering of
               patient records.
+              <br />
+              <br />
+              <b>my role:</b> this was a group project. i designed and
+              implemented the front-end of the project; the general theme,
+              buttons, navbar, home page, user pages, etc.
             </p>
           </div>
 
@@ -285,6 +292,14 @@ export default function Project() {
             >
               report
             </HyperLinkWithIcon>
+
+            <HyperLinkWithIcon
+              img={<IconPDF />}
+              href={ApolloHospitalProjectDocumentationPDF}
+              alt={true}
+            >
+              project documentation
+            </HyperLinkWithIcon>
           </div>
 
           <br />
@@ -305,6 +320,12 @@ export default function Project() {
               arithmetics, fibonacci sequences, area of different shapes, etc.
               the design aesthetic for this project was heavily inspired by
               vibrant pixel art and sprites.
+              <br />
+              <br />
+              <b>my role:</b> this was a group project. i designed and
+              implemented the front-end; the general theme, buttons, menu,
+              calculator avatar, etc. additionally, i implemented half of the
+              back-end; factorial, fibonacci, average, min & max.
             </p>
           </div>
 
@@ -352,6 +373,10 @@ export default function Project() {
               operations: create, read, update, and delete. additionally, it has
               error handling and persistent data management since it utilizes
               span files through file handling.
+              <br />
+              <br />
+              <b>my role:</b> this was a solo project. every tech stack was
+              implemented by me.
             </p>
           </div>
 
@@ -391,6 +416,10 @@ export default function Project() {
               database solution that utilizes forms. its system covers insertion
               of customer, product, and order information into a database.
               through that, search and display queries can be performed.
+              <br />
+              <br />
+              <b>my role:</b> this was a solo project. every tech stack was
+              implemented by me.
             </p>
           </div>
 

@@ -41,32 +41,26 @@ export default function Contact() {
   }
 
   return (
-    <main id="contact" className="container topMargin">
+    <main id="contact" className="container topMargin bottomMargin">
       <h1 className="altBackground noCursor textCenter">get in touch!</h1>
 
       <section className="contactLinks">
+        <span style={{ scale: "1" }}>
+          <HyperLinkWithIcon
+            img={<IconEmail />}
+            href="mailto:les.ranalan@gmail.com"
+            alt={true}
+          >
+            les.ranalan@gmail.com
+          </HyperLinkWithIcon>
+        </span>
+
         <HyperLinkWithIcon
           img={<IconLinkedIn />}
           href="https://www.linkedin.com/in/les-paul-ranalan/"
           alt={true}
         >
           les paul ranalan
-        </HyperLinkWithIcon>
-
-        <HyperLinkWithIcon
-          img={<IconEmail />}
-          href="mailto:les.ranalan@gmail.com"
-          alt={true}
-        >
-          les.ranalan@gmail.com
-        </HyperLinkWithIcon>
-
-        <HyperLinkWithIcon
-          img={<IconInstagram />}
-          href="https://www.instagram.com/les.rx"
-          alt={true}
-        >
-          @les.rx
         </HyperLinkWithIcon>
 
         <HyperLinkWithIcon
@@ -78,27 +72,34 @@ export default function Contact() {
         </HyperLinkWithIcon>
       </section>
 
-      <form onSubmit={submitForm}>
-        <label>name:</label>
-        <input
-          required
-          className="textbox"
-          placeholder={placeholderName}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+      <form className="contactForm" onSubmit={submitForm}>
+        <span className="nameAndEmail"
+        >
+          <span>
+            <label>name:</label>
+            <input
+              required
+              className="textbox"
+              placeholder={placeholderName}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </span>
 
-        <label>email:</label>
-        <input
-          required
-          className="textbox"
-          placeholder={placeholderEmail}
-          value={email}
-          onChange={(e) => setEmail(e.target.value.replace(/\s+/g, ""))}
-          maxLength={70}
-          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-          title="username@email.com"
-        />
+          <span>
+            <label>email:</label>
+            <input
+              required
+              className="textbox"
+              placeholder={placeholderEmail}
+              value={email}
+              onChange={(e) => setEmail(e.target.value.replace(/\s+/g, ""))}
+              maxLength={70}
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              title="username@email.com"
+            />
+          </span>
+        </span>
 
         <label>message:</label>
         <textarea

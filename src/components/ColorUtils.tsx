@@ -49,7 +49,7 @@ export const generateADACompliantColors = () => {
 };
 
 export function colorControls() {
-  document.addEventListener("keydown", function (event) {
+  const handleKeydown = (event: KeyboardEvent) => {
     const target = event.target as HTMLElement;
     const isTextInput =
       target.tagName === "INPUT" || target.tagName === "TEXTAREA";
@@ -59,5 +59,11 @@ export function colorControls() {
         generateADACompliantColors();
       }
     }
-  });
+  };
+
+  document.addEventListener("keydown", handleKeydown);
+
+  return () => {
+    document.removeEventListener("keydown", handleKeydown);
+  };
 }

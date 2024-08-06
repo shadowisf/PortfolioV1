@@ -24,12 +24,27 @@ const preventScrollKeys = (e: KeyboardEvent) => {
   }
 };
 
-export function disableScroll(status: boolean) {
+export function disableScroll(status: boolean, invisScrollBar: boolean) {
   if (status) {
-    document.documentElement.style.setProperty(
-      "--track-scrollbar-color",
-      "var(--text-color)"
-    );
+    if (invisScrollBar) {
+      document.documentElement.style.setProperty(
+        "--track-scrollbar-color",
+        "transparent"
+      );
+      document.documentElement.style.setProperty(
+        "--scrollbar-color",
+        "transparent"
+      );
+    } else {
+      document.documentElement.style.setProperty(
+        "--track-scrollbar-color",
+        "var(--text-color)"
+      );
+      document.documentElement.style.setProperty(
+        "--scrollbar-color",
+        "var(--text-color)"
+      );
+    }
     window.addEventListener("wheel", preventDefault, { passive: false });
     window.addEventListener("touchmove", preventDefault, { passive: false });
     window.addEventListener("keydown", preventScrollKeys);
@@ -38,10 +53,24 @@ export function disableScroll(status: boolean) {
       "--track-scrollbar-color",
       "transparent"
     );
+    document.documentElement.style.setProperty(
+      "--scrollbar-color",
+      "var(--text-color)"
+    );
     window.removeEventListener("wheel", preventDefault);
     window.removeEventListener("touchmove", preventDefault);
     window.removeEventListener("keydown", preventScrollKeys);
   }
+}
+
+export function disableMouse(status: boolean, delay: number) {
+  setTimeout(() => {
+    if (status) {
+      document.body.style.pointerEvents = "none";
+    } else {
+      document.body.style.pointerEvents = "auto";
+    }
+  }, delay);
 }
 
 export function pixelTransition() {
@@ -49,7 +78,7 @@ export function pixelTransition() {
 
   const start = contextSafe((destination: string, delay: number) => {
     setTimeout(() => {
-      disableScroll(true);
+      disableScroll(true, false);
 
       gsap.set(".pixelGrid", { display: "grid" });
       gsap.fromTo(
@@ -76,7 +105,7 @@ export function pixelTransition() {
         stagger: { amount: 0.5, from: "random" },
         onComplete: () => {
           gsap.set(".pixelGrid", { display: "none" });
-          disableScroll(false);
+          disableScroll(false, true);
         },
       });
     }, 250);

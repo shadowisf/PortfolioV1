@@ -75,6 +75,11 @@ export default function About() {
           <b>???</b>
         </TimelineRow>
       </div>
+
+      <span className="dashedBorderBottom short flexCenterH">&emsp;</span>
+
+      <h2 className="textCenter">my skillset</h2>
+      <div></div>
     </main>
   );
 }
