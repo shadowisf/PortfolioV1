@@ -3,7 +3,6 @@ import { projectData } from "../pages/Project";
 import { disableMouse, disableScroll } from "./NavUtils";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(gsap, ScrollToPlugin);
 

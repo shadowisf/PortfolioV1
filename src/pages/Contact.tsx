@@ -1,7 +1,6 @@
 import { useState } from "react";
 import IconEmail from "../assets/IconEmail";
 import IconGithub from "../assets/IconGithub";
-import IconInstagram from "../assets/IconInstagram";
 import IconLinkedIn from "../assets/IconLinkedIn";
 import { HyperLinkWithIcon } from "../components/Links";
 import { database } from "../firebase";
