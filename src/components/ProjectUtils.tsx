@@ -48,7 +48,7 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
     dataKeyElements?.forEach((cardElement) => {
       const dataKey = cardElement.getAttribute("data-key");
       const titleElement = cardElement.querySelector(".title");
-      const logoElement = cardElement.querySelector(".logo");
+      const backgroundElement = cardElement.querySelector(".background");
       const contentElement = cardElement.querySelector(".content");
       const backButton = cardElement.querySelector(".backButton");
 
@@ -73,7 +73,7 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
 
             gsap.to(cardElement, { backgroundColor: "var(--text-color)" });
 
-            gsap.to(logoElement, { autoAlpha: "0" });
+            gsap.to(backgroundElement, { autoAlpha: "0" });
           },
           flex: "1",
           ease: gsapEase,
@@ -120,7 +120,7 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
 
     dataKeyElements?.forEach((cardElement) => {
       const titleElement = cardElement.querySelector(".title");
-      const logoElement = cardElement.querySelector(".logo");
+      const backgroundElement = cardElement.querySelector(".background");
       const contentElement = cardElement.querySelector(".content");
 
       gsap.to(window, scrollToTopOptions);
@@ -140,7 +140,7 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
               backgroundColor: "transparent",
             });
 
-            gsap.to(logoElement, { autoAlpha: "0.125" });
+            gsap.to(backgroundElement, { autoAlpha: "0.125" });
 
             gsap.to(backButton, {
               autoAlpha: "0",
@@ -199,7 +199,7 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
         ← back to menu
       </span>
 
-      <img className="logo" src={img} />
+      <img className="background" src={img} />
 
       <header
         style={

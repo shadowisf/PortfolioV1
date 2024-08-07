@@ -3,7 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export function toastSuccess(msg: string) {
   toast.success(msg, {
-    position: "top-center",
+    position: "top-right",
     autoClose: 2500,
     hideProgressBar: true,
     closeOnClick: false,
@@ -16,28 +16,9 @@ export function toastSuccess(msg: string) {
   });
 }
 
-export function toastIntro(msg: string) {
-  toast.info(msg, {
-    delay: 10000,
-
-    position: "top-left",
-    autoClose: false,
-    hideProgressBar: true,
-    closeOnClick: false,
-    pauseOnHover: true,
-    draggable: false,
-    progress: undefined,
-    theme: "light",
-    transition: Slide,
-    closeButton: true,
-
-    toastId: "intro",
-  });
-}
-
 export function toastFail(msg: string) {
   toast.error(msg, {
-    position: "top-center",
+    position: "top-right",
     autoClose: 2500,
     hideProgressBar: true,
     closeOnClick: false,

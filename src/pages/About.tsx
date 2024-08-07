@@ -1,14 +1,17 @@
-import IconCake from "../assets/IconCake";
-import IconLocation from "../assets/IconLocation";
-import IconEyeGlasses from "../assets/IconEyeGlasses";
-import IconGraduateHat from "../assets/IconGraduateHat";
+import {
+  Cake,
+  Location,
+  Glasses,
+  GraduateHat,
+  Architecture,
+  Email,
+  ArrowTopRight,
+} from "../components/Icon";
+
 import { TimelineRow } from "../components/Timeline";
 import { pixelTransition } from "../components/NavUtils";
-import { HyperLinkWithIcon, PageLinkWithIcon } from "../components/Links";
-import IconArchitecture from "../assets/IconArchitecture";
-import IconEmail from "../assets/IconEmail";
-import IconArrowTopRight from "../assets/IconArrowTopRight";
 import CV from "../assets/FileCV.PDF";
+import { Button } from "../components/Button";
 
 export default function About() {
   const { start } = pixelTransition();
@@ -25,61 +28,55 @@ export default function About() {
       </h3>
 
       <p className="textCenter">
-        i strive to embrace minimalism in my design philosophy, focusing on
-        simplicity and prioritizing the creation and implementation of clean,
-        uncluttered interfaces.
+        i strive to embrace minimalism in my design philosophy, focusing on the
+        development and implementation of clean and functional interfaces.
       </p>
 
       <div className="aboutLinks">
-        <PageLinkWithIcon
-          img={<IconArchitecture />}
+        <Button
+          icon={<Architecture color="background" />}
           onClick={() => start("project", 0)}
-          alt={true}
         >
           view my projects
-        </PageLinkWithIcon>
-        <PageLinkWithIcon
-          img={<IconEmail />}
+        </Button>
+
+        <Button
+          icon={<Email color="background" />}
           onClick={() => start("contact", 0)}
-          alt={true}
         >
           contact me
-        </PageLinkWithIcon>
-        <HyperLinkWithIcon img={<IconArrowTopRight />} href={CV} alt={true}>
+        </Button>
+
+        <Button icon={<ArrowTopRight color="background" />} href={CV}>
           view my resume
-        </HyperLinkWithIcon>
+        </Button>
       </div>
 
       <span className="dashedBorderBottom short flexCenterH">&emsp;</span>
 
       <h2 className="textCenter">my life's arc</h2>
       <div className="dashedBorderLeft">
-        <TimelineRow img={<IconCake />} verticalLine={true}>
+        <TimelineRow img={<Cake />} verticalLine={true}>
           born in davao city, philippines <br />
           <b>february 15, 2004</b>
         </TimelineRow>
 
-        <TimelineRow img={<IconLocation />} verticalLine={true}>
+        <TimelineRow img={<Location />} verticalLine={true}>
           moved to dubai, united arab emirates <br />
           <b>may 12, 2012</b>
         </TimelineRow>
 
-        <TimelineRow img={<IconEyeGlasses />} verticalLine={true}>
+        <TimelineRow img={<Glasses />} verticalLine={true}>
           first pair of eyeglasses <br />
           <b>april 6, 2018</b>
         </TimelineRow>
 
-        <TimelineRow img={<IconGraduateHat />}>
+        <TimelineRow img={<GraduateHat />}>
           graduated uob with bachelor in swe
           <br />
           <b>???</b>
         </TimelineRow>
       </div>
-
-      <span className="dashedBorderBottom short flexCenterH">&emsp;</span>
-
-      <h2 className="textCenter">my skillset</h2>
-      <div></div>
     </main>
   );
 }

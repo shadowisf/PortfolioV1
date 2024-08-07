@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { generateADACompliantColors } from "./ColorUtils";
 import { pixelTransition } from "./NavUtils";
-import { toast, ToastContainer } from "react-toastify";
+import { Palette } from "./Icon";
 
 export default function NavBar() {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
@@ -33,18 +33,28 @@ export default function NavBar() {
 
   return (
     <>
-      <ToastContainer />
       <nav>
+        <span className="logoAndTheme">
+          <a className="toThinHover noCursor" onClick={() => start("about", 0)}>
+            <span id="fs">les ranalan</span>
+            <span id="hs">les r.</span>
+          </a>
+
+          <a
+            id="fs"
+            className="themeButton flexCenterV noCursor"
+            onClick={generateADACompliantColors}
+          >
+            <Palette />
+          </a>
+        </span>
+
         <a
-          className="toThinHover logo noCursor"
-          onClick={() => {
-            generateADACompliantColors();
-            setTimeout(() => {
-              toast.dismiss({ id: "intro", containerId: "" });
-            }, 500);
-          }}
+          id="hs"
+          className="themeButton flexCenterV noCursor"
+          onClick={generateADACompliantColors}
         >
-          les ranalan
+          <Palette />
         </a>
 
         <a

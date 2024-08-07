@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -77,6 +78,8 @@ export function pixelTransition() {
   const { contextSafe } = useGSAP();
 
   const start = contextSafe((destination: string, delay: number) => {
+    disableMouse(true, 0);
+
     setTimeout(() => {
       disableScroll(true, false);
 
@@ -106,6 +109,7 @@ export function pixelTransition() {
         onComplete: () => {
           gsap.set(".pixelGrid", { display: "none" });
           disableScroll(false, true);
+          disableMouse(false, 0);
         },
       });
     }, 250);
@@ -117,18 +121,15 @@ export function pixelTransition() {
 export function setActiveContainer(element: string) {
   const containerElements = document.querySelectorAll("main[id]");
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  gsap.to(window, { scrollTo: { y: 0, x: 0 }, duration: "0.1" });
 
   containerElements?.forEach((item) => {
     const id = item.getAttribute("id");
 
     if (id === element) {
-      item.classList.remove("none");
+      gsap.set(item, { display: "block" });
     } else if (id !== element) {
-      item.classList.add("none");
+      gsap.set(item, { display: "none" });
     }
   });
 }

@@ -1,11 +1,8 @@
 import { useState } from "react";
-import IconEmail from "../assets/IconEmail";
-import IconGithub from "../assets/IconGithub";
-import IconLinkedIn from "../assets/IconLinkedIn";
-import { HyperLinkWithIcon } from "../components/Links";
+import { Email, Github, LinkedIn, Instagram } from "../components/Icon";
+import { HyperLinkWithIcon } from "../components/Link";
 import { database } from "../firebase";
 import { ref, set } from "firebase/database";
-import { uid } from "uid";
 import { toastFail, toastSuccess } from "../components/Toasts";
 
 export default function Contact() {
@@ -17,10 +14,14 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  function generateID() {
+    return Math.floor(100000 + Math.random() * 900000);
+  }
+
   function submitForm(e: { preventDefault: () => void }) {
     e.preventDefault();
 
-    const generatedUID = ` (${uid()})`;
+    const generatedUID = ` (${generateID()})`;
 
     set(ref(database, name + generatedUID), {
       name: name,
@@ -46,7 +47,7 @@ export default function Contact() {
       <section className="contactLinks">
         <span style={{ scale: "1" }}>
           <HyperLinkWithIcon
-            img={<IconEmail />}
+            img={<Email color="text" />}
             href="mailto:les.ranalan@gmail.com"
             alt={true}
           >
@@ -55,7 +56,7 @@ export default function Contact() {
         </span>
 
         <HyperLinkWithIcon
-          img={<IconLinkedIn />}
+          img={<LinkedIn />}
           href="https://www.linkedin.com/in/les-paul-ranalan/"
           alt={true}
         >
@@ -63,17 +64,24 @@ export default function Contact() {
         </HyperLinkWithIcon>
 
         <HyperLinkWithIcon
-          img={<IconGithub />}
+          img={<Github />}
           href="https://github.com/shadowisf"
           alt={true}
         >
           shadowisf
         </HyperLinkWithIcon>
+
+        <HyperLinkWithIcon
+          img={<Instagram />}
+          href="https://www.instagram.com/les.rx/"
+          alt={true}
+        >
+          @les.rx
+        </HyperLinkWithIcon>
       </section>
 
       <form className="contactForm" onSubmit={submitForm}>
-        <span className="nameAndEmail"
-        >
+        <span className="nameAndEmail">
           <span>
             <label>name:</label>
             <input
@@ -86,7 +94,7 @@ export default function Contact() {
           </span>
 
           <span>
-            <label>email:</label>
+            <label htmlFor="email" id="emailLabel" >email:</label>
             <input
               required
               className="textbox"

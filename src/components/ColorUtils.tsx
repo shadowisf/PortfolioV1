@@ -47,23 +47,3 @@ export const generateADACompliantColors = () => {
   document.documentElement.style.setProperty("--text-color", textColor);
   document.documentElement.style.setProperty("--background-color", bgColor);
 };
-
-export function colorControls() {
-  const handleKeydown = (event: KeyboardEvent) => {
-    const target = event.target as HTMLElement;
-    const isTextInput =
-      target.tagName === "INPUT" || target.tagName === "TEXTAREA";
-
-    if (!isTextInput) {
-      if (event.key === "e" || event.key === "E") {
-        generateADACompliantColors();
-      }
-    }
-  };
-
-  document.addEventListener("keydown", handleKeydown);
-
-  return () => {
-    document.removeEventListener("keydown", handleKeydown);
-  };
-}
