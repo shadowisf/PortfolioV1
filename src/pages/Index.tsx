@@ -1,24 +1,26 @@
 import NavBar from "../components/NavBar";
 import About from "./About";
-import { generateADACompliantColors } from "../components/ColorUtils";
+import { generateTheme } from "../components/ColorUtils";
 import { useEffect } from "react";
 import Project from "./Project";
 import Contact from "./Contact";
-import { PixelGrid, setActiveContainer } from "../components/NavUtils";
+import { PixelGrid, pixelTransition, changePage } from "../components/NavUtils";
 
 export default function Index() {
   useEffect(() => {
-    generateADACompliantColors();
-    setActiveContainer("about");
+    generateTheme();
+    changePage("about");
   }, []);
+
+  const { startTransition } = pixelTransition();
 
   return (
     <>
-      <NavBar />
-
       <PixelGrid />
 
-      <About />
+      <NavBar startTransition={startTransition} />
+
+      <About startTransition={startTransition} />
       <Project />
       <Contact />
     </>

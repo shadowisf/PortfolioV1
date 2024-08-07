@@ -9,13 +9,14 @@ import {
 } from "../components/Icon";
 
 import { TimelineRow } from "../components/Timeline";
-import { pixelTransition } from "../components/NavUtils";
 import CV from "../assets/FileCV.PDF";
 import { Button } from "../components/Button";
 
-export default function About() {
-  const { start } = pixelTransition();
+type AboutProps = {
+  startTransition: (container: string, delay: number) => void;
+};
 
+export default function About({ startTransition: start }: AboutProps) {
   return (
     <main id="about" className="container topMargin bottomMargin">
       <h1 style={{ margin: "0" }} className="altBackground noCursor textCenter">

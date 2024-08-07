@@ -2,17 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useState } from "react";
 
-gsap.registerPlugin(useGSAP);
-
-export function PixelGrid() {
-  function generatePixel(count: number) {
-    return Array.from({ length: count }, (_, index) => (
-      <span key={index} className="pixelItem"></span>
-    ));
-  }
-
-  return <div className="pixelGrid">{generatePixel(64)}</div>;
-}
+gsap.registerPlugin(useGSAP, gsap);
 
 const preventDefault = (e: Event) => {
   e.preventDefault();
@@ -74,33 +64,51 @@ export function disableMouse(status: boolean, delay: number) {
   }, delay);
 }
 
+export function PixelGrid() {
+  function generatePixel(count: number) {
+    return Array.from({ length: count }, (_, index) => (
+      <span key={index} className="pixelItem"></span>
+    ));
+  }
+
+  return <div className="pixelGrid">{generatePixel(64)}</div>;
+}
+
 export function pixelTransition() {
   const { contextSafe } = useGSAP();
 
-  const start = contextSafe((destination: string, delay: number) => {
-    disableMouse(true, 0);
+  const [currentPage, setCurrentPage] = useState("about");
 
-    setTimeout(() => {
-      disableScroll(true, false);
+  const startTransition = contextSafe((destination: string, delay: number) => {
+    if (destination === currentPage) {
+      return;
+    } else {
+      disableMouse(true, 0);
 
-      gsap.set(".pixelGrid", { display: "grid" });
-      gsap.fromTo(
-        ".pixelItem",
-        { opacity: "0" },
-        {
-          opacity: "1",
-          duration: "0.005",
-          stagger: { amount: 0.5, from: "random" },
-          onComplete: () => {
-            setActiveContainer(destination);
-            end();
-          },
-        }
-      );
-    }, delay);
+      setCurrentPage(destination);
+
+      setTimeout(() => {
+        disableScroll(true, false);
+
+        gsap.set(".pixelGrid", { display: "grid" });
+        gsap.fromTo(
+          ".pixelItem",
+          { opacity: "0" },
+          {
+            opacity: "1",
+            duration: "0.005",
+            stagger: { amount: 0.5, from: "random" },
+            onComplete: () => {
+              changePage(destination);
+              endTransition();
+            },
+          }
+        );
+      }, delay);
+    }
   });
 
-  const end = contextSafe(() => {
+  const endTransition = contextSafe(() => {
     setTimeout(() => {
       gsap.to(".pixelItem", {
         opacity: "0",
@@ -115,10 +123,10 @@ export function pixelTransition() {
     }, 250);
   });
 
-  return { start };
+  return { startTransition };
 }
 
-export function setActiveContainer(element: string) {
+export function changePage(element: string) {
   const containerElements = document.querySelectorAll("main[id]");
 
   gsap.to(window, { scrollTo: { y: 0, x: 0 }, duration: "0.1" });

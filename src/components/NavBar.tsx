@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { generateADACompliantColors } from "./ColorUtils";
-import { pixelTransition } from "./NavUtils";
+import { generateTheme } from "./ColorUtils";
 import { Palette } from "./Icon";
 
-export default function NavBar() {
+type NavBarProps = {
+  startTransition: (container: string, delay: number) => void;
+};
+
+export default function NavBar({ startTransition: start }: NavBarProps) {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
   const toggleHamburgerMenu = () => {
     setHamburgerMenuOpen(!isHamburgerMenuOpen);
   };
-
-  const { start } = pixelTransition();
 
   const scrollBarColorChangeDelay = 700;
   const pixelTransitionDelay = 700;
@@ -35,7 +36,11 @@ export default function NavBar() {
     <>
       <nav>
         <span className="logoAndTheme">
-          <a className="toThinHover noCursor" onClick={() => start("about", 0)}>
+          <a
+            id="aboutLink"
+            className="toThinHover noCursor"
+            onClick={() => start("about", 0)}
+          >
             <span id="fs">les ranalan</span>
             <span id="hs">les r.</span>
           </a>
@@ -43,7 +48,7 @@ export default function NavBar() {
           <a
             id="fs"
             className="themeButton flexCenterV noCursor"
-            onClick={generateADACompliantColors}
+            onClick={generateTheme}
           >
             <Palette />
           </a>
@@ -52,7 +57,7 @@ export default function NavBar() {
         <a
           id="hs"
           className="themeButton flexCenterV noCursor"
-          onClick={generateADACompliantColors}
+          onClick={generateTheme}
         >
           <Palette />
         </a>
@@ -74,6 +79,7 @@ export default function NavBar() {
         </span>
 
         <a
+          id="aboutLink"
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
@@ -83,6 +89,7 @@ export default function NavBar() {
           about
         </a>
         <a
+          id="projectLink"
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();
@@ -92,6 +99,7 @@ export default function NavBar() {
           projects
         </a>
         <a
+          id="contactLink"
           className="toThinHover noCursor"
           onClick={() => {
             toggleHamburgerMenu();

@@ -33,7 +33,7 @@ export const calculateContrastRatio = (
   return calculateContrast(foregroundColor, backgroundColor);
 };
 
-export const generateADACompliantColors = () => {
+export const generateTheme = () => {
   let bgColor, textColor;
   do {
     bgColor = getRandomColor();
