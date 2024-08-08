@@ -11,18 +11,18 @@ import {
 import { TimelineRow } from "../components/Timeline";
 import CV from "../assets/FileCV.PDF";
 import { Button } from "../components/Button";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(gsap, useGSAP);
 
 type AboutProps = {
   startTransition: (destination: string, delay: number) => void;
 };
 
-gsap.registerPlugin(gsap, useGSAP);
-
 export default function About({ startTransition: start }: AboutProps) {
   useGSAP(() => {
-    gsap.set("#about", { display: "block", autoAlpha: "1" });
+    gsap.set("#about", { display: "none" });
   });
 
   return (

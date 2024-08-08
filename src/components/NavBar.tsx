@@ -35,11 +35,7 @@ export default function NavBar({ startTransition: start }: NavBarProps) {
     <>
       <nav>
         <span className="logoAndTheme">
-          <a
-            id="aboutLink"
-            className="toThinHover noCursor"
-            onClick={() => start("about", 0)}
-          >
+          <a className="toThinHover noCursor" onClick={() => start("about", 0)}>
             <span id="fs">les ranalan</span>
             <span id="hs">les r.</span>
           </a>

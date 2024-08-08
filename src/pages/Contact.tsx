@@ -4,8 +4,16 @@ import { HyperLinkWithIcon } from "../components/Link";
 import { database } from "../firebase";
 import { ref, set } from "firebase/database";
 import { toastFail, toastSuccess } from "../components/Toasts";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(gsap, useGSAP);
 
 export default function Contact() {
+  useGSAP(() => {
+    gsap.set("#about", { display: "none" });
+  });
+
   const placeholderName = "flexbox felix";
   const placeholderEmail = "display@flex.com";
   const placeholderMessage = "i need help with my coffee machine!!";

@@ -264,6 +264,7 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  backface-visibility: hidden;
 }
 
 header {
@@ -319,9 +320,7 @@ h4 {
   gap: 1rem;
 
   .image {
-    border: solid 2px;
     border-radius: var(--border-radius);
-    padding: 0.5rem;
     width: 100%;
   }
 }
@@ -411,6 +410,8 @@ button {
   justify-content: center;
 
   gap: 1rem;
+
+  margin-top: 1rem;
 
   .card {
     position: relative;
@@ -770,10 +771,4 @@ nav {
       opacity: 0.25;
     }
   }
-}
-
-#about,
-#project,
-#contact {
-  backface-visibility: hidden;
 }

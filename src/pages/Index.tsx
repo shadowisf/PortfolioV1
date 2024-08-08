@@ -5,6 +5,7 @@ import { PixelGrid, pixelTransition } from "../components/PixelGrid";
 import { useEffect } from "react";
 import Contact from "./Contact";
 import Project from "./Project";
+import { ToastContainer } from "react-toastify";
 
 export default function Index() {
   useEffect(() => {
@@ -17,6 +18,8 @@ export default function Index() {
   return (
     <>
       <PixelGrid />
+
+      <ToastContainer />
 
       <NavBar startTransition={startTransition} />
 

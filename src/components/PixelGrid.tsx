@@ -73,9 +73,9 @@ export function pixelTransition() {
       const id = element.getAttribute("id");
 
       if (id === targetID) {
-        gsap.set(element, { display: "block", autoAlpha: "1" });
+        gsap.set(element, { display: "block" });
       } else if (id !== targetID) {
-        gsap.set(element, { display: "none", autoAlpha: "0" });
+        gsap.set(element, { display: "none" });
       }
     });
   }

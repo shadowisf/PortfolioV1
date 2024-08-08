@@ -2,6 +2,8 @@ import { ProjectCard } from "../components/ProjectCard";
 import { HyperLinkWithIcon } from "../components/Link";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 //
 import { Github, PDF, LinkedIn } from "../components/Icon";
 import CLILogo from "../assets/ImageCLILogo.webp";
@@ -96,7 +98,13 @@ export const projectData = [
   },
 ];
 
+gsap.registerPlugin(gsap, useGSAP);
+
 export default function Project() {
+  useGSAP(() => {
+    gsap.set("#about", { display: "none" });
+  });
+
   useEffect(() => {
     const zoom = mediumZoom(".image", {
       background: "var(--background-color)",
@@ -277,10 +285,7 @@ export default function Project() {
           </div>
         </ProjectCard>
       </section>
-      <section
-        style={{ marginTop: "1rem" }}
-        className="projectCards noMarginBottom"
-      >
+      <section className="projectCards noMarginBottom">
         {/* apollo hospital */}
         <ProjectCard
           dataID={2}
@@ -414,10 +419,7 @@ export default function Project() {
           </div>
         </ProjectCard>
       </section>
-      <section
-        style={{ marginTop: "1rem" }}
-        className="projectCards noMarginBottom"
-      >
+      <section className="projectCards noMarginBottom">
         {/* bell hospital */}
         <ProjectCard
           dataID={4}

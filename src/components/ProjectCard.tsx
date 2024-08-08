@@ -55,7 +55,7 @@ export function ProjectCard({
 
   const gsapEase = "power2.inOut";
   const gsapDuration = "0.75";
-  const disableMouseDelay = 100;
+  const disableMouseDelay = 0;
 
   const scrollToTopOptions = {
     scrollTo: { y: 0, x: 0 },
@@ -103,8 +103,6 @@ export function ProjectCard({
               display: "block",
               onComplete: () => {
                 disableMouse(false, disableMouseDelay);
-
-                disableScroll(false, true);
               },
             });
             gsap.to(backButton, {
@@ -112,6 +110,9 @@ export function ProjectCard({
               display: "block",
               duration: "0.1",
             });
+            setTimeout(() => {
+              disableScroll(false, true);
+            }, 25);
           },
         });
       } else {
@@ -119,6 +120,7 @@ export function ProjectCard({
           onStart: () => {
             gsap.to(titleElement, { autoAlpha: "0", duration: "0.1" });
             gsap.to(cardElement, { border: "none", duration: "0.1" });
+            gsap.to(cardContainers, { margin: "0" });
           },
           width: "0",
           height: "0",
@@ -150,7 +152,7 @@ export function ProjectCard({
             disableScroll(true, true);
             disableMouse(true, disableMouseDelay);
 
-            gsap.to(cardContainers, { gap: "1rem" });
+            gsap.to(cardContainers, { gap: "1rem", marginTop: "1rem" });
             gsap.to(cardElement, { backgroundColor: "transparent" });
             gsap.to(backgroundElement, { autoAlpha: "0.125" });
             gsap.to(backButton, {
@@ -171,10 +173,14 @@ export function ProjectCard({
               ease: gsapEase,
               duration: gsapDuration,
               onComplete: () => {
-                gsap.to(titleElement, { autoAlpha: "1" });
-                gsap.to(cardElement, { border: "2px solid var(--text-color)" });
+                gsap.to(titleElement, { autoAlpha: "1", duration: "0.1" });
+                gsap.to(cardElement, {
+                  border: "2px solid var(--text-color)",
+                  duration: "0.1",
+                });
 
                 disableScroll(false, false);
+
                 disableMouse(false, disableMouseDelay);
               },
             });
@@ -206,7 +212,7 @@ export function ProjectCard({
         ← back to menu
       </span>
 
-      <img alt={imgAlt} className="background" src={img} />
+      <img loading="lazy" alt={imgAlt} className="background" src={img} />
 
       <header
         style={
