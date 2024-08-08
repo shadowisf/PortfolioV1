@@ -1,36 +1,35 @@
-import { useState } from "react";
-import { generateTheme } from "./ColorUtils";
+import { useState, useEffect } from "react";
+import { generateTheme } from "../utils/ColorUtils";
 import { Palette } from "./Icon";
 
 type NavBarProps = {
-  startTransition: (container: string, delay: number) => void;
+  startTransition: (destination: string, delay: number) => void;
 };
 
 export default function NavBar({ startTransition: start }: NavBarProps) {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
-  const toggleHamburgerMenu = () => {
+  function toggleHamburger() {
     setHamburgerMenuOpen(!isHamburgerMenuOpen);
-  };
+  }
 
-  const scrollBarColorChangeDelay = 700;
-  const pixelTransitionDelay = 700;
+  useEffect(() => {
+    const scrollBarColorChangeDelay = isHamburgerMenuOpen ? 700 : 0;
+    const scrollBarColor = isHamburgerMenuOpen
+      ? "var(--text-color)"
+      : "transparent";
 
-  if (isHamburgerMenuOpen) {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       document.documentElement.style.setProperty(
         "--track-scrollbar-color",
-        "var(--text-color)"
+        scrollBarColor
       );
     }, scrollBarColorChangeDelay);
-  } else {
-    setTimeout(() => {
-      document.documentElement.style.setProperty(
-        "--track-scrollbar-color",
-        "transparent"
-      );
-    }, 0);
-  }
+
+    return () => clearTimeout(timer);
+  }, [isHamburgerMenuOpen]);
+
+  const pixelTransitionDelay = 700;
 
   return (
     <>
@@ -64,7 +63,7 @@ export default function NavBar({ startTransition: start }: NavBarProps) {
 
         <a
           className="toThinHover hamburgerButtonTC noCursor"
-          onClick={toggleHamburgerMenu}
+          onClick={toggleHamburger}
         >
           menu
         </a>
@@ -73,7 +72,7 @@ export default function NavBar({ startTransition: start }: NavBarProps) {
       <section className={`hamburgerMenu ${isHamburgerMenuOpen ? "open" : ""}`}>
         <span
           className="hamburgerButtonBC noCursor toThinHover hamburgerMobileCloseButton"
-          onClick={toggleHamburgerMenu}
+          onClick={toggleHamburger}
         >
           close
         </span>
@@ -82,7 +81,7 @@ export default function NavBar({ startTransition: start }: NavBarProps) {
           id="aboutLink"
           className="toThinHover noCursor"
           onClick={() => {
-            toggleHamburgerMenu();
+            toggleHamburger();
             start("about", pixelTransitionDelay);
           }}
         >
@@ -92,7 +91,7 @@ export default function NavBar({ startTransition: start }: NavBarProps) {
           id="projectLink"
           className="toThinHover noCursor"
           onClick={() => {
-            toggleHamburgerMenu();
+            toggleHamburger();
             start("project", pixelTransitionDelay);
           }}
         >
@@ -102,7 +101,7 @@ export default function NavBar({ startTransition: start }: NavBarProps) {
           id="contactLink"
           className="toThinHover noCursor"
           onClick={() => {
-            toggleHamburgerMenu();
+            toggleHamburger();
             start("contact", pixelTransitionDelay);
           }}
         >

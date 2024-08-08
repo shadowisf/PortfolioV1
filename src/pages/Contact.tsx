@@ -45,15 +45,13 @@ export default function Contact() {
       <h1 className="altBackground noCursor textCenter">get in touch!</h1>
 
       <section className="contactLinks">
-        <span style={{ scale: "1" }}>
-          <HyperLinkWithIcon
-            img={<Email color="text" />}
-            href="mailto:les.ranalan@gmail.com"
-            alt={true}
-          >
-            les.ranalan@gmail.com
-          </HyperLinkWithIcon>
-        </span>
+        <HyperLinkWithIcon
+          img={<Email color="text" />}
+          href="mailto:les.ranalan@gmail.com"
+          alt={true}
+        >
+          les.ranalan@gmail.com
+        </HyperLinkWithIcon>
 
         <HyperLinkWithIcon
           img={<LinkedIn />}
@@ -82,20 +80,24 @@ export default function Contact() {
 
       <form className="contactForm" onSubmit={submitForm}>
         <span className="nameAndEmail">
-          <span>
-            <label>name:</label>
+          <label>
+            name:
             <input
+              autoComplete="off"
+              name="name"
               required
               className="textbox"
               placeholder={placeholderName}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </span>
+          </label>
 
-          <span>
-            <label htmlFor="email" id="emailLabel" >email:</label>
+          <label>
+            email:
             <input
+              autoComplete="off"
+              name="email"
               required
               className="textbox"
               placeholder={placeholderEmail}
@@ -105,18 +107,22 @@ export default function Contact() {
               pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
               title="username@email.com"
             />
-          </span>
+          </label>
         </span>
 
-        <label>message:</label>
-        <textarea
-          required
-          className="textarea"
-          placeholder={placeholderMessage}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          maxLength={25}
-        ></textarea>
+        <label>
+          message:
+          <textarea
+            autoComplete="off"
+            name="message"
+            required
+            className="textarea"
+            placeholder={placeholderMessage}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            maxLength={25}
+          />
+        </label>
 
         <span className="flexCenterH">
           <button

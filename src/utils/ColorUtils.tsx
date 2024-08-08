@@ -1,13 +1,13 @@
-export const getRandomColor = () => {
+function getRandomColor() {
   const letters = "0123456789ABCDEF";
   let color = "#";
   for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
-};
+}
 
-export const getLuminance = (color: string) => {
+function getLuminance(color: string) {
   const hex = color.slice(1);
   const r = parseInt(hex.slice(0, 2), 16) / 255;
   const g = parseInt(hex.slice(2, 4), 16) / 255;
@@ -18,12 +18,12 @@ export const getLuminance = (color: string) => {
       : Math.pow((channel + 0.055) / 1.055, 2.4)
   );
   return sRGB[0] * 0.2126 + sRGB[1] * 0.7152 + sRGB[2] * 0.0722;
-};
+}
 
-export const calculateContrastRatio = (
+function calculateContrastRatio(
   foregroundColor: string,
   backgroundColor: string
-) => {
+) {
   const calculateContrast = (foreground: any, background: any) => {
     const l1 = getLuminance(foreground);
     const l2 = getLuminance(background);
@@ -31,9 +31,9 @@ export const calculateContrastRatio = (
   };
 
   return calculateContrast(foregroundColor, backgroundColor);
-};
+}
 
-export const generateTheme = () => {
+export function generateTheme() {
   let bgColor, textColor;
   do {
     bgColor = getRandomColor();
@@ -46,4 +46,4 @@ export const generateTheme = () => {
 
   document.documentElement.style.setProperty("--text-color", textColor);
   document.documentElement.style.setProperty("--background-color", bgColor);
-};
+}

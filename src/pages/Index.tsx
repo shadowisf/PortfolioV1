@@ -1,10 +1,16 @@
 import NavBar from "../components/NavBar";
 import About from "./About";
-import { generateTheme } from "../components/ColorUtils";
+import { generateTheme } from "../utils/ColorUtils";
 import { useEffect } from "react";
-import Project from "./Project";
-import Contact from "./Contact";
-import { PixelGrid, pixelTransition, changePage } from "../components/NavUtils";
+import {
+  changePage,
+  PixelGrid,
+  pixelTransition,
+} from "../components/PixelGrid";
+import React, { Suspense } from "react";
+
+const Project = React.lazy(() => import("./Project"));
+const Contact = React.lazy(() => import("./Contact"));
 
 export default function Index() {
   useEffect(() => {
@@ -21,8 +27,14 @@ export default function Index() {
       <NavBar startTransition={startTransition} />
 
       <About startTransition={startTransition} />
-      <Project />
-      <Contact />
+
+      <Suspense fallback={<div>loading...</div>}>
+        <Project />
+      </Suspense>
+
+      <Suspense fallback={<div>loading...</div>}>
+        <Contact />
+      </Suspense>
     </>
   );
 }

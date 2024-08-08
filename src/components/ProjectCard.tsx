@@ -1,32 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { projectData } from "../pages/Project";
-import { disableMouse, disableScroll } from "./NavUtils";
+import { disableMouse, disableScroll } from "../utils/EventUtils";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(gsap, ScrollToPlugin);
+gsap.registerPlugin(gsap, ScrollToPlugin, useGSAP);
 
 type ProjectCardProps = {
   img?: string;
+  imgAlt?: string;
   children?: React.ReactNode;
   dataID?: number;
 };
 
-export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
-  function getProjectName(id: number) {
-    const project = projectData.find((project) => project.id === id);
-    return project?.name ?? "?";
-  }
+function getProjectName(id: number) {
+  const project = projectData.find((project) => project.id === id);
+  return project?.name ?? "?";
+}
 
-  function getProjectYear(id: number) {
-    const project = projectData.find((project) => project.id === id);
-    return project?.year ?? "?";
-  }
+function getProjectYear(id: number) {
+  const project = projectData.find((project) => project.id === id);
+  return project?.year ?? "?";
+}
 
-  function getProjectArchitecture(id: number) {
-    const project = projectData.find((project) => project.id === id);
-    return project?.architecture ?? [];
-  }
+function getProjectArchitecture(id: number) {
+  const project = projectData.find((project) => project.id === id);
+  return project?.architecture ?? [];
+}
+
+export function ProjectCard({
+  img,
+  imgAlt,
+  children,
+  dataID,
+}: ProjectCardProps) {
+  useEffect(() => {
+    return () => {
+      disableScroll(false, false);
+      disableMouse(false, 0);
+      gsap.killTweensOf(window);
+      gsap.killTweensOf(".projectCards");
+      gsap.killTweensOf(".title");
+      gsap.killTweensOf(".content");
+      gsap.killTweensOf(".backButton");
+      gsap.killTweensOf(".background");
+      gsap.killTweensOf(".card");
+    };
+  }, []);
 
   const [isSelected, setSelected] = useState(false);
   const [origWidth, setOrigWidth] = useState("");
@@ -41,7 +62,9 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
     duration: "0.5",
   };
 
-  function toggleProject(targetDataKey: number) {
+  const { contextSafe } = useGSAP();
+
+  const toggleProject = contextSafe((targetDataKey: number) => {
     const dataKeyElements = document.querySelectorAll("div[data-key]");
     const cardContainers = document.querySelectorAll(".projectCards");
 
@@ -57,50 +80,44 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
       setOrigWidth(style.width);
       setOrigHeight(style.height);
 
-      // selected box
+      gsap.to(window, scrollToTopOptions);
+
       if (dataKey === targetDataKey.toString()) {
         gsap.to(cardElement, {
           onStart: () => {
             setSelected(true);
 
             disableScroll(true, true);
-
             disableMouse(true, disableMouseDelay);
 
-            gsap.to(window, scrollToTopOptions);
-
             gsap.to(cardContainers, { gap: "0" });
-
             gsap.to(cardElement, { backgroundColor: "var(--text-color)" });
-
             gsap.to(backgroundElement, { autoAlpha: "0" });
           },
           flex: "1",
           ease: gsapEase,
           duration: gsapDuration,
           onComplete: () => {
-            gsap.to(contentElement, { autoAlpha: "1", display: "block" });
+            gsap.to(contentElement, {
+              autoAlpha: "1",
+              display: "block",
+              onComplete: () => {
+                disableMouse(false, disableMouseDelay);
+
+                disableScroll(false, true);
+              },
+            });
             gsap.to(backButton, {
               autoAlpha: "1",
               display: "block",
               duration: "0.1",
             });
-
-            disableScroll(false, true);
-
-            disableMouse(false, disableMouseDelay);
           },
         });
-      }
-      // unwanted boxes
-      else {
+      } else {
         gsap.to(cardElement, {
           onStart: () => {
-            gsap.to(titleElement, {
-              autoAlpha: "0",
-              duration: "0.1",
-            });
-
+            gsap.to(titleElement, { autoAlpha: "0", duration: "0.1" });
             gsap.to(cardElement, { border: "none", duration: "0.1" });
           },
           width: "0",
@@ -111,9 +128,9 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
         });
       }
     });
-  }
+  });
 
-  function resetProject(delay: number) {
+  const resetProject = contextSafe((delay: number) => {
     const dataKeyElements = document.querySelectorAll("div[data-key]");
     const cardContainers = document.querySelectorAll(".projectCards");
     const backButton = document.querySelectorAll(".backButton");
@@ -131,17 +148,11 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
             setSelected(false);
 
             disableScroll(true, true);
-
             disableMouse(true, disableMouseDelay);
 
             gsap.to(cardContainers, { gap: "1rem" });
-
-            gsap.to(cardElement, {
-              backgroundColor: "transparent",
-            });
-
+            gsap.to(cardElement, { backgroundColor: "transparent" });
             gsap.to(backgroundElement, { autoAlpha: "0.125" });
-
             gsap.to(backButton, {
               autoAlpha: "0",
               display: "none",
@@ -161,13 +172,9 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
               duration: gsapDuration,
               onComplete: () => {
                 gsap.to(titleElement, { autoAlpha: "1" });
-
-                gsap.to(cardElement, {
-                  border: "2px solid var(--text-color)",
-                });
+                gsap.to(cardElement, { border: "2px solid var(--text-color)" });
 
                 disableScroll(false, false);
-
                 disableMouse(false, disableMouseDelay);
               },
             });
@@ -175,7 +182,7 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
         });
       }, delay);
     });
-  }
+  });
 
   return (
     <div
@@ -199,7 +206,7 @@ export function ProjectCard({ img, children, dataID }: ProjectCardProps) {
         ← back to menu
       </span>
 
-      <img className="background" src={img} />
+      <img alt={imgAlt} className="background" src={img} />
 
       <header
         style={

@@ -1,40 +1,42 @@
-import { ProjectCard } from "../components/ProjectUtils";
+import { ProjectCard } from "../components/ProjectCard";
 import { HyperLinkWithIcon } from "../components/Link";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
+import gsap from "gsap";
 //
 import { Github, PDF, LinkedIn } from "../components/Icon";
-import CLILogo from "../assets/ImageCLILogo.PNG";
+import CLILogo from "../assets/ImageCLILogo.webp";
 //
-import PortfolioImage1 from "../assets/ImagePortfolio1.PNG";
-import PortfolioImage2 from "../assets/ImagePortfolio2.PNG";
-import PortfolioLogo from "../assets/ImagePortfolioLogo.PNG";
+import PortfolioImage1 from "../assets/ImagePortfolio1.webp";
+import PortfolioImage2 from "../assets/ImagePortfolio2.webp";
+import PortfolioLogo from "../assets/ImagePortfolioLogo.webp";
 //
 import CircuitCentralProposalPDF from "../assets/FileCircuitCentralProposal.PDF";
 import CircuitCentralImplementationPDF from "../assets/FileCircuitCentralImplementation.PDF";
-import CircuitCentralImage1 from "../assets/ImageCircuitCentral1.PNG";
-import CircuitCentralImage2 from "../assets/ImageCircuitCentral2.PNG";
-import CircuitCentralLogo from "../assets/ImageCircuitCentralLogo.PNG";
+import CircuitCentralImage1 from "../assets/ImageCircuitCentral1.webp";
+import CircuitCentralImage2 from "../assets/ImageCircuitCentral2.webp";
+import CircuitCentralLogo from "../assets/ImageCircuitCentralLogo.webp";
 //
 import ApolloHospitalPDF from "../assets/FileApolloHospital.PDF";
 import ApolloHospitalProjectDocumentationPDF from "../assets/FileApolloHospitalProjectDocumentation.PDF";
-import ApolloHospitalImage1 from "../assets/ImageApolloHospital1.PNG";
-import ApolloHospitalImage2 from "../assets/ImageApolloHospital2.PNG";
-import ApolloHospitalLogo from "../assets/ImageApolloHospitalLogo.PNG";
+import ApolloHospitalImage1 from "../assets/ImageApolloHospital1.webp";
+import ApolloHospitalImage2 from "../assets/ImageApolloHospital2.webp";
+import ApolloHospitalLogo from "../assets/ImageApolloHospitalLogo.webp";
 //
 import FunCulatorPDF from "../assets/FileFunCulator.PDF";
-import FunCulatorImage1 from "../assets/ImageFunCulator1.PNG";
-import FunCulatorImage2 from "../assets/ImageFunCulator2.PNG";
-import FunCulatorImage3 from "../assets/ImageFunCulator3.PNG";
-import FunCulatorLogo from "../assets/ImageFunCulatorLogo.PNG";
+import FunCulatorImage1 from "../assets/ImageFunCulator1.webp";
+import FunCulatorImage2 from "../assets/ImageFunCulator2.webp";
+import FunCulatorImage3 from "../assets/ImageFunCulator3.webp";
+import FunCulatorLogo from "../assets/ImageFunCulatorLogo.webp";
 //
 import BellHospitalPDF from "../assets/FileBellHospital.PDF";
-import BellHospitalImage1 from "../assets/ImageBellHospital1.PNG";
-import BellHospitalImage2 from "../assets/ImageBellHospital2.PNG";
+import BellHospitalImage1 from "../assets/ImageBellHospital1.webp";
+import BellHospitalImage2 from "../assets/ImageBellHospital2.webp";
 //
 import PlugInsPDF from "../assets/FilePlugInsDatabase.PDF";
-import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.PNG";
-import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.PNG";
+import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.webp";
+import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.webp";
+import { useGSAP } from "@gsap/react";
 //
 export const projectData = [
   {
@@ -97,6 +99,8 @@ export const projectData = [
 ];
 
 export default function Project() {
+  gsap.registerPlugin(gsap, useGSAP);
+
   useEffect(() => {
     const zoom = mediumZoom(".image", {
       background: "var(--background-color)",
@@ -108,11 +112,20 @@ export default function Project() {
     };
   }, []);
 
+  useGSAP(() => {
+    gsap.set("#project", { display: "none", autoAlpha: "0" });
+    gsap.set("#contact", { display: "none", autoAlpha: "0" });
+  });
+
   return (
     <main id="project" className="container topMargin bottomMargin">
       <section className="projectCards noMarginBottom">
         {/* portfolio */}
-        <ProjectCard dataID={0} img={PortfolioLogo}>
+        <ProjectCard
+          dataID={0}
+          img={PortfolioLogo}
+          imgAlt="a cartoon illustration of me that is under the portfolio project card."
+        >
           <div>
             <p>
               this portfolio website showcases all things me;{" "}
@@ -190,13 +203,27 @@ export default function Project() {
           <br />
 
           <div className="imageContainer">
-            <img className="image" src={PortfolioImage1}></img>
-            <img className="image" src={PortfolioImage2}></img>
+            <img
+              alt="image of the about section in my portfolio project. it has a cartoon illustration of me and and text introducing myself."
+              loading="lazy"
+              className="image"
+              src={PortfolioImage1}
+            ></img>
+            <img
+              alt="image of the project section in my portfolio project. it is currently viewing the circuitcentral project, displaying a short description and its tech stack. additionally, there's links to its github repository and technical report."
+              loading="lazy"
+              className="image"
+              src={PortfolioImage2}
+            ></img>
           </div>
         </ProjectCard>
 
         {/* circuitcentral */}
-        <ProjectCard dataID={1} img={CircuitCentralLogo}>
+        <ProjectCard
+          dataID={1}
+          img={CircuitCentralLogo}
+          imgAlt="image of the circuitcentral logo; it is similar to the signal lines found on most circuit boards. it has a purple, light blue, and white color scheme. the image is used as the background of the circuitcentral project card."
+        >
           <div>
             <p>
               circuitcentral is an <u>e-commerce management system</u> that
@@ -244,8 +271,18 @@ export default function Project() {
           <br />
 
           <div className="imageContainer">
-            <img className="image" src={CircuitCentralImage1} />
-            <img className="image" src={CircuitCentralImage2} />
+            <img
+              alt="first image of the circuitcentral project; it is viewing the products section wherein it is displaying a list of tech products that a user can add to their cart. additionally, the ui has buttons for CRUD operations"
+              loading="lazy"
+              className="image"
+              src={CircuitCentralImage1}
+            />
+            <img
+              alt="second image of the circuitcentral project; it is viewing the orders section wherein it displays a list of products that are currently in a cart. additionally, the ui has buttons for CRUD operations."
+              loading="lazy"
+              className="image"
+              src={CircuitCentralImage2}
+            />
           </div>
         </ProjectCard>
       </section>
@@ -254,7 +291,11 @@ export default function Project() {
         className="projectCards noMarginBottom"
       >
         {/* apollo hospital */}
-        <ProjectCard dataID={2} img={ApolloHospitalLogo}>
+        <ProjectCard
+          dataID={2}
+          img={ApolloHospitalLogo}
+          imgAlt="illustration of a doctor treating a patient. it has a mostly blue color scheme. the illustration is used as the background for the apollo hospital project card."
+        >
           <div>
             <p>
               apollo hospital is a <u>hospital management system</u> that covers
@@ -304,13 +345,27 @@ export default function Project() {
           <br />
 
           <div className="imageContainer">
-            <img className="image" src={ApolloHospitalImage1} />
-            <img className="image" src={ApolloHospitalImage2} />
+            <img
+              alt="first image of the apollo hospital project; it is viewing the home page wherein it displays an illustration of a doctor treating its patient, with the title of the website whch is apollo hospital."
+              loading="lazy"
+              className="image"
+              src={ApolloHospitalImage1}
+            />
+            <img
+              alt="second image of the apollo hospital project; it is viewing the patient records section wherein it displays the list of patient information. additionally, the ui has buttons for CRUD operations."
+              loading="lazy"
+              className="image"
+              src={ApolloHospitalImage2}
+            />
           </div>
         </ProjectCard>
 
         {/* funculator */}
-        <ProjectCard dataID={3} img={FunCulatorLogo}>
+        <ProjectCard
+          dataID={3}
+          img={FunCulatorLogo}
+          imgAlt="illustration of a calculator with a face in pixel art form. it has a purple color scheme. the illustration is used as the background for the funculator project card."
+        >
           <div>
             <p>
               funculator is an <u>all-in-one calculator application</u> for
@@ -339,11 +394,7 @@ export default function Project() {
               repository
             </HyperLinkWithIcon>
 
-            <HyperLinkWithIcon
-              img={<PDF />}
-              href={FunCulatorPDF}
-              alt={true}
-            >
+            <HyperLinkWithIcon img={<PDF />} href={FunCulatorPDF} alt={true}>
               report
             </HyperLinkWithIcon>
           </div>
@@ -351,9 +402,24 @@ export default function Project() {
           <br />
 
           <div className="imageContainer">
-            <img className="image" src={FunCulatorImage1} />
-            <img className="image" src={FunCulatorImage2} />
-            <img className="image" src={FunCulatorImage3} />
+            <img
+              alt="first image of the funculator project. it is currently viewing the index page where it is displaying a calculator with a face in pixel art form. additionally, there is buttons for start and exit on the right."
+              loading="lazy"
+              className="image"
+              src={FunCulatorImage1}
+            />
+            <img
+              alt="second image of the funculator project. it is currently viewing the menu section where it is displaying all of the possible operations such as factorial, min&max, fibonacci, etc."
+              loading="lazy"
+              className="image"
+              src={FunCulatorImage2}
+            />
+            <img
+              alt="third image of the funculator project. it is currently viewing the factorial section where it is displaying input fields for a number and the result. additionally, the ui has buttons for solving the factorial."
+              loading="lazy"
+              className="image"
+              src={FunCulatorImage3}
+            />
           </div>
         </ProjectCard>
       </section>
@@ -362,7 +428,11 @@ export default function Project() {
         className="projectCards noMarginBottom"
       >
         {/* bell hospital */}
-        <ProjectCard dataID={4} img={CLILogo}>
+        <ProjectCard
+          dataID={4}
+          img={CLILogo}
+          imgAlt="image of three differently colored boxes that is stacked on each other. it is used as the background for the bell hospital project card."
+        >
           <div>
             <p>
               bell hospital is a <u>hospital management system</u> that is
@@ -390,11 +460,7 @@ export default function Project() {
               repository
             </HyperLinkWithIcon>
 
-            <HyperLinkWithIcon
-              img={<PDF />}
-              href={BellHospitalPDF}
-              alt={true}
-            >
+            <HyperLinkWithIcon img={<PDF />} href={BellHospitalPDF} alt={true}>
               report
             </HyperLinkWithIcon>
           </div>
@@ -402,13 +468,27 @@ export default function Project() {
           <br />
 
           <div className="imageContainer">
-            <img className="image" src={BellHospitalImage1} />
-            <img className="image" src={BellHospitalImage2} />
+            <img
+              alt="first image of the bell hospital project. it is currently viewing the starting page (note that this is a CLI project) where it is displaying all of the possible sections such as patients, doctors, appointments, etc."
+              loading="lazy"
+              className="image"
+              src={BellHospitalImage1}
+            />
+            <img
+              alt="second image of the bell hospital project. it is currently viewing the patients records section where it is displaying all patient information (note that this is a CLI project). additionally, there are commands for CRUD operations."
+              loading="lazy"
+              className="image"
+              src={BellHospitalImage2}
+            />
           </div>
         </ProjectCard>
 
         {/* plug-ins database */}
-        <ProjectCard dataID={5} img={CLILogo}>
+        <ProjectCard
+          dataID={5}
+          img={CLILogo}
+          imgAlt="image of three differently colored boxes that is stacked on each other. it is used as the background for the bell hospital project card."
+        >
           <div>
             <p>
               plug-ins is a fictitious (not real) company that required a
@@ -441,8 +521,18 @@ export default function Project() {
           <br />
 
           <div className="imageContainer">
-            <img className="image" src={PlugInsImage1} />
-            <img className="image" src={PlugInsImage2} />
+            <img
+              alt="first image of the plug-ins project. it is currently viewing the index customer page where it is displaying input fields for basic customer information such as name, contact number, address, etc. additionally, it has buttons for inserting the customer information into the database."
+              loading="lazy"
+              className="image"
+              src={PlugInsImage1}
+            />
+            <img
+              alt="second image of the plug-ins project. it is currently viewing the products page where it is displaying the list of products and their respective information such as price, category, stock quantity, etc."
+              loading="lazy"
+              className="image"
+              src={PlugInsImage2}
+            />
           </div>
         </ProjectCard>
       </section>

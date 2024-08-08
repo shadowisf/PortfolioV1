@@ -2,20 +2,14 @@ type buttonProps = {
   icon: React.ReactNode;
   onClick?: () => void;
   children: string;
-  href?: string;
 };
 
-export function Button({ icon, onClick, children, href }: buttonProps) {
+export function Button({ icon, onClick, children }: buttonProps) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      className="button toThinHover"
-      onClick={onClick}
-    >
+    <button className="toThinHover noCursor" onClick={onClick}>
       <span className="flexCenterV" style={{ gap: "0.5rem" }}>
         {icon} {children}
       </span>
-    </a>
+    </button>
   );
 }

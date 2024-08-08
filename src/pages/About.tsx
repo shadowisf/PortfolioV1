@@ -13,7 +13,7 @@ import CV from "../assets/FileCV.PDF";
 import { Button } from "../components/Button";
 
 type AboutProps = {
-  startTransition: (container: string, delay: number) => void;
+  startTransition: (destination: string, delay: number) => void;
 };
 
 export default function About({ startTransition: start }: AboutProps) {
@@ -48,7 +48,10 @@ export default function About({ startTransition: start }: AboutProps) {
           contact me
         </Button>
 
-        <Button icon={<ArrowTopRight color="background" />} href={CV}>
+        <Button
+          icon={<ArrowTopRight color="background" />}
+          onClick={() => window.open(CV, "_blank", "noopener,noreferrer")}
+        >
           view my resume
         </Button>
       </div>

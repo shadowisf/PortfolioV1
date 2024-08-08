@@ -1,68 +1,9 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useState } from "react";
+import { disableMouse, disableScroll } from "../utils/EventUtils";
 
 gsap.registerPlugin(useGSAP, gsap);
-
-const preventDefault = (e: Event) => {
-  e.preventDefault();
-};
-
-const preventScrollKeys = (e: KeyboardEvent) => {
-  const keys = [37, 38, 39, 40];
-  if (keys.includes(e.keyCode)) {
-    e.preventDefault();
-  }
-};
-
-export function disableScroll(status: boolean, invisScrollBar: boolean) {
-  if (status) {
-    if (invisScrollBar) {
-      document.documentElement.style.setProperty(
-        "--track-scrollbar-color",
-        "transparent"
-      );
-      document.documentElement.style.setProperty(
-        "--scrollbar-color",
-        "transparent"
-      );
-    } else {
-      document.documentElement.style.setProperty(
-        "--track-scrollbar-color",
-        "var(--text-color)"
-      );
-      document.documentElement.style.setProperty(
-        "--scrollbar-color",
-        "var(--text-color)"
-      );
-    }
-    window.addEventListener("wheel", preventDefault, { passive: false });
-    window.addEventListener("touchmove", preventDefault, { passive: false });
-    window.addEventListener("keydown", preventScrollKeys);
-  } else {
-    document.documentElement.style.setProperty(
-      "--track-scrollbar-color",
-      "transparent"
-    );
-    document.documentElement.style.setProperty(
-      "--scrollbar-color",
-      "var(--text-color)"
-    );
-    window.removeEventListener("wheel", preventDefault);
-    window.removeEventListener("touchmove", preventDefault);
-    window.removeEventListener("keydown", preventScrollKeys);
-  }
-}
-
-export function disableMouse(status: boolean, delay: number) {
-  setTimeout(() => {
-    if (status) {
-      document.body.style.pointerEvents = "none";
-    } else {
-      document.body.style.pointerEvents = "auto";
-    }
-  }, delay);
-}
 
 export function PixelGrid() {
   function generatePixel(count: number) {
@@ -135,9 +76,9 @@ export function changePage(element: string) {
     const id = item.getAttribute("id");
 
     if (id === element) {
-      gsap.set(item, { display: "block" });
+      gsap.set(item, { display: "block", autoAlpha: "1" });
     } else if (id !== element) {
-      gsap.set(item, { display: "none" });
+      gsap.set(item, { display: "none", autoAlpha: "1" });
     }
   });
 }

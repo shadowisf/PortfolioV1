@@ -1,9 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
 @font-face {
   font-family: "Kyiv Sans";
   src: url(../src/fonts/KyivTypeSans-VarGX.ttf) format("opentype");
   font-weight: 1 1000;
+  font-display: swap;
+}
+
+// regular
+@font-face {
+  font-family: "Space Mono";
+  src: url(../src/fonts/SpaceMono-Regular.ttf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// italic
+@font-face {
+  font-family: "Space Mono";
+  src: url(../src/fonts/SpaceMono-Italic.ttf) format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+// bold
+@font-face {
+  font-family: "Space Mono";
+  src: url(../src/fonts/SpaceMono-Bold.ttf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// bold italic
+@font-face {
+  font-family: "Space Mono";
+  src: url(../src/fonts/SpaceMono-BoldItalic.ttf) format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -14,11 +49,6 @@
   width: 10px;
   background: var(--track-scrollbar-color);
 }
-
-/* ::-webkit-scrollbar-track-piece:start,
-::-webkit-scrollbar-track-piece:end {
-  background: transparent;
-} */
 
 :root {
   --text-color: black;
@@ -56,10 +86,6 @@
 .Toastify__toast {
   border-radius: var(--border-radius) !important;
   border: 2px var(--background-color) solid !important;
-}
-
-.Toastify__toast-container--top-left {
-  margin-top: 3.75rem !important;
 }
 
 .Toastify__toast-container--top-right {
@@ -202,7 +228,7 @@
     }
 
     .backButton {
-      bottom: 150px;
+      bottom: 162.5px;
     }
 
     .content {
@@ -218,11 +244,6 @@
     .nameAndEmail {
       display: flex;
     }
-  }
-
-  .Toastify__toast-container--top-left {
-    margin-top: 3.75rem !important;
-    max-width: 280px !important;
   }
 }
 
@@ -350,7 +371,7 @@ h4 {
   margin-bottom: 3rem;
 }
 
-.button {
+button {
   text-decoration: none;
   font-weight: 900;
   text-align: center;
@@ -436,7 +457,7 @@ h4 {
 
     white-space: nowrap;
 
-    transition: font-size 1s;
+    transition: font-size 0.75s;
     transition-delay: 0.125s;
 
     &.active {
@@ -469,8 +490,6 @@ h4 {
 
     display: none;
     opacity: 0;
-
-    font-size: 1.25rem;
   }
 }
 
@@ -577,12 +596,6 @@ nav {
   font-size: var(--font-navbar);
 }
 
-.bottomcard {
-  text-align: center;
-  padding: 0rem 3rem;
-  margin-top: 10rem;
-}
-
 .link {
   position: relative;
   text-decoration: none;
@@ -617,10 +630,10 @@ nav {
 }
 
 .noCursor {
-  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none;
   cursor: default;
 }
 
