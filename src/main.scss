@@ -538,25 +538,19 @@ nav {
     display: flex;
     gap: 4rem;
   }
+
+  .hamburgerButtonTC {
+    border: none;
+    background: none;
+    color: var(--text-color);
+
+    align-content: center;
+  }
 }
 
 .toThinHover:hover,
 .themeButton:hover {
   cursor: pointer;
-}
-
-.hamburgerButtonTC {
-  border: none;
-  background: none;
-  color: var(--text-color);
-
-  align-content: center;
-}
-
-.hamburgerButtonBC {
-  border: none;
-  background: none;
-  color: var(--background-color);
 }
 
 .hamburgerMenu {
@@ -586,14 +580,20 @@ nav {
 
     padding: 0px 0px 10px 0px;
   }
-}
 
-.hamburgerMobileCloseButton {
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  padding: 1rem 2rem;
-  font-size: var(--font-navbar);
+  .hamburgerButtonBC {
+    border: none;
+    background: none;
+    color: var(--background-color);
+  }
+
+  .hamburgerMobileCloseButton {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    font-size: var(--font-navbar);
+  }
 }
 
 .link {
@@ -770,4 +770,10 @@ nav {
       opacity: 0.25;
     }
   }
+}
+
+#about,
+#project,
+#contact {
+  backface-visibility: hidden;
 }

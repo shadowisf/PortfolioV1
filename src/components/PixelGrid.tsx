@@ -18,15 +18,13 @@ export function PixelGrid() {
 export function pixelTransition() {
   const { contextSafe } = useGSAP();
 
-  const [currentPage, setCurrentPage] = useState("about");
+  const [currentPage, setCurrentPage] = useState("");
 
-  const startTransition = contextSafe((destination: string, delay: number) => {
-    if (destination === currentPage) {
+  const startTransition = contextSafe((targetPage: string, delay: number) => {
+    if (targetPage === currentPage) {
       return;
     } else {
       disableMouse(true, 0);
-
-      setCurrentPage(destination);
 
       setTimeout(() => {
         disableScroll(true, false);
@@ -40,7 +38,7 @@ export function pixelTransition() {
             duration: "0.005",
             stagger: { amount: 0.5, from: "random" },
             onComplete: () => {
-              changePage(destination);
+              changePage(targetPage);
               endTransition();
             },
           }
@@ -64,21 +62,23 @@ export function pixelTransition() {
     }, 250);
   });
 
-  return { startTransition };
-}
+  function changePage(targetID: string) {
+    setCurrentPage(targetID);
 
-export function changePage(element: string) {
-  const containerElements = document.querySelectorAll("main[id]");
+    const containerElements = document.querySelectorAll("main[id]");
 
-  gsap.to(window, { scrollTo: { y: 0, x: 0 }, duration: "0.1" });
+    gsap.to(window, { scrollTo: { y: 0, x: 0 }, duration: "0.1" });
 
-  containerElements?.forEach((item) => {
-    const id = item.getAttribute("id");
+    containerElements?.forEach((element) => {
+      const id = element.getAttribute("id");
 
-    if (id === element) {
-      gsap.set(item, { display: "block", autoAlpha: "1" });
-    } else if (id !== element) {
-      gsap.set(item, { display: "none", autoAlpha: "1" });
-    }
-  });
+      if (id === targetID) {
+        gsap.set(element, { display: "block", autoAlpha: "1" });
+      } else if (id !== targetID) {
+        gsap.set(element, { display: "none", autoAlpha: "0" });
+      }
+    });
+  }
+
+  return { startTransition, changePage };
 }

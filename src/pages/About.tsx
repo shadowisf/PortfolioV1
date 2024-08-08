@@ -11,12 +11,20 @@ import {
 import { TimelineRow } from "../components/Timeline";
 import CV from "../assets/FileCV.PDF";
 import { Button } from "../components/Button";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 type AboutProps = {
   startTransition: (destination: string, delay: number) => void;
 };
 
+gsap.registerPlugin(gsap, useGSAP);
+
 export default function About({ startTransition: start }: AboutProps) {
+  useGSAP(() => {
+    gsap.set("#about", { display: "block", autoAlpha: "1" });
+  });
+
   return (
     <main id="about" className="container topMargin bottomMargin">
       <h1 style={{ margin: "0" }} className="altBackground noCursor textCenter">

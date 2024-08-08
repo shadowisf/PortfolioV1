@@ -2,7 +2,6 @@ import { ProjectCard } from "../components/ProjectCard";
 import { HyperLinkWithIcon } from "../components/Link";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
-import gsap from "gsap";
 //
 import { Github, PDF, LinkedIn } from "../components/Icon";
 import CLILogo from "../assets/ImageCLILogo.webp";
@@ -36,7 +35,6 @@ import BellHospitalImage2 from "../assets/ImageBellHospital2.webp";
 import PlugInsPDF from "../assets/FilePlugInsDatabase.PDF";
 import PlugInsImage1 from "../assets/ImagePlugInsDatabase1.webp";
 import PlugInsImage2 from "../assets/ImagePlugInsDatabase2.webp";
-import { useGSAP } from "@gsap/react";
 //
 export const projectData = [
   {
@@ -99,8 +97,6 @@ export const projectData = [
 ];
 
 export default function Project() {
-  gsap.registerPlugin(gsap, useGSAP);
-
   useEffect(() => {
     const zoom = mediumZoom(".image", {
       background: "var(--background-color)",
@@ -111,11 +107,6 @@ export default function Project() {
       zoom.detach();
     };
   }, []);
-
-  useGSAP(() => {
-    gsap.set("#project", { display: "none", autoAlpha: "0" });
-    gsap.set("#contact", { display: "none", autoAlpha: "0" });
-  });
 
   return (
     <main id="project" className="container topMargin bottomMargin">
