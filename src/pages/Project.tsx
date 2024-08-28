@@ -271,7 +271,7 @@ export default function Project() {
 
           <div className="imageContainer">
             <img
-              alt="first image of the circuitcentral project; it is viewing the products section wherein it is displaying a list of tech products that a user can add to their cart. additionally, the ui has buttons for CRUD operations"
+              alt="first image of the circuitcentral project; it is viewing the products section wherein it is displaying a list of tech products that a user can add to their cart. additionally, the ui has buttons for CRUD operations."
               loading="lazy"
               className="image"
               src={CircuitCentralImage1}

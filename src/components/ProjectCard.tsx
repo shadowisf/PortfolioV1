@@ -110,9 +110,7 @@ export function ProjectCard({
               display: "block",
               duration: "0.1",
             });
-            setTimeout(() => {
-              disableScroll(false, true);
-            }, 25);
+            disableScroll(false, true);
           },
         });
       } else {
@@ -224,7 +222,7 @@ export function ProjectCard({
         }
         className={`title ${isSelected ? "active" : ""}`}
       >
-        {getProjectName(dataID ?? -1)} <br />
+        <span>{getProjectName(dataID ?? -1)}</span> 
         <span className="year">{getProjectYear(dataID ?? -1)}</span>
       </header>
 

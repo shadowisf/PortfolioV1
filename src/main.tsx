@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Test } from "./pages/Test.tsx";
 import Index from "./pages/Index.tsx";
 
+// firebase deploy --only hosting:v1-lesranalan
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -218,7 +218,7 @@
       font-size: 2rem;
 
       &.active {
-        font-size: var(--font-l);
+        font-size: calc(var(--font-l) + 0.5rem);
       }
     }
 
@@ -442,7 +442,6 @@ button {
   }
 
   .title {
-    line-height: 1.75rem;
     font-family: var(--secondary-font);
 
     pointer-events: none;
@@ -460,6 +459,10 @@ button {
 
     transition: font-size 0.75s;
     transition-delay: 0.125s;
+
+    display: grid;
+
+    align-items: center;
 
     &.active {
       color: var(--background-color);
