@@ -14,7 +14,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-if (firebaseConfig.apiKey && firebaseConfig.authDomain) {
+if (firebaseConfig.apiKey && firebaseConfig.databaseURL) {
   firebaseApp = initializeApp(firebaseConfig);
   firebaseDatabase = getDatabase(firebaseApp);
 } else {
