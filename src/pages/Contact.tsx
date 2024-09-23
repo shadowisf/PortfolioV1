@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Email, Github, LinkedIn, Instagram } from "../components/Icon";
 import { HyperLinkWithIcon } from "../components/Link";
-import { database } from "../firebase";
+import { firebaseDatabase } from "../firebase";
 import { ref, set } from "firebase/database";
 import { toastFail, toastSuccess } from "../components/Toasts";
 import gsap from "gsap";
@@ -31,7 +31,7 @@ export default function Contact() {
 
     const generatedUID = ` (${generateID()})`;
 
-    set(ref(database, name + generatedUID), {
+    set(ref(firebaseDatabase, name + generatedUID), {
       name: name,
       email: email,
       message: message,
